@@ -5,7 +5,7 @@ namespace overdose {
 
 
 	public:
-		virtual void addComponent(Component component);
+		virtual void addComponent(Component &component);
 
 		virtual void tick();
 
