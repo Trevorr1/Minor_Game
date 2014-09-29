@@ -3,7 +3,7 @@ namespace overdose {
 	class GameEntity
 	{
 	protected:
-		float posX, posY, speedX, speedY;
+		float posX = 1.0, posY = 1.0, speedX = 1.0, speedY = 1.0;
 
 	public:
 		virtual void addComponent(Component &component);
