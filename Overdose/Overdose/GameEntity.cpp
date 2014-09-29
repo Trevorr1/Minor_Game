@@ -27,3 +27,34 @@ GameEntity::GameEntity() {
 GameEntity::~GameEntity() {
 	delete compontentList;
 }
+
+
+float GameEntity::getPosX() {
+	return posX;
+}
+
+float GameEntity::getPosY() {
+	return posY;
+
+}
+float GameEntity::getSpeedX() {
+	return speedX;
+}
+
+float GameEntity::getSpeedY() {
+	return speedY;
+}
+
+void GameEntity::setSpeedX(float sx) {
+	speedX = sx;
+}
+void GameEntity::setSpeedY(float sy) {
+	speedY = sy;
+}
+void GameEntity::setPosX(float px) {
+	posX = px;
+}
+
+void GameEntity::setPosY(float py) {
+	posY = py;
+}
