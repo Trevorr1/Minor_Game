@@ -14,7 +14,7 @@ int main(int argc, const char* argv[])
 
 
 	entity->addComponent(*new DummyComponent());
-	
+	entity->tick();
 
 	std::cout << "test" << std::endl;
 	system("pause");

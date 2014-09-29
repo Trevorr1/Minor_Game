@@ -6,9 +6,9 @@ namespace overdose {
 	{
 	public:
 
-		virtual void receive(Component &component, int message);
+		virtual void receive(Component &component, int message) {}
 
-		virtual void tick(GameEntity &entity);
+		virtual void tick(GameEntity &entity) {}
 	};
 
-}
+} 
