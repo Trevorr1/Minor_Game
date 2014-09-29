@@ -11,5 +11,4 @@
 
 #include "Component.h"
 #include "DummyComponent.h"
-#include "ComponentContainer.h"
 #include "GameEntity.h"

@@ -1,6 +1,7 @@
 #pragma once
-
 namespace overdose {
+	class GameEntity;
+
 	class Component
 	{
 	public:
