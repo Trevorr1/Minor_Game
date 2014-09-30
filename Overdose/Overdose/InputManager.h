@@ -17,7 +17,7 @@ namespace overdose {
 		void addKeyPress(string keyPressed);
 		string getLastKeyPress();
 	private:
-		void clearKeyBuffer();
+		void clearKeyBufferButOne();
 	};
 
 }
