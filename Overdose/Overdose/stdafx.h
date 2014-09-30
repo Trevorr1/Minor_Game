@@ -13,3 +13,4 @@
 #include "DummyComponent.h"
 #include "MoveComponent.h"
 #include "GameEntity.h"
+#include "InputManager.h"
