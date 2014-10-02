@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "GameEntity.h"
 
 using std::vector;
 using namespace overdose;

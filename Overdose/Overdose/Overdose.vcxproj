@@ -66,7 +66,12 @@
   <ItemGroup>
     <ClInclude Include="BspTree.h" />
     <ClInclude Include="Component.h" />
+<<<<<<< HEAD
     <ClInclude Include="EndNode.h" />
+=======
+    <ClInclude Include="Enum.h" />
+    <ClInclude Include="Factory.h" />
+>>>>>>> origin/master
     <ClInclude Include="GameEntity.h" />
     <ClInclude Include="DummyComponent.h" />
     <ClInclude Include="InputManager.h" />
@@ -76,8 +81,12 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClCompile Include="BspTree.cpp" />
     <ClCompile Include="EndNode.cpp" />
+=======
+    <ClCompile Include="Factory.cpp" />
+>>>>>>> origin/master
     <ClCompile Include="GameEntity.cpp" />
     <ClCompile Include="DummyComponent.cpp" />
     <ClCompile Include="InputManager.cpp" />
