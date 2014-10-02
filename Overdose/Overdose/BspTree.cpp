@@ -1,4 +1,8 @@
 #include "BspTree.h"
+#include "GameEntity.h"
+#include "TreeNode.h"
+#include "SplitNode.h"
+#include "EndNode.h"
 
 using namespace overdose;
 using namespace std;
