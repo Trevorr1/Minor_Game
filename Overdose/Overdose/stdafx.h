@@ -7,16 +7,4 @@
 #include <string>
 #include <array>
 #include <vector>
-<<<<<<< HEAD
-
-
-#include "Component.h"
-#include "DummyComponent.h"
-#include "MoveComponent.h"
-#include "GameEntity.h"
-#include "TreeNode.h"
-#include "SplitNode.h"
-#include "EndNode.h"
-=======
 #include <stack>
->>>>>>> origin/master
