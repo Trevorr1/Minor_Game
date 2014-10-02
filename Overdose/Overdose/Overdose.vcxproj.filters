@@ -48,6 +48,18 @@
     <ClInclude Include="InputManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BspTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EndNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SplitNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DummyComponent.cpp">
@@ -70,6 +82,18 @@
     </ClCompile>
     <ClCompile Include="InputManager.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BspTree.cpp">
+      <Filter>Source Files\BSP tree</Filter>
+    </ClCompile>
+    <ClCompile Include="EndNode.cpp">
+      <Filter>Source Files\BSP tree</Filter>
+    </ClCompile>
+    <ClCompile Include="SplitNode.cpp">
+      <Filter>Source Files\BSP tree</Filter>
+    </ClCompile>
+    <ClCompile Include="TreeNode.cpp">
+      <Filter>Source Files\BSP tree</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
