@@ -26,8 +26,7 @@ $RECYCLE.BIN/
 .LSOverride
 
 # Icon must ends with two \r.
-Icon
-
+Icon
 
 # Thumbnails
 ._*
@@ -38,12 +37,13 @@ Icon
 
 Overdose/Overdose.sdf
 Overdose/Overdose.sdf
+Overdose/Overdose.v12.suo
 Overdose/Debug/Overdose.exe
 Overdose/Debug/Overdose.ilk
 Overdose/Debug/Overdose.pdb
 Overdose/Overdose.opensdf
 Overdose/Overdose.sdf
 *.sdf
-*.suo
+Overdose/Overdose.v12.suo
 /Overdose/Overdose/Overdose.aps
 /Overdose/Overdose/Debug
