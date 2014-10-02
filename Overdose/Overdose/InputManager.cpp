@@ -7,12 +7,12 @@ InputManager::InputManager()
 
 }
 
-void InputManager::addKeyPress(string keyPressed) {
+void InputManager::addKeyPress(int keyPressed) {
 	keyBuffer->push(keyPressed);
 }
 
-string InputManager::getLastKeyPress() {
-	string keyPress = "";
+int InputManager::getLastKeyPress() {
+	int keyPress = -1;
 
 	if (!keyBuffer->empty()) {
 		keyPress = keyBuffer->top();
