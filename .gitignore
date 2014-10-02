@@ -1,4 +1,4 @@
-# Windows image file caches
+# Windows image file caches 
 Thumbs.db
 ehthumbs.db
 
@@ -26,7 +26,8 @@ $RECYCLE.BIN/
 .LSOverride
 
 # Icon must ends with two \r.
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -43,7 +44,6 @@ Overdose/Debug/Overdose.ilk
 Overdose/Debug/Overdose.pdb
 Overdose/Overdose.opensdf
 Overdose/Overdose.sdf
-*.sdf
 Overdose/Overdose.v12.suo
 /Overdose/Overdose/Overdose.aps
 /Overdose/Overdose/Debug
