@@ -1,5 +1,5 @@
 #pragma once
-#include <stack>
+#include "stdafx.h"
 
 using std::string;
 using std::stack;

@@ -1,4 +1,5 @@
 #pragma once
+#include "Component.h"
 namespace overdose{
 	class MoveComponent :
 		public Component

@@ -1,4 +1,7 @@
 #pragma once
+#include "stdafx.h"
+#include "Component.h"
+
 namespace overdose {
 	class GameEntity
 	{
@@ -19,6 +22,8 @@ namespace overdose {
 		void setSpeedY(float sy);
 		void setPosX(float px);
 		void setPosY(float py);
+
+		float getPosition(int index);
 
 		GameEntity();
 

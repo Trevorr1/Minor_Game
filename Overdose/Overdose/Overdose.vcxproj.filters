@@ -19,8 +19,8 @@
     <Filter Include="Source Files\Component">
       <UniqueIdentifier>{bb03e289-87ab-418d-9d66-2b2d6f07732d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Manager">
-      <UniqueIdentifier>{e1858215-f361-4b5e-9327-04c4bfcf91bb}</UniqueIdentifier>
+    <Filter Include="Source Files\BSP tree">
+      <UniqueIdentifier>{c9056260-d759-4649-b0cd-3577bdabca1b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -37,6 +37,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MoveComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Factory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Enum.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="InputManager.h">
@@ -59,8 +65,11 @@
     <ClCompile Include="MoveComponent.cpp">
       <Filter>Source Files\Component</Filter>
     </ClCompile>
+    <ClCompile Include="Factory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="InputManager.cpp">
-      <Filter>Source Files\Manager</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
