@@ -1,4 +1,5 @@
-#include "stdafx.h"
+#include "MoveComponent.h"
+#include "GameEntity.h"
 
 using namespace overdose;
 

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "DummyComponent.h"
 #include <iostream>
 
 using namespace overdose;
