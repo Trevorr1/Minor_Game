@@ -13,3 +13,6 @@
 #include "DummyComponent.h"
 #include "MoveComponent.h"
 #include "GameEntity.h"
+#include "TreeNode.h"
+#include "SplitNode.h"
+#include "EndNode.h"

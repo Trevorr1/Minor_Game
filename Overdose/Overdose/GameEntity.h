@@ -20,6 +20,8 @@ namespace overdose {
 		void setPosX(float px);
 		void setPosY(float py);
 
+		float getPosition(int index);
+
 		GameEntity();
 
 		~GameEntity();

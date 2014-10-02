@@ -64,17 +64,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BspTree.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="EndNode.h" />
     <ClInclude Include="GameEntity.h" />
     <ClInclude Include="DummyComponent.h" />
     <ClInclude Include="MoveComponent.h" />
+    <ClInclude Include="TreeNode.h" />
+    <ClInclude Include="SplitNode.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BspTree.cpp" />
+    <ClCompile Include="EndNode.cpp" />
     <ClCompile Include="GameEntity.cpp" />
     <ClCompile Include="DummyComponent.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MoveComponent.cpp" />
+    <ClCompile Include="TreeNode.cpp" />
+    <ClCompile Include="SplitNode.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
