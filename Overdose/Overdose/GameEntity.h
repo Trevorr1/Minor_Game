@@ -1,4 +1,7 @@
 #pragma once
+#include "stdafx.h"
+#include "Component.h"
+
 namespace overdose {
 	class GameEntity
 	{
