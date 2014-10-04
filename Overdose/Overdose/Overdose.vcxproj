@@ -70,6 +70,7 @@
     <ClInclude Include="GameEntity.h" />
     <ClInclude Include="DummyComponent.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="Level.h" />
     <ClInclude Include="MoveComponent.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
@@ -78,6 +79,7 @@
     <ClCompile Include="GameEntity.cpp" />
     <ClCompile Include="DummyComponent.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="Level.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MoveComponent.cpp" />
     <ClCompile Include="stdafx.cpp" />

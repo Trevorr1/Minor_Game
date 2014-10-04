@@ -3,6 +3,8 @@
 #include "Component.h"
 
 namespace overdose {
+	class Component;
+
 	class GameEntity
 	{
 	protected:
@@ -27,7 +29,7 @@ namespace overdose {
 
 		GameEntity();
 
-		~GameEntity();
+		virtual ~GameEntity();
 	};
 
 

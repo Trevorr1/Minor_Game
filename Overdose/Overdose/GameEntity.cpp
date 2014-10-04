@@ -15,7 +15,7 @@ void GameEntity::addComponent(Component &component) {
 void GameEntity::tick() {
 	for (vector<Component*>::iterator it = compontentList->begin(); it != compontentList->end(); it++) {
 		Component *component = *it;
-		component->tick(*this);
+		component->tick(*this, *new Level);
 	}
 }
 

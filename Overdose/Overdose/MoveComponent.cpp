@@ -7,7 +7,7 @@ void  MoveComponent::receive(Component &component, int message) {
 
 }
 
-void  MoveComponent::tick(GameEntity &entity) {
+void  MoveComponent::tick(GameEntity &entity, Level &level) {
 
 	float posX = entity.getPosX();
 	float posY = entity.getPosY();
