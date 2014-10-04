@@ -7,23 +7,23 @@ InputManager::InputManager()
 
 }
 
-void InputManager::addKeyPress(string keyPressed) {
+void InputManager::addKeyPress(int keyPressed) {
 	keyBuffer->push(keyPressed);
 }
 
-string InputManager::getLastKeyPress() {
-	string keyPress = "";
+int InputManager::getLastKeyPress() {
+	int keyPress = -1;
 
 	if (!keyBuffer->empty()) {
 		keyPress = keyBuffer->top();
-		clearKeyBuffer();
+		clearKeyBufferButOne();
 	}
 
 	return keyPress;
 }
 
-void InputManager::clearKeyBuffer() {
-	while (!keyBuffer->empty()) {
+void InputManager::clearKeyBufferButOne() {
+	while (keyBuffer->size() > 1)  {
 		keyBuffer->pop();
 	}
 }
