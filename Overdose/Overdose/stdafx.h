@@ -7,9 +7,4 @@
 #include <string>
 #include <array>
 #include <vector>
-
-
-#include "Component.h"
-#include "DummyComponent.h"
-#include "MoveComponent.h"
-#include "GameEntity.h"
+#include <stack>

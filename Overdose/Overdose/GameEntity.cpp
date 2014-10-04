@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "GameEntity.h"
 
 using std::vector;
 using namespace overdose;
@@ -19,8 +19,19 @@ void GameEntity::tick() {
 	}
 }
 
-GameEntity::GameEntity() {
+float GameEntity::getPosition(int index)
+{
+	if (index == 0)
+	{
+		return this->posX;
+	}
+	else if (index == 1)
+	{
+		return this->posY;
+	}
+}
 
+GameEntity::GameEntity() {
 
 }
 
