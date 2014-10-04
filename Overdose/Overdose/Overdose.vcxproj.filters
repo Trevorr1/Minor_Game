@@ -19,6 +19,12 @@
     <Filter Include="Source Files\Component">
       <UniqueIdentifier>{bb03e289-87ab-418d-9d66-2b2d6f07732d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Template">
+      <UniqueIdentifier>{c7e8abc6-aa74-4d10-ace2-a2d8b1f4c4c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Template">
+      <UniqueIdentifier>{97282a36-74f1-4e37-afc2-868065e2b45f}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files\BSP tree">
       <UniqueIdentifier>{c9056260-d759-4649-b0cd-3577bdabca1b}</UniqueIdentifier>
     </Filter>
@@ -39,6 +45,18 @@
     <ClInclude Include="MoveComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="surface.h">
+      <Filter>Header Files\Template</Filter>
+    </ClInclude>
+    <ClInclude Include="template.h">
+      <Filter>Header Files\Template</Filter>
+    </ClInclude>
+    <ClInclude Include="game.h">
+      <Filter>Header Files\Template</Filter>
+    </ClInclude>
+    <ClInclude Include="SDLTemplate.h">
+      <Filter>Header Files\Template</Filter>
+    </ClInclude>
     <ClInclude Include="Factory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -56,14 +74,26 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GameEntity.cpp">
       <Filter>Source Files\Entity</Filter>
     </ClCompile>
     <ClCompile Include="MoveComponent.cpp">
       <Filter>Source Files\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="surface.cpp">
+      <Filter>Source Files\Template</Filter>
+    </ClCompile>
+    <ClCompile Include="template.cpp">
+      <Filter>Source Files\Template</Filter>
+    </ClCompile>
+    <ClCompile Include="game.cpp">
+      <Filter>Source Files\Template</Filter>
+    </ClCompile>
+    <ClCompile Include="SDLTemplate.cpp">
+      <Filter>Source Files\Template</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Factory.cpp">
       <Filter>Source Files</Filter>

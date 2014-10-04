@@ -43,10 +43,15 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
+      <AdditionalIncludeDirectories>lib\OpenGL;lib\sdl\include;lib\freeimage;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNING;WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NODEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>lib\sdl\lib\x86;lib\OpenGL;lib\freeimage;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>winmm.lib;sdl2.lib;sdl2main.lib;opengl32.lib;freeimage.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -56,31 +61,44 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>lib\OpenGL;lib\sdl;lib\FreeImage;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NODEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>lib\sdl\lib\x86;lib\OpenGL;lib\freeimage;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>winmm.lib;sdl2.lib;sdl2main.lib;opengl32.lib;freeimage.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Component.h" />
+    <ClInclude Include="game.h" />
     <ClInclude Include="Enum.h" />
     <ClInclude Include="Factory.h" />
     <ClInclude Include="GameEntity.h" />
     <ClInclude Include="DummyComponent.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="MoveComponent.h" />
+    <ClInclude Include="SDLTemplate.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="surface.h" />
+    <ClInclude Include="template.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="game.cpp" />
     <ClCompile Include="Factory.cpp" />
     <ClCompile Include="GameEntity.cpp" />
     <ClCompile Include="DummyComponent.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MoveComponent.cpp" />
+    <ClCompile Include="SDLTemplate.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="surface.cpp" />
+    <ClCompile Include="template.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Overdose.rc" />
