@@ -80,7 +80,10 @@
     <ClInclude Include="Factory.h" />
     <ClInclude Include="GameEntity.h" />
     <ClInclude Include="DummyComponent.h" />
+    <ClInclude Include="ILevel.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="Level1.h" />
+    <ClInclude Include="LevelManager.h" />
     <ClInclude Include="MoveComponent.h" />
     <ClInclude Include="SDLTemplate.h" />
     <ClInclude Include="stdafx.h" />
