@@ -1,5 +1,5 @@
 #pragma once
-
+#include "InputManager.h"
 
 
 	class Surface;

@@ -18,7 +18,7 @@ int main(int argc, const char* argv[])
 	//moet ff uitzoeken hoe de componentContainer benaderbaar is via GameEntitty
 	GameEntity *entity = Factory::getInstance()->getGameEntity(eGameEntity::Policeman);
 
-	InputManager *input = new InputManager;
+	
 
 	/******************
 	 Ricardo's template
@@ -43,7 +43,7 @@ int main(int argc, const char* argv[])
 	
 
 	delete entity;
-	delete input;
+
 
 	return 0;
 }
