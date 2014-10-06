@@ -7,6 +7,10 @@ ILevel::ILevel(void)
 	entities = new std::vector<GameEntity>();
 }
 
+void ILevel::Init()
+{
+
+}
 
 ILevel::~ILevel(void)
 {
