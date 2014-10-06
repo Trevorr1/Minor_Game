@@ -1,7 +1,10 @@
 #pragma once
 
-#include "stdafx.h"
+#include <vector>
 #include "SplitNode.h"
+#include "GameEntity.h"
+
+using namespace std;
 
 namespace overdose {
 
