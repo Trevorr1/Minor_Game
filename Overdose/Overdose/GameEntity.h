@@ -3,6 +3,7 @@
 #include "Component.h"
 
 namespace overdose {
+	class Component;
 	class GameEntity
 	{
 	protected:
