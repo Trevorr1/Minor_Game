@@ -1,7 +1,5 @@
 #pragma once
 
-
-
 	class Surface;
 	class Game
 	{
@@ -17,4 +15,3 @@
 	private:
 		Surface* m_Screen;
 	};
-

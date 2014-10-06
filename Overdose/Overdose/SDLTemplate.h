@@ -6,17 +6,16 @@
 #include "stdio.h"
 #include "windows.h"
 
-class SDLTemplate
-{
-public:
-	SDLTemplate();
-	~SDLTemplate();
+	class SDLTemplate
+	{
+	public:
+		SDLTemplate();
+		~SDLTemplate();
 
-	bool createFBtexture();
-	bool init();
-	void redirectIO();
-	void swap();
+		bool createFBtexture();
+		bool init();
+		void redirectIO();
+		void swap();
 
-	void initTemplate();
-};
-
+		void initTemplate();
+	};

@@ -115,7 +115,7 @@
 				int w3 = ((1023 - ufrac) * vfrac) >> 12;
 				int w2 = (ufrac * (1023 - vfrac)) >> 12;
 				int w1 = ((1023 - ufrac) * (1023 - vfrac)) >> 12;
-				int x2 = ((su + dx) >((owidth - 1) << 10)) ? 0 : 1;
+				int x2 = ((su + dx) > ((owidth - 1) << 10)) ? 0 : 1;
 				int y2 = ((sv + dy) > ((oheight - 1) << 10)) ? 0 : 1;
 				Pixel p1 = *s, p2 = *(s + x2), p3 = *(s + owidth * y2), p4 = *(s + owidth * y2 + x2);
 				unsigned int r = (((p1 & REDMASK) * w1 + (p2 & REDMASK) * w2 + (p3 & REDMASK) * w3 + (p4 & REDMASK) * w4) >> 8) & REDMASK;
@@ -536,4 +536,3 @@
 			}
 		}
 	}
-
