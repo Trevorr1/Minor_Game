@@ -13,6 +13,8 @@ public:
 	LevelManager(void);
 	~LevelManager(void);
 	ILevel* createLevel(levels level);
+private:
+	ILevel* currentLevel;
 };
 
 }

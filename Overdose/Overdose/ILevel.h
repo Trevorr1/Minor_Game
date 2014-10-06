@@ -9,6 +9,7 @@ class ILevel
 public:
 	ILevel(void);
 	~ILevel(void);
+	void Init();
 	void addEntities(GameEntity entity);
 private:
 	std::vector<GameEntity> *entities;

@@ -5,6 +5,7 @@
 using namespace overdose;
 LevelManager::LevelManager(void)
 {
+	currentLevel = nullptr;
 }
 
 
@@ -14,10 +15,10 @@ LevelManager::~LevelManager(void)
 
 ILevel* LevelManager::createLevel(levels l)
 {
-	ILevel *currentLevel = nullptr;
 	switch(l){
 	case(level1):
 		currentLevel = new Level1();
+		currentLevel->Init();
 	}
 
 	return currentLevel;
