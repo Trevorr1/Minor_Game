@@ -1,6 +1,5 @@
 #pragma once
-#include "Component.h"
-
+#include "GameEntity.h"
 namespace overdose {
 	class GameEntity;
 

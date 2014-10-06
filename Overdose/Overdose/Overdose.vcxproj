@@ -85,6 +85,7 @@
     <ClInclude Include="Level1.h" />
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="MoveComponent.h" />
+    <ClInclude Include="PlayerInputComponent.h" />
     <ClInclude Include="SDLTemplate.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="surface.h" />
@@ -98,6 +99,7 @@
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MoveComponent.cpp" />
+    <ClCompile Include="PlayerInputComponent.cpp" />
     <ClCompile Include="SDLTemplate.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="surface.cpp" />
