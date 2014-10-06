@@ -96,7 +96,10 @@
     <ClCompile Include="Factory.cpp" />
     <ClCompile Include="GameEntity.cpp" />
     <ClCompile Include="DummyComponent.cpp" />
+    <ClCompile Include="ILevel.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="Level1.cpp" />
+    <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MoveComponent.cpp" />
     <ClCompile Include="PlayerInputComponent.cpp" />
