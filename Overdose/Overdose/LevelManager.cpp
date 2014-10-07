@@ -5,7 +5,7 @@
 using namespace overdose;
 LevelManager::LevelManager(void)
 {
-	currentLevel = nullptr;
+	setLevel(level1);
 }
 
 
@@ -36,9 +36,18 @@ LevelManager* LevelManager::getInstance()
 ILevel* LevelManager::createLevel(levels l)
 {
 	switch(l){
-	case(level1):
+	case(level1) :
+		if (currentLevel != nullptr){
+			//delete currentLevel; //zo toch?
+		}
 		currentLevel = new Level1();
 		currentLevel->Init();
+		break;
+	}
+}
+
+void LevelManager::Tick(float dt){
+	currentLevel->Tick(dt);
 	}
 	currentLevel->getPlayerEntity();
 	return currentLevel;
@@ -47,5 +56,7 @@ ILevel* LevelManager::createLevel(levels l)
 void LevelManager::tick(double dt)
 {
 	currentLevel->tick(dt);
+void LevelManager::Render(Surface* surface){
+	currentLevel->Render(surface);
 }
 
