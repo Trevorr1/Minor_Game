@@ -5,7 +5,7 @@
 using namespace overdose;
 LevelManager::LevelManager(void)
 {
-	currentLevel = nullptr;
+	setLevel(level1);
 }
 
 
@@ -13,14 +13,24 @@ LevelManager::~LevelManager(void)
 {
 }
 
-ILevel* LevelManager::createLevel(levels l)
+void LevelManager::setLevel(levels l)
 {
 	switch(l){
-	case(level1):
+	case(level1) :
+		if (currentLevel != nullptr){
+			//delete currentLevel; //zo toch?
+		}
 		currentLevel = new Level1();
 		currentLevel->Init();
+		break;
 	}
+}
 
-	return currentLevel;
+void LevelManager::Tick(float dt){
+	currentLevel->Tick(dt);
+}
+
+void LevelManager::Render(Surface* surface){
+	currentLevel->Render(surface);
 }
 
