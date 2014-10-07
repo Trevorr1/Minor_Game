@@ -11,6 +11,9 @@ public:
 	GameEntity* getPlayerEntity();
 	void Tick(float a_DT);
 	void Render(Surface* surface);
+	GameEntity getPlayerEntity(void);
+	std::vector<GameEntity> *getEntities();
+	void tick(double dt);
 private:
 	std::vector<GameEntity> *entities;
 	Surface* m_Background;

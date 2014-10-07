@@ -11,9 +11,29 @@ LevelManager::LevelManager(void)
 
 LevelManager::~LevelManager(void)
 {
+	delete instance;
 }
 
-void LevelManager::setLevel(levels l)
+ILevel* LevelManager::getCurrentLevel()
+{
+	return currentLevel;
+}
+
+LevelManager* LevelManager::getInstance()
+{
+	if (instance == nullptr)
+	{
+		instance = new LevelManager();
+		return instance;
+	}
+	else
+	{
+		return instance;
+	}
+}
+
+
+ILevel* LevelManager::createLevel(levels l)
 {
 	switch(l){
 	case(level1) :
@@ -28,8 +48,14 @@ void LevelManager::setLevel(levels l)
 
 void LevelManager::Tick(float dt){
 	currentLevel->Tick(dt);
+	}
+	currentLevel->getPlayerEntity();
+	return currentLevel;
 }
 
+void LevelManager::tick(double dt)
+{
+	currentLevel->tick(dt);
 void LevelManager::Render(Surface* surface){
 	currentLevel->Render(surface);
 }
