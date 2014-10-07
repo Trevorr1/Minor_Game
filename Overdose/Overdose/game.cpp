@@ -21,10 +21,10 @@ void Game::KeyDown(unsigned int code)
 
 void Game::MouseMove(unsigned int x, unsigned int y)
 {
-	printf("Mouse X: %d  Mouse Y: %d \n", x, y);
+	//printf("Mouse X: %d  Mouse Y: %d \n", x, y);
 }
 
 void Game::MouseDown(unsigned int button)
 {
-	printf("Mouse Down Code: %d \n", button);
+	//printf("Mouse Down Code: %d \n", button);
 }

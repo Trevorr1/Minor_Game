@@ -74,6 +74,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CollisionComponent.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="Enum.h" />
@@ -88,6 +89,7 @@
     <ClInclude Include="template.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CollisionComponent.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="Factory.cpp" />
     <ClCompile Include="GameEntity.cpp" />
