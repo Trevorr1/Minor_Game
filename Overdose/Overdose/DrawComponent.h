@@ -10,7 +10,7 @@ namespace overdose {
 		virtual ~DrawComponent();
 
 		void receive(Component &component, int message);
-		void tick(GameEntity &entity, Surface* a_Target);
+		void tick(GameEntity &entity);
 
 	private:
 		Sprite* m_SpritSheet;
