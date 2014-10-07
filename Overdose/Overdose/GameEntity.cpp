@@ -57,6 +57,14 @@ float GameEntity::getSpeedY() {
 	return speedY;
 }
 
+int GameEntity::getWidth(){
+	return width;
+}
+
+int GameEntity::getHeight(){
+	return height;
+}
+
 void GameEntity::setSpeedX(float sx) {
 	speedX = sx;
 }

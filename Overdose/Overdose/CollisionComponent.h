@@ -8,15 +8,14 @@ namespace overdose {
 	class CollisionComponent : public Component
 	{
 	public:
-		CollisionComponent(int x, int y, int w, int h);
+		CollisionComponent();
 		~CollisionComponent();
 
-		void setRectangle(int x, int y, int w, int h);
 
 		void receive(Component &component, int message);
 		void tick(GameEntity &entity);
 	private:
-		SDL_Rect collisionRect;
+		//SDL_Rect collisionRect;
 	};
 
 
