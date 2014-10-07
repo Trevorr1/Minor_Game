@@ -22,16 +22,3 @@ void ILevel::addEntities(GameEntity entities)
 	this->entities->push_back(entities);
 	//(*this->entities)->insert(entities);
 }
-
-GameEntity ILevel::getPlayerEntity(){
-	return *player;
-}
-
-std::vector<GameEntity>* ILevel::getEntities(){
-	return entities;
-}
-
-void ILevel::tick(double dt)
-{
-
-}

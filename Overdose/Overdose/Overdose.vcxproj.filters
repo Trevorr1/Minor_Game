@@ -170,6 +170,9 @@
     <ClCompile Include="PlayerInputComponent.cpp">
       <Filter>Source Files\Component</Filter>
     </ClCompile>
+    <ClCompile Include="ILevel.cpp">
+      <Filter>Source Files\Level</Filter>
+    </ClCompile>
     <ClCompile Include="Level1.cpp">
       <Filter>Source Files\Level</Filter>
     </ClCompile>

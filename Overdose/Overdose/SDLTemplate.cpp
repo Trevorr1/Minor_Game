@@ -227,7 +227,6 @@ void SDLTemplate::initTemplate()
 		LARGE_INTEGER start, end;
 		QueryPerformanceCounter(&start);
 		game->Tick((float)lastftime);
-		game->Render();
 		QueryPerformanceCounter(&end);
 		lastftime = float(end.QuadPart - start.QuadPart) / float(ticksPS.QuadPart / 1000);
 		// event loop
