@@ -45,3 +45,10 @@ Game::Game(){
 Game::~Game(){
 	delete m_LevelManager;
 }
+
+Game::Game(){
+	m_LevelManager = new LevelManager();
+}
+Game::~Game(){
+	delete m_LevelManager;
+}
