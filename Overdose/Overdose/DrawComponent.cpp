@@ -1,5 +1,6 @@
 #include "DrawComponent.h"
 #include "GameEntity.h"
+#include "DrawManager.h"
 
 using namespace overdose;
 
@@ -20,7 +21,7 @@ void DrawComponent::receive(Component &component, int message)
 
 }
 
-void DrawComponent::tick(GameEntity &entity, Surface* a_Target)
+void DrawComponent::tick(GameEntity &entity)
 {
-	m_SpritSheet->Draw((int)entity.getPosX(), (int)entity.getPosY(), a_Target);
+	m_SpritSheet->Draw((int)entity.getPosX(), (int)entity.getPosY(), DrawManager::getInstance()->getSurface());
 }
