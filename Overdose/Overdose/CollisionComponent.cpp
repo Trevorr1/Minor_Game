@@ -10,7 +10,7 @@ CollisionComponent::CollisionComponent(int x, int y, int w, int h)
 	collisionRect.h = h;
 }
 
-CollisionComponent::setRectangle(x, y, w, h)
+void CollisionComponent::setRectangle(int x, int y,int w,int h)
 {
 }
 
@@ -18,3 +18,9 @@ CollisionComponent::setRectangle(x, y, w, h)
 CollisionComponent::~CollisionComponent()
 {
 }
+
+void CollisionComponent::receive(Component &component, int message) {
+
+}
+
+void CollisionComponent::tick(GameEntity &entity) {}

@@ -4,6 +4,8 @@
 #include "template.h"
 #include "game.h"
 
+using namespace overdose;
+
 void Game::Init()
 {
 	// put your initialization code here; will be executed once
@@ -11,11 +13,13 @@ void Game::Init()
 
 void Game::Tick(float a_DT)
 {
+	InputManager::getInstance()->clearKeyBuffer();
 	m_Screen->Clear(0xffff00);
 }
 
 void Game::KeyDown(unsigned int code)
 {
+	InputManager::getInstance()->addKeyPress(code);
 	printf("Key Down Code: %d \n", code);
 }
 
