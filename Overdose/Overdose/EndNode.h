@@ -14,5 +14,10 @@ namespace overdose {
 	public:
 		EndNode(TreeNode *parent, GameEntity *gameEntity);
 		~EndNode();
+
+		virtual float lowerBound(int dimension);
+		virtual float upperBound(int dimension);
+
+		GameEntity* getGameEntity();
 	};
 }

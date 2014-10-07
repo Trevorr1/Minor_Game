@@ -2,12 +2,14 @@
 
 using namespace overdose;
 
+InputManager *InputManager::_instance = nullptr;
+
 InputManager::InputManager()
 {
 
 }
 
-void InputManager::addKeyPress(int keyPressed) {
+void InputManager::addKeyPress(unsigned int keyPressed) {
 	keyBuffer->push(keyPressed);
 }
 
@@ -28,7 +30,22 @@ void InputManager::clearKeyBufferButOne() {
 	}
 }
 
+void InputManager::clearKeyBuffer() {
+	while (!keyBuffer->empty()) {
+		keyBuffer->pop();
+	}
+}
+
+
 InputManager::~InputManager()
 {
 	delete keyBuffer;
+	delete _instance;
+}
+
+InputManager* InputManager::getInstance() {
+	if (InputManager::_instance == nullptr) {
+		InputManager::_instance = new InputManager;
+	}
+	return InputManager::_instance;
 }

@@ -29,6 +29,7 @@ float GameEntity::getPosition(int index)
 	{
 		return this->posY;
 	}
+	else return 0;
 }
 
 GameEntity::GameEntity() {

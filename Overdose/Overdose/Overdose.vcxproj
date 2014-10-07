@@ -74,33 +74,50 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BspTree.h" />
+    <ClInclude Include="CollisionComponent.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="DrawComponent.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="EndNode.h" />
     <ClInclude Include="Enum.h" />
     <ClInclude Include="Factory.h" />
     <ClInclude Include="GameEntity.h" />
     <ClInclude Include="DummyComponent.h" />
+    <ClInclude Include="ILevel.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="Level1.h" />
+    <ClInclude Include="LevelManager.h" />
     <ClInclude Include="MoveComponent.h" />
+    <ClInclude Include="PlayerInputComponent.h" />
     <ClInclude Include="SDLTemplate.h" />
+    <ClInclude Include="SplitNode.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="surface.h" />
     <ClInclude Include="template.h" />
+    <ClInclude Include="TreeNode.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CollisionComponent.cpp" />
     <ClCompile Include="DrawComponent.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="BspTree.cpp" />
+    <ClCompile Include="EndNode.cpp" />
     <ClCompile Include="Factory.cpp" />
     <ClCompile Include="GameEntity.cpp" />
     <ClCompile Include="DummyComponent.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="Level1.cpp" />
+    <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MoveComponent.cpp" />
+    <ClCompile Include="PlayerInputComponent.cpp" />
     <ClCompile Include="SDLTemplate.cpp" />
+    <ClCompile Include="SplitNode.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="surface.cpp" />
     <ClCompile Include="template.cpp" />
+    <ClCompile Include="TreeNode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Overdose.rc" />

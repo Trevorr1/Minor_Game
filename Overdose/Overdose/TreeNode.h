@@ -9,8 +9,8 @@ namespace overdose {
 		TreeNode(TreeNode *parent);
 		~TreeNode();
 
-		virtual float lowerBound(int index);
-		virtual float upperBound(int index);
+		virtual float lowerBound(int dimension);
+		virtual float upperBound(int dimension);
 	};
 }
 

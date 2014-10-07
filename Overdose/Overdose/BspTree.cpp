@@ -29,7 +29,7 @@ TreeNode* BspTree::buildBSP(TreeNode* parent, int left, int right, int dimension
 	}
 	else // quicksort if large
 	{
-		float median = (*list)[median3(left, right, dimension)]->getPosX;
+		float median = (*list)[median3(left, right, dimension)]->getPosX();
 		int partition = partitionIt(left, right, median, dimension);
 
 		dimension++;
