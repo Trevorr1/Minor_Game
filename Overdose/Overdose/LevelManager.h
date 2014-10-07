@@ -12,7 +12,10 @@ class LevelManager
 public:
 	LevelManager(void);
 	~LevelManager(void);
-	ILevel* createLevel(levels level);
+	void setLevel(levels level);
+	void LevelManager::Tick(float dt);
+	void LevelManager::Render(Surface* surface);
+
 private:
 	ILevel* currentLevel;
 };
