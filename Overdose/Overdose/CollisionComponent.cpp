@@ -19,20 +19,20 @@ void CollisionComponent::receive(Component &component, int message) {
 }
 
 void CollisionComponent::tick(GameEntity *entity) {
-	int posx = entity->getPosX();
-	int posy = entity->getPosY();
+	int posx = (int)entity->getPosX();
+	int posy = (int)entity->getPosY();
 	int width = entity->getWidth();
 	int height = entity->getHeight();
 	eGameEntity entityEnum = entity->getEnum();
 
 	vector<GameEntity> *gameEntities = LevelManager.getInstance().getCurrentLevel().getEntities();
 
-	for (int i = 0; i < gameEntities->size(); i++){
+	for (int i = 0; i < (int)gameEntities->size(); i++){
 		GameEntity* other = &(gameEntities->at(i));
 		if (entity != other && entityEnum != other->getEnum())// overload operator?
 		{
-			int oposx = other->getPosX();
-			int oposy = other->getPosY();
+			int oposx = (int)other->getPosX();
+			int oposy = (int)other->getPosY();
 			int owidth = other->getWidth();
 			int oheight = other->getHeight();
 

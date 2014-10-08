@@ -20,7 +20,7 @@ void Level1::addEntities(GameEntity entities)
 
 void Level1::Init()
 {
-	GameEntity *entity = new GameEntity();
+	GameEntity *entity = new GameEntity(Ross);
 	Component *comp = new MoveComponent();
 	entity->setPosX(100);
 	entity->setPosY(50);
