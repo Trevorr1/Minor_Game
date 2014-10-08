@@ -32,8 +32,8 @@ float GameEntity::getPosition(int index)
 	else return 0;
 }
 
-GameEntity::GameEntity() {
-
+GameEntity::GameEntity(eGameEntity entityEnum) {
+	m_EntityEnum = entityEnum;
 }
 
 GameEntity::~GameEntity() {
@@ -65,6 +65,10 @@ int GameEntity::getHeight(){
 	return height;
 }
 
+eGameEntity GameEntity::getEnum(){
+	return m_EntityEnum;
+}
+
 void GameEntity::setSpeedX(float sx) {
 	speedX = sx;
 }
@@ -77,4 +81,8 @@ void GameEntity::setPosX(float px) {
 
 void GameEntity::setPosY(float py) {
 	posY = py;
+}
+
+void GameEntity::setCollided() {
+	isAlive = false;
 }

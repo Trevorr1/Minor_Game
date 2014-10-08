@@ -13,7 +13,7 @@ namespace overdose {
 
 
 		void receive(Component &component, int message);
-		void tick(GameEntity &entity);
+		void tick(GameEntity *entity);
 	private:
 		//SDL_Rect collisionRect;
 	};

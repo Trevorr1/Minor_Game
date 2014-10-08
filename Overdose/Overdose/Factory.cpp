@@ -19,7 +19,7 @@ Factory* Factory::getInstance(){
 
 GameEntity* Factory::getGameEntity(eGameEntity entityEnum){
 
-	GameEntity* newObject = new GameEntity();
+	GameEntity* newObject = new GameEntity(entityEnum);
 
 	switch (entityEnum){
 	case Policeman:
