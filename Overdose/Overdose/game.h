@@ -1,6 +1,6 @@
 #pragma once
 #include "InputManager.h"
-
+#include "LevelManager.h"
 
 	class Surface;
 	class Game
@@ -9,11 +9,15 @@
 		void SetTarget(Surface* a_Surface) { m_Screen = a_Surface; }
 		void Init();
 		void Tick(float a_DT);
+		void Render();
 		void KeyDown(unsigned int code);
 		void KeyUp(unsigned int code) {}
 		void MouseMove(unsigned int x, unsigned int y);
 		void MouseUp(unsigned int button) {}
 		void MouseDown(unsigned int button);
+		Game();
+		~Game();
 	private:
 		Surface* m_Screen;
+		overdose::LevelManager* m_LevelManager;
 	};

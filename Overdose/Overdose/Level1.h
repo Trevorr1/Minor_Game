@@ -4,12 +4,15 @@ namespace overdose {
 class Level1 : public ILevel
 {
 public:
-	Level1(void);
-	~Level1(void);
+	Level1();
+	~Level1();
 	void Init();
-	void addEntities(GameEntity entities);
-private:
-	std::vector<GameEntity> *entities;
+	void addEntities(GameEntity* entities);
+	GameEntity* getPlayerEntity();
+	std::vector<GameEntity> *getEntities();
+	void Tick(float a_DT);
+	void Render(Surface* surface);
+
 };
 
 }

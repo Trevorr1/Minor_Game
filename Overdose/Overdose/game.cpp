@@ -11,26 +11,31 @@
 
 using namespace overdose;
 
-GameEntity* entityPtr = nullptr;
-GameEntity& entInvader = *new GameEntity();
-DrawComponent* drawInvader = nullptr;
+
+
+Game::Game(){
+	m_LevelManager = LevelManager::getInstance();
+}
+Game::~Game(){
+	delete m_LevelManager;
+}
 
 void Game::Init()
 {
 	// put your initialization code here; will be executed once
-	entityPtr = Factory::getInstance()->getGameEntity(eGameEntity::DrugAddict);
-	drawInvader = new DrawComponent("assets/bottom_enemy_anim.tga", 3);
-	entityPtr->addComponent(*drawInvader);
 	DrawManager::getInstance()->setTargetSurface(m_Screen);
 }
 
 void Game::Tick(float a_DT)
 {
-	m_Screen->Clear(0x000000);
 
-	entityPtr->tick();
 	//drawInvader->tick(entInvader);
 	InputManager::getInstance()->clearKeyBuffer();
+}
+
+void Game::Render(){
+	m_Screen->Clear(0x000000);
+	m_LevelManager->Render(m_Screen);
 }
 
 void Game::KeyDown(unsigned int code)
@@ -48,3 +53,4 @@ void Game::MouseDown(unsigned int button)
 {
 	//printf("Mouse Down Code: %d \n", button);
 }
+
