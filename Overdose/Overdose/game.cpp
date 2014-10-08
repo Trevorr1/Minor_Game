@@ -4,17 +4,38 @@
 #include "template.h"
 #include "game.h"
 
+#include "Factory.h"
+#include "GameEntity.h"
+#include "DrawComponent.h"
+#include "DrawManager.h"
+
 using namespace overdose;
+
+
+
+Game::Game(){
+	m_LevelManager = LevelManager::getInstance();
+}
+Game::~Game(){
+	delete m_LevelManager;
+}
 
 void Game::Init()
 {
 	// put your initialization code here; will be executed once
+	DrawManager::getInstance()->setTargetSurface(m_Screen);
 }
 
 void Game::Tick(float a_DT)
 {
+
+	//drawInvader->tick(entInvader);
 	InputManager::getInstance()->clearKeyBuffer();
-	m_Screen->Clear(0xffff00);
+}
+
+void Game::Render(){
+	m_Screen->Clear(0x000000);
+	m_LevelManager->Render(m_Screen);
 }
 
 void Game::KeyDown(unsigned int code)
@@ -32,3 +53,4 @@ void Game::MouseDown(unsigned int button)
 {
 	//printf("Mouse Down Code: %d \n", button);
 }
+

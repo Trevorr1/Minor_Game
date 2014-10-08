@@ -15,7 +15,6 @@ int filesize(FILE* f);
 #define MALLOC64(x) _aligned_malloc(x,64)
 #define FREE64(x) _aligned_free(x)
 
-
 #ifndef __INTEL_COMPILER
 #define restrict
 #endif
@@ -226,4 +225,3 @@ int filesize(FILE* f);
 	};
 
 	extern "C" { unsigned int sthread_proc(void* param); }
-

@@ -36,7 +36,7 @@ extern "C"
 		exit(0);
 	}
 
-//using namespace std;
+using namespace std;
 //
 //PFNGLGENBUFFERSPROC glGenBuffers = 0;
 //PFNGLBINDBUFFERPROC glBindBuffer = 0;

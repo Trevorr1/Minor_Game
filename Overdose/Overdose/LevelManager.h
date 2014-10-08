@@ -9,13 +9,18 @@ enum levels{
 
 class LevelManager
 {
-public:
-	LevelManager(void);
-	~LevelManager(void);
-	ILevel* createLevel(levels level);
-private:
-	ILevel* currentLevel;
-};
+	public:
+		~LevelManager(void);
+		static LevelManager* getInstance();
+		ILevel* createLevel(levels level);
+		ILevel* getCurrentLevel();
+		void LevelManager::Tick(float dt);
+		void LevelManager::Render(Surface* surface);
+	private:
+		ILevel* currentLevel;
+		LevelManager(void);
+		static LevelManager* _instance;
+	};
 
 }
 
