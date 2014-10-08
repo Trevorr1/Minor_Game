@@ -37,6 +37,7 @@ namespace overdose {
 
 		void setCollided();
 
+		GameEntity();
 		GameEntity(eGameEntity entityEnum);
 
 		~GameEntity();

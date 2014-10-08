@@ -1,4 +1,5 @@
 #include "CollisionComponent.h"
+#include "LevelManager.h"
 
 using namespace overdose;
 using namespace std;
@@ -25,7 +26,7 @@ void CollisionComponent::tick(GameEntity *entity) {
 	int height = entity->getHeight();
 	eGameEntity entityEnum = entity->getEnum();
 
-	vector<GameEntity> *gameEntities = LevelManager.getInstance().getCurrentLevel().getEntities();
+	vector<GameEntity> *gameEntities = LevelManager::getInstance()->getCurrentLevel()->getEntities();
 
 	for (int i = 0; i < (int)gameEntities->size(); i++){
 		GameEntity* other = &(gameEntities->at(i));

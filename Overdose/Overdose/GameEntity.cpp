@@ -32,6 +32,8 @@ float GameEntity::getPosition(int index)
 	else return 0;
 }
 
+GameEntity::GameEntity() {}
+
 GameEntity::GameEntity(eGameEntity entityEnum) {
 	m_EntityEnum = entityEnum;
 }

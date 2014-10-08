@@ -10,7 +10,7 @@ using namespace overdose;
 
 /*Test Data*/
 GameEntity* entityPtr = nullptr;
-GameEntity& entInvader = *new GameEntity();
+//GameEntity& entInvader = *new GameEntity();
 DrawComponent* drawInvader = nullptr;
 
 Level1::Level1()
