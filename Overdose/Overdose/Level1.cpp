@@ -32,7 +32,7 @@ void Level1::addEntities(GameEntity* entities)
 
 void Level1::Init()
 {
-	m_Player = new GameEntity();
+	m_Player = new GameEntity(Ross);
 	Component *comp = new MoveComponent();
 	m_Player->setPosX(100);
 	m_Player->setPosY(50);
