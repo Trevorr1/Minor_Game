@@ -49,12 +49,13 @@ void Level1::Init()
 	this->addEntities(entityPtr);
 }
 void Level1::Tick(float dt){
+	DrawBackground();
 	/*Test Data*/
 	entityPtr->tick();
 }
 
-void Level1::Render(Surface* surface){
-	m_Background->CopyTo(surface, 0, 0);
+void Level1::DrawBackground(){
+	m_Background->CopyTo(DrawManager::getInstance()->getSurface(), 0, 0);
 }
 
 GameEntity* Level1::getPlayerEntity(){
