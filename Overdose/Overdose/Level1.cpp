@@ -17,6 +17,8 @@ DrawComponent* drawInvader = nullptr;
 Level1::Level1()
 {
 	entities = new std::vector<GameEntity>();
+	enemies = new std::vector<GameEntity>();
+	collectibles = new std::vector<GameEntity>();
 	m_Background = new Surface("assets/backgrounds/background.jpg");
 }
 
@@ -29,6 +31,16 @@ Level1::~Level1()
 void Level1::addEntities(GameEntity* entities)
 {
 	this->entities->push_back(*entities);
+}
+
+void Level1::addEnemies(GameEntity* entities)
+{
+	this->enemies->push_back(*entities);
+}
+
+void Level1::addCollectibles(GameEntity* entities)
+{
+	this->collectibles->push_back(*entities);
 }
 
 void Level1::Init()
@@ -45,7 +57,7 @@ void Level1::Init()
 }
 void Level1::Tick(float dt){
 
-
+	//loop through entities? and tick every entity?
 	/*Test Data*/
 }
 
@@ -66,4 +78,12 @@ GameEntity* Level1::getPlayerEntity(){
 
 std::vector<GameEntity>* Level1::getEntities(){
 	return entities;
+}
+
+std::vector<GameEntity>* Level1::getCollectibles(){
+	return collectibles;
+}
+
+std::vector<GameEntity>* Level1::getEnemies(){
+	return enemies;
 }
