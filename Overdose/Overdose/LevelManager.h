@@ -15,7 +15,6 @@ class LevelManager
 		ILevel* createLevel(levels level);
 		ILevel* getCurrentLevel();
 		void LevelManager::Tick(float dt);
-		void LevelManager::Render(Surface* surface);
 	private:
 		ILevel* currentLevel;
 		LevelManager(void);

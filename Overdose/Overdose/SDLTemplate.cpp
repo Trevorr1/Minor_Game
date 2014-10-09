@@ -226,7 +226,6 @@ void SDLTemplate::initTemplate()
 		// calculate frame time and pass it to game->Tick
 		LARGE_INTEGER start, end;
 		QueryPerformanceCounter(&start);
-		game->Render();
 		game->Tick((float)lastftime);
 		QueryPerformanceCounter(&end);
 		lastftime = float(end.QuadPart - start.QuadPart) / float(ticksPS.QuadPart / 1000);
