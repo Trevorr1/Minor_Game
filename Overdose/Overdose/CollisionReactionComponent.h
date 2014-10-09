@@ -14,6 +14,11 @@ namespace overdose {
 
 		void receive(Component *subject, ComponentMessage message, GameEntity *object);
 		void tick(GameEntity *entity);
+
+
+	private:
+		bool isAlive = false;
 	};
+
 }
 
