@@ -38,7 +38,7 @@ void  PlayerInputComponent::tick(GameEntity *entity) {
 		break;
 
 	case 44: //space
-		entity->broadcast(this, PlayerInputComponent_ATTACK, entity);
+		entity->broadcast(this, PlayerInputComponent_ATTACK, nullptr);
 		break;
 	}
 
