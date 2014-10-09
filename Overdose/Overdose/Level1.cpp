@@ -1,8 +1,9 @@
 #include "stdafx.h"
 #include "Level1.h"
-#include "MoveComponent.h"
+#include "PlayerInputComponent.h"
 /*Test Data*/
 #include "DrawComponent.h"
+#include "MoveComponent.h"
 #include "Factory.h"
 
 using namespace overdose;
@@ -32,18 +33,15 @@ void Level1::addEntities(GameEntity* entities)
 
 void Level1::Init()
 {
-	m_Player = new GameEntity(Ross);
-	Component *comp = new MoveComponent();
-	m_Player->setPosX(100);
-	m_Player->setPosY(50);
-	m_Player->addComponent(*comp);
-	this->addEntities(m_Player);
+
 
 
 	/*Test Data*/
 	entityPtr = Factory::getInstance()->getGameEntity(eGameEntity::DrugAddict);
-	drawInvader = new DrawComponent("assets/bottom_enemy_anim.tga", 3);
-	entityPtr->addComponent(*drawInvader);
+
+	entityPtr->setSpeedY(0);
+
+	this->addEntities(entityPtr);
 }
 void Level1::Tick(float dt){
 
@@ -54,7 +52,9 @@ void Level1::Tick(float dt){
 void Level1::Render(Surface* surface){
 	m_Background->CopyTo(surface, 0, 0);
 
-	entityPtr->tick(); /*TODO: Right now, the tick method will be called first, 
+	entityPtr->tick();
+	
+	/*TODO: Right now, the tick method will be called first, 
 					   then the Render. Units with the draw component will be rendered first, 
 					   and thus wont be visible because the background is in front of them*/
 

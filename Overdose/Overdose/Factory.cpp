@@ -1,6 +1,8 @@
 #include "Factory.h"
 #include "MoveComponent.h"
 #include "DummyComponent.h"
+#include "DrawComponent.h"
+#include "PlayerInputComponent.h"
 
 using namespace overdose;
 
@@ -23,13 +25,16 @@ GameEntity* Factory::getGameEntity(eGameEntity entityEnum){
 
 	switch (entityEnum){
 	case Policeman:
-		newObject->addComponent(*new DummyComponent());
+	//	newObject->addComponent(*new DummyComponent());
 		break;
 	case Drugdealer:
-		newObject->addComponent(*new DummyComponent());
+	//	newObject->addComponent(*new DummyComponent());
 		break;
 	case DrugAddict:
+		newObject->addComponent(*new PlayerInputComponent());
 		newObject->addComponent(*new MoveComponent());
+		newObject->addComponent(*new DrawComponent("assets/bottom_enemy_anim.tga", 3));
+		
 		break;
 	}
 

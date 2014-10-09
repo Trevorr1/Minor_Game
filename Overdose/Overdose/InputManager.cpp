@@ -1,5 +1,5 @@
 #include "InputManager.h"
-
+#include <iostream>
 using namespace overdose;
 
 InputManager *InputManager::_instance = nullptr;
@@ -20,7 +20,8 @@ int InputManager::getLastKeyPress() {
 		keyPress = keyBuffer->top();
 		clearKeyBufferButOne();
 	}
-
+	if (keyPress != -1)
+		std::cout << "Retrieving keycode " << keyPress << std::endl;
 	return keyPress;
 }
 

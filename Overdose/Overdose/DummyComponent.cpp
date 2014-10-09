@@ -8,5 +8,5 @@ void  DummyComponent::receive(Component &component, int message) {
 }
 
 void  DummyComponent::tick(GameEntity &entity) {
-	std::cout << "GameTick" << std::endl;
+	std::cout << "DDummyGameTick" << std::endl;
 }
