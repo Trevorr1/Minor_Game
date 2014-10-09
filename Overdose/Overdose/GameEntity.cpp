@@ -18,15 +18,12 @@ GameEntity::~GameEntity() {
 
 /* Add component to the list */
 void GameEntity::addComponent(Component *component) {
-
 	compontentList->push_back(component);
 }
 
 void GameEntity::tick() {
-	if (!compontentList->empty()) {
-		for (auto &it : *compontentList) {
-			it->tick(this);
-		}
+	for (auto &it : *compontentList) {
+		it->tick(this);
 	}
 }
 
@@ -47,10 +44,8 @@ float GameEntity::getPosition(int index)
 
 
 void GameEntity::broadcast(Component *subject, ComponentMessage message, GameEntity *object) {
-	if (!compontentList->empty()) {
-		for (auto &it : *compontentList) {
-			it->receive(subject, message, object);
-		}
+	for (auto &it : *compontentList) {
+		it->receive(subject, message, object);
 	}
 }
 

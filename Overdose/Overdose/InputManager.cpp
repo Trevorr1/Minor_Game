@@ -32,7 +32,6 @@ void InputManager::clearKeyBufferButOne() {
 }
 
 void InputManager::clearKeyBuffer() {
-	std::cout << "Emptying keybuffer" << std::endl;
 	while (!keyBuffer->empty()) {
 		keyBuffer->pop();
 	}

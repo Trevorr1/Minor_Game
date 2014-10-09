@@ -44,7 +44,7 @@ void Level1::addCollectibles(GameEntity* entities)
 void Level1::Init()
 {
 	/*Test Data*/
-	GameEntity *entityPtr = GameEntityFactory::getInstance()->getGameEntity(DrugAddict);
+	GameEntity *entityPtr = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::DrugAddict);
 	entityPtr->setSpeedY(0);
 	this->addEntities(entityPtr);
 

@@ -3,7 +3,7 @@
 #include "DummyComponent.h"
 #include "DrawComponent.h"
 #include "PlayerInputComponent.h"
-
+#include <stdexcept>
 using namespace overdose;
 
 GameEntityFactory* GameEntityFactory::_instance = nullptr;
@@ -36,6 +36,8 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new DrawComponent("assets/bottom_enemy_anim.tga", 3));
 		
 		break;
+	default:
+		throw std::invalid_argument("Invalid game Entity passed to the factory"); // Veel te lang moeten debuggen waarom mij entities geen components hadden... >.<
 	}
 
 	return newObject;
