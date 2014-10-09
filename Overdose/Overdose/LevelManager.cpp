@@ -39,9 +39,7 @@ void LevelManager::Tick(float dt){
 	currentLevel->Tick(dt);
 }
 
-void LevelManager::Render(Surface* surface){
-	currentLevel->Render(surface);
-}
+
 
 LevelManager* LevelManager::getInstance()
 {

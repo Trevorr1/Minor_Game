@@ -11,12 +11,14 @@ namespace overdose {
 		float posX = 1.0, posY = 1.0, speedX = 1.0, speedY = 1.0;
 		int width = 0, height = 0;
 		eGameEntity m_EntityEnum;
-		bool isAlive = true;
+		//bool isAlive = true;
 
 	public:
 		virtual void addComponent(Component &component);
 
 		virtual void tick();
+
+		void broadcast(Component *subject, int message, GameEntity *object);
 
 		float getPosX();
 		float getPosY();
@@ -35,7 +37,7 @@ namespace overdose {
 		void setPosX(float px);
 		void setPosY(float py);
 
-		void setCollided();
+		//void setCollided();
 
 		GameEntity();
 		GameEntity(eGameEntity entityEnum);

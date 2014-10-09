@@ -16,12 +16,12 @@ DrawComponent::~DrawComponent()
 	delete m_SpritSheet;
 }
 
-void DrawComponent::receive(Component &component, int message)
+void DrawComponent::receive(Component *subject, int message, GameEntity *objects)
 {
 
 }
 
-void DrawComponent::tick(GameEntity &entity)
+void DrawComponent::tick(GameEntity *entity)
 {
-	m_SpritSheet->Draw((int)entity.getPosX(), (int)entity.getPosY(), DrawManager::getInstance()->getSurface());
+	m_SpritSheet->Draw((int)entity->getPosX(), (int)entity->getPosY(), DrawManager::getInstance()->getSurface());
 }
