@@ -30,14 +30,13 @@ void Game::Tick(float a_DT)
 {
 
 	//drawInvader->tick(entInvader);
-	//m_LevelManager->Tick(a_DT);
-	//InputManager::getInstance()->clearKeyBuffer();
+	m_LevelManager->Tick(a_DT);
+	InputManager::getInstance()->clearKeyBuffer();
 }
 
 void Game::Render(){
 	m_Screen->Clear(0x000000);
 	m_LevelManager->Render(m_Screen);
-	InputManager::getInstance()->clearKeyBuffer();
 }
 
 void Game::KeyDown(unsigned int code)

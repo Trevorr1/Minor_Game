@@ -4,14 +4,14 @@
 #include "GameEntity.h"
 
 namespace overdose {
-	class Factory
+	class GameEntityFactory
 	{
 	private:
-		static Factory* _instance;
-		Factory();
+		static GameEntityFactory* _instance;
+		GameEntityFactory();
 	public:
-		static Factory* getInstance();
+		static GameEntityFactory* getInstance();
 		GameEntity* getGameEntity(eGameEntity entityEnum);
-		~Factory();
+		~GameEntityFactory();
 	};
 }
