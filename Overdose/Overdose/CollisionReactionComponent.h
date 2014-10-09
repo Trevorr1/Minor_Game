@@ -12,7 +12,7 @@ namespace overdose {
 		CollisionReactionComponent();
 		~CollisionReactionComponent();
 
-		void receive(Component *subject, int message, GameEntity *object);
+		void receive(Component *subject, ComponentMessage message, GameEntity *object);
 		void tick(GameEntity *entity);
 	};
 }

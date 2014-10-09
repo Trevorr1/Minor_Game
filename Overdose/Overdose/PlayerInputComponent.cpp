@@ -36,5 +36,5 @@ void  PlayerInputComponent::tick(GameEntity *entity) {
 			entity->setSpeedX(-2);
 		}
 		break;
-
+	}
 }
