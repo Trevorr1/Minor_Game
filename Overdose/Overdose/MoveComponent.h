@@ -5,8 +5,8 @@ namespace overdose{
 		public Component
 	{
 	public:
-		void receive(Component &component, int message);
-		void tick(GameEntity &entity);
+		void receive(Component *subject, int message, GameEntity *object);
+		void tick(GameEntity *entity);
 	};
 
 }
