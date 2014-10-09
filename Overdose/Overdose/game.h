@@ -9,7 +9,6 @@
 		void SetTarget(Surface* a_Surface) { m_Screen = a_Surface; }
 		void Init();
 		void Tick(float a_DT);
-		void Render();
 		void KeyDown(unsigned int code);
 		void KeyUp(unsigned int code) {}
 		void MouseMove(unsigned int x, unsigned int y);
