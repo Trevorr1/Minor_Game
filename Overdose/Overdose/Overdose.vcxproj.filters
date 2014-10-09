@@ -115,10 +115,10 @@
       <Filter>Header Files\Component</Filter>
     </ClInclude>
     <ClInclude Include="DrawComponent.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Component</Filter>
     </ClInclude>
     <ClInclude Include="DrawManager.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Manager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -173,9 +173,6 @@
     <ClCompile Include="PlayerInputComponent.cpp">
       <Filter>Source Files\Component</Filter>
     </ClCompile>
-    <ClCompile Include="ILevel.cpp">
-      <Filter>Source Files\Level</Filter>
-    </ClCompile>
     <ClCompile Include="Level1.cpp">
       <Filter>Source Files\Level</Filter>
     </ClCompile>
@@ -183,10 +180,10 @@
       <Filter>Source Files\Component</Filter>
     </ClCompile>
     <ClCompile Include="DrawComponent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Component</Filter>
     </ClCompile>
     <ClCompile Include="DrawManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

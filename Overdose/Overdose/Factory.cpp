@@ -6,20 +6,20 @@
 
 using namespace overdose;
 
-Factory* Factory::_instance = nullptr;
+GameEntityFactory* GameEntityFactory::_instance = nullptr;
 
-Factory::Factory()
+GameEntityFactory::GameEntityFactory()
 {
 }
 
-Factory* Factory::getInstance(){
+GameEntityFactory* GameEntityFactory::getInstance(){
 	if (_instance == nullptr){
-		_instance = new Factory;
+		_instance = new GameEntityFactory;
 	}
 	return _instance;
 }
 
-GameEntity* Factory::getGameEntity(eGameEntity entityEnum){
+GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 
 	GameEntity* newObject = new GameEntity(entityEnum);
 
@@ -42,7 +42,7 @@ GameEntity* Factory::getGameEntity(eGameEntity entityEnum){
 }
 
 
-Factory::~Factory()
+GameEntityFactory::~GameEntityFactory()
 {
 	delete _instance;
 }
