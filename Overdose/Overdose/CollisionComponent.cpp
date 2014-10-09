@@ -41,7 +41,7 @@ void CollisionComponent::tick(GameEntity *entity) {
 				(oposy > posy && oposy < posy + height || oposy + oheight > posy && oposy + oheight < posy + height))
 			{
 				// do collision
-				entity->broadcast(this, 0, other);
+				entity->broadcast(this, CollissionComponent_COLLISION, other);
 				
 			}
 

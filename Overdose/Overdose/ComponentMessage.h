@@ -1,7 +1,10 @@
 #pragma once
 namespace overdose {
 	enum ComponentMessage {
+		/* naamgevingsconventie: ComponentNaam_MESSAGE */
 		PlayerInputComponent_ATTACK,
-		Player_ATTACKING
+		CollissionComponent_COLLISION,
+		Player_ATTACKING,
+
 	};
 }

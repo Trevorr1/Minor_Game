@@ -123,6 +123,9 @@
     <ClInclude Include="PlayerAttackComponent.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
+    <ClInclude Include="ComponentMessage.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DummyComponent.cpp">
