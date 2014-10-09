@@ -7,7 +7,7 @@ namespace overdose{
 	public:
 		PlayerAttackComponent();
 		~PlayerAttackComponent();
-		void receive(Component &component, int message);
+		void receive(Component *subject, int message, GameEntity *object);
 		void tick(GameEntity &entity);
 	private: 
 		bool attacking;

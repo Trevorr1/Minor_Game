@@ -120,6 +120,9 @@
     <ClInclude Include="DrawManager.h">
       <Filter>Header Files\Manager</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerAttackComponent.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DummyComponent.cpp">
@@ -184,6 +187,9 @@
     </ClCompile>
     <ClCompile Include="DrawManager.cpp">
       <Filter>Source Files\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerAttackComponent.cpp">
+      <Filter>Source Files\Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

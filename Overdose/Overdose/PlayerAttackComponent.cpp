@@ -13,10 +13,11 @@ PlayerAttackComponent::~PlayerAttackComponent()
 
 void PlayerAttackComponent::tick(GameEntity &entity)
 {
-	//entity.broadcast
+	if (attacking)
+		entity.broadcast(this, 45, nullptr); //player attacking
 }
 
-void PlayerAttackComponent::receive(Component &component, int message)
+void PlayerAttackComponent::receive(Component *subject, int message, GameEntity *object)
 {
 	if (message == 44)
 	{
