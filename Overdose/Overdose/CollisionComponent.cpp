@@ -15,7 +15,7 @@ CollisionComponent::~CollisionComponent()
 {
 }
 
-void CollisionComponent::receive(Component &component, int message) {
+void CollisionComponent::receive(Component *subject, int message, GameEntity *object) {
 
 }
 

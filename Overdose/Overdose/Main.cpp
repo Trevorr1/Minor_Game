@@ -16,7 +16,7 @@ int main(int argc, const char* argv[])
 {
 
 	//moet ff uitzoeken hoe de componentContainer benaderbaar is via GameEntitty
-	GameEntity *entity = Factory::getInstance()->getGameEntity(eGameEntity::Policeman);
+	GameEntity *entity = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Policeman);
 
 	
 

@@ -18,6 +18,8 @@ namespace overdose {
 
 		virtual void tick();
 
+		void broadcast(Component *subject, int message, GameEntity *object);
+
 		float getPosX();
 		float getPosY();
 		float getSpeedX();
