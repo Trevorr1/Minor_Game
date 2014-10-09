@@ -3,7 +3,7 @@
 
 using namespace overdose;
 
-void  PlayerInputComponent::receive(Component *subject, int message, GameEntity *object) {
+void  PlayerInputComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
 
 }
 
@@ -38,7 +38,7 @@ void  PlayerInputComponent::tick(GameEntity *entity) {
 		break;
 
 	case 44: //space
-		entity->broadcast(this, 44, entity);
+		entity->broadcast(this, PlayerInputComponent_ATTACK, entity);
 		break;
 	}
 

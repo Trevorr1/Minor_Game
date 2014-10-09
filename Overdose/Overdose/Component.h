@@ -1,5 +1,7 @@
 #pragma once
 #include "GameEntity.h"
+#include "ComponentMessage.h"
+
 namespace overdose {
 	class GameEntity;
 
@@ -7,7 +9,7 @@ namespace overdose {
 	{
 	public:
 
-		virtual void receive(Component *subject, int message, GameEntity *object) = 0;
+		virtual void receive(Component *subject, ComponentMessage message, GameEntity *object) = 0;
 
 		
 

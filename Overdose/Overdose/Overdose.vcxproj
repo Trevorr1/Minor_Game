@@ -77,6 +77,7 @@
     <ClInclude Include="BspTree.h" />
     <ClInclude Include="CollisionComponent.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="ComponentMessage.h" />
     <ClInclude Include="DrawComponent.h" />
     <ClInclude Include="DrawManager.h" />
     <ClInclude Include="game.h" />
