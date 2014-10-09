@@ -11,6 +11,7 @@ using namespace overdose;
 
 /*Test Data*/
 GameEntity* entityPtr = nullptr;
+GameEntity* entityCop = nullptr;
 
 Level1::Level1()
 {
@@ -44,14 +45,24 @@ void Level1::addCollectibles(GameEntity* entities)
 void Level1::Init()
 {
 	/*Test Data*/
+	/*
 	entityPtr = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::DrugAddict);
 	entityPtr->setSpeedY(0);
 	this->addEntities(entityPtr);
+	*/
+
+	entityCop = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Policeman);
+	entityCop->setPosX(100); 
+	entityCop->setPosY(100);
+	entityCop->setSpeedY(0);
+	this->addEntities(entityCop);
 }
+
 void Level1::Tick(float dt){
 	DrawBackground();
 	/*Test Data*/
-	entityPtr->tick();
+	//entityPtr->tick();
+	entityCop->tick();
 }
 
 void Level1::DrawBackground(){

@@ -1,5 +1,7 @@
 #include "Factory.h"
 #include "MoveComponent.h"
+#include "EnemyMoveComponent.h"
+#include "CollisionComponent.h"
 #include "DummyComponent.h"
 #include "DrawComponent.h"
 #include "PlayerInputComponent.h"
@@ -25,7 +27,11 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 
 	switch (entityEnum){
 	case Policeman:
-	//	newObject->addComponent(*new DummyComponent());
+		newObject->addComponent(*new EnemyMoveComponent());
+		newObject->addComponent(*new MoveComponent());
+		newObject->addComponent(*new DrawComponent("assets/sprites/cop.png", 1));
+		newObject->addComponent(*new CollisionComponent());
+		newObject->setSpeedX(-1);
 		break;
 	case Drugdealer:
 	//	newObject->addComponent(*new DummyComponent());
@@ -34,7 +40,6 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(*new PlayerInputComponent());
 		newObject->addComponent(*new MoveComponent());
 		newObject->addComponent(*new DrawComponent("assets/bottom_enemy_anim.tga", 3));
-		
 		break;
 	}
 
