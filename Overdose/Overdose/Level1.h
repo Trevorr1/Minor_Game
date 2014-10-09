@@ -15,10 +15,10 @@ public:
 	std::vector<GameEntity> *getEnemies();
 	std::vector<GameEntity> *getCollectibles();
 	void Tick(float a_DT);
-	void Render(Surface* surface);
 private:
 	std::vector<GameEntity> *enemies;
 	std::vector<GameEntity> *collectibles;
+	void DrawBackground();
 };
 
 }

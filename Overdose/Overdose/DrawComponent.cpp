@@ -16,7 +16,7 @@ DrawComponent::~DrawComponent()
 	delete m_SpritSheet;
 }
 
-void DrawComponent::receive(Component *subject, int message, GameEntity *objects)
+void DrawComponent::receive(Component *subject, ComponentMessage message, GameEntity *objects)
 {
 
 }

@@ -3,7 +3,7 @@
 
 using namespace overdose;
 
-void  MoveComponent::receive(Component *subject, int message, GameEntity *object) {
+void  MoveComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
 
 }
 

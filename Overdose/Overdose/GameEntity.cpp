@@ -38,7 +38,7 @@ GameEntity::GameEntity(eGameEntity entityEnum) {
 	m_EntityEnum = entityEnum;
 }
 
-void GameEntity::broadcast(Component *subject, int message, GameEntity *object) {
+void GameEntity::broadcast(Component *subject, ComponentMessage message, GameEntity *object) {
 	for (vector<Component*>::iterator it = compontentList->begin(); it != compontentList->end(); it++) {
 		Component *component = *it;
 		component->receive(subject, message, object);

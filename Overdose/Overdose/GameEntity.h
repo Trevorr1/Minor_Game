@@ -2,7 +2,7 @@
 #include "stdafx.h"
 #include "Enum.h"
 #include "Component.h"
-
+#include "ComponentMessage.h" 
 namespace overdose {
 	class Component;
 	class GameEntity
@@ -18,7 +18,7 @@ namespace overdose {
 
 		virtual void tick();
 
-		void broadcast(Component *subject, int message, GameEntity *object);
+		void broadcast(Component *subject, ComponentMessage message, GameEntity *object);
 
 		float getPosX();
 		float getPosY();
