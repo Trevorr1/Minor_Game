@@ -1,9 +1,9 @@
 #include "PlayerAttackComponent.h"
-
+#include "InputManager.h"
 using namespace overdose;
 PlayerAttackComponent::PlayerAttackComponent()
 {
-	attacking = false;
+
 }
 
 
@@ -13,21 +13,17 @@ PlayerAttackComponent::~PlayerAttackComponent()
 
 void PlayerAttackComponent::tick(GameEntity &entity)
 {
-	if (attacking)
-		entity.broadcast(this, 45, nullptr); //player attacking
+	int keyDown = InputManager::getInstance()->getLastKeyPress();
+	if (keyDown == 44)
+	{
+		entity.broadcast(this, Player_ATTACKING, nullptr);
+	}
+
 }
 
-void PlayerAttackComponent::receive(Component *subject, int message, GameEntity *object)
+void PlayerAttackComponent::receive(Component *subject, ComponentMessage message, GameEntity *object)
 {
-	if (message == 44)
-	{
-		//attacking
-		attacking = true;
-	}
-	else
-	{
-		attacking = false;
-	}
+
 }
 
 
