@@ -78,6 +78,7 @@
     <ClInclude Include="CollisionComponent.h" />
     <ClInclude Include="CollisionReactionComponent.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="ComponentMessage.h" />
     <ClInclude Include="DrawComponent.h" />
     <ClInclude Include="DrawManager.h" />
     <ClInclude Include="game.h" />
@@ -91,6 +92,7 @@
     <ClInclude Include="Level1.h" />
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="MoveComponent.h" />
+    <ClInclude Include="PlayerAttackComponent.h" />
     <ClInclude Include="PlayerInputComponent.h" />
     <ClInclude Include="SDLTemplate.h" />
     <ClInclude Include="SplitNode.h" />
@@ -115,6 +117,7 @@
     <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MoveComponent.cpp" />
+    <ClCompile Include="PlayerAttackComponent.cpp" />
     <ClCompile Include="PlayerInputComponent.cpp" />
     <ClCompile Include="SDLTemplate.cpp" />
     <ClCompile Include="SplitNode.cpp" />
