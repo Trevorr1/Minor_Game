@@ -3,19 +3,30 @@
 using std::vector;
 using namespace overdose;
 
-vector<Component*> *compontentList = new vector<Component*>();
+GameEntity::GameEntity() {
+
+}
+GameEntity::GameEntity(eGameEntity entityEnum) {
+	m_EntityEnum = entityEnum;
+}
+
+GameEntity::~GameEntity() {
+	delete compontentList;
+}
+
 
 
 /* Add component to the list */
-void GameEntity::addComponent(Component &component) {
+void GameEntity::addComponent(Component *component) {
 
-	compontentList->push_back(&component);
+	compontentList->push_back(component);
 }
 
 void GameEntity::tick() {
-	for (vector<Component*>::iterator it = compontentList->begin(); it != compontentList->end(); it++) {
-		Component *component = *it;
-		component->tick(this);
+	if (!compontentList->empty()) {
+		for (auto &it : *compontentList) {
+			it->tick(this);
+		}
 	}
 }
 
@@ -32,23 +43,16 @@ float GameEntity::getPosition(int index)
 	else return 0;
 }
 
-GameEntity::GameEntity() {}
 
-GameEntity::GameEntity(eGameEntity entityEnum) {
-	m_EntityEnum = entityEnum;
-}
+
 
 void GameEntity::broadcast(Component *subject, ComponentMessage message, GameEntity *object) {
-	for (vector<Component*>::iterator it = compontentList->begin(); it != compontentList->end(); it++) {
-		Component *component = *it;
-		component->receive(subject, message, object);
+	if (!compontentList->empty()) {
+		for (auto &it : *compontentList) {
+			it->receive(subject, message, object);
+		}
 	}
 }
-
-GameEntity::~GameEntity() {
-	delete compontentList;
-}
-
 
 float GameEntity::getPosX() {
 	return posX;

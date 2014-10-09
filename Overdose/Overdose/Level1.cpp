@@ -44,9 +44,14 @@ void Level1::addCollectibles(GameEntity* entities)
 void Level1::Init()
 {
 	/*Test Data*/
-	entityPtr = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::DrugAddict);
+	entityPtr = GameEntityFactory::getInstance()->getGameEntity(DrugAddict);
 	entityPtr->setSpeedY(0);
-	this->addEntities(entityPtr);
+	//this->addEntities(entityPtr);
+
+	GameEntity *entityPtr1 = GameEntityFactory::getInstance()->getGameEntity(DrugAddict);
+	entityPtr1->setPosY(50);
+	entityPtr1->setSpeedY(0);
+	this->addEntities(entityPtr1);
 }
 void Level1::Tick(float dt){
 	DrawBackground();

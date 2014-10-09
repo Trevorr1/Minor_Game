@@ -31,9 +31,9 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	//	newObject->addComponent(*new DummyComponent());
 		break;
 	case DrugAddict:
-		newObject->addComponent(*new PlayerInputComponent());
-		newObject->addComponent(*new MoveComponent());
-		newObject->addComponent(*new DrawComponent("assets/bottom_enemy_anim.tga", 3));
+		newObject->addComponent(new PlayerInputComponent());
+		newObject->addComponent(new MoveComponent());
+		newObject->addComponent(new DrawComponent("assets/bottom_enemy_anim.tga", 3));
 		
 		break;
 	}
