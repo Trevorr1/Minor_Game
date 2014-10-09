@@ -30,7 +30,7 @@ void CollisionComponent::tick(GameEntity *entity) {
 
 	for (int i = 0; i < (int)gameEntities->size(); i++){
 		GameEntity* other = &(gameEntities->at(i));
-		if (entity != other && entityEnum != other->getEnum())// overload operator?
+		if (entity != other)
 		{
 			int oposx = (int)other->getPosX();
 			int oposy = (int)other->getPosY();
@@ -41,7 +41,7 @@ void CollisionComponent::tick(GameEntity *entity) {
 				(oposy > posy && oposy < posy + height || oposy + oheight > posy && oposy + oheight < posy + height))
 			{
 				// do collision
-				//entity->setCollided();
+				entity->broadcast(this, 0, other);
 				
 			}
 

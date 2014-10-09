@@ -92,6 +92,3 @@ void GameEntity::setPosY(float py) {
 	posY = py;
 }
 
-//void GameEntity::setCollided() {
-//	isAlive = false;
-//}
