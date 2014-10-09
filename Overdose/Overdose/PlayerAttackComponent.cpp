@@ -18,7 +18,7 @@ void PlayerAttackComponent::tick(GameEntity &entity)
 
 void PlayerAttackComponent::receive(Component &component, int message)
 {
-	if (message == 1)
+	if (message == 44)
 	{
 		//attacking
 		attacking = true;
