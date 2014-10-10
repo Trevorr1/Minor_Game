@@ -19,7 +19,7 @@ void CollisionComponent::receive(Component *subject, ComponentMessage message, G
 
 }
 
-void CollisionComponent::tick(GameEntity *entity) {
+void CollisionComponent::tick(float dt, GameEntity *entity) {
 	int posx = (int)entity->getPosX();
 	int posy = (int)entity->getPosY();
 	int width = entity->getWidth();

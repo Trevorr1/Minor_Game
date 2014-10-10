@@ -7,7 +7,7 @@ void  MoveComponent::receive(Component *subject, ComponentMessage message, GameE
 
 }
 
-void  MoveComponent::tick(GameEntity *entity) {
+void  MoveComponent::tick(float dt, GameEntity *entity) {
 
 	float posX = entity->getPosX();
 	float posY = entity->getPosY();

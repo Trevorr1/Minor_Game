@@ -28,7 +28,7 @@ void Game::Init()
 
 void Game::Tick(float a_DT)
 {
-	//drawInvader->tick(entInvader);
+	std::cout << "DeltaTime: " << a_DT << std::endl;
 	m_LevelManager->Tick(a_DT);
 	InputManager::getInstance()->clearKeyBuffer();
 }

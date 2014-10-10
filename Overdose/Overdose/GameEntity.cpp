@@ -21,9 +21,9 @@ void GameEntity::addComponent(Component *component) {
 	compontentList->push_back(component);
 }
 
-void GameEntity::tick() {
+void GameEntity::tick(float dt) {
 	for (auto &it : *compontentList) {
-		it->tick(this);
+		it->tick(dt, this);
 	}
 }
 

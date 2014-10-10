@@ -21,7 +21,7 @@ void DrawComponent::receive(Component *subject, ComponentMessage message, GameEn
 
 }
 
-void DrawComponent::tick(GameEntity *entity)
+void DrawComponent::tick(float dt, GameEntity *entity)
 {
 	m_SpritSheet->Draw((int)entity->getPosX(), (int)entity->getPosY(), DrawManager::getInstance()->getSurface());
 }

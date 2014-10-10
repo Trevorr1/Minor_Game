@@ -57,7 +57,7 @@ void Level1::Tick(float dt){
 	DrawBackground();
 	/*Test Data*/
 	for (auto &it : *entities) {
-		it->tick();
+		it->tick(dt);
 	}
 }
 

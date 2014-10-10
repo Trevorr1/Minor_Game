@@ -17,7 +17,7 @@ namespace overdose {
 	public:
 		virtual void addComponent(Component *component);
 
-		virtual void tick();
+		virtual void tick(float dt);
 
 		void broadcast(Component *subject, ComponentMessage message, GameEntity *object);
 
