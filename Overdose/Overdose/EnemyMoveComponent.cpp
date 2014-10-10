@@ -12,15 +12,17 @@ EnemyMoveComponent::~EnemyMoveComponent()
 
 }
 
-void  EnemyMoveComponent::receive(Component *subject, ComponentMessage message, GameEntity *object)
+void  EnemyMoveComponent::receive(Component *subject, int message, GameEntity *object) 
 {
 
 }
 
-void  EnemyMoveComponent::tick(float dt, GameEntity *entity)
+void  EnemyMoveComponent::tick(GameEntity *entity)
 {
 	if (entity->getPosX() < 0 || entity->getPosX() > 500)
 	{
 		entity->setSpeedX(entity->getSpeedX() * -1);
 	}
 }
+
+

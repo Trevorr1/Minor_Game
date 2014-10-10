@@ -9,8 +9,8 @@ namespace overdose{
 	public:
 		EnemyMoveComponent();
 		~EnemyMoveComponent();
-		void receive(Component *subject, ComponentMessage message, GameEntity *object);
-		void tick(float dt, GameEntity *entity);
+		void receive(Component *subject, int message, GameEntity *object);
+		void tick(GameEntity *entity);
 	};
 
 }
