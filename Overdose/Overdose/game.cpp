@@ -11,18 +11,15 @@
 
 using namespace overdose;
 
-
-
-Game::Game(){
-	m_LevelManager = LevelManager::getInstance();
-}
-Game::~Game(){
+Game::~Game()
+{
 	delete m_LevelManager;
 }
 
 void Game::Init()
 {
 	// put your initialization code here; will be executed once
+	m_LevelManager = LevelManager::getInstance();
 	DrawManager::getInstance()->setTargetSurface(m_Screen);
 }
 
