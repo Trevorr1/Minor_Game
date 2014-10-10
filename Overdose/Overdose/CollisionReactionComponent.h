@@ -5,18 +5,20 @@
 
 namespace overdose {
 
-	class CollisionComponent : public Component
+	class CollisionReactionComponent :
+		public Component
 	{
 	public:
-		CollisionComponent();
-		~CollisionComponent();
-
+		CollisionReactionComponent();
+		~CollisionReactionComponent();
 
 		void receive(Component *subject, ComponentMessage message, GameEntity *object);
 		void tick(float dt, GameEntity *entity);
+
+
 	private:
-		//SDL_Rect collisionRect;
+		bool isAlive = false;
 	};
 
-
 }
+

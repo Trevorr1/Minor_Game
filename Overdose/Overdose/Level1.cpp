@@ -10,13 +10,13 @@ using namespace overdose;
 
 
 /*Test Data*/
-GameEntity* entityPtr = nullptr;
+//GameEntity* entityPtr = nullptr;
 
 Level1::Level1()
 {
-	entities = new std::vector<GameEntity>();
-	enemies = new std::vector<GameEntity>();
-	collectibles = new std::vector<GameEntity>();
+	entities = new std::vector<GameEntity*>();
+	enemies = new std::vector<GameEntity*>();
+	collectibles = new std::vector<GameEntity*>();
 	m_Background = new Surface("assets/backgrounds/background.jpg");
 }
 
@@ -28,30 +28,38 @@ Level1::~Level1()
 
 void Level1::addEntities(GameEntity* entities)
 {
-	this->entities->push_back(*entities);
+	this->entities->push_back(entities);
 }
 
 void Level1::addEnemies(GameEntity* entities)
 {
-	this->enemies->push_back(*entities);
+	this->enemies->push_back(entities);
 }
 
 void Level1::addCollectibles(GameEntity* entities)
 {
-	this->collectibles->push_back(*entities);
+	this->collectibles->push_back(entities);
 }
 
 void Level1::Init()
 {
 	/*Test Data*/
-	entityPtr = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::DrugAddict);
+	GameEntity *entityPtr = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::FPSCounter);
 	entityPtr->setSpeedY(0);
+	entityPtr->setPosX(0);
 	this->addEntities(entityPtr);
+
+	GameEntity *entityPtr1 = GameEntityFactory::getInstance()->getGameEntity(DrugAddict);
+	entityPtr1->setPosY(50);
+	entityPtr1->setSpeedY(0);
+	this->addEntities(entityPtr1);
 }
 void Level1::Tick(float dt){
 	DrawBackground();
 	/*Test Data*/
-	entityPtr->tick();
+	for (auto &it : *entities) {
+		it->tick(dt);
+	}
 }
 
 void Level1::DrawBackground(){
@@ -62,14 +70,14 @@ GameEntity* Level1::getPlayerEntity(){
 	return m_Player;
 }
 
-std::vector<GameEntity>* Level1::getEntities(){
+std::vector<GameEntity*>* Level1::getEntities(){
 	return entities;
 }
 
-std::vector<GameEntity>* Level1::getCollectibles(){
+std::vector<GameEntity*>* Level1::getCollectibles(){
 	return collectibles;
 }
 
-std::vector<GameEntity>* Level1::getEnemies(){
+std::vector<GameEntity*>* Level1::getEnemies(){
 	return enemies;
 }

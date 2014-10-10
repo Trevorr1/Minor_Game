@@ -177,6 +177,7 @@ void SDLTemplate::initTemplate()
 	//SDL_SetVideoMode( SCRWIDTH, SCRHEIGHT, 32, SDL_OPENGL );
 	//SDL_EnableKeyRepeat( 0, 0 );
 	bool vbo = true;
+
 	if (!init())
 	{
 		//SDL_SetVideoMode( SCRWIDTH, SCRHEIGHT, 32, SDL_HWSURFACE|SDL_DOUBLEBUF );
@@ -228,7 +229,9 @@ void SDLTemplate::initTemplate()
 		QueryPerformanceCounter(&start);
 		game->Tick((float)lastftime);
 		QueryPerformanceCounter(&end);
-		lastftime = float(end.QuadPart - start.QuadPart) / float(ticksPS.QuadPart / 1000);
+		lastftime = (end.QuadPart - start.QuadPart);
+
+		
 		// event loop
 		SDL_Event event;
 		while (SDL_PollEvent(&event))

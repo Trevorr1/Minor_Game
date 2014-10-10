@@ -15,14 +15,14 @@ public:
 	virtual void addEnemies(GameEntity* entity) = 0;
 	virtual void addCollectibles(GameEntity* entity) = 0;
 	virtual GameEntity* getPlayerEntity() = 0;
-	virtual std::vector<GameEntity> *getEntities() = 0;
-	virtual std::vector<GameEntity> *getEnemies() = 0;
-	virtual std::vector<GameEntity> *getCollectibles() = 0;
+	virtual std::vector<GameEntity*> *getEntities() = 0;
+	virtual std::vector<GameEntity*> *getEnemies() = 0;
+	virtual std::vector<GameEntity*> *getCollectibles() = 0;
 	virtual void Tick(float a_DT) = 0;
 protected:
-	std::vector<GameEntity> *entities;
-	std::vector<GameEntity> *enemies;
-	std::vector<GameEntity> *collectibles;
+	std::vector<GameEntity*> *entities;
+	std::vector<GameEntity*> *enemies;
+	std::vector<GameEntity*> *collectibles;
 	virtual void DrawBackground() = 0;
 	Surface* m_Background;
 	GameEntity* m_Player;
