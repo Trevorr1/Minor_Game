@@ -1,4 +1,4 @@
-#include "Factory.h"
+#include "GameEntityFactory.h"
 #include "MoveComponent.h"
 #include "DummyComponent.h"
 #include "EnemyMoveComponent.h"
@@ -28,6 +28,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 
 	switch (entityEnum){
 	case Policeman:
+		//	newObject->addComponent(*new DummyComponent());
 		newObject->addComponent(new EnemyMoveComponent());
 		newObject->addComponent(new MoveComponent());
 		newObject->addComponent(new DrawComponent("assets/sprites/cop.png", 1));
@@ -44,7 +45,6 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new PlayerInputComponent());
 		newObject->addComponent(new MoveComponent());
 		newObject->addComponent(new DrawComponent("assets/bottom_enemy_anim.tga", 3));
-
 		break;
 	default:
 		throw std::invalid_argument("Invalid game Entity passed to the factory"); // Veel te lang moeten debuggen waarom mij entities geen components hadden... >.<

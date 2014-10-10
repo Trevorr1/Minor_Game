@@ -80,10 +80,11 @@
     <ClInclude Include="DrawComponent.h" />
     <ClInclude Include="DrawManager.h" />
     <ClInclude Include="EnemyMoveComponent.h" />
+    <ClInclude Include="FPSDrawComponent.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="EndNode.h" />
     <ClInclude Include="Enum.h" />
-    <ClInclude Include="Factory.h" />
+    <ClInclude Include="GameEntityFactory.h" />
     <ClInclude Include="GameEntity.h" />
     <ClInclude Include="DummyComponent.h" />
     <ClInclude Include="ILevel.h" />
@@ -104,10 +105,11 @@
     <ClCompile Include="DrawComponent.cpp" />
     <ClCompile Include="DrawManager.cpp" />
     <ClCompile Include="EnemyMoveComponent.cpp" />
+    <ClCompile Include="FPSDrawComponent.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="BspTree.cpp" />
     <ClCompile Include="EndNode.cpp" />
-    <ClCompile Include="Factory.cpp" />
+    <ClCompile Include="GameEntityFactory.cpp" />
     <ClCompile Include="GameEntity.cpp" />
     <ClCompile Include="DummyComponent.cpp" />
     <ClCompile Include="InputManager.cpp" />

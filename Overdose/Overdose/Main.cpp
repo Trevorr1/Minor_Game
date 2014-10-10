@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "Factory.h"
+#include "GameEntityFactory.h"
 #include "InputManager.h"
 
 #include "game.h"

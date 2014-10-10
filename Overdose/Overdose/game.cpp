@@ -4,7 +4,7 @@
 #include "template.h"
 #include "game.h"
 
-#include "Factory.h"
+#include "GameEntityFactory.h"
 #include "GameEntity.h"
 #include "DrawComponent.h"
 #include "DrawManager.h"
