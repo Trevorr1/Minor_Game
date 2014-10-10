@@ -1,13 +1,13 @@
 #pragma once
 #include "Component.h"
-#include "InputManager.h"
+
 namespace overdose{
-	class PlayerInputComponent :
-		public Component
+	class PlayerAttackComponent : public Component
 	{
 	public:
+		PlayerAttackComponent();
+		~PlayerAttackComponent();
 		void receive(Component *subject, ComponentMessage message, GameEntity *object);
 		void tick(float dt, GameEntity *entity);
 	};
-
 }

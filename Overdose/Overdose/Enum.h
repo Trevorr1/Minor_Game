@@ -1,6 +1,6 @@
 #pragma once
 namespace overdose {
 	enum eGameEntity {
-		Policeman, DrugAddict, Junky, Drugdealer, Ross
+		Policeman, DrugAddict, Junky, Drugdealer, FPSCounter
 	};
 }
