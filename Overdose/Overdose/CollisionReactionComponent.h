@@ -17,7 +17,7 @@ namespace overdose {
 
 
 	private:
-		bool isAlive = false;
+		bool isAlive = true;
 	};
 
 }
