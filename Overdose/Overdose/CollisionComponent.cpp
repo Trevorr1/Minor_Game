@@ -19,17 +19,17 @@ void CollisionComponent::receive(Component *subject, ComponentMessage message, G
 
 }
 
-void CollisionComponent::tick(GameEntity *entity) {
+void CollisionComponent::tick(float dt, GameEntity *entity) {
 	int posx = (int)entity->getPosX();
 	int posy = (int)entity->getPosY();
 	int width = entity->getWidth();
 	int height = entity->getHeight();
 	eGameEntity entityEnum = entity->getEnum();
 
-	vector<GameEntity> *gameEntities = LevelManager::getInstance()->getCurrentLevel()->getEntities();
+	vector<GameEntity*> *gameEntities = LevelManager::getInstance()->getCurrentLevel()->getEntities();
 
 	for (int i = 0; i < (int)gameEntities->size(); i++){
-		GameEntity* other = &(gameEntities->at(i));
+		GameEntity* other = gameEntities->at(i);
 		if (entity != other)
 		{
 			int oposx = (int)other->getPosX();
@@ -41,7 +41,7 @@ void CollisionComponent::tick(GameEntity *entity) {
 				(oposy > posy && oposy < posy + height || oposy + oheight > posy && oposy + oheight < posy + height))
 			{
 				// do collision
-				entity->broadcast(this, Player_ATTACKING, other);
+				entity->broadcast(this, CollissionComponent_COLLISION, other);
 				
 			}
 

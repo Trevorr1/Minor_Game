@@ -126,6 +126,12 @@
     <ClInclude Include="PlayerAttackComponent.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
+    <ClInclude Include="ComponentMessage.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="FPSDrawComponent.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DummyComponent.cpp">
@@ -192,6 +198,9 @@
       <Filter>Source Files\Manager</Filter>
     </ClCompile>
     <ClCompile Include="PlayerAttackComponent.cpp">
+      <Filter>Source Files\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="FPSDrawComponent.cpp">
       <Filter>Source Files\Component</Filter>
     </ClCompile>
     <ClCompile Include="CollisionReactionComponent.cpp">

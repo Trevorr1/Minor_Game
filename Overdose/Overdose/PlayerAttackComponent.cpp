@@ -11,12 +11,12 @@ PlayerAttackComponent::~PlayerAttackComponent()
 {
 }
 
-void PlayerAttackComponent::tick(GameEntity &entity)
+void PlayerAttackComponent::tick(float dt, GameEntity *entity)
 {
 	int keyDown = InputManager::getInstance()->getLastKeyPress();
 	if (keyDown == 44)
 	{
-		entity.broadcast(this, Player_ATTACKING, nullptr);
+		entity->broadcast(this, Player_ATTACKING, nullptr);
 	}
 
 }

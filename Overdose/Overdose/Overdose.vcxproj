@@ -81,6 +81,7 @@
     <ClInclude Include="ComponentMessage.h" />
     <ClInclude Include="DrawComponent.h" />
     <ClInclude Include="DrawManager.h" />
+    <ClInclude Include="FPSDrawComponent.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="EndNode.h" />
     <ClInclude Include="Enum.h" />
@@ -106,6 +107,7 @@
     <ClCompile Include="CollisionReactionComponent.cpp" />
     <ClCompile Include="DrawComponent.cpp" />
     <ClCompile Include="DrawManager.cpp" />
+    <ClCompile Include="FPSDrawComponent.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="BspTree.cpp" />
     <ClCompile Include="EndNode.cpp" />

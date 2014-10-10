@@ -12,11 +12,12 @@ namespace overdose {
 		int width = 0, height = 0;
 		eGameEntity m_EntityEnum;
 		//bool isAlive = true;
+		std::vector<Component*> *compontentList = new std::vector<Component*>;
 
 	public:
-		virtual void addComponent(Component &component);
+		virtual void addComponent(Component *component);
 
-		virtual void tick();
+		virtual void tick(float dt);
 
 		void broadcast(Component *subject, ComponentMessage message, GameEntity *object);
 

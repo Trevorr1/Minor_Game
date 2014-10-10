@@ -13,6 +13,6 @@ namespace overdose {
 
 		
 
-		virtual void tick(GameEntity *entity) = 0;
+		virtual void tick(float dt, GameEntity *entity) = 0;
 	};
 }

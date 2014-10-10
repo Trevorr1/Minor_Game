@@ -7,6 +7,6 @@ void  DummyComponent::receive(Component *subject, ComponentMessage message, Game
 	std::cout << "received messages from component: " + message << std::endl;
 }
 
-void  DummyComponent::tick(GameEntity *entity) {
+void  DummyComponent::tick(float dt, GameEntity *entity) {
 	std::cout << "DDummyGameTick" << std::endl;
 }
