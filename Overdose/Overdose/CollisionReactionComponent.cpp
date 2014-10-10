@@ -20,7 +20,7 @@ void CollisionReactionComponent::receive(Component *subject, ComponentMessage me
 	}
 }
 
-void CollisionReactionComponent::tick(GameEntity *entity) {
+void CollisionReactionComponent::tick(float dt, GameEntity *entity) {
 
 	if (isAlive){
 		delete entity;
