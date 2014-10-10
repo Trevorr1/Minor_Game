@@ -4,15 +4,15 @@ extern "C"
 {
 #include "glew.h" 
 }
-#include "gl.h"
+//#include "gl.h"
 #include "io.h"
-#include <ios>
-#include <iostream>
-#include <fstream>
-#include <stdio.h>
+//#include <ios>
+//#include <iostream>
+//#include <fstream>
+//#include <stdio.h>
 #include "SDL.h"
-#include "SDL_syswm.h"
-#include "wglext.h"
+//#include "SDL_syswm.h"
+//#include "wglext.h"
 #include "game.h"
 #include "surface.h"
 #include "template.h"
