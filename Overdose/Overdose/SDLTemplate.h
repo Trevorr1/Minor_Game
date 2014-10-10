@@ -1,7 +1,10 @@
 #pragma once
 
-#define SCRWIDTH	640
-#define SCRHEIGHT	480
+#include "math.h"
+#include "stdlib.h"
+#include "emmintrin.h"
+#include "stdio.h"
+#include "windows.h"
 
 	class SDLTemplate
 	{

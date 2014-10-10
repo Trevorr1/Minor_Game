@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Factory.h"
 #include "InputManager.h"
+
+#include "game.h"
 #include "SDLTemplate.h"
 
 
