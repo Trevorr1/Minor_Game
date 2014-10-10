@@ -2,6 +2,7 @@
 #include "MoveComponent.h"
 #include "DummyComponent.h"
 #include "DrawComponent.h"
+#include "FPSDrawComponent.h"
 #include "PlayerInputComponent.h"
 #include <stdexcept>
 using namespace overdose;
@@ -29,6 +30,9 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		break;
 	case Drugdealer:
 	//	newObject->addComponent(*new DummyComponent());
+		break;
+	case FPSCounter:
+		newObject->addComponent(new FPSDrawComponent());
 		break;
 	case DrugAddict:
 		newObject->addComponent(new PlayerInputComponent());
