@@ -124,7 +124,7 @@
       <Filter>Header Files\Entity</Filter>
     </ClInclude>
     <ClInclude Include="FPSDrawComponent.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -195,7 +195,10 @@
       <Filter>Source Files\Entity</Filter>
     </ClCompile>
     <ClCompile Include="FPSDrawComponent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Source Files\Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

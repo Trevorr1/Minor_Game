@@ -60,6 +60,7 @@ void Level1::Init()
 	entityCop->setSpeedY(0);
 	this->addEntities(entityCop);
 }
+
 void Level1::Tick(float dt){
 	DrawBackground();
 	/*Test Data*/

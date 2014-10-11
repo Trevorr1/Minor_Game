@@ -18,6 +18,7 @@ GameEntity::~GameEntity() {
 
 /* Add component to the list */
 void GameEntity::addComponent(Component *component) {
+	component->init(this);
 	compontentList->push_back(component);
 }
 
@@ -65,12 +66,20 @@ float GameEntity::getSpeedY() {
 	return speedY;
 }
 
-int GameEntity::getWidth(){
+float GameEntity::getWidth(){
 	return width;
 }
 
-int GameEntity::getHeight(){
+float GameEntity::getHeight(){
 	return height;
+}
+
+void GameEntity::setWidth(float width) {
+	this->width = width;
+}
+
+void GameEntity::setHeight(float height) {
+	this->height = height;
 }
 
 eGameEntity GameEntity::getEnum(){
