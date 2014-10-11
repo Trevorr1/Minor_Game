@@ -9,6 +9,13 @@ InputManager::InputManager()
 
 }
 
+InputManager::~InputManager()
+{
+	delete keyBuffer;
+	delete _instance;
+}
+
+/* Keyboard Input */
 void InputManager::addKeyPress(unsigned int keyPressed) {
 	keyBuffer->push(keyPressed);
 }
@@ -37,11 +44,32 @@ void InputManager::clearKeyBuffer() {
 	}
 }
 
+/* Mouse Input */
+void InputManager::addMouseClick(MouseClick click) {
+	mouseBuffer->push(click);
+}
 
-InputManager::~InputManager()
-{
-	delete keyBuffer;
-	delete _instance;
+MouseClick InputManager::getLastMouseClick() {
+	MouseClick click;
+
+	if (!mouseBuffer->empty()) {
+		click = mouseBuffer->top();
+		clearMouseBufferButOne();
+	}
+
+	return click;
+}
+
+void InputManager::clearMouseBuffer() {
+	while (!mouseBuffer->empty()) {
+		mouseBuffer->pop();
+	}
+}
+
+void InputManager::clearMouseBufferButOne() {
+	while (mouseBuffer->size() > 1)  {
+		mouseBuffer->pop();
+	}
 }
 
 InputManager* InputManager::getInstance() {
