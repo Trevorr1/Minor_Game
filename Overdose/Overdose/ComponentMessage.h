@@ -4,6 +4,7 @@ namespace overdose {
 		/* naamgevingsconventie: ComponentNaam_MESSAGE */
 		PlayerInputComponent_ATTACK,
 		CollissionComponent_COLLISION,
+		ClickableComponent_CLICK,
 		Player_ATTACKING,
 
 	};

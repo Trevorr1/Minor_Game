@@ -51,6 +51,7 @@ void InputManager::addMouseClick(MouseClick click) {
 
 MouseClick InputManager::getLastMouseClick() {
 	MouseClick click;
+	click.x = -1; click.y = -1; click.button = -1;
 
 	if (!mouseBuffer->empty()) {
 		click = mouseBuffer->top();

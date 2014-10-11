@@ -126,6 +126,12 @@
     <ClInclude Include="FPSDrawComponent.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
+    <ClInclude Include="ClickableComponent.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentMessage.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DummyComponent.cpp">
@@ -198,6 +204,9 @@
       <Filter>Source Files\Component</Filter>
     </ClCompile>
     <ClCompile Include="Component.cpp">
+      <Filter>Source Files\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="ClickableComponent.cpp">
       <Filter>Source Files\Component</Filter>
     </ClCompile>
   </ItemGroup>

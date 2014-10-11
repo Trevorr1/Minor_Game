@@ -6,6 +6,7 @@
 #include "DrawComponent.h"
 #include "FPSDrawComponent.h"
 #include "PlayerInputComponent.h"
+#include "ClickableComponent.h"
 #include <stdexcept>
 using namespace overdose;
 
@@ -30,6 +31,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	case Policeman:
 		//	newObject->addComponent(*new DummyComponent());
 		newObject->addComponent(new EnemyMoveComponent());
+		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new MoveComponent());
 		newObject->addComponent(new DrawComponent("assets/sprites/cop.png", 1));
 		newObject->addComponent(new CollisionComponent());
@@ -43,6 +45,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		break;
 	case DrugAddict:
 		newObject->addComponent(new PlayerInputComponent());
+		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new MoveComponent());
 		newObject->addComponent(new DrawComponent("assets/bottom_enemy_anim.tga", 3));
 		break;

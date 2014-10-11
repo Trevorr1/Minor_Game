@@ -4,7 +4,7 @@
 using std::stack;
 namespace overdose {
 	struct MouseClick {
-		unsigned int x, y, button;
+		int x, y, button;
 	};
 
 	class InputManager
