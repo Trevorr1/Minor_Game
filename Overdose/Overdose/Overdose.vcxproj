@@ -77,6 +77,7 @@
     <ClInclude Include="BspTree.h" />
     <ClInclude Include="ClickableComponent.h" />
     <ClInclude Include="CollisionComponent.h" />
+    <ClInclude Include="CollisionReactionComponent.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="ComponentMessage.h" />
     <ClInclude Include="DrawComponent.h" />
@@ -105,6 +106,7 @@
   <ItemGroup>
     <ClCompile Include="ClickableComponent.cpp" />
     <ClCompile Include="CollisionComponent.cpp" />
+    <ClCompile Include="CollisionReactionComponent.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="DrawComponent.cpp" />
     <ClCompile Include="DrawManager.cpp" />

@@ -132,6 +132,9 @@
     <ClInclude Include="ComponentMessage.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
+    <ClInclude Include="CollisionReactionComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DummyComponent.cpp">
@@ -208,6 +211,9 @@
     </ClCompile>
     <ClCompile Include="ClickableComponent.cpp">
       <Filter>Source Files\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionReactionComponent.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
