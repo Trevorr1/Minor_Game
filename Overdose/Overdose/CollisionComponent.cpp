@@ -6,7 +6,10 @@ using namespace std;
 
 CollisionComponent::CollisionComponent()
 {
-	
+	for (int dir = 0; dir < 4; dir++)
+	{
+		cPoints[dir] = new cPoint{ Point{ 0, 0 }, Point{ 0, 0 } };
+	}
 }
 
 
