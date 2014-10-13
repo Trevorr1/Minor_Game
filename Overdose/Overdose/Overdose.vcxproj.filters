@@ -49,6 +49,12 @@
     <Filter Include="Source Files\Level">
       <UniqueIdentifier>{9230fdda-a694-4772-87ac-a3df08c618bb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Component\Collision">
+      <UniqueIdentifier>{3f1ec158-b1b7-4e8d-8c46-dd71121d1d01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Component\Collision">
+      <UniqueIdentifier>{25ef2d3a-1419-43c7-95a9-99a05e7b0bb4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -108,9 +114,6 @@
     <ClInclude Include="Level1.h">
       <Filter>Header Files\Level</Filter>
     </ClInclude>
-    <ClInclude Include="CollisionComponent.h">
-      <Filter>Header Files\Component</Filter>
-    </ClInclude>
     <ClInclude Include="DrawComponent.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
@@ -130,6 +133,15 @@
       <Filter>Header Files\Component</Filter>
     </ClInclude>
     <ClInclude Include="CollisionReactionComponent.h">
+      <Filter>Header Files\Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionComponent.h">
+      <Filter>Header Files\Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerCollisionReactionComponent.h">
+      <Filter>Header Files\Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="PolicemanCollisionReactionComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MainMenu.h">
@@ -194,9 +206,6 @@
     <ClCompile Include="Level1.cpp">
       <Filter>Source Files\Level</Filter>
     </ClCompile>
-    <ClCompile Include="CollisionComponent.cpp">
-      <Filter>Source Files\Component</Filter>
-    </ClCompile>
     <ClCompile Include="DrawComponent.cpp">
       <Filter>Source Files\Component</Filter>
     </ClCompile>
@@ -218,7 +227,19 @@
     <ClCompile Include="ClickableComponent.cpp">
       <Filter>Source Files\Component</Filter>
     </ClCompile>
+    <ClCompile Include="Ilevel.cpp">
+      <Filter>Source Files\Level</Filter>
+    </ClCompile>
     <ClCompile Include="CollisionReactionComponent.cpp">
+      <Filter>Source Files\Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionComponent.cpp">
+      <Filter>Source Files\Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerCollisionReactionComponent.cpp">
+      <Filter>Source Files\Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="PolicemanCollisionReactionComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Ilevel.cpp">

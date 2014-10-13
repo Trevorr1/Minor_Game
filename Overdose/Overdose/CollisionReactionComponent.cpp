@@ -19,48 +19,30 @@ void CollisionReactionComponent::receive(Component *subject, ComponentMessage me
 	// resolve the collisions here
 	switch (message){
 	case PlayerInputComponent_ATTACK:
-		printf("Attadked by player");
+		printf("Attacked by player");
 		break; 
 	case CollissionComponent_COLLISION_TOP:
 		printf("Collided with something from the top");
+		collidedTop = true;
 		break; 
 	case CollissionComponent_COLLISION_BOTTOM:
 		printf("Collided with something from the bottom");
+		collidedBottom = true;
 		break; 
 	case CollissionComponent_COLLISION_LEFT:
 		printf("Collided with something from the left");
+		collidedX = true;
 		break; 
 	case CollissionComponent_COLLISION_RIGHT:
 		printf("Collided with something from the right");
+		collidedX = true;
 		break; 
 	case Player_ATTACKING:
 		printf("Player_ATTAKING?");
 		isAlive = false;
 		break; 
-	}
-}
+	defualt:
 
-void CollisionReactionComponent::tick(float dt, GameEntity *entity) {
-
-	if (!isAlive){
-		//TODO how to delete?
-		//vector<GameEntity*> *gameEntities = LevelManager::getInstance()->getCurrentLevel()->getEntities();
-		//gameEntities->erase(gameEntities->begin() + 1);
-		//delete entity;
-	}
-	if (collidedTop)
-	{
-		entity->setSpeedY(0);
-		collidedTop = false;
-	}
-	if (collidedBottom)
-	{
-		entity->setSpeedY(0);
-		collidedBottom = false;
-	}
-	if (collidedX)
-	{
-		entity->setSpeedX(0);
-		collidedX = false;
+		break;
 	}
 }
