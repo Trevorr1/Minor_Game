@@ -13,9 +13,19 @@ namespace overdose {
 
 
 		void receive(Component *subject, ComponentMessage message, GameEntity *object);
-		void tick(GameEntity *entity);
+		void tick(float dt, GameEntity *entity);
 	private:
 		//SDL_Rect collisionRect;
+
+		struct Point {
+			int x;
+			int y;
+		};
+
+		struct cPoint {
+			Point first;
+			Point second;
+		} *cPoints[4];
 	};
 
 

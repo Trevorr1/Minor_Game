@@ -16,12 +16,17 @@ DrawComponent::~DrawComponent()
 	delete m_SpritSheet;
 }
 
+void DrawComponent::init(GameEntity *entity) {
+	entity->setHeight(m_SpritSheet->GetHeight());
+	entity->setWidth(m_SpritSheet->GetWidth());
+}
+
 void DrawComponent::receive(Component *subject, ComponentMessage message, GameEntity *objects)
 {
 
 }
 
-void DrawComponent::tick(GameEntity *entity)
+void DrawComponent::tick(float dt, GameEntity *entity)
 {
 	m_SpritSheet->Draw((int)entity->getPosX(), (int)entity->getPosY(), DrawManager::getInstance()->getSurface());
 }

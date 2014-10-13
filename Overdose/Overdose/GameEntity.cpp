@@ -3,19 +3,28 @@
 using std::vector;
 using namespace overdose;
 
-vector<Component*> *compontentList = new vector<Component*>();
+GameEntity::GameEntity() {
+
+}
+GameEntity::GameEntity(eGameEntity entityEnum) {
+	m_EntityEnum = entityEnum;
+}
+
+GameEntity::~GameEntity() {
+	delete compontentList;
+}
+
 
 
 /* Add component to the list */
-void GameEntity::addComponent(Component &component) {
-
-	compontentList->push_back(&component);
+void GameEntity::addComponent(Component *component) {
+	component->init(this);
+	compontentList->push_back(component);
 }
 
-void GameEntity::tick() {
-	for (vector<Component*>::iterator it = compontentList->begin(); it != compontentList->end(); it++) {
-		Component *component = *it;
-		component->tick(this);
+void GameEntity::tick(float dt) {
+	for (auto &it : *compontentList) {
+		it->tick(dt, this);
 	}
 }
 
@@ -32,23 +41,14 @@ float GameEntity::getPosition(int index)
 	else return 0;
 }
 
-GameEntity::GameEntity() {}
 
-GameEntity::GameEntity(eGameEntity entityEnum) {
-	m_EntityEnum = entityEnum;
-}
+
 
 void GameEntity::broadcast(Component *subject, ComponentMessage message, GameEntity *object) {
-	for (vector<Component*>::iterator it = compontentList->begin(); it != compontentList->end(); it++) {
-		Component *component = *it;
-		component->receive(subject, message, object);
+	for (auto &it : *compontentList) {
+		it->receive(subject, message, object);
 	}
 }
-
-GameEntity::~GameEntity() {
-	delete compontentList;
-}
-
 
 float GameEntity::getPosX() {
 	return posX;
@@ -66,12 +66,20 @@ float GameEntity::getSpeedY() {
 	return speedY;
 }
 
-int GameEntity::getWidth(){
+float GameEntity::getWidth(){
 	return width;
 }
 
-int GameEntity::getHeight(){
+float GameEntity::getHeight(){
 	return height;
+}
+
+void GameEntity::setWidth(float width) {
+	this->width = width;
+}
+
+void GameEntity::setHeight(float height) {
+	this->height = height;
 }
 
 eGameEntity GameEntity::getEnum(){
@@ -92,6 +100,3 @@ void GameEntity::setPosY(float py) {
 	posY = py;
 }
 
-//void GameEntity::setCollided() {
-//	isAlive = false;
-//}

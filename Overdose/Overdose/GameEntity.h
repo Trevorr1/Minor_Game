@@ -9,14 +9,15 @@ namespace overdose {
 	{
 	protected:
 		float posX = 1.0, posY = 1.0, speedX = 1.0, speedY = 1.0;
-		int width = 0, height = 0;
+		float width = 0, height = 0;
 		eGameEntity m_EntityEnum;
 		//bool isAlive = true;
+		std::vector<Component*> *compontentList = new std::vector < Component* > ;
 
 	public:
-		virtual void addComponent(Component &component);
+		virtual void addComponent(Component *component);
 
-		virtual void tick();
+		virtual void tick(float dt);
 
 		void broadcast(Component *subject, ComponentMessage message, GameEntity *object);
 
@@ -27,11 +28,13 @@ namespace overdose {
 
 		float getPosition(int index); // voor bsp tree
 
-		int getWidth();
-		int getHeight();
+		float getWidth();
+		float getHeight();
+		
 
 		eGameEntity getEnum();
-
+		void setWidth(float width);
+		void setHeight(float heigt);
 		void setSpeedX(float sx);
 		void setSpeedY(float sy);
 		void setPosX(float px);

@@ -3,6 +3,10 @@
 
 using std::stack;
 namespace overdose {
+	struct MouseClick {
+		int x, y, button;
+	};
+
 	class InputManager
 	{
 	private:
@@ -14,17 +18,25 @@ namespace overdose {
 		// https://wiki.libsdl.org/SDL_Keycode
 		stack<int> *keyBuffer = new stack<int>();
 
+		stack<MouseClick> *mouseBuffer = new stack<MouseClick>();
+
 	public:
 		
-
 		void addKeyPress(unsigned int keyPressed);
 		int getLastKeyPress();
+		void clearKeyBuffer();
+
+		void addMouseClick(MouseClick click);
+		MouseClick getLastMouseClick();
+		void clearMouseBuffer();
+
 
 		static InputManager* getInstance();
 
-		void clearKeyBuffer();
+		
 	private:
 		void clearKeyBufferButOne();
+		void clearMouseBufferButOne();
 	};
 
 }

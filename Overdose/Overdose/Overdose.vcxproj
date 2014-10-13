@@ -75,15 +75,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BspTree.h" />
+    <ClInclude Include="ClickableComponent.h" />
     <ClInclude Include="CollisionComponent.h" />
+    <ClInclude Include="CollisionReactionComponent.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="ComponentMessage.h" />
     <ClInclude Include="DrawComponent.h" />
     <ClInclude Include="DrawManager.h" />
+    <ClInclude Include="EnemyMoveComponent.h" />
+    <ClInclude Include="FPSDrawComponent.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="EndNode.h" />
     <ClInclude Include="Enum.h" />
-    <ClInclude Include="Factory.h" />
+    <ClInclude Include="GameEntityFactory.h" />
     <ClInclude Include="GameEntity.h" />
     <ClInclude Include="DummyComponent.h" />
     <ClInclude Include="ILevel.h" />
@@ -91,7 +95,6 @@
     <ClInclude Include="Level1.h" />
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="MoveComponent.h" />
-    <ClInclude Include="PlayerAttackComponent.h" />
     <ClInclude Include="PlayerInputComponent.h" />
     <ClInclude Include="SDLTemplate.h" />
     <ClInclude Include="SplitNode.h" />
@@ -101,13 +104,18 @@
     <ClInclude Include="TreeNode.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ClickableComponent.cpp" />
     <ClCompile Include="CollisionComponent.cpp" />
+    <ClCompile Include="CollisionReactionComponent.cpp" />
+    <ClCompile Include="Component.cpp" />
     <ClCompile Include="DrawComponent.cpp" />
     <ClCompile Include="DrawManager.cpp" />
+    <ClCompile Include="EnemyMoveComponent.cpp" />
+    <ClCompile Include="FPSDrawComponent.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="BspTree.cpp" />
     <ClCompile Include="EndNode.cpp" />
-    <ClCompile Include="Factory.cpp" />
+    <ClCompile Include="GameEntityFactory.cpp" />
     <ClCompile Include="GameEntity.cpp" />
     <ClCompile Include="DummyComponent.cpp" />
     <ClCompile Include="InputManager.cpp" />
@@ -115,7 +123,6 @@
     <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MoveComponent.cpp" />
-    <ClCompile Include="PlayerAttackComponent.cpp" />
     <ClCompile Include="PlayerInputComponent.cpp" />
     <ClCompile Include="SDLTemplate.cpp" />
     <ClCompile Include="SplitNode.cpp" />

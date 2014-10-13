@@ -4,7 +4,7 @@
 #include "template.h"
 #include "game.h"
 
-#include "Factory.h"
+#include "GameEntityFactory.h"
 #include "GameEntity.h"
 #include "DrawComponent.h"
 #include "DrawManager.h"
@@ -28,9 +28,9 @@ void Game::Init()
 
 void Game::Tick(float a_DT)
 {
-	//drawInvader->tick(entInvader);
 	m_LevelManager->Tick(a_DT);
 	InputManager::getInstance()->clearKeyBuffer();
+	InputManager::getInstance()->clearMouseBuffer();
 }
 
 
@@ -42,11 +42,16 @@ void Game::KeyDown(unsigned int code)
 
 void Game::MouseMove(unsigned int x, unsigned int y)
 {
-	//printf("Mouse X: %d  Mouse Y: %d \n", x, y);
+	m_mouseX = x;
+	m_mouseY = y;
 }
 
 void Game::MouseDown(unsigned int button)
 {
-	//printf("Mouse Down Code: %d \n", button);
+	MouseClick click;
+	click.x = m_mouseX;
+	click.y = m_mouseY;
+	click.button = button;
+	InputManager::getInstance()->addMouseClick(click);
 }
 

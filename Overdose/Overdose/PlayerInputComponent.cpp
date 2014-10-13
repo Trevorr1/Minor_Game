@@ -7,7 +7,7 @@ void  PlayerInputComponent::receive(Component *subject, ComponentMessage message
 
 }
 
-void  PlayerInputComponent::tick(GameEntity *entity) {
+void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 
 	int keyDown = InputManager::getInstance()->getLastKeyPress();
 
@@ -37,5 +37,4 @@ void  PlayerInputComponent::tick(GameEntity *entity) {
 		}
 		break;
 	}
-
 }
