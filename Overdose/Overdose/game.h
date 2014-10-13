@@ -14,8 +14,10 @@
 		void MouseMove(unsigned int x, unsigned int y);
 		void MouseUp(unsigned int button) {}
 		void MouseDown(unsigned int button);
+		Game();
 		~Game();
 	private:
 		Surface* m_Screen;
 		overdose::LevelManager* m_LevelManager;
+		unsigned int m_mouseX, m_mouseY;
 	};

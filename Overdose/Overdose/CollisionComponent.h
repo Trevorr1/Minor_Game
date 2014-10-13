@@ -16,6 +16,16 @@ namespace overdose {
 		void tick(float dt, GameEntity *entity);
 	private:
 		//SDL_Rect collisionRect;
+
+		struct Point {
+			int x;
+			int y;
+		};
+
+		struct cPoint {
+			Point first;
+			Point second;
+		} *cPoints[4];
 	};
 
 

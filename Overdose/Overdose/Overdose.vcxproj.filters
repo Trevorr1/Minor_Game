@@ -93,9 +93,6 @@
     <ClInclude Include="GameEntity.h">
       <Filter>Header Files\Entity</Filter>
     </ClInclude>
-    <ClInclude Include="Factory.h">
-      <Filter>Header Files\Entity</Filter>
-    </ClInclude>
     <ClInclude Include="InputManager.h">
       <Filter>Header Files\Manager</Filter>
     </ClInclude>
@@ -120,17 +117,23 @@
     <ClInclude Include="DrawManager.h">
       <Filter>Header Files\Manager</Filter>
     </ClInclude>
-    <ClInclude Include="CollisionReactionComponent.h">
+    <ClInclude Include="EnemyMoveComponent.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerAttackComponent.h">
+    <ClInclude Include="GameEntityFactory.h">
+      <Filter>Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="FPSDrawComponent.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="ClickableComponent.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
     <ClInclude Include="ComponentMessage.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
-    <ClInclude Include="FPSDrawComponent.h">
-      <Filter>Header Files\Component</Filter>
+    <ClInclude Include="CollisionReactionComponent.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -173,9 +176,6 @@
     <ClCompile Include="TreeNode.cpp">
       <Filter>Source Files\BSP tree</Filter>
     </ClCompile>
-    <ClCompile Include="Factory.cpp">
-      <Filter>Source Files\Entity</Filter>
-    </ClCompile>
     <ClCompile Include="LevelManager.cpp">
       <Filter>Source Files\Manager</Filter>
     </ClCompile>
@@ -197,14 +197,23 @@
     <ClCompile Include="DrawManager.cpp">
       <Filter>Source Files\Manager</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerAttackComponent.cpp">
+    <ClCompile Include="EnemyMoveComponent.cpp">
       <Filter>Source Files\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEntityFactory.cpp">
+      <Filter>Source Files\Entity</Filter>
     </ClCompile>
     <ClCompile Include="FPSDrawComponent.cpp">
       <Filter>Source Files\Component</Filter>
     </ClCompile>
-    <ClCompile Include="CollisionReactionComponent.cpp">
+    <ClCompile Include="Component.cpp">
       <Filter>Source Files\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="ClickableComponent.cpp">
+      <Filter>Source Files\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionReactionComponent.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

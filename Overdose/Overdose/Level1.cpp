@@ -4,7 +4,7 @@
 /*Test Data*/
 #include "DrawComponent.h"
 #include "MoveComponent.h"
-#include "Factory.h"
+#include "GameEntityFactory.h"
 
 using namespace overdose;
 
@@ -53,7 +53,14 @@ void Level1::Init()
 	entityPtr1->setPosY(50);
 	entityPtr1->setSpeedY(0);
 	this->addEntities(entityPtr1);
+
+	GameEntity* entityCop = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Policeman);
+	entityCop->setPosX(100);
+	entityCop->setPosY(100);
+	entityCop->setSpeedY(0);
+	this->addEntities(entityCop);
 }
+
 void Level1::Tick(float dt){
 	DrawBackground();
 	/*Test Data*/
