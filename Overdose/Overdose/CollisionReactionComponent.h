@@ -15,9 +15,12 @@ namespace overdose {
 		void receive(Component *subject, ComponentMessage message, GameEntity *object);
 		void tick(float dt, GameEntity *entity);
 
+		// Handle collision with environment
+		void environmentCollision(GameEntity *subject, GameEntity *object);
+
 
 	private:
-		bool isAlive = true;
+		bool isAlive = true, collidedTop = false, collidedBottom = false, collidedX = false;
 	};
 
 }

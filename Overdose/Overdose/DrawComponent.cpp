@@ -16,6 +16,11 @@ DrawComponent::~DrawComponent()
 	delete m_SpritSheet;
 }
 
+void DrawComponent::init(GameEntity *entity) {
+	entity->setHeight(m_SpritSheet->GetHeight());
+	entity->setWidth(m_SpritSheet->GetWidth());
+}
+
 void DrawComponent::receive(Component *subject, ComponentMessage message, GameEntity *objects)
 {
 
