@@ -75,6 +75,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BspTree.h" />
+    <ClInclude Include="ButtonClickableReactionComponent.h" />
     <ClInclude Include="ClickableComponent.h" />
     <ClInclude Include="CollisionComponent.h" />
     <ClInclude Include="CollisionReactionComponent.h" />
@@ -94,6 +95,7 @@
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Level1.h" />
     <ClInclude Include="LevelManager.h" />
+    <ClInclude Include="MainMenu.h" />
     <ClInclude Include="MoveComponent.h" />
     <ClInclude Include="PlayerInputComponent.h" />
     <ClInclude Include="SDLTemplate.h" />
@@ -104,6 +106,7 @@
     <ClInclude Include="TreeNode.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ButtonClickableReactionComponent.cpp" />
     <ClCompile Include="ClickableComponent.cpp" />
     <ClCompile Include="CollisionComponent.cpp" />
     <ClCompile Include="CollisionReactionComponent.cpp" />
@@ -123,6 +126,7 @@
     <ClCompile Include="Level1.cpp" />
     <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MenuMenu.cpp" />
     <ClCompile Include="MoveComponent.cpp" />
     <ClCompile Include="PlayerInputComponent.cpp" />
     <ClCompile Include="SDLTemplate.cpp" />
