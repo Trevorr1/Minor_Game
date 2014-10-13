@@ -95,7 +95,9 @@
     <ClInclude Include="Level1.h" />
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="MoveComponent.h" />
+    <ClInclude Include="PlayerCollisionReactionComponent.h" />
     <ClInclude Include="PlayerInputComponent.h" />
+    <ClInclude Include="PolicemanCollisionReactionComponent.h" />
     <ClInclude Include="SDLTemplate.h" />
     <ClInclude Include="SplitNode.h" />
     <ClInclude Include="stdafx.h" />
@@ -124,7 +126,9 @@
     <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MoveComponent.cpp" />
+    <ClCompile Include="PlayerCollisionReactionComponent.cpp" />
     <ClCompile Include="PlayerInputComponent.cpp" />
+    <ClCompile Include="PolicemanCollisionReactionComponent.cpp" />
     <ClCompile Include="SDLTemplate.cpp" />
     <ClCompile Include="SplitNode.cpp" />
     <ClCompile Include="stdafx.cpp" />
