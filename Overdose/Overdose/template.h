@@ -1,7 +1,5 @@
 #pragma once
 
-#define SCRWIDTH	940
-#define SCRHEIGHT	480
 // #define POSTPROCSHADERS
 
 #include "math.h"

@@ -42,8 +42,11 @@ void CollisionReactionComponent::receive(Component *subject, ComponentMessage me
 
 void CollisionReactionComponent::tick(float dt, GameEntity *entity) {
 
-	if (isAlive){
-		delete entity;
+	if (!isAlive){
+		//TODO how to delete?
+		//vector<GameEntity*> *gameEntities = LevelManager::getInstance()->getCurrentLevel()->getEntities();
+		//gameEntities->erase(gameEntities->begin() + 1);
+		//delete entity;
 	}
 	if (collidedTop)
 	{
