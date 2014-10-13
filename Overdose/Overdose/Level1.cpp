@@ -26,21 +26,6 @@ Level1::~Level1()
 	delete entities;
 }
 
-void Level1::addEntities(GameEntity* entities)
-{
-	this->entities->push_back(entities);
-}
-
-void Level1::addEnemies(GameEntity* entities)
-{
-	this->enemies->push_back(entities);
-}
-
-void Level1::addCollectibles(GameEntity* entities)
-{
-	this->collectibles->push_back(entities);
-}
-
 void Level1::Init()
 {
 	/*Test Data*/
@@ -59,32 +44,4 @@ void Level1::Init()
 	entityCop->setPosY(100);
 	entityCop->setSpeedY(0);
 	this->addEntities(entityCop);
-}
-
-void Level1::Tick(float dt){
-	DrawBackground();
-	/*Test Data*/
-	for (auto &it : *entities) {
-		it->tick(dt);
-	}
-}
-
-void Level1::DrawBackground(){
-	m_Background->CopyTo(DrawManager::getInstance()->getSurface(), 0, 0);
-}
-
-GameEntity* Level1::getPlayerEntity(){
-	return m_Player;
-}
-
-std::vector<GameEntity*>* Level1::getEntities(){
-	return entities;
-}
-
-std::vector<GameEntity*>* Level1::getCollectibles(){
-	return collectibles;
-}
-
-std::vector<GameEntity*>* Level1::getEnemies(){
-	return enemies;
 }
