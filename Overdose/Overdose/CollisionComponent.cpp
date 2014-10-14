@@ -104,7 +104,7 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 
 			ComponentMessage message= (ComponentMessage)0;
 			bool bump = (other->getEnum() == Environment);
-
+			message = CollissionComponent_COLLISION_DEFAULT;
 			if (collides)
 			{
 				switch (dir){

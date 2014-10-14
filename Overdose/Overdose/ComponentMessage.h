@@ -11,8 +11,10 @@ namespace overdose {
 		CollissionComponent_REACTION_BOTTOM,
 		CollissionComponent_REACTION_LEFT,
 		CollissionComponent_REACTION_RIGHT,
+		CollissionComponent_COLLISION_DEFAULT,
 		ClickableComponent_CLICK,
 		Player_ATTACKING,
+
 
 	};
 }

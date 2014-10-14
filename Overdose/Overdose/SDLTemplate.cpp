@@ -194,7 +194,7 @@ void SDLTemplate::initTemplate()
 		//SDL_WM_SetCaption( "Template - FALLBACK", NULL );
 	}
 	//else SDL_WM_SetCaption( "Template", NULL );
-	else screen = SDL_CreateWindow("Template",
+	else screen = SDL_CreateWindow("Overdose",
 		SDL_WINDOWPOS_UNDEFINED,
 		SDL_WINDOWPOS_UNDEFINED,
 		SCRWIDTH,
@@ -205,6 +205,15 @@ void SDLTemplate::initTemplate()
 	game->SetTarget(surface);
 	while (!exitapp)
 	{
+		if (lastftime < m_desiredDeltaLoop) {
+			// We gaan te snel!
+			int pause = (m_desiredDeltaLoop - lastftime) / (1000 * 1000);
+
+			std::chrono::microseconds dura(pause);
+			std::this_thread::sleep_for(dura);
+		}
+		
+
 		if (vbo) // frame buffer swapping for VBO mode
 		{
 			swap();
@@ -227,10 +236,11 @@ void SDLTemplate::initTemplate()
 		// calculate frame time and pass it to game->Tick
 		LARGE_INTEGER start, end;
 		QueryPerformanceCounter(&start);
-		game->Tick((float)lastftime);
+		float dt_ms = lastftime / 1000;
+		game->Tick(dt_ms);
 		QueryPerformanceCounter(&end);
 		lastftime = (end.QuadPart - start.QuadPart);
-
+		
 		
 		// event loop
 		SDL_Event event;
