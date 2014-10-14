@@ -8,6 +8,7 @@
 #include "PlayerInputComponent.h"
 #include "ClickableComponent.h"
 #include "CollisionReactionComponent.h"
+#include "ButtonClickableReactionComponent.h"
 #include <stdexcept>
 using namespace overdose;
 
@@ -35,7 +36,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new MoveComponent());
 		newObject->addComponent(new DrawComponent("assets/sprites/cop.png", 1));
-		newObject->addComponent(new CollisionComponent());
+	//	newObject->addComponent(new CollisionComponent());
 		newObject->setSpeedX(-1);
 		break;
 	case Drugdealer:
@@ -49,6 +50,11 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new MoveComponent());
 		newObject->addComponent(new DrawComponent("assets/bottom_enemy_anim.tga", 3));
+		break;
+	case ButtonPlay:
+		newObject->addComponent(new ClickableComponent());
+		newObject->addComponent(new ButtonClickableReactionComponent(level1));
+		newObject->addComponent(new DrawComponent("assets/buttons/button_play.jpg", 1));
 		break;
 	case Drug_Speed:
 		newObject->addComponent(new ClickableComponent());
