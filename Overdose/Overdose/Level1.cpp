@@ -23,6 +23,10 @@ Level1::Level1()
 
 Level1::~Level1()
 {
+	for (int i = entities->size(); i >= 0; i--)
+	{
+		delete entities->at(i);
+	}
 	delete entities;
 }
 
