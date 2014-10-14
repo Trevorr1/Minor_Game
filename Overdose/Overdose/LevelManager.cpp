@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "LevelManager.h"
-#include "Level1.h"
 
 using namespace overdose;
 
@@ -8,7 +7,7 @@ LevelManager* LevelManager::_instance = nullptr;
 
 LevelManager::LevelManager(void)
 {
-	createLevel(level1);
+	createLevel(LevelMainMenu);
 }
 
 LevelManager::~LevelManager(void)
@@ -23,15 +22,21 @@ ILevel* LevelManager::getCurrentLevel(){
 ILevel* LevelManager::createLevel(levels l)
 {
 	switch(l){
-	case(level1) :
+	case level1:
 		if (currentLevel != nullptr){
-		//delete currentLevel; //weet niet waarom maar dit ging nog even fout
+			//delete currentLevel; //weet niet waarom maar dit ging nog even fout
 		}
 		currentLevel = new Level1();
-		currentLevel->Init(); 
+
 		//currentLevel->getPlayerEntity();//wist niet waarom deze regel moest, dus heb 'm eruit gecomment =( uncomment als hij terug moet!
 		break;
+	case LevelMainMenu:
+		currentLevel = new MainMenu();
+		break;
 	}
+	
+	
+	currentLevel->Init();
 	return currentLevel;
 }
 

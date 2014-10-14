@@ -1,11 +1,11 @@
 #pragma once
 #include "Ilevel.h"
 namespace overdose {
-	class Level1 : public ILevel
+	class MainMenu : public ILevel
 	{
 	public:
-		Level1();
-		virtual ~Level1();
+		MainMenu();
+		virtual  ~MainMenu();
 		void Init();
 	private:
 		std::vector<GameEntity*> *enemies;

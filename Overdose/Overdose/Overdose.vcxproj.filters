@@ -123,9 +123,6 @@
     <ClInclude Include="EnemyMoveComponent.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
-    <ClInclude Include="GameEntityFactory.h">
-      <Filter>Header Files\Entity</Filter>
-    </ClInclude>
     <ClInclude Include="FPSDrawComponent.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
@@ -146,6 +143,15 @@
     </ClInclude>
     <ClInclude Include="PolicemanCollisionReactionComponent.h">
       <Filter>Header Files\Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu.h">
+      <Filter>Header Files\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonClickableReactionComponent.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEntityFactory.h">
+      <Filter>Header Files\Entity</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -235,6 +241,15 @@
     </ClCompile>
     <ClCompile Include="PolicemanCollisionReactionComponent.cpp">
       <Filter>Source Files\Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Ilevel.cpp">
+      <Filter>Source Files\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonClickableReactionComponent.cpp">
+      <Filter>Source Files\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>Source Files\Level</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
