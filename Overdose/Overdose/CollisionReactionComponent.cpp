@@ -20,42 +20,42 @@ void CollisionReactionComponent::receive(Component *subject, ComponentMessage me
 	// use object to determine with what this collided
 	switch (message){
 	case PlayerInputComponent_ATTACK:
-		printf("Attadked by player \n");
+		printf("Attacked by player \n");
 		break; 
 	case CollissionComponent_COLLISION_TOP:
-		printf("Collided with something from the top");
+		printf("Collided with something from the top \n");
 		collidedTop = true;
 		break; 
 	case CollissionComponent_COLLISION_BOTTOM:
-		printf("Collided with something from the bottom");
+		printf("Collided with something from the bottom \n");
 		collidedBottom = true;
 		break; 
 	case CollissionComponent_COLLISION_LEFT:
-		printf("Collided with something from the left");
+		printf("Collided with something from the left \n");
 		collidedX = true;
 		break; 
 	case CollissionComponent_COLLISION_RIGHT:
-		printf("Collided with something from the right");
+		printf("Collided with something from the right \n");
 		collidedX = true;
 		break;
 	case CollissionComponent_REACTION_TOP:
-		printf("Reacted with something from the top");
+		printf("Reacted with something from the top \n");
 		reactTop = true;
 		break;
 	case CollissionComponent_REACTION_BOTTOM:
-		printf("Reacted with something from the bottom");
+		printf("Reacted with something from the bottom \n");
 		reactBottom = true;
 		break; 
 	case CollissionComponent_REACTION_LEFT:
-		printf("Reacted with something from the left");
+		printf("Reacted with something from the left \n");
 		reactX = true;
 		break;
 	case CollissionComponent_REACTION_RIGHT:
-		printf("Reacted with something from the right");
+		printf("Reacted with something from the right \n");
 		reactX = true;
 		break;
 	case Player_ATTACKING:
-		printf("Player_ATTAKING?");
+		printf("Player_ATTACKING? \n");
 		isAlive = false;
 		break; 
 	defualt:
