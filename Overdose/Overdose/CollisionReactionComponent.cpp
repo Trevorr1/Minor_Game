@@ -19,19 +19,19 @@ void CollisionReactionComponent::receive(Component *subject, ComponentMessage me
 	// resolve the collisions here
 	switch (message){
 	case PlayerInputComponent_ATTACK:
-		printf("Attadked by player");
+		printf("Attadked by player \n");
 		break; 
 	case CollissionComponent_COLLISION_TOP:
-		printf("Collided with something from the top");
+		printf("Collided with something from the top \n");
 		break; 
 	case CollissionComponent_COLLISION_BOTTOM:
-		printf("Collided with something from the bottom");
+		printf("Collided with something from the bottom \n");
 		break; 
 	case CollissionComponent_COLLISION_LEFT:
-		printf("Collided with something from the left");
+		printf("Collided with something from the left \n");
 		break; 
 	case CollissionComponent_COLLISION_RIGHT:
-		printf("Collided with something from the right");
+		printf("Collided with something from the right \n");
 		break; 
 	case Player_ATTACKING:
 		printf("Player_ATTAKING?");

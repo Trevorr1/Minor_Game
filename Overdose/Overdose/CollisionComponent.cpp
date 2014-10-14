@@ -112,8 +112,8 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 				case 2:
 					entity->broadcast(this, CollissionComponent_COLLISION_LEFT, other);
 					break;
-					entity->broadcast(this, CollissionComponent_COLLISION_RIGHT, other);
 				case 3:
+					entity->broadcast(this, CollissionComponent_COLLISION_RIGHT, other);
 					break;
 				}
 			}
