@@ -6,15 +6,31 @@ void FPSDrawComponent::receive(Component *subject, ComponentMessage message, Gam
 
 }
 
+/* DT: last frametime in milliseconds */
 void FPSDrawComponent::tick(float dt, GameEntity *entity) {
 	
 	calculateTicksOnScreen();
 
+
+	
 	if (ticksOnScreen > 0) {
 		Surface *surface = DrawManager::getInstance()->getSurface();
 
-		// Hoe bereken je nou de FPS? :P
-		int fps = (dt / 1000 * 1000);
+		m_ticks++;
+		m_dt = m_dt + dt;
+
+		int fps = 0;
+
+		
+		fps = m_ticks / (m_dt / 1000);
+
+		if (m_dt / 1000 > 1) {
+			std::cout << "FPS " << fps << std::endl;
+			m_ticks = 0;
+			m_dt = 0;
+		}
+		
+
 
 		// En dit casten kan waarschijnlijk beter
 		std::string str = std::to_string(fps);
@@ -32,7 +48,7 @@ void FPSDrawComponent::calculateTicksOnScreen() {
 	int keyDown = InputManager::getInstance()->getLastKeyPress();
 
 	if (keyDown == 53) { // tilde 
-		ticksOnScreen = 10000;
+		ticksOnScreen = 180;
 	}
 }
 

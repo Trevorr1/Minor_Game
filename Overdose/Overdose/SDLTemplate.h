@@ -2,9 +2,14 @@
 
 #define SCRWIDTH	940
 #define SCRHEIGHT	480
+#include <chrono>
+#include <thread>
 
 	class SDLTemplate
 	{
+	private:
+		int m_desiredFPS = 60;
+		long m_desiredDeltaLoop = (1000 * 1000 * 1000) / m_desiredFPS;
 	public:
 		SDLTemplate();
 		~SDLTemplate();
