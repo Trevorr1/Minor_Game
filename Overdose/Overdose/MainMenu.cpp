@@ -17,7 +17,7 @@ MainMenu::MainMenu()
 	entities = new std::vector<GameEntity*>();
 	enemies = new std::vector<GameEntity*>();
 	collectibles = new std::vector<GameEntity*>();
-	m_Background = new Surface("assets/backgrounds/background.jpg");
+	m_Background = new Surface("assets/backgrounds/mainmenu.jpg");
 }
 
 
