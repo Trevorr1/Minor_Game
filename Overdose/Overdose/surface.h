@@ -93,6 +93,7 @@
 		void Plot(int x, int y, Pixel c);
 		void LoadImage(char* a_File);
 		void CopyTo(Surface* a_Dst, int a_X, int a_Y);
+		void CopyTo2(Surface* a_Dst, int a_DstX, int a_DstY, int a_SrcX, int a_SrcY);
 		void BlendCopyTo(Surface* a_Dst, int a_X, int a_Y);
 		void ScaleColor(unsigned int a_Scale);
 		void Box(int x1, int y1, int x2, int y2, Pixel color);
