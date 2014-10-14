@@ -21,19 +21,28 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity) {
 		//gameEntities->erase(gameEntities->begin() + 1);
 		//delete entity;
 	}
-	if (collidedTop)
+	if (collidedTop || collidedBottom)
 	{
 		entity->setSpeedY(0);
 		collidedTop = false;
-	}
-	if (collidedBottom)
-	{
-		entity->setSpeedY(0);
 		collidedBottom = false;
 	}
 	if (collidedX)
 	{
-		entity->setSpeedX(entity->getSpeedX() * -1);
+		entity->setSpeedX(0);
 		collidedX = false;
 	}
+	if (reactTop || reactBottom)
+	{
+		entity->setSpeedY(entity->getSpeedY() * -1);
+		entity->setSpeedY(entity->getSpeedX() * -1);
+		reactTop = false;
+		reactBottom = false;
+	}
+	if (reactX)
+	{
+		entity->setSpeedY(entity->getSpeedX() * -1);
+		reactTop = false;
+	}
+
 }

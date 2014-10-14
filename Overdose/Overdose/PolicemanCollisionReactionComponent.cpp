@@ -20,19 +20,24 @@ void PolicemanCollisionReactionComponent::tick(float dt, GameEntity *entity)
 		//gameEntities->erase(gameEntities->begin() + 1);
 		//delete entity;
 	}
-	if (collidedTop)
+	if (collidedTop || collidedBottom)
 	{
 		entity->setSpeedY(0);
 		collidedTop = false;
-	}
-	if (collidedBottom)
-	{
-		entity->setSpeedY(0);
 		collidedBottom = false;
 	}
 	if (collidedX)
 	{
 		entity->setSpeedX(0);
 		collidedX = false;
+	}
+	if (reactTop || reactBottom)
+	{
+		reactTop = false;
+		reactBottom = false;
+	}
+	if (reactX)
+	{
+		reactTop = false;
 	}
 }

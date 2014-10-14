@@ -99,34 +99,32 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 			*	if one of the top points collide sent top collision
 			*	if the right points collide send right_collision
 			*	if the left points collide send left_collision
+			*	also check if it should it reacts to environment or enemies
 			*/
+
+			ComponentMessage message;
+			bool bump = (other->getEnum() == Environment);
+
 			if (collides)
 			{
 				switch (dir){
 				case 0:
-					entity->broadcast(this, CollissionComponent_COLLISION_TOP, other);
+					message = bump? CollissionComponent_COLLISION_TOP : CollissionComponent_REACTION_TOP;
 					break;
 				case 1:
-					entity->broadcast(this, CollissionComponent_COLLISION_BOTTOM, other);
+					message = bump ? CollissionComponent_COLLISION_BOTTOM : CollissionComponent_REACTION_BOTTOM;
 					break;
 				case 2:
-					entity->broadcast(this, CollissionComponent_COLLISION_LEFT, other);
+					message = bump ? CollissionComponent_COLLISION_LEFT : CollissionComponent_REACTION_LEFT;
 					break;
 				case 3:
-					entity->broadcast(this, CollissionComponent_COLLISION_RIGHT, other);
+					message = bump ? CollissionComponent_COLLISION_RIGHT : CollissionComponent_REACTION_RIGHT;
 					break;
 				}
+
+				entity->broadcast(this, message, other);
 			}
 
-			// Old code..."I'm too attached to remove" - Trev
-			//// seperate collisions per point of entry for collision message
-			//if ((oposx > posx && oposx < posx + width || oposx + owidth > posx && oposx + owidth < posx + width) &&
-			//	(oposy > posy && oposy < posy + height || oposy + oheight > posy && oposy + oheight < posy + height))
-			//{
-			//	// do collision
-			//	entity->broadcast(this, CollissionComponent_COLLISION_TOP, other);
-			//	
-			//}
 
 
 		}

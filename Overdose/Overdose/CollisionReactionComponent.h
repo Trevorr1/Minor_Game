@@ -17,7 +17,7 @@ namespace overdose {
 
 
 	protected:
-		bool isAlive = true, collidedTop = false, collidedBottom = false, collidedX = false;
+		bool isAlive = true, collidedTop = false, collidedBottom = false, collidedX = false, reactTop = false, reactBottom = false, reactX = false;
 	};
 
 }

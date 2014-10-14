@@ -139,7 +139,7 @@
       <Filter>Header Files\Component\Collision</Filter>
     </ClInclude>
     <ClInclude Include="PolicemanCollisionReactionComponent.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Component\Collision</Filter>
     </ClInclude>
     <ClInclude Include="MainMenu.h">
       <Filter>Header Files\Level</Filter>
@@ -234,7 +234,7 @@
       <Filter>Source Files\Component\Collision</Filter>
     </ClCompile>
     <ClCompile Include="PolicemanCollisionReactionComponent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Component\Collision</Filter>
     </ClCompile>
     <ClCompile Include="Ilevel.cpp">
       <Filter>Source Files\Level</Filter>
