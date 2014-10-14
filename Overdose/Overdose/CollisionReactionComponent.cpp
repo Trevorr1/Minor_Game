@@ -63,3 +63,7 @@ void CollisionReactionComponent::receive(Component *subject, ComponentMessage me
 		break;
 	}
 }
+
+std::string CollisionReactionComponent::getComponentID(){
+	return "CollisionReactionComponent";
+}

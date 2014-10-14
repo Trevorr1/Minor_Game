@@ -14,7 +14,7 @@ namespace overdose {
 
 		void receive(Component *subject, ComponentMessage message, GameEntity *object);
 		virtual void tick(float dt, GameEntity *entity) = 0;
-
+		std::string getComponentID();
 
 	protected:
 		bool isAlive = true, collidedTop = false, collidedBottom = false, collidedX = false, reactTop = false, reactBottom = false, reactX = false;

@@ -12,6 +12,7 @@ namespace overdose{
 		virtual ~DrugCollisionReactionComponent();
 
 		void tick(float dt, GameEntity *entity);
+		std::string getComponentID();
 	};
 
 }

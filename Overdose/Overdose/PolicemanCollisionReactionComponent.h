@@ -11,6 +11,7 @@ namespace overdose{
 		virtual ~PolicemanCollisionReactionComponent();
 
 		void tick(float dt, GameEntity *entity);
+		std::string getComponentID();
 	};
 
 }

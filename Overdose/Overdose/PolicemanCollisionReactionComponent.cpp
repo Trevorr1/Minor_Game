@@ -41,3 +41,7 @@ void PolicemanCollisionReactionComponent::tick(float dt, GameEntity *entity)
 		reactTop = false;
 	}
 }
+
+std::string PolicemanCollisionReactionComponent::getComponentID(){
+	return "PolicemanCollisionReactionComponent";
+}

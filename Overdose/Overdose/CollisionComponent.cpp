@@ -130,3 +130,6 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 		}
 	}
 }
+std::string CollisionComponent::getComponentID(){
+	return "CollisionComponent";
+}

@@ -14,3 +14,7 @@ DrugCollisionReactionComponent::~DrugCollisionReactionComponent()
 
 void DrugCollisionReactionComponent::tick(float dt, GameEntity *entity) {
 }
+
+std::string DrugCollisionReactionComponent::getComponentID(){
+	return "DrugCollisionReactionComponent";
+}

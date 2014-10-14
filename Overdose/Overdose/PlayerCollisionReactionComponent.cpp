@@ -46,3 +46,6 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity) {
 	}
 
 }
+std::string PlayerCollisionReactionComponent::getComponentID(){
+	return "PlayerCollisionReactionComponent";
+}
