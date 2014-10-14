@@ -150,6 +150,9 @@
     <ClInclude Include="GameEntityFactory.h">
       <Filter>Header Files\Entity</Filter>
     </ClInclude>
+    <ClInclude Include="DrugCollisionReactionComponent.h">
+      <Filter>Header Files\Component\Collision</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -244,6 +247,9 @@
     </ClCompile>
     <ClCompile Include="MainMenu.cpp">
       <Filter>Source Files\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="DrugCollisionReactionComponent.cpp">
+      <Filter>Source Files\Component\Collision</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
