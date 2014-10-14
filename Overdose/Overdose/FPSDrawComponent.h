@@ -3,6 +3,7 @@
 #include "Component.h"
 #include "DrawManager.h"
 #include "InputManager.h"
+#include <iostream>
 
 namespace overdose {
 	class FPSDrawComponent : public Component
@@ -10,6 +11,9 @@ namespace overdose {
 	private:
 		int ticksOnScreen = 0;
 		void calculateTicksOnScreen();
+		double m_dt = 0;
+		int m_ticks = 0;
+
 
 	public:
 
