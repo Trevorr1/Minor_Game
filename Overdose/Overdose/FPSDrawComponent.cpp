@@ -35,3 +35,7 @@ void FPSDrawComponent::calculateTicksOnScreen() {
 		ticksOnScreen = 10000;
 	}
 }
+
+std::string FPSDrawComponent::getComponentID(){
+	return "FPSDrawComponent";
+}

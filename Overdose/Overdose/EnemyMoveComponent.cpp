@@ -24,3 +24,7 @@ void  EnemyMoveComponent::tick(float dt, GameEntity *entity)
 		entity->setSpeedX(entity->getSpeedX() * -1);
 	}
 }
+
+std::string EnemyMoveComponent::getComponentID(){
+	return "EnemyMoveComponent";
+}

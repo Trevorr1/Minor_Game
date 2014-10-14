@@ -13,7 +13,7 @@ namespace overdose {
 
 	public:
 
-
+		std::string getComponentID();
 		void receive(Component *subject, ComponentMessage message, GameEntity *object);
 
 		void tick(float dt, GameEntity *entity);

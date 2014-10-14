@@ -16,3 +16,7 @@ void ClickableComponent::tick(float dt, GameEntity *entity) {
 		std::cout << "Hit!" << std::endl;
 	}
 }
+
+std::string ClickableComponent::getComponentID(){
+	return "ClickableComponent";
+}

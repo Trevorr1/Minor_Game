@@ -11,6 +11,7 @@ namespace overdose{
 		~EnemyMoveComponent();
 		void receive(Component *subject, ComponentMessage message, GameEntity *object);
 		void tick(float dt, GameEntity *entity);
+		std::string getComponentID();
 	};
 
 }

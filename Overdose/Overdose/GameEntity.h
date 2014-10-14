@@ -21,6 +21,8 @@ namespace overdose {
 
 		void broadcast(Component *subject, ComponentMessage message, GameEntity *object);
 
+		virtual void removeComponent(std::string componentString);
+
 		float getPosX();
 		float getPosY();
 		float getSpeedX();
