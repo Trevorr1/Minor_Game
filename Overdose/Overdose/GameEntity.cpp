@@ -22,6 +22,17 @@ void GameEntity::addComponent(Component *component) {
 	compontentList->push_back(component);
 }
 
+void GameEntity::removeComponent(std::string componentID)
+{
+	for (int i = 0; i < compontentList->size(); i++)
+	{
+		if (compontentList->at(i)->getComponentID() == componentID)
+		{
+			delete compontentList->at(i);
+		}
+	}
+}
+
 void GameEntity::tick(float dt) {
 	for (auto &it : *compontentList) {
 		it->tick(dt, this);

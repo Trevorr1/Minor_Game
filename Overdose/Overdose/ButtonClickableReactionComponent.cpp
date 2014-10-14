@@ -6,6 +6,9 @@ ButtonClickableReactionComponent::ButtonClickableReactionComponent(levels loadSc
 	m_loadScreen = loadScreen;
 }
 
+std::string ButtonClickableReactionComponent::getComponentID(){
+	return "ButtonClickableReactionComponent";
+}
 
 void ButtonClickableReactionComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
 	if (message == ClickableComponent_CLICK) {

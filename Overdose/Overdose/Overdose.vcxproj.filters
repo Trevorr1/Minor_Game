@@ -87,9 +87,6 @@
     <ClInclude Include="Component.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
-    <ClInclude Include="DummyComponent.h">
-      <Filter>Header Files\Component</Filter>
-    </ClInclude>
     <ClInclude Include="PlayerInputComponent.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
@@ -155,9 +152,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DummyComponent.cpp">
-      <Filter>Source Files\Component</Filter>
-    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

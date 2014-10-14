@@ -49,7 +49,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new PlayerInputComponent());
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new MoveComponent());
-		newObject->addComponent(new DrawComponent("assets/bottom_enemy_anim.tga", 3));
+		newObject->addComponent(new DrawComponent("assets/sprites/SpritesheetRossWalkingLeft.png", 8));
 		break;
 	case ButtonPlay:
 		newObject->addComponent(new ClickableComponent());

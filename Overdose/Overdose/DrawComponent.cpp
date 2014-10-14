@@ -30,3 +30,7 @@ void DrawComponent::tick(float dt, GameEntity *entity)
 {
 	m_SpritSheet->Draw((int)entity->getPosX(), (int)entity->getPosY(), DrawManager::getInstance()->getSurface());
 }
+
+std::string DrawComponent::getComponentID(){
+	return "DrawComponent";
+}

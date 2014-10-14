@@ -14,6 +14,6 @@ namespace overdose {
 
 		virtual void tick(float dt, GameEntity *entity) = 0;
 
-		
+		virtual std::string getComponentID() = 0;
 	};
 }

@@ -34,8 +34,8 @@ void Level1::Init()
 	entityPtr->setPosX(0);
 	this->addEntities(entityPtr);
 
-	GameEntity *entityPtr1 = GameEntityFactory::getInstance()->getGameEntity(DrugAddict);
-	entityPtr1->setPosY(50);
+	GameEntity *entityPtr1 = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::DrugAddict);
+	entityPtr1->setPosY(0);
 	entityPtr1->setSpeedY(0);
 	this->addEntities(entityPtr1);
 

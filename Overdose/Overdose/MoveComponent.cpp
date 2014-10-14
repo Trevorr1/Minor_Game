@@ -20,3 +20,6 @@ void  MoveComponent::tick(float dt, GameEntity *entity) {
 
 }
 
+std::string MoveComponent::getComponentID(){
+	return "MoveComponent";
+}

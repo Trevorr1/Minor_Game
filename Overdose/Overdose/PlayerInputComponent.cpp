@@ -38,3 +38,7 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 		break;
 	}
 }
+
+std::string PlayerInputComponent ::getComponentID(){
+	return "PlayerInputComponent";
+}
