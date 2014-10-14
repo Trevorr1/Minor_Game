@@ -44,13 +44,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>lib\OpenGL;lib\sdl\include;lib\freeimage;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>lib\OpenGL;lib\sdl\include;lib\freeimage;lib\SDL_Mixer;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNING;WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NODEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>lib\sdl\lib\x86;lib\OpenGL;lib\freeimage;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>winmm.lib;sdl2.lib;sdl2main.lib;opengl32.lib;freeimage.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>lib\sdl\lib\x86;lib\OpenGL;lib\freeimage;lib\SDL_Mixer;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>winmm.lib;sdl2.lib;sdl2main.lib;opengl32.lib;freeimage.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -102,6 +102,7 @@
     <ClInclude Include="PlayerInputComponent.h" />
     <ClInclude Include="PolicemanCollisionReactionComponent.h" />
     <ClInclude Include="SDLTemplate.h" />
+    <ClInclude Include="SoundManager.h" />
     <ClInclude Include="SplitNode.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="surface.h" />
@@ -136,6 +137,7 @@
     <ClCompile Include="PlayerInputComponent.cpp" />
     <ClCompile Include="PolicemanCollisionReactionComponent.cpp" />
     <ClCompile Include="SDLTemplate.cpp" />
+    <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="SplitNode.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="surface.cpp" />
