@@ -6,6 +6,7 @@ void FPSDrawComponent::receive(Component *subject, ComponentMessage message, Gam
 
 }
 
+/* DT: last frametime in milliseconds */
 void FPSDrawComponent::tick(float dt, GameEntity *entity) {
 	
 	calculateTicksOnScreen();
@@ -47,7 +48,7 @@ void FPSDrawComponent::calculateTicksOnScreen() {
 	int keyDown = InputManager::getInstance()->getLastKeyPress();
 
 	if (keyDown == 53) { // tilde 
-		ticksOnScreen = 10000;
+		ticksOnScreen = 180;
 	}
 }
 
