@@ -84,6 +84,7 @@
     <ClInclude Include="DrawComponent.h" />
     <ClInclude Include="DrawManager.h" />
     <ClInclude Include="DrugCollisionReactionComponent.h" />
+    <ClInclude Include="DrugComponent.h" />
     <ClInclude Include="EnemyMoveComponent.h" />
     <ClInclude Include="FPSDrawComponent.h" />
     <ClInclude Include="game.h" />
@@ -116,6 +117,7 @@
     <ClCompile Include="DrawComponent.cpp" />
     <ClCompile Include="DrawManager.cpp" />
     <ClCompile Include="DrugCollisionReactionComponent.cpp" />
+    <ClCompile Include="DrugComponent.cpp" />
     <ClCompile Include="EnemyMoveComponent.cpp" />
     <ClCompile Include="FPSDrawComponent.cpp" />
     <ClCompile Include="game.cpp" />
