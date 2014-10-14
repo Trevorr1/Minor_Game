@@ -102,7 +102,7 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 			*	also check if it should it reacts to environment or enemies
 			*/
 
-			ComponentMessage message;
+			ComponentMessage message= (ComponentMessage)0;
 			bool bump = (other->getEnum() == Environment);
 
 			if (collides)
