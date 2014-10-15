@@ -6,7 +6,7 @@ InputManager *InputManager::_instance = nullptr;
 
 InputManager::InputManager()
 {
-
+	std::cout << "Succesfully initialised InputManager" << std::endl;
 }
 
 InputManager::~InputManager()
@@ -18,6 +18,7 @@ InputManager::~InputManager()
 /* Keyboard Input */
 void InputManager::addKeyPress(unsigned int keyPressed) {
 	keyBuffer->push(keyPressed);
+	std::cout << "Received keypress " << keyPressed << std::endl;
 }
 
 int InputManager::getLastKeyPress() {
@@ -27,8 +28,7 @@ int InputManager::getLastKeyPress() {
 		keyPress = keyBuffer->top();
 		clearKeyBufferButOne();
 	}
-	if (keyPress != -1)
-		std::cout << "Retrieving keycode " << keyPress << std::endl;
+
 	return keyPress;
 }
 
