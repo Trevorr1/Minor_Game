@@ -13,6 +13,7 @@ namespace overdose {
 		eGameEntity m_EntityEnum;
 		//bool isAlive = true;
 		std::vector<Component*> *compontentList = new std::vector < Component* > ;
+		std::vector <Component*> *componentListToRemove = new std::vector < Component* >;
 
 	public:
 		virtual void addComponent(Component *component);

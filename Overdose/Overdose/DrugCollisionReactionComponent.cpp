@@ -18,15 +18,15 @@ void DrugCollisionReactionComponent::receive(Component *subject, ComponentMessag
 	if (object->getEnum() == DrugAddict){
 		//printf("Player collided with this drug \n");
 		isCollided = true;
+		object->addComponent(new DrugComponent());
 	}
 }
 
 
 void DrugCollisionReactionComponent::tick(float dt, GameEntity *entity) {
 	if (isCollided){
-		entity->setPosX(entity->getPosX() + 50);
 		isCollided = false;
-		//entity->addComponent(new DrugComponent());
+		entity->setPosX(entity->getPosX() + 50);
 		//delete entity;
 	}
 }
