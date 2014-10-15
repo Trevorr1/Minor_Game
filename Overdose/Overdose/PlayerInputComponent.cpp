@@ -22,14 +22,18 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 		break;
 	case 79:
 		if (speedX > 0) {
-			entity->setSpeedX(speedX * -1);
+			//entity->setSpeedX(speedX * -1);
+			entity->setSpeedX(speedX);
 		}
 		if ((int)speedX == 0) {
 			entity->setSpeedX(2);
 		}
 		break;
 	case 80:
-		if (speedX < 0) {
+		/*if (speedX < 0) {
+			entity->setSpeedX(speedX * -1);
+		}*/
+		if (speedX > 0){
 			entity->setSpeedX(speedX * -1);
 		}
 		if (speedX == 0) {

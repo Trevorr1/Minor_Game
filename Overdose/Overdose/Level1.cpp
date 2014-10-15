@@ -40,6 +40,7 @@ void Level1::Init()
 	entityPtr1->setPosX(100);
 	entityPtr1->setPosY(410 - 53 - 100);
 	this->addEntities(entityPtr1);
+	m_Player = entityPtr1;
 
 	GameEntity* entityCop = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Policeman);
 	entityCop->setPosX(530);

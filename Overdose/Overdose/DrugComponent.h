@@ -16,6 +16,9 @@ namespace overdose {
 
 		std::clock_t    timer_start;
 		std::string getComponentID();
+
+	private:
+		float previous_speedX;
 	};
 }
 

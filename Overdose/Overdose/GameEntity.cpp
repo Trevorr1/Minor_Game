@@ -11,7 +11,7 @@ GameEntity::GameEntity(eGameEntity entityEnum) {
 }
 
 GameEntity::~GameEntity() {
-	delete compontentList;
+	delete componentList;
 }
 
 
@@ -19,22 +19,59 @@ GameEntity::~GameEntity() {
 /* Add component to the list */
 void GameEntity::addComponent(Component *component) {
 	component->init(this);
-	compontentList->push_back(component);
+	componentList->push_back(component);
 }
 
 void GameEntity::removeComponent(std::string componentID)
 {
-	for (int i = 0; i < compontentList->size(); i++)
+	//for (int i = 0; i < compontentList->size(); i++)
+	//{
+	//	if (compontentList->at(i)->getComponentID() == componentID)
+	//	{
+	//		//delete compontentList->at(i);
+	//		compontentList->erase(compontentList->begin() +i);
+	//		//break;
+	//	}
+	//}
+
+
+	vector <Component*>::iterator deleteIterator = componentList->begin();
+	for (int i = 0; i < componentList->size(); i++)
 	{
-		if (compontentList->at(i)->getComponentID() == componentID)
+		if (componentList->at(i)->getComponentID() == componentID)
 		{
-			delete compontentList->at(i);
+			//deleteIterator = compontentList->erase(deleteIterator);
+			componentListToRemove->push_back(componentList->at(i));
 		}
+		else{
+			deleteIterator++;
+		}
+		
 	}
+
+
+
+	
 }
 
 void GameEntity::tick(float dt) {
-	for (auto &it : *compontentList) {
+	//Delete the component
+	if (componentListToRemove->size() != 0){
+		for (int i = 0; i < componentList->size(); i++)
+		{
+			for (auto &it : *componentListToRemove) {
+				if (componentList->at(i) == it)
+				{
+					delete componentList->at(i);
+					componentList->erase(componentList->begin() + i);
+				}
+		}
+	}
+		componentListToRemove->clear();
+}
+
+	//TODO delete the used drug, via DrugComponent kan het niet runtime door de tick hieronder
+	for (auto &it : *componentList) {
 		it->tick(dt, this);
 	}
 }
@@ -56,7 +93,7 @@ float GameEntity::getPosition(int index)
 
 
 void GameEntity::broadcast(Component *subject, ComponentMessage message, GameEntity *object) {
-	for (auto &it : *compontentList) {
+	for (auto &it : *componentList) {
 		it->receive(subject, message, object);
 	}
 }
