@@ -17,7 +17,6 @@ DrugComponent::~DrugComponent()
 }
 
 void DrugComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
-
 }
 
 void DrugComponent::tick(float dt, GameEntity *entity) {

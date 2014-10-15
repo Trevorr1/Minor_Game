@@ -7,6 +7,7 @@
 #include "FPSDrawComponent.h"
 #include "PlayerInputComponent.h"
 #include "ClickableComponent.h"
+#include "gravityComponent.h"
 #include "CollisionReactionComponent.h"
 #include "PlayerCollisionReactionComponent.h"
 #include "DrugCollisionReactionComponent.h"
@@ -51,9 +52,10 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new PlayerInputComponent());
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new MoveComponent());
-		newObject->addComponent(new DrawComponent("assets/sprites/SpritesheetRossWalkingLeft.png", 8));
+		newObject->addComponent(new DrawComponent("assets/sprites/Ross/RossWalkingRight.png", 8, 10));
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new PlayerCollisionReactionComponent());
+		newObject->addComponent(new gravityComponent());
 		break;
 	case ButtonPlay:
 		newObject->addComponent(new ClickableComponent());
@@ -66,6 +68,10 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new DrawComponent("assets/sprites/drug_speed_30x30.png", 1));
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new DrugCollisionReactionComponent());
+		break;
+	case Grass:
+		newObject->addComponent(new DrawComponent("assets/sprites/grass.png", 1));
+		newObject->addComponent(new CollisionComponent());
 		break;
 	default:
 		throw std::invalid_argument("Invalid game Entity passed to the factory"); // Veel te lang moeten debuggen waarom mij entities geen components hadden... >.<

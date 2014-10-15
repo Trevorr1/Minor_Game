@@ -126,16 +126,16 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 	if (reactRight)
 	{
 		entity->setSpeedX(0);
-		while (!clear)
-		{
-			entity->setPosX(posx - 2);
+		//while (!clear)
+		//{
+		//	entity->setPosX(posx - 2);
 
-			posx = entity->getPosX();
-			boxX = posx + entity->getWidth();
+		//	posx = entity->getPosX();
+		//	boxX = posx + entity->getWidth();
 
-			if (!(boxX > colX && boxX < colBoxX))
-				clear = true;
-		}
+		//	if (!(boxX > colX && boxX < colBoxX))
+		//		clear = true;
+		//}
 		reactRight = false;
 	}
 

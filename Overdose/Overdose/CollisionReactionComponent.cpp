@@ -14,11 +14,14 @@ CollisionReactionComponent::~CollisionReactionComponent()
 }
 
 void CollisionReactionComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
-	printf("CollisioReaction received");
-	colX = object->getPosX();
-	colY = object->getPosY();
-	colBoxX = colX + object->getWidth();
-	colBoxY = colY + object->getHeight();
+	if (object != nullptr)
+	{
+		printf("CollisioReaction received");
+		colX = object->getPosX();
+		colY = object->getPosY();
+		colBoxX = colX + object->getWidth();
+		colBoxY = colY + object->getHeight();
+	}
 	// resolve the collisions here
 	// use object to determine with what this collided
 	switch (message){

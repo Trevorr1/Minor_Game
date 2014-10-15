@@ -21,7 +21,6 @@ void FPSDrawComponent::tick(float dt, GameEntity *entity) {
 
 		int fps = 0;
 
-		
 		fps = m_ticks / (m_dt / 1000);
 
 		if (m_dt / 1000 > 1) {
