@@ -20,20 +20,25 @@ void DrugCollisionReactionComponent::receive(Component *subject, ComponentMessag
 	if (object->getEnum() == DrugAddict){
 		//printf("Player collided with this drug \n");
 		isCollided = true;
-		object->addComponent(new DrugComponent());
+		bool inList = false;
+		for (int i = 0; i < object->getComponentList()->size(); i++)
+		{
+			//if (typeid(object->getComponentList()->at(i)) ==  typeid(DrugComponent))
+			if (dynamic_cast<DrugComponent*>(object->getComponentList()->at(i)) != NULL)
+			{
+				inList = true;
+			}
+		}
+		if (!inList)
+		{
+			object->addComponent(new DrugComponent());
+		}
 	}
 }
 
 
 void DrugCollisionReactionComponent::tick(float dt, GameEntity *entity) {
-	if (isCollided){
-		//entity->setPosX(entity->getPosX() + 50);
-		isCollided = false;
-		//entity->addComponent(new DrugComponent());
-		GameEntity *m_player = LevelManager::getInstance()->getCurrentLevel()->getPlayerEntity();
-		m_player->addComponent(new DrugComponent());
-		//delete entity;
-	}
+
 }
 
 std::string DrugCollisionReactionComponent::getComponentID(){
