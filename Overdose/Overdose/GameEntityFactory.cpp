@@ -8,6 +8,7 @@
 #include "PlayerInputComponent.h"
 #include "ClickableComponent.h"
 #include "CollisionReactionComponent.h"
+#include "PlayerCollisionReactionComponent.h"
 #include "DrugCollisionReactionComponent.h"
 #include "ButtonClickableReactionComponent.h"
 #include <stdexcept>
@@ -51,6 +52,8 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new MoveComponent());
 		newObject->addComponent(new DrawComponent("assets/sprites/SpritesheetRossWalkingLeft.png", 8));
+		newObject->addComponent(new CollisionComponent());
+		newObject->addComponent(new PlayerCollisionReactionComponent());
 		break;
 	case ButtonPlay:
 		newObject->addComponent(new ClickableComponent());
