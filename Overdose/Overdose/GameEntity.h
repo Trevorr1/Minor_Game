@@ -8,7 +8,7 @@ namespace overdose {
 	class GameEntity
 	{
 	protected:
-		float posX = 1.0, posY = 1.0, speedX = 1.0, speedY = 1.0;
+		float posX = 0.0, posY = 0.0, speedX = 0.0, speedY = 0.0;
 		float width = 0, height = 0;
 		eGameEntity m_EntityEnum;
 		//bool isAlive = true;
