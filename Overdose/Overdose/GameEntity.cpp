@@ -35,13 +35,13 @@ void GameEntity::removeComponent(std::string componentID)
 	//}
 
 
-	vector <Component*>::iterator deleteIterator = compontentList->begin();
-	for (int i = 0; i < compontentList->size(); i++)
+	vector <Component*>::iterator deleteIterator = componentList->begin();
+	for (int i = 0; i < componentList->size(); i++)
 	{
 		if (componentList->at(i)->getComponentID() == componentID)
 		{
 			//deleteIterator = compontentList->erase(deleteIterator);
-			componentListToRemove->push_back(compontentList->at(i));
+			componentListToRemove->push_back(componentList->at(i));
 		}
 		else{
 			deleteIterator++;
@@ -57,13 +57,13 @@ void GameEntity::removeComponent(std::string componentID)
 void GameEntity::tick(float dt) {
 	//Delete the component
 	if (componentListToRemove->size() != 0){
-		for (int i = 0; i < compontentList->size(); i++)
+		for (int i = 0; i < componentList->size(); i++)
 		{
 			for (auto &it : *componentListToRemove) {
-				if (compontentList->at(i) == it)
+				if (componentList->at(i) == it)
 				{
-					delete compontentList->at(i);
-					compontentList->erase(compontentList->begin() + i);
+					delete componentList->at(i);
+					componentList->erase(componentList->begin() + i);
 				}
 		}
 	}
@@ -71,7 +71,7 @@ void GameEntity::tick(float dt) {
 }
 
 	//TODO delete the used drug, via DrugComponent kan het niet runtime door de tick hieronder
-	for (auto &it : *compontentList) {
+	for (auto &it : *componentList) {
 		it->tick(dt, this);
 	}
 }
