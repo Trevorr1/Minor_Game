@@ -51,7 +51,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new PlayerInputComponent());
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new MoveComponent());
-		newObject->addComponent(new DrawComponent("assets/sprites/SpritesheetRossWalkingLeft.png", 8));
+		newObject->addComponent(new DrawComponent("assets/sprites/SpritesheetRossWalkingLeft.png", 8, 10));
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new PlayerCollisionReactionComponent());
 		break;
