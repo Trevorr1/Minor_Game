@@ -60,7 +60,7 @@ void Level1::Init()
 		if (i > (grassWall/2 - 2) && i < (grassWall/2 + 2)){
 			continue;
 		}
-		GameEntity* grass1 = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Grass);
+		GameEntity* grass1 = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Environment);
 		grass1->setPosX(50 + 32 * i);
 		grass1->setPosY(410);
 		this->addEntities(grass1);

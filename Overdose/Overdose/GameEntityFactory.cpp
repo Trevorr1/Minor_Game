@@ -69,7 +69,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new DrugCollisionReactionComponent());
 		break;
-	case Grass:
+	case Environment:
 		newObject->addComponent(new DrawComponent("assets/sprites/grass.png", 1));
 		newObject->addComponent(new CollisionComponent());
 		break;

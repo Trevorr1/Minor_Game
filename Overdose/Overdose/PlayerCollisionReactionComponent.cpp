@@ -15,6 +15,11 @@ PlayerCollisionReactionComponent::~PlayerCollisionReactionComponent()
 
 void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 {
+	int colX = entity->getColX();
+	int colY = entity->getColY();
+	int colBoxX = entity->getColBoxX();
+	int colBoxY = entity->getColBoxY();
+
 	float posx = entity->getPosX();
 	float posy = entity->getPosY();
 
@@ -26,57 +31,13 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 
 	bool clear = false;
 
-	if (!isAlive){
+	if (!entity->getAlive()){
 		//TODO how to delete?
 		//vector<GameEntity*> *gameEntities = LevelManager::getInstance()->getCurrentLevel()->getEntities();
 		//gameEntities->erase(gameEntities->begin() + 1);
 		//delete entity;
 	}
-	if (collidedTop)
-	{
-		entity->setSpeedY(0);
-		while (!clear)
-		{
-			entity->setPosY(posy + 1);
-			if (!(posy > colY && posy < colBoxY))
-				clear = true;
-		}
-		collidedTop = false;
-	}
-	if (collidedBottom)
-	{
-		entity->setSpeedY(0);
-		while (!clear)
-		{
-			entity->setPosY(posy - 1);
-			if (!(boxY > colY && boxY < colBoxY))
-				clear = true;
-		}
-		collidedBottom = false;
-	}
-	if (collidedLeft)
-	{
-		entity->setSpeedX(0);
-		while (!clear)
-		{
-			entity->setPosX(posx + 2);
-			if (!(posx > colX && posx < colBoxX))
-				clear = true;
-		}
-		collidedLeft = false;
-	}
-	if (collidedRight)
-	{
-		entity->setSpeedX(0);
-		while (!clear)
-		{
-			entity->setPosX(posx - 2);
-			if (!(boxX > colX && boxX < colBoxX))
-				clear = true;
-		}
-		collidedRight = false;
-	}
-	if (reactTop)
+	if (entity->getCollideTop())
 	{
 		entity->setSpeedY(0);
 		while (!clear)
@@ -89,9 +50,74 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 			if (!(posy > colY && posy < colBoxY))
 				clear = true;
 		}
-		reactTop = false;
+		entity->setCollideTop(false);
+		//collidedTop = false;
 	}
-	if (reactBottom)
+	if (entity->getCollideBottom())
+	{
+		entity->setSpeedY(0);
+		while (!clear)
+		{
+			entity->setPosY(posy - 1);
+
+			posy = entity->getPosY();
+			boxY = posy + entity->getHeight();
+
+			if (!(boxY > colY && boxY < colBoxY))
+				clear = true;
+		}
+		entity->setCollideBottom(false);
+		//collidedBottom = false;
+	}
+	if (entity->getCollideLeft())
+	{
+		entity->setSpeedX(0);
+		while (!clear)
+		{
+			entity->setPosX(posx + 2);
+
+			posx = entity->getPosX();
+			boxX = posx + entity->getWidth();
+
+			if (!(posx > colX && posx < colBoxX))
+				clear = true;
+		}
+		entity->setCollideLeft(false);
+		//collidedLeft = false;
+	}
+	if (entity->getCollideRight())
+	{
+		entity->setSpeedX(0);
+		while (!clear)
+		{
+			entity->setPosX(posx - 2);
+
+			posx = entity->getPosX();
+			boxX = posx + entity->getWidth();
+
+			if (!(boxX > colX && boxX < colBoxX))
+				clear = true;
+		}
+		entity->setCollideRight(false);
+		//collidedRight = false;
+	}
+	if (entity->getReactTop())
+	{
+		entity->setSpeedY(0);
+		while (!clear)
+		{
+			entity->setPosY(posy + 1);
+
+			posy = entity->getPosY();
+			boxY = posy + entity->getHeight();
+
+			if (!(posy > colY && posy < colBoxY))
+				clear = true;
+		}
+		entity->setReactTop(false);
+		//reactTop = false;
+	}
+	if (entity->getReactBottom())
 	{
 		entity->setSpeedY(0);
 		while (!clear)
@@ -106,9 +132,10 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 				clear = true;
 			}
 		}
-		reactBottom = false;
+		entity->setReactBottom(false);
+		//reactBottom = false;
 	}
-	if (reactLeft)
+	if (entity->getReactLeft())
 	{
 		entity->setSpeedX(0);
 		while (!clear)
@@ -121,9 +148,10 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 			if (!(posx > colX && posx < colBoxX))
 				clear = true;
 		}
-		reactLeft = false;
+		entity->setReactLeft(false);
+		//reactLeft = false;
 	}
-	if (reactRight)
+	if (entity->getReactRight())
 	{
 		entity->setSpeedX(0);
 		while (!clear)
@@ -136,7 +164,8 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 			if (!(boxX > colX && boxX < colBoxX))
 				clear = true;
 		}
-		reactRight = false;
+		entity->setReactRight(false);
+		//reactRight = false;
 	}
 
 }

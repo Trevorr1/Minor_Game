@@ -125,8 +125,8 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 					message = bump ? CollissionComponent_COLLISION_RIGHT : CollissionComponent_REACTION_RIGHT;
 					break;
 				}
-
-				entity->broadcast(this, message, other);
+				entity->setFlag(message, other);
+				//entity->broadcast(this, message, other);
 			}
 		}
 	}
