@@ -11,7 +11,7 @@ GameEntity::GameEntity(eGameEntity entityEnum) {
 }
 
 GameEntity::~GameEntity() {
-	delete componentList;
+	//delete componentList;
 }
 
 
@@ -19,41 +19,41 @@ GameEntity::~GameEntity() {
 /* Add component to the list */
 void GameEntity::addComponent(Component *component) {
 	component->init(this);
-	componentList->push_back(component);
+	//componentList->push_back(component);
 }
 
 void GameEntity::removeComponent(std::string componentID)
 {
-	for (int i = 0; i < componentList->size(); i++)
+	/*for (int i = 0; i < componentList->size(); i++)
 	{
 		if (componentList->at(i)->getComponentID() == componentID)
 		{
 			componentListToRemove->push_back(i);
 		}
 		
-	}
+	}*/
 }
 
 std::vector<Component*>* GameEntity::getComponentList()
 {
-	return componentList;
+	//return componentList;
 }
 
 void GameEntity::tick(float dt) {
 	//Delete the component
-	if (componentListToRemove->size() != 0){
-		for (auto &it : *componentListToRemove){
-			componentList->erase(componentList->begin() + it);
-			//delete &it;
-		}
+	//if (componentListToRemove->size() != 0){
+	//	for (auto &it : *componentListToRemove){
+	//		componentList->erase(componentList->begin() + it);
+	//		//delete &it;
+	//	}
 
-		componentListToRemove->clear();
-	}
+	//	componentListToRemove->clear();
+	//}
 
-	//TODO delete the used drug, via DrugComponent kan het niet runtime door de tick hieronder
-	for (auto &it : *componentList) {
-		it->tick(dt, this);
-	}
+	////TODO delete the used drug, via DrugComponent kan het niet runtime door de tick hieronder
+	//for (auto &it : *componentList) {
+	//	it->tick(dt, this);
+	//}
 }
 
 float GameEntity::getPosition(int index)
