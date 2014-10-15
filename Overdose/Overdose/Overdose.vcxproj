@@ -103,6 +103,7 @@
     <ClInclude Include="PlayerCollisionReactionComponent.h" />
     <ClInclude Include="PlayerInputComponent.h" />
     <ClInclude Include="PolicemanCollisionReactionComponent.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="SDLTemplate.h" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="SplitNode.h" />
@@ -149,6 +150,9 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Overdose.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon1.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
