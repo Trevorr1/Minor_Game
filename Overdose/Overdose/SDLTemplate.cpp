@@ -172,7 +172,7 @@ void SDLTemplate::swap()
 void SDLTemplate::initTemplate()
 {
 	redirectIO();
-	printf("application started.\n");
+	printf("Initializing Overdose Engine.\n");
 	SDL_Init(SDL_INIT_VIDEO);
 	//SDL_SetVideoMode( SCRWIDTH, SCRHEIGHT, 32, SDL_OPENGL );
 	//SDL_EnableKeyRepeat( 0, 0 );
@@ -181,7 +181,7 @@ void SDLTemplate::initTemplate()
 	if (!init())
 	{
 		//SDL_SetVideoMode( SCRWIDTH, SCRHEIGHT, 32, SDL_HWSURFACE|SDL_DOUBLEBUF );
-		screen = SDL_CreateWindow("Template",
+		screen = SDL_CreateWindow("Overdose",
 			SDL_WINDOWPOS_UNDEFINED,
 			SDL_WINDOWPOS_UNDEFINED,
 			SCRWIDTH,
