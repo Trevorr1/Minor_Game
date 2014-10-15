@@ -13,7 +13,18 @@ PlayerCollisionReactionComponent::~PlayerCollisionReactionComponent()
 }
 
 
-void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity) {
+void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
+{
+	float posx = entity->getPosX();
+	float posy = entity->getPosY();
+
+	int boxX = posx + entity->getWidth();
+	int boxY = posy + entity->getHeight();
+
+	float speedx = entity->getSpeedX();
+	float speedy = entity->getSpeedY();
+
+	bool clear = false;
 
 	if (!isAlive){
 		//TODO how to delete?
@@ -21,28 +32,111 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity) {
 		//gameEntities->erase(gameEntities->begin() + 1);
 		//delete entity;
 	}
-	if (collidedTop || collidedBottom)
+	if (collidedTop)
 	{
 		entity->setSpeedY(0);
+		while (!clear)
+		{
+			entity->setPosY(posy + 1);
+			if (!(posy > colY && posy < colBoxY))
+				clear = true;
+		}
 		collidedTop = false;
+	}
+	if (collidedBottom)
+	{
+		entity->setSpeedY(0);
+		while (!clear)
+		{
+			entity->setPosY(posy - 1);
+			if (!(boxY > colY && boxY < colBoxY))
+				clear = true;
+		}
 		collidedBottom = false;
 	}
-	if (collidedX)
+	if (collidedLeft)
 	{
 		entity->setSpeedX(0);
-		collidedX = false;
+		while (!clear)
+		{
+			entity->setPosX(posx + 2);
+			if (!(posx > colX && posx < colBoxX))
+				clear = true;
+		}
+		collidedLeft = false;
 	}
-	if (reactTop || reactBottom)
+	if (collidedRight)
 	{
-		entity->setSpeedY(entity->getSpeedY() * -1);
-		entity->setSpeedY(entity->getSpeedX() * -1);
+		entity->setSpeedX(0);
+		while (!clear)
+		{
+			entity->setPosX(posx - 2);
+			if (!(boxX > colX && boxX < colBoxX))
+				clear = true;
+		}
+		collidedRight = false;
+	}
+	if (reactTop)
+	{
+		entity->setSpeedY(0);
+		while (!clear)
+		{
+			entity->setPosY(posy + 1);
+
+			posy = entity->getPosY();
+			boxY = posy + entity->getHeight();
+
+			if (!(posy > colY && posy < colBoxY))
+				clear = true;
+		}
 		reactTop = false;
+	}
+	if (reactBottom)
+	{
+		entity->setSpeedY(0);
+		while (!clear)
+		{
+			entity->setPosY(posy - 1);
+
+			posy = entity->getPosY();
+			boxY = posy + entity->getHeight();
+
+			if (!(boxY > colY && boxY < colBoxY))
+			{
+				clear = true;
+			}
+		}
 		reactBottom = false;
 	}
-	if (reactX)
+	if (reactLeft)
 	{
-		entity->setSpeedY(entity->getSpeedX() * -1);
-		reactTop = false;
+		entity->setSpeedX(0);
+		while (!clear)
+		{
+			entity->setPosX(posx + 2);
+
+			posx = entity->getPosX();
+			boxX = posx + entity->getWidth();
+
+			if (!(posx > colX && posx < colBoxX))
+				clear = true;
+		}
+		reactLeft = false;
+	}
+	if (reactRight)
+	{
+		entity->setSpeedX(0);
+		while (!clear)
+		{
+			entity->setPosX(posx - 2);
+
+			posx = entity->getPosX();
+			boxX = posx + entity->getWidth();
+
+			if (!(boxX > colX && boxX < colBoxX))
+				clear = true;
+		}
+		reactRight = false;
 	}
 
 }

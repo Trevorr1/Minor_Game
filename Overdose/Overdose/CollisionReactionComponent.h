@@ -17,7 +17,9 @@ namespace overdose {
 		std::string getComponentID();
 
 	protected:
-		bool isAlive = true, collidedTop = false, collidedBottom = false, collidedX = false, reactTop = false, reactBottom = false, reactX = false;
+		bool isAlive = true, collidedTop = false, collidedBottom = false, collidedLeft = false,
+			collidedRight = false, reactTop = false, reactBottom = false, reactLeft = false, reactRight = false;
+		int colX = 0, colY = 0, colBoxX = 0, colBoxY = 0;
 	};
 
 }

@@ -91,7 +91,11 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 			{
 				if ((cPoints[dir]->first.x > oposx && cPoints[dir]->first.x < oboxw) && (cPoints[dir]->first.y > oposy && cPoints[dir]->first.y < oboxh)
 					|| (cPoints[dir]->second.x > oposx && cPoints[dir]->second.x < oboxw) && (cPoints[dir]->second.y > oposy && cPoints[dir]->second.y < oboxh))
+				{
 					collides = true;
+					break;
+				}
+				
 			}
 
 			/*  If there is a collision send a collision broadcast
@@ -102,9 +106,9 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 			*	also check if it should it reacts to environment or enemies
 			*/
 
-			ComponentMessage message= (ComponentMessage)0;
+			ComponentMessage message = CollissionComponent_COLLISION_DEFAULT;
 			bool bump = (other->getEnum() == Environment);
-			message = CollissionComponent_COLLISION_DEFAULT;
+
 			if (collides)
 			{
 				switch (dir){
