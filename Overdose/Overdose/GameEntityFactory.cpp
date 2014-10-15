@@ -7,6 +7,7 @@
 #include "FPSDrawComponent.h"
 #include "PlayerInputComponent.h"
 #include "ClickableComponent.h"
+#include "gravityComponent.h"
 #include "CollisionReactionComponent.h"
 #include "PlayerCollisionReactionComponent.h"
 #include "DrugCollisionReactionComponent.h"
@@ -54,6 +55,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new DrawComponent("assets/sprites/Ross/RossWalkingRight.png", 8, 10));
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new PlayerCollisionReactionComponent());
+		newObject->addComponent(new gravityComponent());
 		break;
 	case ButtonPlay:
 		newObject->addComponent(new ClickableComponent());
