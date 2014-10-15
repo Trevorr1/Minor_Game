@@ -291,11 +291,12 @@
 
 	void Surface::SetChar(int c, char* c1, char* c2, char* c3, char* c4, char* c5)
 	{
-		strcpy(s_Font[c][0], c1);
-		strcpy(s_Font[c][1], c2);
-		strcpy(s_Font[c][2], c3);
-		strcpy(s_Font[c][3], c4);
-		strcpy(s_Font[c][4], c5);
+
+		strcpy_s(s_Font[c][0], 6, c1);
+		strcpy_s(s_Font[c][1], 6, c2);
+		strcpy_s(s_Font[c][2], 6, c3);
+		strcpy_s(s_Font[c][3], 6, c4);
+		strcpy_s(s_Font[c][4], 6, c5);
 	}
 
 	void Surface::InitCharset()
