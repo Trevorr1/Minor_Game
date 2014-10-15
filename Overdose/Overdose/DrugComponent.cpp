@@ -32,7 +32,7 @@ void DrugComponent::tick(float dt, GameEntity *entity) {
 
 	// drug timer checker
 	if (timer_end < drug_effect_ms){
-		std::cout << "Time: " << timer_end << " ms" << std::endl;
+		//std::cout << "Time: " << timer_end << " ms" << std::endl;
 	}
 	else{
 		entity->setSpeedX(previous_speedX);
