@@ -12,7 +12,8 @@ namespace overdose {
 		float width = 0, height = 0;
 		eGameEntity m_EntityEnum;
 		//bool isAlive = true;
-		std::vector<Component*> *compontentList = new std::vector < Component* > ;
+		std::vector<Component*> *componentList = new std::vector < Component* > ;
+		std::vector<Component*> *deleteList = new std::vector<Component*>;
 
 	public:
 		virtual void addComponent(Component *component);

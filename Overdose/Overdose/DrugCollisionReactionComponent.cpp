@@ -1,5 +1,6 @@
 #include "DrugCollisionReactionComponent.h"
 #include "DrugComponent.h"
+#include "LevelManager.h"
 
 
 using namespace overdose;
@@ -25,9 +26,11 @@ void DrugCollisionReactionComponent::receive(Component *subject, ComponentMessag
 
 void DrugCollisionReactionComponent::tick(float dt, GameEntity *entity) {
 	if (isCollided){
-		entity->setPosX(entity->getPosX() + 50);
+		//entity->setPosX(entity->getPosX() + 50);
 		isCollided = false;
 		//entity->addComponent(new DrugComponent());
+		GameEntity *m_player = LevelManager::getInstance()->getCurrentLevel()->getPlayerEntity();
+		m_player->addComponent(new DrugComponent());
 		//delete entity;
 	}
 }

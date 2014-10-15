@@ -11,7 +11,7 @@ GameEntity::GameEntity(eGameEntity entityEnum) {
 }
 
 GameEntity::~GameEntity() {
-	delete compontentList;
+	delete componentList;
 }
 
 
@@ -19,22 +19,36 @@ GameEntity::~GameEntity() {
 /* Add component to the list */
 void GameEntity::addComponent(Component *component) {
 	component->init(this);
-	compontentList->push_back(component);
+	componentList->push_back(component);
 }
 
 void GameEntity::removeComponent(std::string componentID)
 {
-	for (int i = 0; i < compontentList->size(); i++)
+	//eleteList = componentList;
+	for (int i = 0; i < componentList->size(); i++)
 	{
-		if (compontentList->at(i)->getComponentID() == componentID)
+		if (componentList->at(i)->getComponentID() == componentID)
 		{
-			delete compontentList->at(i);
+			deleteList->push_back(componentList->at(i));
 		}
 	}
 }
 
 void GameEntity::tick(float dt) {
-	for (auto &it : *compontentList) {
+	if (deleteList->size() != 0){
+		for (int i = 0; i < componentList->size(); i++)
+		{
+			for (auto &it : *deleteList) {
+				if (componentList->at(i) == it)
+				{
+					delete componentList->at(i);
+					componentList->erase(componentList->begin() + i);
+				}
+			}
+		}
+		deleteList->clear();
+	}
+	for (auto &it : *componentList) {
 		it->tick(dt, this);
 	}
 }
@@ -56,7 +70,7 @@ float GameEntity::getPosition(int index)
 
 
 void GameEntity::broadcast(Component *subject, ComponentMessage message, GameEntity *object) {
-	for (auto &it : *compontentList) {
+	for (auto &it : *componentList) {
 		it->receive(subject, message, object);
 	}
 }
