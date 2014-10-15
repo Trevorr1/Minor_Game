@@ -32,11 +32,11 @@ void GameEntity::removeComponent(std::string componentID)
 		}
 		
 	}*/
-}
+	}
 
 std::vector<Component*>* GameEntity::getComponentList()
 {
-	//return componentList;
+	return componentList;
 }
 
 void GameEntity::tick(float dt) {
@@ -54,7 +54,7 @@ void GameEntity::tick(float dt) {
 	//for (auto &it : *componentList) {
 	//	it->tick(dt, this);
 	//}
-}
+	}
 
 float GameEntity::getPosition(int index)
 {

@@ -14,7 +14,7 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 	//79 right arrow
 	//80 left arrow
 	//-1 none
-	int speedX = entity->getSpeedX();
+	int speedX = (int)entity->getSpeedX();
 
 	switch (keyDown) {
 	case -1:
@@ -23,7 +23,7 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 	case 79:
 		if (speedX > 0) {
 			//entity->setSpeedX(speedX * -1);
-			entity->setSpeedX(speedX);
+			entity->setSpeedX((float)speedX);
 		}
 		if ((int)speedX == 0) {
 			entity->setSpeedX(2);
@@ -34,7 +34,7 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 			entity->setSpeedX(speedX * -1);
 		}*/
 		if (speedX > 0){
-			entity->setSpeedX(speedX * -1);
+			entity->setSpeedX((float)speedX * -1);
 		}
 		if (speedX == 0) {
 			entity->setSpeedX(-2);

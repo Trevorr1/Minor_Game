@@ -32,7 +32,7 @@ void DrugCollisionReactionComponent::tick(float dt, GameEntity *entity) {
 		// aaaaahhhhhh i hate myself for this method - trev
 		entity->setAllFalse();
 	}
-	
+
 	if (isCollided){
 		entity->setPosX(entity->getPosX() + 50);
 		isCollided = false;

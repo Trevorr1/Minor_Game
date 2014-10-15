@@ -11,7 +11,7 @@ namespace overdose {
 		float posX = 0.0, posY = 0.0, speedX = 0.0, speedY = 0.0;
 		float width = 0, height = 0;
 		eGameEntity m_EntityEnum;
-		std::vector<Component*> *compontentList = new std::vector < Component* > ;
+		std::vector<Component*> *componentList = new std::vector < Component* > ;
 
 		// for collision :<
 		bool isAlive = true, collidedTop = false, collidedBottom = false, collidedLeft = false,
