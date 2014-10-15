@@ -207,7 +207,7 @@ void SDLTemplate::initTemplate()
 	{
 		if (lastftime < m_desiredDeltaLoop) {
 			// We gaan te snel!
-			int pause = (m_desiredDeltaLoop - lastftime) / (1000 * 1000);
+			int pause = (int)(m_desiredDeltaLoop - lastftime) / (1000 * 1000);
 
 			std::chrono::microseconds dura(pause);
 			std::this_thread::sleep_for(dura);
@@ -236,10 +236,10 @@ void SDLTemplate::initTemplate()
 		// calculate frame time and pass it to game->Tick
 		LARGE_INTEGER start, end;
 		QueryPerformanceCounter(&start);
-		float dt_ms = lastftime / 1000;
+		float dt_ms = (float)lastftime / 1000;
 		game->Tick(dt_ms);
 		QueryPerformanceCounter(&end);
-		lastftime = (end.QuadPart - start.QuadPart);
+		lastftime = (double)(end.QuadPart - start.QuadPart);
 		
 		
 		// event loop

@@ -21,7 +21,7 @@ void DrugCollisionReactionComponent::receive(Component *subject, ComponentMessag
 		//printf("Player collided with this drug \n");
 		isCollided = true;
 		bool inList = false;
-		for (int i = 0; i < object->getComponentList()->size(); i++)
+		for (unsigned int i = 0; i < object->getComponentList()->size(); i++)
 		{
 			//if (typeid(object->getComponentList()->at(i)) ==  typeid(DrugComponent))
 			if (dynamic_cast<DrugComponent*>(object->getComponentList()->at(i)) != NULL)

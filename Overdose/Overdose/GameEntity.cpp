@@ -24,7 +24,7 @@ void GameEntity::addComponent(Component *component) {
 
 void GameEntity::removeComponent(std::string componentID)
 {
-	for (int i = 0; i < componentList->size(); i++)
+	for (unsigned int i = 0; i < componentList->size(); i++)
 	{
 		if (componentList->at(i)->getComponentID() == componentID)
 		{
