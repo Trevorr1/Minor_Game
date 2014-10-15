@@ -28,11 +28,13 @@
 		m_Buffer(NULL),
 		m_Width(0), m_Height(0)
 	{
-		FILE* f = fopen(a_File, "rb");
+		FILE *f;
+		//FILE* f = fopen_s(&fis, a_File, "rb");
+		errno_t errorCode = fopen_s(&f, a_File, "rb");
 		if (!f)
 		{
 			char t[128];
-			sprintf(t, "File not found: %s", a_File);
+			sprintf_s(t, "File not found: %s", a_File);
 			NotifyUser(t);
 			return;
 		}
@@ -196,6 +198,64 @@
 					dst += dstpitch;
 					src += srcpitch;
 				}
+			}
+		}
+	}
+
+	void Surface::CopyTo2(Surface* a_Dst, int a_DstX, int a_DstY, int a_SrcX, int a_SrcY)
+	{
+		Pixel* dst = a_Dst->GetBuffer();
+		Pixel* src = m_Buffer;
+		if ((src) && (dst))
+		{
+			int copyWidth;
+			int srcpitch = m_Pitch;
+			int dstpitch = a_Dst->GetPitch();
+			int Height = a_Dst->GetHeight() - a_DstY;
+
+			//Handle right and left side.
+			if (a_SrcX + a_Dst->GetWidth() > m_Width + a_Dst->GetWidth() || a_SrcX < -a_Dst->GetWidth())
+			{
+				return;
+			}
+			else if (a_SrcX + a_Dst->GetWidth() > m_Width)
+			{
+				copyWidth = (m_Width - (a_SrcX + a_Dst->GetWidth())) + a_Dst->GetWidth();
+			}
+			else if (a_SrcX < 0)
+			{
+				copyWidth = a_Dst->GetWidth() + a_SrcX;
+				dst += (a_DstY * a_Dst->GetPitch()) + (a_Dst->GetWidth() - copyWidth);
+				a_SrcX = 0;
+			}
+			else
+			{
+				copyWidth = a_Dst->GetWidth();
+			}
+
+			//Handle top and bottom
+			if (a_SrcY < -a_Dst->GetHeight())
+			{
+				return;
+			}
+			else if (a_SrcY < 0)
+			{
+				a_DstY = -a_SrcY;
+				a_SrcY = 0;
+			}
+			else if (a_SrcY + a_Dst->GetHeight() > m_Height)
+			{
+				Height = (m_Height - (a_SrcY + a_Dst->GetHeight())) + a_Dst->GetHeight();
+			}
+
+			//Copy the data.
+			dst += a_DstY * a_Dst->GetPitch();
+			src += a_SrcY * m_Pitch + a_SrcX;
+			for (int y = a_DstY; y < Height; ++y)
+			{
+				memcpy(dst, src, copyWidth * 4);
+				dst += dstpitch;
+				src += srcpitch;
 			}
 		}
 	}
@@ -378,7 +438,7 @@
 					for (int x = xs; x < width; x++)
 					{
 						const Pixel c1 = *(src + x);
-						if (c1) *(dest + addr + x) = c1;
+						if (c1^0xffff00ff) *(dest + addr + x) = c1;
 					}
 				}
 				addr += dpitch;
