@@ -93,6 +93,7 @@
     <ClInclude Include="Enum.h" />
     <ClInclude Include="GameEntityFactory.h" />
     <ClInclude Include="GameEntity.h" />
+    <ClInclude Include="gravityComponent.h" />
     <ClInclude Include="ILevel.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Level1.h" />
@@ -127,6 +128,7 @@
     <ClCompile Include="EndNode.cpp" />
     <ClCompile Include="GameEntityFactory.cpp" />
     <ClCompile Include="GameEntity.cpp" />
+    <ClCompile Include="gravityComponent.cpp" />
     <ClCompile Include="Ilevel.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Level1.cpp" />

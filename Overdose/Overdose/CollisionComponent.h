@@ -9,7 +9,7 @@ namespace overdose {
 	{
 	public:
 		CollisionComponent();
-		~CollisionComponent();
+		virtual ~CollisionComponent();
 
 
 		void receive(Component *subject, ComponentMessage message, GameEntity *object);
