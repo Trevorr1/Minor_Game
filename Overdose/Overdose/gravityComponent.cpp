@@ -24,7 +24,7 @@ void gravityComponent::receive(Component *subject, ComponentMessage message, Gam
 
 void gravityComponent::tick(float dt, GameEntity *entity)
 {
-	entity->setSpeedY(-gravity);
+	entity->setSpeedY(gravity);
 }
 
 std::string gravityComponent::getComponentID()
