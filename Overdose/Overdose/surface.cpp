@@ -28,11 +28,13 @@
 		m_Buffer(NULL),
 		m_Width(0), m_Height(0)
 	{
-		FILE* f = fopen(a_File, "rb");
+		FILE *f;
+		//FILE* f = fopen_s(&fis, a_File, "rb");
+		errno_t errorCode = fopen_s(&f, a_File, "rb");
 		if (!f)
 		{
 			char t[128];
-			sprintf(t, "File not found: %s", a_File);
+			sprintf_s(t, "File not found: %s", a_File);
 			NotifyUser(t);
 			return;
 		}
