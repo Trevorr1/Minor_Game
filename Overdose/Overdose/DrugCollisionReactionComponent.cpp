@@ -15,10 +15,11 @@ DrugCollisionReactionComponent::~DrugCollisionReactionComponent()
 }
 
 void DrugCollisionReactionComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
-	if (object->getEnum() == DrugAddict){
-		//printf("Player collided with this drug \n");
-		isCollided = true;
-	}
+	if (object != nullptr)
+		if (object->getEnum() == DrugAddict){
+			//printf("Player collided with this drug \n");
+			isCollided = true;
+		}
 }
 
 

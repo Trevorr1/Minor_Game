@@ -128,9 +128,6 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 
 				entity->broadcast(this, message, other);
 			}
-
-
-
 		}
 	}
 }
