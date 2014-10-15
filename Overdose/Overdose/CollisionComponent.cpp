@@ -32,8 +32,8 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 	int width = entity->getWidth();
 	int height = entity->getHeight();
 
-	int wstep = (int)(width * 1.0 / 3);
-	int hstep = (int)(height * 1.0 / 3);
+	int wstep = (int)(width * 1.0 / 6);
+	int hstep = (int)(height * 1.0 / 6);
 
 	// dir : 0 = top, dir : 1 = bottom, dir : 2 = left, dir : 3 = right
 	// the following creates a octagon instead of a box:
