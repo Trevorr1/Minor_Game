@@ -156,6 +156,9 @@
     <ClInclude Include="SoundManager.h">
       <Filter>Header Files\Manager</Filter>
     </ClInclude>
+    <ClInclude Include="DrugComponent.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -253,6 +256,9 @@
     </ClCompile>
     <ClCompile Include="DrugCollisionReactionComponent.cpp">
       <Filter>Source Files\Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="DrugComponent.cpp">
+      <Filter>Source Files\Component</Filter>
     </ClCompile>
     <ClCompile Include="SoundManager.cpp">
       <Filter>Source Files\Manager</Filter>

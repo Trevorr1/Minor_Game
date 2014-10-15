@@ -14,8 +14,14 @@ CollisionReactionComponent::~CollisionReactionComponent()
 }
 
 void CollisionReactionComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
-	printf("CollisioReaction received");
-	
+	if (object != nullptr)
+	{
+		printf("CollisioReaction received");
+		colX = object->getPosX();
+		colY = object->getPosY();
+		colBoxX = colX + object->getWidth();
+		colBoxY = colY + object->getHeight();
+	}
 	// resolve the collisions here
 	// use object to determine with what this collided
 	switch (message){
@@ -32,11 +38,11 @@ void CollisionReactionComponent::receive(Component *subject, ComponentMessage me
 		break; 
 	case CollissionComponent_COLLISION_LEFT:
 		printf("Collided with something from the left \n");
-		collidedX = true;
+		collidedLeft = true;
 		break; 
 	case CollissionComponent_COLLISION_RIGHT:
 		printf("Collided with something from the right \n");
-		collidedX = true;
+		collidedRight = true;
 		break;
 	case CollissionComponent_REACTION_TOP:
 		printf("Reacted with something from the top \n");
@@ -48,11 +54,11 @@ void CollisionReactionComponent::receive(Component *subject, ComponentMessage me
 		break; 
 	case CollissionComponent_REACTION_LEFT:
 		printf("Reacted with something from the left \n");
-		reactX = true;
+		reactLeft = true;
 		break;
 	case CollissionComponent_REACTION_RIGHT:
 		printf("Reacted with something from the right \n");
-		reactX = true;
+		reactRight = true;
 		break;
 	case Player_ATTACKING:
 		printf("Player_ATTACKING? \n");

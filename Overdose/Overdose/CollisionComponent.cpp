@@ -32,8 +32,8 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 	int width = entity->getWidth();
 	int height = entity->getHeight();
 
-	int wstep = (int)(width * 1.0 / 3);
-	int hstep = (int)(height * 1.0 / 3);
+	int wstep = (int)(width * 1.0 / 6);
+	int hstep = (int)(height * 1.0 / 6);
 
 	// dir : 0 = top, dir : 1 = bottom, dir : 2 = left, dir : 3 = right
 	// the following creates a octagon instead of a box:
@@ -91,7 +91,11 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 			{
 				if ((cPoints[dir]->first.x > oposx && cPoints[dir]->first.x < oboxw) && (cPoints[dir]->first.y > oposy && cPoints[dir]->first.y < oboxh)
 					|| (cPoints[dir]->second.x > oposx && cPoints[dir]->second.x < oboxw) && (cPoints[dir]->second.y > oposy && cPoints[dir]->second.y < oboxh))
+				{
 					collides = true;
+					break;
+				}
+				
 			}
 
 			/*  If there is a collision send a collision broadcast
@@ -102,9 +106,9 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 			*	also check if it should it reacts to environment or enemies
 			*/
 
-			ComponentMessage message;
+			ComponentMessage message = CollissionComponent_COLLISION_DEFAULT;
 			bool bump = (other->getEnum() == Environment);
-			message = CollissionComponent_COLLISION_DEFAULT;
+
 			if (collides)
 			{
 				switch (dir){
@@ -124,9 +128,6 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 
 				entity->broadcast(this, message, other);
 			}
-
-
-
 		}
 	}
 }
