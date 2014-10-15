@@ -1,5 +1,6 @@
 #include "DrugCollisionReactionComponent.h"
 #include "DrugComponent.h"
+#include "LevelManager.h"
 
 
 using namespace overdose;
@@ -20,7 +21,7 @@ void DrugCollisionReactionComponent::receive(Component *subject, ComponentMessag
 	//		//printf("Player collided with this drug \n");
 	//		isCollided = true;
 	//	}
-}
+		}
 
 
 void DrugCollisionReactionComponent::tick(float dt, GameEntity *entity) {

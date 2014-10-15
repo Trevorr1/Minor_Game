@@ -7,6 +7,7 @@ LevelManager* LevelManager::_instance = nullptr;
 
 LevelManager::LevelManager(void)
 {
+	std::cout << "Succesfully initialised LevelManager" << std::endl;
 	createLevel(LevelMainMenu);
 }
 

@@ -24,6 +24,8 @@ namespace overdose {
 
 		virtual void tick(float dt);
 
+		virtual std::vector<Component*>* getComponentList();
+
 		void broadcast(Component *subject, ComponentMessage message, GameEntity *object);
 
 		virtual void removeComponent(std::string componentString);
