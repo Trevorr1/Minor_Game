@@ -23,8 +23,8 @@ DrawComponent::~DrawComponent()
 }
 
 void DrawComponent::init(GameEntity *entity) {
-	entity->setHeight(m_SpritSheet->GetHeight());
-	entity->setWidth(m_SpritSheet->GetWidth());
+	entity->setHeight((float)m_SpritSheet->GetHeight());
+	entity->setWidth((float)m_SpritSheet->GetWidth());
 }
 
 void DrawComponent::receive(Component *subject, ComponentMessage message, GameEntity *objects)

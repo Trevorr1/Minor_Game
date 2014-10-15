@@ -18,8 +18,8 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 	float posx = entity->getPosX();
 	float posy = entity->getPosY();
 
-	int boxX = posx + entity->getWidth();
-	int boxY = posy + entity->getHeight();
+	int boxX = (int)posx + (int)entity->getWidth();
+	int boxY = (int)posy + (int)entity->getHeight();
 
 	float speedx = entity->getSpeedX();
 	float speedy = entity->getSpeedY();
@@ -84,7 +84,7 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 			entity->setPosY(posy + 1);
 
 			posy = entity->getPosY();
-			boxY = posy + entity->getHeight();
+			boxY = (int)posy + (int)entity->getHeight();
 
 			if (!(posy > colY && posy < colBoxY))
 				clear = true;
@@ -99,7 +99,7 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 			entity->setPosY(posy - 1);
 
 			posy = entity->getPosY();
-			boxY = posy + entity->getHeight();
+			boxY = (int)posy + (int)entity->getHeight();
 
 			if (!(boxY > colY && boxY < colBoxY))
 			{
@@ -116,7 +116,7 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 			entity->setPosX(posx + 2);
 
 			posx = entity->getPosX();
-			boxX = posx + entity->getWidth();
+			boxX = (int)posx + (int)entity->getWidth();
 
 			if (!(posx > colX && posx < colBoxX))
 				clear = true;

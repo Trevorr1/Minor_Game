@@ -29,8 +29,8 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 	int posx = (int)entity->getPosX();
 	int posy = (int)entity->getPosY();
 
-	int width = entity->getWidth();
-	int height = entity->getHeight();
+	int width = (int)entity->getWidth();
+	int height = (int)entity->getHeight();
 
 	int wstep = (int)(width * 1.0 / 6);
 	int hstep = (int)(height * 1.0 / 6);
@@ -80,8 +80,8 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 			// define the collision box of the "other" GameEntity
 			int oposx = (int)other->getPosX();
 			int oposy = (int)other->getPosY();
-			int oboxw = oposx + other->getWidth();
-			int oboxh = oposy + other->getHeight();
+			int oboxw = oposx + (int)other->getWidth();
+			int oboxh = oposy + (int)other->getHeight();
 
 			// check which of the directions of this GameEntity
 			// "Collides" with the other object bounding box

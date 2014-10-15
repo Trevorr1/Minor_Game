@@ -17,10 +17,10 @@ void CollisionReactionComponent::receive(Component *subject, ComponentMessage me
 	if (object != nullptr)
 	{
 		printf("CollisioReaction received");
-		colX = object->getPosX();
-		colY = object->getPosY();
-		colBoxX = colX + object->getWidth();
-		colBoxY = colY + object->getHeight();
+		colX = (int)object->getPosX();
+		colY = (int)object->getPosY();
+		colBoxX = colX + (int)object->getWidth();
+		colBoxY = colY + (int)object->getHeight();
 	}
 	// resolve the collisions here
 	// use object to determine with what this collided
@@ -64,7 +64,7 @@ void CollisionReactionComponent::receive(Component *subject, ComponentMessage me
 		printf("Player_ATTACKING? \n");
 		isAlive = false;
 		break; 
-	defualt:
+	default:
 		// do nothing for now
 		break;
 	}
