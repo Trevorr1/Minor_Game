@@ -9,18 +9,9 @@ void  PlayerInputComponent::receive(Component *subject, ComponentMessage message
 
 void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 
-	int keyDown = InputManager::getInstance()->getLastKeyPress();
-
-	//79 right arrow
-	//80 left arrow
-	//-1 none
 	int speedX = (int)entity->getSpeedX();
 
-	switch (keyDown) {
-	case -1:
-		entity->setSpeedX(0);
-		break;
-	case 79:
+	if (InputManager::getInstance()->isKeyPressed(SDL_SCANCODE_RIGHT)) {
 		if (speedX > 0) {
 			//entity->setSpeedX(speedX * -1);
 			entity->setSpeedX((float)speedX);
@@ -28,18 +19,17 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 		if ((int)speedX == 0) {
 			entity->setSpeedX(2);
 		}
-		break;
-	case 80:
-		/*if (speedX < 0) {
-			entity->setSpeedX(speedX * -1);
-		}*/
+	}
+	else if (InputManager::getInstance()->isKeyPressed(SDL_SCANCODE_LEFT)) {
 		if (speedX > 0){
 			entity->setSpeedX((float)speedX * -1);
 		}
 		if (speedX == 0) {
 			entity->setSpeedX(-2);
 		}
-		break;
+	}
+	else {
+		entity->setSpeedX(0);
 	}
 }
 
