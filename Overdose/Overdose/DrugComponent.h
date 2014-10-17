@@ -11,8 +11,8 @@ namespace overdose {
 		DrugComponent();
 		virtual ~DrugComponent();
 
-		void receive(Component *subject, ComponentMessage message, GameEntity *object);
-		void tick(float dt, GameEntity *entity);
+		virtual void receive(Component *subject, ComponentMessage message, GameEntity *object);
+		virtual void tick(float dt, GameEntity *entity);
 
 		std::clock_t    timer_start;
 		std::string getComponentID();

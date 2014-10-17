@@ -1,5 +1,5 @@
 #include "DrugCollisionReactionComponent.h"
-#include "DrugComponent.h"
+#include "SpeedDrugComponent.h"
 #include "LevelManager.h"
 
 
@@ -24,14 +24,14 @@ void DrugCollisionReactionComponent::receive(Component *subject, ComponentMessag
 		for (unsigned int i = 0; i < object->getComponentList()->size(); i++)
 		{
 			//if (typeid(object->getComponentList()->at(i)) ==  typeid(DrugComponent))
-			if (dynamic_cast<DrugComponent*>(object->getComponentList()->at(i)) != NULL)
+			if (dynamic_cast<SpeedDrugComponent*>(object->getComponentList()->at(i)) != NULL)
 			{
 				inList = true;
 			}
 		}
 		if (!inList)
 		{
-			object->addComponent(new DrugComponent());
+			object->addComponent(new SpeedDrugComponent());
 		}
 	}
 }
