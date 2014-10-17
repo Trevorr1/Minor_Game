@@ -15,6 +15,7 @@ namespace overdose {
 		virtual void addEnemies(GameEntity* entity);
 		virtual void addCollectibles(GameEntity* entity);
 		virtual GameEntity* getPlayerEntity();
+		void removeEntity(GameEntity* entity);
 		virtual std::vector<GameEntity*> *getEntities();
 		virtual std::vector<GameEntity*> *getEnemies();
 		virtual std::vector<GameEntity*> *getCollectibles();

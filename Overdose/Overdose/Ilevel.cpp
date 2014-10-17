@@ -18,6 +18,17 @@ void ILevel::addCollectibles(GameEntity* entities)
 	this->collectibles->push_back(entities);
 }
 
+void ILevel::removeEntity(GameEntity* entity) {
+	
+	for (auto &it : *entities) {
+		if (entity == it) {
+			it = nullptr;
+			delete entity;
+		}
+	}
+}
+
+
 GameEntity* ILevel::getPlayerEntity(){
 	return m_Player;
 }
@@ -40,7 +51,18 @@ void ILevel::DrawBackground(){
 
 void ILevel::Tick(float dt){
 	DrawBackground();
-	/*Test Data*/
+
+
+	auto toRemove = std::remove_if(entities->begin(), entities->end(), [](GameEntity* p) {
+		if (p->isScheduledForRemoval()) {
+			delete p;
+			return true;
+		}
+		return false;
+	});
+
+	entities->erase(toRemove, entities->end());
+
 	for (auto &it : *entities) {
 		it->tick(dt);
 	}
