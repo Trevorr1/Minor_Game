@@ -3,6 +3,7 @@
 #include "Enum.h"
 #include "Component.h"
 #include "ComponentMessage.h" 
+
 namespace overdose {
 	class Component;
 	class GameEntity
@@ -11,7 +12,8 @@ namespace overdose {
 		float posX = 0.0, posY = 0.0, speedX = 0.0, speedY = 0.0;
 		float width = 0, height = 0;
 		eGameEntity m_EntityEnum;
-		//bool isAlive = true;
+		bool m_scheduledForRemoval = false;
+
 		std::vector <int> *componentListToRemove = new std::vector < int >;
 		std::vector<Component*> *componentList = new std::vector < Component* > ;
 
@@ -25,6 +27,9 @@ namespace overdose {
 		void broadcast(Component *subject, ComponentMessage message, GameEntity *object);
 
 		virtual void removeComponent(std::string componentString);
+
+		void scheduleForRemoval();
+		bool isScheduledForRemoval();
 
 		float getPosX();
 		float getPosY();

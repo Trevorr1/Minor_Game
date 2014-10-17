@@ -11,6 +11,9 @@ GameEntity::GameEntity(eGameEntity entityEnum) {
 }
 
 GameEntity::~GameEntity() {
+	for (auto *it : *componentList) {
+		delete it;
+	}
 	delete componentList;
 }
 
@@ -51,6 +54,7 @@ void GameEntity::tick(float dt) {
 	}
 
 	//TODO delete the used drug, via DrugComponent kan het niet runtime door de tick hieronder
+	
 	for (auto &it : *componentList) {
 		it->tick(dt, this);
 	}
@@ -76,6 +80,15 @@ void GameEntity::broadcast(Component *subject, ComponentMessage message, GameEnt
 	for (auto &it : *componentList) {
 		it->receive(subject, message, object);
 	}
+}
+
+void GameEntity::scheduleForRemoval() {
+	std::cout << "Entity " << m_EntityEnum << " scheduled for removal" << std::endl;
+	m_scheduledForRemoval = true;
+}
+
+bool GameEntity::isScheduledForRemoval() {
+	return m_scheduledForRemoval;
 }
 
 float GameEntity::getPosX() {
