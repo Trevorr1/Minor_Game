@@ -34,12 +34,12 @@ void Game::Tick(float a_DT)
 	InputManager::getInstance()->clearMouseBuffer();
 }
 
-
-void Game::KeyDown(unsigned int code)
-{
-	InputManager::getInstance()->addKeyPress(code);
-	printf("Key Down Code: %d \n", code);
+void Game::KeyStates(const Uint8 *keyStates) {
+	InputManager::getInstance()->setKeyStates(keyStates);
 }
+
+
+
 
 void Game::MouseMove(unsigned int x, unsigned int y)
 {

@@ -246,21 +246,13 @@ void SDLTemplate::initTemplate()
 		SDL_Event event;
 		while (SDL_PollEvent(&event))
 		{
+			const Uint8 *keyStates = SDL_GetKeyboardState(nullptr);
+
+			game->KeyStates(keyStates);
 			switch (event.type)
 			{
 			case SDL_QUIT:
 				exitapp = 1;
-				break;
-			case SDL_KEYDOWN:
-				if (event.key.keysym.sym == SDLK_ESCAPE)
-				{
-					exitapp = 1;
-					// find other keys here: http://sdl.beuc.net/sdl.wiki/SDLKey
-				}
-				game->KeyDown(event.key.keysym.scancode);
-				break;
-			case SDL_KEYUP:
-				game->KeyUp(event.key.keysym.scancode);
 				break;
 			case SDL_MOUSEMOTION:
 				game->MouseMove(event.motion.x, event.motion.y);

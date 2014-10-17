@@ -1,6 +1,8 @@
 #pragma once
 #include "stdafx.h"
+#include "SDL_scancode.h"
 
+typedef uint8_t Uint8;
 using std::stack;
 namespace overdose {
 	struct MouseClick {
@@ -16,14 +18,14 @@ namespace overdose {
 
 	protected:
 		// https://wiki.libsdl.org/SDL_Keycode
-		stack<int> *keyBuffer = new stack<int>();
+		const Uint8 *m_keystates = nullptr;
 
-		stack<MouseClick> *mouseBuffer = new stack<MouseClick>();
+		stack<MouseClick> *m_mouseBuffer = new stack<MouseClick>();
 
 	public:
-		
+		void setKeyStates(const Uint8 *keyStates);
 		void addKeyPress(unsigned int keyPressed);
-		int getLastKeyPress();
+		bool isKeyPressed(int sdl_code);
 		void clearKeyBuffer();
 
 		void addMouseClick(MouseClick click);
@@ -35,7 +37,6 @@ namespace overdose {
 
 		
 	private:
-		void clearKeyBufferButOne();
 		void clearMouseBufferButOne();
 	};
 

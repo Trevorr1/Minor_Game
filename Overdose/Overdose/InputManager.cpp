@@ -1,5 +1,5 @@
 #include "InputManager.h"
-#include <iostream>
+
 using namespace overdose;
 
 InputManager *InputManager::_instance = nullptr;
@@ -11,50 +11,43 @@ InputManager::InputManager()
 
 InputManager::~InputManager()
 {
-	delete keyBuffer;
+	delete m_keystates;
 	delete _instance;
 }
 
+void InputManager::setKeyStates(const Uint8 *keyStates) {
+	m_keystates = keyStates;
+}
+
 /* Keyboard Input */
-void InputManager::addKeyPress(unsigned int keyPressed) {
-	keyBuffer->push(keyPressed);
-	std::cout << "Received keypress " << keyPressed << std::endl;
-}
 
-int InputManager::getLastKeyPress() {
-	int keyPress = -1;
 
-	if (!keyBuffer->empty()) {
-		keyPress = keyBuffer->top();
-		clearKeyBufferButOne();
+bool InputManager::isKeyPressed(int sdl_code) {
+
+	if (m_keystates == nullptr) {
+		return false;
 	}
-
-	return keyPress;
-}
-
-void InputManager::clearKeyBufferButOne() {
-	while (keyBuffer->size() > 1)  {
-		keyBuffer->pop();
-	}
+	return m_keystates[sdl_code];
+//	return true;
 }
 
 void InputManager::clearKeyBuffer() {
-	while (!keyBuffer->empty()) {
-		keyBuffer->pop();
-	}
+//	delete m_keystates;
 }
+
+
 
 /* Mouse Input */
 void InputManager::addMouseClick(MouseClick click) {
-	mouseBuffer->push(click);
+	m_mouseBuffer->push(click);
 }
 
 MouseClick InputManager::getLastMouseClick() {
 	MouseClick click;
 	click.x = -1; click.y = -1; click.button = -1;
 
-	if (!mouseBuffer->empty()) {
-		click = mouseBuffer->top();
+	if (!m_mouseBuffer->empty()) {
+		click = m_mouseBuffer->top();
 		clearMouseBufferButOne();
 	}
 
@@ -62,14 +55,14 @@ MouseClick InputManager::getLastMouseClick() {
 }
 
 void InputManager::clearMouseBuffer() {
-	while (!mouseBuffer->empty()) {
-		mouseBuffer->pop();
+	while (!m_mouseBuffer->empty()) {
+		m_mouseBuffer->pop();
 	}
 }
 
 void InputManager::clearMouseBufferButOne() {
-	while (mouseBuffer->size() > 1)  {
-		mouseBuffer->pop();
+	while (m_mouseBuffer->size() > 1)  {
+		m_mouseBuffer->pop();
 	}
 }
 
