@@ -14,11 +14,14 @@ namespace overdose {
 		virtual void receive(Component *subject, ComponentMessage message, GameEntity *object);
 		virtual void tick(float dt, GameEntity *entity);
 
-		std::clock_t    timer_start;
+		float getPrevious_SpeedX();
+		int getTimer_Start();
+
 		std::string getComponentID();
 
 	private:
 		float previous_speedX;
+		std::clock_t    timer_start;
 	};
 }
 

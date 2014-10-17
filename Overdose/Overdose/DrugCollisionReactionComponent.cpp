@@ -26,19 +26,29 @@ void DrugCollisionReactionComponent::receive(Component *subject, ComponentMessag
 			//if (typeid(object->getComponentList()->at(i)) ==  typeid(DrugComponent))
 			if (dynamic_cast<SpeedDrugComponent*>(object->getComponentList()->at(i)) != NULL)
 			{
+			
 				inList = true;
 			}
 		}
 		if (!inList)
 		{
 			object->addComponent(new SpeedDrugComponent());
+			//object->addComponent(drugComponent);
 		}
 	}
 }
 
 
 void DrugCollisionReactionComponent::tick(float dt, GameEntity *entity) {
-
+	//tick() has to be called first and then receive()
+	//TODO: werkt nog niet
+	/*if (drugComponent == NULL){	
+		switch (entity->getEnum()){
+			case Drug_Speed:
+				drugComponent = new SpeedDrugComponent();
+			break;
+		}
+	}*/
 }
 
 std::string DrugCollisionReactionComponent::getComponentID(){

@@ -6,10 +6,8 @@ using namespace overdose;
 
 SpeedDrugComponent::SpeedDrugComponent()
 {
-	/*previous_speedX = -999;
-	timer_start = std::clock();*/
-	DrugComponent();// waarom werkt Speedx niet -999?
-
+	previous_speedX = getPrevious_SpeedX();
+	timer_start = getTimer_Start();
 }
 
 
@@ -21,11 +19,11 @@ void SpeedDrugComponent::receive(Component *subject, ComponentMessage message, G
 }
 
 void SpeedDrugComponent::tick(float dt, GameEntity *entity) {
-	if (previous_speedX == -999){
+	if (previous_speedX == getPrevious_SpeedX()){
 		previous_speedX = entity->getSpeedX();
 	}
 
-	float drugSpeed = 30;
+	float drugSpeed = 10;
 	entity->setSpeedX(drugSpeed);
 
 	int timer_end = (std::clock() - timer_start) / (double)(CLOCKS_PER_SEC / 1000);
@@ -44,6 +42,7 @@ void SpeedDrugComponent::tick(float dt, GameEntity *entity) {
 		//delete entity;
 	}
 }
+
 
 std::string SpeedDrugComponent::getComponentID(){
 	return "SpeedDrugComponent";

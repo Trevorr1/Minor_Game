@@ -1,6 +1,8 @@
 #pragma once
 #include "stdafx.h"
 #include "CollisionReactionComponent.h"
+#include "DrugComponent.h"
+
 
 namespace overdose{
 
@@ -17,6 +19,7 @@ namespace overdose{
 
 	private:
 		bool isCollided = false;
+		DrugComponent *drugComponent = NULL;
 	};
 
 

@@ -44,6 +44,15 @@ void DrugComponent::tick(float dt, GameEntity *entity) {
 	}
 }
 
+float DrugComponent::getPrevious_SpeedX(){
+	return previous_speedX;
+}
+
+int DrugComponent::getTimer_Start(){
+	return timer_start;
+}
+
+
 std::string DrugComponent::getComponentID(){
 	return "DrugComponent";
 }

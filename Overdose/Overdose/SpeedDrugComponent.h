@@ -15,12 +15,14 @@ namespace overdose {
 
 		void receive(Component *subject, ComponentMessage message, GameEntity *object);
 		void tick(float dt, GameEntity *entity);
+		void setDrugEffects();
 		
 		std::clock_t    timer_start;
 		std::string getComponentID();
 
 	private:
 		float previous_speedX;
+
 	};
 }
 
