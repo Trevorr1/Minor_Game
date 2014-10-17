@@ -44,7 +44,7 @@ void FPSDrawComponent::tick(float dt, GameEntity *entity) {
 
 void FPSDrawComponent::calculateTicksOnScreen() {
 
-	if (InputManager::getInstance()->isKeyPressed(SDL_SCANCODE_BACKSLASH)) { // tilde 
+	if (InputManager::getInstance()->isKeyPressed(SDL_SCANCODE_GRAVE)) { // tilde 
 		ticksOnScreen = 180;
 	}
 }
