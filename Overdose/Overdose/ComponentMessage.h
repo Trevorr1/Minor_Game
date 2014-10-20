@@ -16,5 +16,9 @@ namespace overdose {
 		Player_ATTACKING,
 
 
+		AnimationRight,
+		AnimationLeft,
+		AnimationIdle
+
 	};
 }

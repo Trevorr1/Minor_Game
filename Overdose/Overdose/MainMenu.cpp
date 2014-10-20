@@ -5,6 +5,7 @@
 #include "DrawComponent.h"
 #include "MoveComponent.h"
 #include "GameEntityFactory.h"
+#include "SoundManager.h"
 
 using namespace overdose;
 
@@ -39,6 +40,7 @@ void MainMenu::Init()
 	button->setPosY(100);
 	this->addEntities(button);
 
+	SoundManager::getInstance()->PlayMusic(eMusic::MainMenu);
 
 
 }

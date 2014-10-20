@@ -75,6 +75,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Animation.h" />
     <ClInclude Include="BspTree.h" />
     <ClInclude Include="ButtonClickableReactionComponent.h" />
     <ClInclude Include="ClickableComponent.h" />
@@ -94,6 +95,7 @@
     <ClInclude Include="GameEntityFactory.h" />
     <ClInclude Include="GameEntity.h" />
     <ClInclude Include="gravityComponent.h" />
+    <ClInclude Include="AnimationEnum.h" />
     <ClInclude Include="ILevel.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Level1.h" />
@@ -114,6 +116,7 @@
     <ClInclude Include="TreeNode.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Animation.cpp" />
     <ClCompile Include="ButtonClickableReactionComponent.cpp" />
     <ClCompile Include="ClickableComponent.cpp" />
     <ClCompile Include="CollisionComponent.cpp" />

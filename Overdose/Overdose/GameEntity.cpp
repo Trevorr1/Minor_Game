@@ -116,9 +116,10 @@ float GameEntity::getHeight(){
 float GameEntity::getMovementSpeed(){
 	return m_movementSpeed;
 }
-void GameEntity::setMovementSpeed(float movementspeed){
-	this->m_movementSpeed = movementspeed;
+eFacing GameEntity::getFacing(){
+	return m_Facing;
 }
+
 
 void GameEntity::setWidth(float width) {
 	this->width = width;
@@ -144,5 +145,12 @@ void GameEntity::setPosX(float px) {
 
 void GameEntity::setPosY(float py) {
 	posY = py;
+}
+void GameEntity::setMovementSpeed(float movementspeed){
+	this->m_movementSpeed = movementspeed;
+}
+
+void GameEntity::setFacing(eFacing facing){
+	this->m_Facing = facing;
 }
 

@@ -369,11 +369,12 @@
 		}
 	}
 
-	Sprite::Sprite(Surface* a_Surface, unsigned int a_NumFrames) :
+	Sprite::Sprite(Surface* a_Surface, unsigned int a_NumFrames, unsigned int a_FPS):
 		m_Width(a_Surface->GetWidth() / a_NumFrames),
 		m_Height(a_Surface->GetHeight()),
 		m_Pitch(a_Surface->GetWidth()),
 		m_NumFrames(a_NumFrames),
+		m_FPS(a_FPS),
 		m_CurrentFrame(0),
 		m_Flags(0),
 		m_Start(new unsigned int*[a_NumFrames]),

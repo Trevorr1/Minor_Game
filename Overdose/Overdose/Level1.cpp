@@ -5,6 +5,7 @@
 #include "DrawComponent.h"
 #include "MoveComponent.h"
 #include "GameEntityFactory.h"
+#include "SoundManager.h"
 
 using namespace overdose;
 
@@ -18,6 +19,7 @@ Level1::Level1()
 	enemies = new std::vector<GameEntity*>();
 	collectibles = new std::vector<GameEntity*>();
 	m_Background = new Surface("assets/backgrounds/background.jpg");
+
 }
 
 
@@ -50,7 +52,7 @@ void Level1::Init()
 	this->addEntities(entityCop);
 
 	GameEntity *entityDrugSpeed = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Drug_Speed);
-	entityDrugSpeed->setPosX(300);
+	entityDrugSpeed->setPosX(200);
 	entityDrugSpeed->setPosY(410 - 30);
 	entityDrugSpeed->setSpeedX(0);
 	entityDrugSpeed->setSpeedY(0);
@@ -66,4 +68,7 @@ void Level1::Init()
 		grass1->setPosY(410);
 		this->addEntities(grass1);
 	}
+
+	SoundManager::getInstance()->PlayMusic(eMusic::Street);
+	SoundManager::getInstance()->PlaySound(eSound::Death);
 }
