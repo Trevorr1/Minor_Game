@@ -11,8 +11,8 @@ void  MoveComponent::tick(float dt, GameEntity *entity) {
 
 	float posX = entity->getPosX();
 	float posY = entity->getPosY();
-	float speedX = entity->getSpeedX();
-	float speedY = entity->getSpeedY();
+	float speedX = entity->getSpeedX() * dt;
+	float speedY = entity->getSpeedY()* dt;
 
 	entity->setPosX(posX + speedX);
 	entity->setPosY(posY + speedY);

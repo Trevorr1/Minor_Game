@@ -17,7 +17,7 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 			entity->setSpeedX((float)speedX);
 		}
 		if ((int)speedX == 0) {
-			entity->setSpeedX(2);
+			entity->setSpeedX(entity->getMovementSpeed());
 		}
 	}
 	else if (InputManager::getInstance()->isKeyPressed(SDL_SCANCODE_LEFT)) {
@@ -25,7 +25,7 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 			entity->setSpeedX((float)speedX * -1);
 		}
 		if (speedX == 0) {
-			entity->setSpeedX(-2);
+			entity->setSpeedX(-entity->getMovementSpeed());
 		}
 	}
 	else {

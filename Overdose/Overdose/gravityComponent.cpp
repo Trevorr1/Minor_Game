@@ -4,7 +4,7 @@ using namespace overdose;
 
 gravityComponent::gravityComponent()
 {
-	gravity = 5.0f;
+	gravity = 1.0f;
 }
 
 gravityComponent::gravityComponent(float aGravity)
