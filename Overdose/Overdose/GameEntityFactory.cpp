@@ -34,13 +34,13 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 
 	switch (entityEnum){
 	case Policeman:
+		newObject->setSpeedX(-1);
 		//	newObject->addComponent(*new DummyComponent());
 		newObject->addComponent(new EnemyMoveComponent());
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new MoveComponent());
-		newObject->addComponent(new DrawComponent("assets/sprites/cop.png", 1));
 	//	newObject->addComponent(new CollisionComponent());
-		newObject->setSpeedX(-1);
+		newObject->addComponent(new DrawComponent("assets/sprites/cop.png", 1));
 		break;
 	case Drugdealer:
 		//	newObject->addComponent(*new DummyComponent());
@@ -48,14 +48,15 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	case FPSCounter:
 		newObject->addComponent(new FPSDrawComponent());
 		break;
-	case DrugAddict:
+	case Player:
+		newObject->setMovementSpeed(0.2f);
 		newObject->addComponent(new PlayerInputComponent());
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new MoveComponent());
-		newObject->addComponent(new DrawComponent("assets/sprites/Ross/RossWalkingRight.png", 8, 10));
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new PlayerCollisionReactionComponent());
 		newObject->addComponent(new gravityComponent());
+		newObject->addComponent(new DrawComponent("assets/sprites/Ross/RossWalkingRight.png", 8, 10));
 		break;
 	case ButtonPlay:
 		newObject->addComponent(new ClickableComponent());
@@ -65,13 +66,13 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	case Drug_Speed:
 		newObject->addComponent(new ClickableComponent());
 		//newObject->addComponent(new MoveComponent());
-		newObject->addComponent(new DrawComponent("assets/sprites/drug_speed_30x30.png", 1));
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new DrugCollisionReactionComponent());
+		newObject->addComponent(new DrawComponent("assets/sprites/drug_speed_30x30.png", 1));
 		break;
 	case Grass:
-		newObject->addComponent(new DrawComponent("assets/sprites/grass.png", 1));
 		newObject->addComponent(new CollisionComponent());
+		newObject->addComponent(new DrawComponent("assets/sprites/grass.png", 1));
 		break;
 	default:
 		throw std::invalid_argument("Invalid game Entity passed to the factory"); // Veel te lang moeten debuggen waarom mij entities geen components hadden... >.<

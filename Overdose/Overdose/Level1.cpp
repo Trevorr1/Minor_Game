@@ -33,14 +33,14 @@ Level1::~Level1()
 void Level1::Init()
 {
 	/*Test Data*/
-	GameEntity *entityPtr = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::FPSCounter);
-	this->addEntities(entityPtr);
+	GameEntity *fpsCounter = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::FPSCounter);
+	this->addEntities(fpsCounter);
 
-	GameEntity *entityPtr1 = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::DrugAddict);
-	entityPtr1->setPosX(100);
-	entityPtr1->setPosY(410 - 53 - 100);
-	this->addEntities(entityPtr1);
-	m_Player = entityPtr1;
+	GameEntity *player = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Player);
+	player->setPosX(100);
+	player->setPosY(410 - 53 - 100);
+	this->addEntities(player);
+	m_Player = player;
 
 	GameEntity* entityCop = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Policeman);
 	entityCop->setPosX(530);

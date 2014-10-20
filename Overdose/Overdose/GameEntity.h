@@ -10,6 +10,7 @@ namespace overdose {
 	{
 	protected:
 		float posX = 0.0, posY = 0.0, speedX = 0.0, speedY = 0.0;
+		float m_movementSpeed = 0.0f;
 		float width = 0, height = 0;
 		eGameEntity m_EntityEnum;
 		bool m_scheduledForRemoval = false;
@@ -31,15 +32,16 @@ namespace overdose {
 		void scheduleForRemoval();
 		bool isScheduledForRemoval();
 
-		float getPosX();
-		float getPosY();
+		float getWidth();
+		float getHeight();
 		float getSpeedX();
 		float getSpeedY();
+		float getPosX();
+		float getPosY();
+		float getMovementSpeed();
 
 		float getPosition(int index); // voor bsp tree
 
-		float getWidth();
-		float getHeight();
 		
 
 		eGameEntity getEnum();
@@ -49,6 +51,7 @@ namespace overdose {
 		void setSpeedY(float sy);
 		void setPosX(float px);
 		void setPosY(float py);
+		void setMovementSpeed(float movementspeed);
 
 		//void setCollided();
 
