@@ -5,16 +5,18 @@
 #include <stdio.h>
 
 namespace overdose {
-	enum Music{
+	enum eMusic{
 		Stop,
-		MainMenu
+		MainMenu,
+		Street
 	};
 
-	enum Sound{
+	enum eSound{
 		High,
 		Medium,
 		Low,
-		Scratch
+		Scratch,
+		Death
 	};
 
 	class SoundManager
@@ -24,8 +26,8 @@ namespace overdose {
 		static SoundManager* getInstance();
 
 		void StopMusic();
-		void PlayMusic(Music music);
-		void PlaySound(Sound sound);
+		void PlayMusic(eMusic music);
+		void PlaySound(eSound sound);
 
 	private:
 		SoundManager();
@@ -37,11 +39,13 @@ namespace overdose {
 
 		//The music that will be played
 		Mix_Music *gMusicMainMenu = NULL;
+		Mix_Music *gMusicStreet = NULL;
 
 		//The sound effects that will be used
 		Mix_Chunk *gHigh = NULL;
 		Mix_Chunk *gMedium = NULL;
 		Mix_Chunk *gLow = NULL;
+		Mix_Chunk *gDeath = NULL;
 	};
 
 }

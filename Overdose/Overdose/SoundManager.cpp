@@ -40,9 +40,11 @@ SoundManager::~SoundManager()
 	Mix_FreeChunk(gHigh);
 	Mix_FreeChunk(gMedium);
 	Mix_FreeChunk(gLow);
+	Mix_FreeChunk(gDeath);
 	gHigh = NULL;
 	gMedium = NULL;
 	gLow = NULL;
+	gDeath = NULL;
 
 	//Free the music
 	Mix_FreeMusic(gMusicMainMenu);
@@ -80,6 +82,12 @@ bool SoundManager::loadMedia()
 		printf("Failed to load beat music! SDL_mixer Error: %s\n", Mix_GetError());
 		success = false;
 	}
+	gMusicStreet = Mix_LoadMUS("assets/music/Street.wav");
+	if (gMusicStreet == NULL)
+	{
+		printf("Failed to load beat music! SDL_mixer Error: %s\n", Mix_GetError());
+		success = false;
+	}
 
 	//Load sound effects
 	gHigh = Mix_LoadWAV("assets/sfx/high.wav");
@@ -102,21 +110,41 @@ bool SoundManager::loadMedia()
 		printf("Failed to load low sound effect! SDL_mixer Error: %s\n", Mix_GetError());
 		success = false;
 	}
+	gDeath = Mix_LoadWAV("assets/sfx/scream.wav");
+	if (gDeath == NULL)
+	{
+		printf("Failed to load low sound effect! SDL_mixer Error: %s\n", Mix_GetError());
+		success = false;
+	}
 
 	return success;
 }
 
 
-void SoundManager::PlayMusic(Music music){
-
+void SoundManager::PlayMusic(eMusic music){
+	
+	Mix_Music* sound = nullptr;
 	switch (music)
 	{
 	case MainMenu:
+		sound = gMusicMainMenu;
+		break;
+
+	case Street:
+		sound = gMusicStreet;
+		break;
+	}
+
+	//If sound found:
+	if (sound != nullptr){
+
+		StopMusic();
+
 		//If there is no music playing
 		if (Mix_PlayingMusic() == 0)
 		{
 			//Play the music
-			Mix_PlayMusic(gMusicMainMenu, -1);
+			Mix_PlayMusic(sound, -1);
 		}
 		//If music is being played
 		else
@@ -134,7 +162,6 @@ void SoundManager::PlayMusic(Music music){
 				Mix_PauseMusic();
 			}
 		}
-		break;
 	}
 }
 
@@ -142,7 +169,7 @@ void SoundManager::StopMusic(){
 	Mix_HaltMusic();
 }
 
-void SoundManager::PlaySound(Sound sound){
+void SoundManager::PlaySound(eSound sound){
 	
 	switch (sound)
 	{
@@ -151,16 +178,20 @@ void SoundManager::PlaySound(Sound sound){
 			Mix_PlayChannel(-1, gHigh, 0);
 			break;
 
-			//Play medium sound effect
+		//Play medium sound effect
 		case Medium:
 			Mix_PlayChannel(-1, gMedium, 0);
 			break;
 
-			//Play low sound effect
+		//Play low sound effect
 		case Low:
 			Mix_PlayChannel(-1, gLow, 0);
 			break;
 
+		//Play Death sound effect
+		case Death:
+			Mix_PlayChannel(-1, gDeath, 0);
+			break;
 	}
 }
 
