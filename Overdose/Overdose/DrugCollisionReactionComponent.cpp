@@ -1,4 +1,5 @@
 #include "DrugCollisionReactionComponent.h"
+#include "DrugComponent.h"
 #include "SpeedDrugComponent.h"
 #include "LevelManager.h"
 
@@ -24,7 +25,7 @@ void DrugCollisionReactionComponent::receive(Component *subject, ComponentMessag
 		for (unsigned int i = 0; i < object->getComponentList()->size(); i++)
 		{
 			//if (typeid(object->getComponentList()->at(i)) ==  typeid(DrugComponent))
-			if (dynamic_cast<SpeedDrugComponent*>(object->getComponentList()->at(i)) != NULL)
+			if (dynamic_cast<DrugComponent*>(object->getComponentList()->at(i)) != NULL)
 			{
 			
 				inList = true;
@@ -42,13 +43,15 @@ void DrugCollisionReactionComponent::receive(Component *subject, ComponentMessag
 void DrugCollisionReactionComponent::tick(float dt, GameEntity *entity) {
 	//tick() has to be called first and then receive()
 	//TODO: werkt nog niet
-	/*if (drugComponent == NULL){	
+	/*if (drugComponent == nullptr){	
 		switch (entity->getEnum()){
 			case Drug_Speed:
 				drugComponent = new SpeedDrugComponent();
 			break;
 		}
 	}*/
+
+	//TODO delete entity with this collision
 }
 
 std::string DrugCollisionReactionComponent::getComponentID(){

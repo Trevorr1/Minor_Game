@@ -46,14 +46,14 @@ void GameEntity::tick(float dt) {
 	//Delete the component
 	if (componentListToRemove->size() != 0){
 		for (auto &it : *componentListToRemove){
-			componentList->erase(componentList->begin() + it);
-			//delete &it;
+			//delete componentList->at(it); //delete object werk niet,SpeedDrug destructor wordt niet aangeroepen
+			componentList->erase(componentList->begin() + it); // delete position in vector
+
 		}
 
 		componentListToRemove->clear();
 	}
 
-	//TODO delete the used drug, via DrugComponent kan het niet runtime door de tick hieronder
 	
 	for (auto &it : *componentList) {
 		it->tick(dt, this);

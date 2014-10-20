@@ -23,7 +23,7 @@ void SpeedDrugComponent::tick(float dt, GameEntity *entity) {
 		previous_speedX = entity->getSpeedX();
 	}
 
-	float drugSpeed = 10;
+	float drugSpeed = 5;
 	entity->setSpeedX(drugSpeed);
 
 	int timer_end = (std::clock() - timer_start) / (double)(CLOCKS_PER_SEC / 1000);
@@ -40,6 +40,7 @@ void SpeedDrugComponent::tick(float dt, GameEntity *entity) {
 
 		//TODO Delete this entity
 		//delete entity;
+		//delete this;
 	}
 }
 
