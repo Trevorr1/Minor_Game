@@ -8,7 +8,6 @@
 #include "GameEntity.h"
 #include "DrawComponent.h"
 #include "DrawManager.h"
-#include "SoundManager.h"
 using namespace overdose;
 
 
@@ -24,7 +23,6 @@ void Game::Init()
 {
 	// put your initialization code here; will be executed once
 	DrawManager::getInstance()->setTargetSurface(m_Screen);
-	SoundManager::getInstance()->PlayMusic(MainMenu);
 }
 
 void Game::Tick(float a_DT)
