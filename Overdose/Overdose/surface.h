@@ -127,7 +127,7 @@
 		};
 
 		// Structors
-		Sprite(Surface* a_Surface, unsigned int a_NumFrames);
+		Sprite(Surface* a_Surface, unsigned int a_NumFrames, unsigned int a_FPS);
 		~Sprite();
 		// Methods
 		void Draw(int a_X, int a_Y, Surface* a_Target = 0);
@@ -140,6 +140,7 @@
 		int GetHeight() { return m_Height; }
 		Pixel* GetBuffer() { return m_Surface->GetBuffer(); }
 		unsigned int Frames() { return m_NumFrames; }
+		unsigned int GetFPS() { return m_FPS; }
 		Surface* GetSurface() { return m_Surface; }
 	private:
 		// Methods
@@ -147,6 +148,7 @@
 		// Attributes
 		int m_Width, m_Height, m_Pitch;
 		unsigned int m_NumFrames;
+		unsigned int m_FPS;
 		unsigned int m_CurrentFrame;
 		unsigned int m_Flags;
 		unsigned int** m_Start;

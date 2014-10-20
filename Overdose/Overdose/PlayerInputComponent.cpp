@@ -19,6 +19,7 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 		if ((int)speedX == 0) {
 			entity->setSpeedX(entity->getMovementSpeed());
 		}
+		
 	}
 	else if (InputManager::getInstance()->isKeyPressed(SDL_SCANCODE_LEFT)) {
 		if (speedX > 0){

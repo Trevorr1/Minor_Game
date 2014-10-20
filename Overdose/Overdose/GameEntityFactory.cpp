@@ -31,6 +31,8 @@ GameEntityFactory* GameEntityFactory::getInstance(){
 GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 
 	GameEntity* newObject = new GameEntity(entityEnum);
+	std::map<eAnimationState, Animation*>* animations = new std::map<eAnimationState, Animation*>();
+	DrawComponent* animation = nullptr;
 
 	switch (entityEnum){
 	case Policeman:
@@ -40,7 +42,11 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new MoveComponent());
 	//	newObject->addComponent(new CollisionComponent());
-		newObject->addComponent(new DrawComponent("assets/sprites/cop.png", 1));
+
+		animations->insert({ Idle, new Animation("assets/sprites/cop.png", 1) });
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Idle);//set default animation
+		newObject->addComponent(animation);
 		break;
 	case Drugdealer:
 		//	newObject->addComponent(*new DummyComponent());
@@ -56,23 +62,41 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new PlayerCollisionReactionComponent());
 		newObject->addComponent(new gravityComponent());
-		newObject->addComponent(new DrawComponent("assets/sprites/Ross/RossWalkingRight.png", 8, 10));
+
+
+		animations->insert({ Idle, new Animation("assets/sprites/Ross/RossIdleRight.png", 1) });
+		animations->insert({ Walk, new Animation("assets/sprites/Ross/RossWalkingRight.png", 8, 10) });
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Idle);//set default animation
+		newObject->addComponent(animation);
 		break;
 	case ButtonPlay:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(level1));
-		newObject->addComponent(new DrawComponent("assets/buttons/button_play.jpg", 1));
+
+		animations->insert({ Idle, new Animation("assets/buttons/button_play.jpg", 1) });
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Idle);//set default animation
+		newObject->addComponent(animation);
 		break;
 	case Drug_Speed:
 		newObject->addComponent(new ClickableComponent());
 		//newObject->addComponent(new MoveComponent());
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new DrugCollisionReactionComponent());
-		newObject->addComponent(new DrawComponent("assets/sprites/drug_speed_30x30.png", 1));
+
+		animations->insert({ Idle, new Animation("assets/sprites/drug_speed_30x30.png", 1) });
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Idle);//set default animation
+		newObject->addComponent(animation);
 		break;
 	case Grass:
 		newObject->addComponent(new CollisionComponent());
-		newObject->addComponent(new DrawComponent("assets/sprites/grass.png", 1));
+
+		animations->insert({ Idle, new Animation("assets/sprites/grass.png", 1) });
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Idle);//set default animation
+		newObject->addComponent(animation);
 		break;
 	default:
 		throw std::invalid_argument("Invalid game Entity passed to the factory"); // Veel te lang moeten debuggen waarom mij entities geen components hadden... >.<
