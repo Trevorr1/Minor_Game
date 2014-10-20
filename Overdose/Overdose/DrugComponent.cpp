@@ -14,6 +14,8 @@ DrugComponent::DrugComponent()
 
 DrugComponent::~DrugComponent()
 {
+	printf("deleted DrugComponent");
+
 }
 
 void DrugComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {

@@ -13,6 +13,7 @@ SpeedDrugComponent::SpeedDrugComponent()
 
 SpeedDrugComponent::~SpeedDrugComponent()
 {
+	printf("deleted speedDrugComponent");
 }
 
 void SpeedDrugComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
@@ -23,7 +24,7 @@ void SpeedDrugComponent::tick(float dt, GameEntity *entity) {
 		previous_speedX = entity->getSpeedX();
 	}
 
-	float drugSpeed = 5;
+	float drugSpeed = 2.0f;
 	entity->setSpeedX(drugSpeed);
 
 	int timer_end = (std::clock() - timer_start) / (double)(CLOCKS_PER_SEC / 1000);

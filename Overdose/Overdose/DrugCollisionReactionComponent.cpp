@@ -41,6 +41,9 @@ void DrugCollisionReactionComponent::receive(Component *subject, ComponentMessag
 
 
 void DrugCollisionReactionComponent::tick(float dt, GameEntity *entity) {
+	if (isCollided){
+		entity->scheduleForRemoval();
+	}
 	//tick() has to be called first and then receive()
 	//TODO: werkt nog niet
 	/*if (drugComponent == nullptr){	
@@ -52,6 +55,7 @@ void DrugCollisionReactionComponent::tick(float dt, GameEntity *entity) {
 	}*/
 
 	//TODO delete entity with this collision
+	//entity->scheduleForRemoval();
 }
 
 std::string DrugCollisionReactionComponent::getComponentID(){
