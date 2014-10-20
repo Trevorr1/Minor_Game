@@ -114,6 +114,12 @@ float GameEntity::getWidth(){
 float GameEntity::getHeight(){
 	return height;
 }
+float GameEntity::getMovementSpeed(){
+	return m_movementSpeed;
+}
+void GameEntity::setMovementSpeed(float movementspeed){
+	this->m_movementSpeed = movementspeed;
+}
 
 void GameEntity::setWidth(float width) {
 	this->width = width;

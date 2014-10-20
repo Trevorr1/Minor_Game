@@ -17,7 +17,7 @@ DrugCollisionReactionComponent::~DrugCollisionReactionComponent()
 
 void DrugCollisionReactionComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
 	if (object != nullptr)
-	if (object->getEnum() == DrugAddict){
+	if (object->getEnum() == Player){
 		//printf("Player collided with this drug \n");
 		isCollided = true;
 		bool inList = false;
