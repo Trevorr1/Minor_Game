@@ -37,13 +37,20 @@ void DrawComponent::tick(float dt, GameEntity *entity)
 	}
 
 	if (entity->getSpeedX() == 0){
-		setAnimation(Idle);
+		if (entity->getFacing() == Left){
+			setAnimation(IdleLeft);
+		}
+		else{
+			setAnimation(IdleRight);
+		}
 	}
 	else if (entity->getSpeedX() > 0){
-		setAnimation(Walk);
+		setAnimation(WalkRight);
+		entity->setFacing(Right);
 	}
 	else{
-		setAnimation(Walk);
+		setAnimation(WalkLeft);
+		entity->setFacing(Left);
 	}
 
 }
@@ -68,13 +75,22 @@ std::string DrawComponent::getComponentID(){
 void DrawComponent::setAnimation(eAnimationState state){
 	if (m_Animations->count(state)){
 		switch (state){
-			case Walk:
-				setCurrentAnimation(m_Animations->find(Walk)->second);
+			case Default:
+				setCurrentAnimation(m_Animations->find(Default)->second);
 				break;
-			case Idle:
-				setCurrentAnimation(m_Animations->find(Idle)->second);
+			case WalkLeft:
+				setCurrentAnimation(m_Animations->find(WalkLeft)->second);
 				break;
-			case Attack:
+			case WalkRight:
+				setCurrentAnimation(m_Animations->find(WalkRight)->second);
+				break;
+			case IdleLeft:
+				setCurrentAnimation(m_Animations->find(IdleLeft)->second);
+				break;
+			case IdleRight:
+				setCurrentAnimation(m_Animations->find(IdleRight)->second);
+				break;
+		/*	case Attack:
 				setCurrentAnimation(m_Animations->find(Attack)->second);
 				break;
 			case Jump:
@@ -82,7 +98,7 @@ void DrawComponent::setAnimation(eAnimationState state){
 				break;
 			case Fall:
 				setCurrentAnimation(m_Animations->find(Fall)->second);
-				break;
+				break;*/
 			default:
 				break;
 		}

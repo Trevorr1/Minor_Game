@@ -43,9 +43,9 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new MoveComponent());
 	//	newObject->addComponent(new CollisionComponent());
 
-		animations->insert({ Idle, new Animation("assets/sprites/cop.png", 1) });
+		animations->insert({ Default, new Animation("assets/sprites/cop.png", 1) });
 		animation = new DrawComponent(animations);
-		animation->setAnimation(Idle);//set default animation
+		animation->setAnimation(Default);//set default animation
 		newObject->addComponent(animation);
 		break;
 	case Drugdealer:
@@ -64,19 +64,21 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new gravityComponent());
 
 
-		animations->insert({ Idle, new Animation("assets/sprites/Ross/RossIdleRight.png", 1) });
-		animations->insert({ Walk, new Animation("assets/sprites/Ross/RossWalkingRight.png", 8, 10) });
+		animations->insert({ IdleLeft, new Animation("assets/sprites/Ross/RossIdleLeft.png", 1) });
+		animations->insert({ IdleRight, new Animation("assets/sprites/Ross/RossIdleRight.png", 1) });
+		animations->insert({ WalkLeft, new Animation("assets/sprites/Ross/RossWalkingLeft.png", 8, 10) });
+		animations->insert({ WalkRight, new Animation("assets/sprites/Ross/RossWalkingRight.png", 8, 10) });
 		animation = new DrawComponent(animations);
-		animation->setAnimation(Idle);//set default animation
+		animation->setAnimation(IdleRight);//set default animation
 		newObject->addComponent(animation);
 		break;
 	case ButtonPlay:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(level1));
 
-		animations->insert({ Idle, new Animation("assets/buttons/button_play.jpg", 1) });
+		animations->insert({ Default, new Animation("assets/buttons/button_play.jpg", 1) });
 		animation = new DrawComponent(animations);
-		animation->setAnimation(Idle);//set default animation
+		animation->setAnimation(Default);//set default animation
 		newObject->addComponent(animation);
 		break;
 	case Drug_Speed:
@@ -85,17 +87,17 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new DrugCollisionReactionComponent());
 
-		animations->insert({ Idle, new Animation("assets/sprites/drug_speed_30x30.png", 1) });
+		animations->insert({ Default, new Animation("assets/sprites/drug_speed_30x30.png", 1) });
 		animation = new DrawComponent(animations);
-		animation->setAnimation(Idle);//set default animation
+		animation->setAnimation(Default);//set default animation
 		newObject->addComponent(animation);
 		break;
 	case Grass:
 		newObject->addComponent(new CollisionComponent());
 
-		animations->insert({ Idle, new Animation("assets/sprites/grass.png", 1) });
+		animations->insert({ Default, new Animation("assets/sprites/grass.png", 1) });
 		animation = new DrawComponent(animations);
-		animation->setAnimation(Idle);//set default animation
+		animation->setAnimation(Default);//set default animation
 		newObject->addComponent(animation);
 		break;
 	default:

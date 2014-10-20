@@ -1,6 +1,7 @@
 #pragma once
 namespace overdose {
 	enum eAnimationState {
-		Walk, Idle, Attack, Jump, Fall
+		Default, //used for static things like a button, who will only have one spritesheet
+		WalkLeft, WalkRight, IdleLeft, IdleRight //, Attack, Jump, Fall
 	};
 }
