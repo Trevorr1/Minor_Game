@@ -19,6 +19,8 @@ namespace overdose {
 		std::vector <int> *componentListToRemove = new std::vector < int >;
 		std::vector<Component*> *componentList = new std::vector < Component* > ;
 
+		// only use 
+		int* m_health = nullptr;
 	public:
 		virtual void addComponent(Component *component);
 
@@ -40,12 +42,13 @@ namespace overdose {
 		float getPosX();
 		float getPosY();
 		float getMovementSpeed();
+		int getHealth();
 		eFacing getFacing();
 
 		float getPosition(int index); // voor bsp tree
 
 		
-
+		void setHealthPointer(int* health);
 		eGameEntity getEnum();
 		void setWidth(float width);
 		void setHeight(float heigt);
@@ -55,6 +58,7 @@ namespace overdose {
 		void setPosY(float py);
 		void setFacing(eFacing facing);
 		void setMovementSpeed(float movementspeed);
+
 
 		//void setCollided();
 

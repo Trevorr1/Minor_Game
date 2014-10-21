@@ -12,6 +12,7 @@
 #include "PlayerCollisionReactionComponent.h"
 #include "DrugCollisionReactionComponent.h"
 #include "ButtonClickableReactionComponent.h"
+#include "HealthComponent.h"
 #include <stdexcept>
 using namespace overdose;
 
@@ -62,7 +63,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new PlayerCollisionReactionComponent());
 		newObject->addComponent(new gravityComponent());
-
+		newObject->addComponent(new HealthComponent(3));
 
 		animations->insert({ IdleLeft, new Animation("assets/sprites/Ross/RossIdleLeft.png", 1) });
 		animations->insert({ IdleRight, new Animation("assets/sprites/Ross/RossIdleRight.png", 1) });
