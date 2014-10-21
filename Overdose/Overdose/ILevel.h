@@ -22,7 +22,7 @@ namespace overdose {
 		virtual std::vector<GameEntity*> *getCollectibles();
 		virtual void Tick(float a_DT);
 		virtual bool isGameOver();
-		
+		virtual ~ILevel();
 	protected:
 		std::vector<GameEntity*> *entities;
 		std::vector<GameEntity*> *enemies;

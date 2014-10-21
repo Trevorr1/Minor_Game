@@ -72,3 +72,8 @@ void ILevel::Tick(float dt){
 bool ILevel::isGameOver() {
 	return m_Player->isScheduledForRemoval();
 }
+
+ILevel::~ILevel() {
+	delete m_Player;
+
+}
