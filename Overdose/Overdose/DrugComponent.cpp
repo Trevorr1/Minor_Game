@@ -37,14 +37,15 @@ void DrugComponent::tick(float dt, GameEntity *entity) {
 
 	// drug timer checker
 	if (timer_end < drug_effect_ms){
-		std::cout << "Time: " << timer_end << " ms" << std::endl;
+		//std::cout << "Time: " << timer_end << " ms" << std::endl;
 	}
 	else{
 		entity->setSpeedX(previous_speedX);
 		// Delete this drug component of gameEntity
 		entity->removeComponent(getComponentID());
-
+		insertNegativeEffect(entity);
 		//delete this drugcomponent
+		// entity->insertNegativeEffect
 		delete this;
 	}
 }
@@ -67,4 +68,8 @@ int DrugComponent::getDrugEffectMs(){
 
 std::string DrugComponent::getComponentID(){
 	return "DrugComponent";
+}
+
+void DrugComponent::insertNegativeEffect(GameEntity* entity){
+	//empty method
 }

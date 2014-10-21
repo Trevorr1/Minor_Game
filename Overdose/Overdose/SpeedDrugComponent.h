@@ -25,7 +25,13 @@ namespace overdose {
 	private:
 		float previous_speedX;
 		float drug_speedX;
+
 		int drug_effect_ms;
+		int negative_drug_effect_ms;
+
+		std::vector<GameEntity*>* entityForNegativeEffect;
+
+		void insertNegativeEffect(GameEntity* entity);
 	};
 }
 

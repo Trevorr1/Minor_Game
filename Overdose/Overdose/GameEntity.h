@@ -8,6 +8,8 @@ namespace overdose {
 	class Component;
 	class GameEntity
 	{
+	private:
+		std::vector<Component*> *componentListToAdd = new std::vector<Component*>;
 	protected:
 		float posX = 0.0, posY = 0.0, speedX = 0.0, speedY = 0.0;
 		float m_movementSpeed = 0.0f;
@@ -22,6 +24,8 @@ namespace overdose {
 		// only use 
 		int* m_health = nullptr;
 	public:
+		virtual void delayedAddComponent(Component *component);
+
 		virtual void addComponent(Component *component);
 
 		virtual void tick(float dt);

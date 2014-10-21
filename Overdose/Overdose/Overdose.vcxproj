@@ -104,6 +104,7 @@
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="MoveComponent.h" />
+    <ClInclude Include="NegativeSpeedDrugComponent.h" />
     <ClInclude Include="PlayerCollisionReactionComponent.h" />
     <ClInclude Include="PlayerInputComponent.h" />
     <ClInclude Include="PolicemanCollisionReactionComponent.h" />
@@ -145,6 +146,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="MoveComponent.cpp" />
+    <ClCompile Include="NegativeSpeedDrugComponent.cpp" />
     <ClCompile Include="PlayerCollisionReactionComponent.cpp" />
     <ClCompile Include="PlayerInputComponent.cpp" />
     <ClCompile Include="PolicemanCollisionReactionComponent.cpp" />

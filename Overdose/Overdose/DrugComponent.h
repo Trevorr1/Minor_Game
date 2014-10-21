@@ -24,6 +24,7 @@ namespace overdose {
 	private:
 		float previous_speedX;
 		std::clock_t    timer_start;
+		virtual void insertNegativeEffect(GameEntity* entity);
 	};
 }
 

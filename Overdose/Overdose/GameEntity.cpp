@@ -25,6 +25,10 @@ void GameEntity::addComponent(Component *component) {
 	componentList->push_back(component);
 }
 
+void GameEntity::delayedAddComponent(Component *component) {
+	componentListToAdd->push_back(component);
+}
+
 void GameEntity::removeComponent(std::string componentID)
 {
 	for (unsigned int i = 0; i < componentList->size(); i++)
@@ -51,6 +55,15 @@ void GameEntity::tick(float dt) {
 		}
 
 		componentListToRemove->clear();
+	}
+
+	if (componentListToAdd->size() != 0){
+		for (int i = 0; i < componentListToAdd->size(); i ++){
+			//delete componentList->at(it); //delete object werk niet,SpeedDrug destructor wordt niet aangeroepen
+			componentList->push_back(componentListToAdd->at(i)); // delete position in vector
+		}
+
+		componentListToAdd->clear();
 	}
 
 	
