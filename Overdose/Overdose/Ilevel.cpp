@@ -54,7 +54,8 @@ void ILevel::Tick(float dt){
 
 
 	auto toRemove = std::remove_if(entities->begin(), entities->end(), [](GameEntity* p) {
-		if (p->isScheduledForRemoval()) {
+		if (p->isScheduledForRemoval() && p->getEnum() != eGameEntity::Player) {
+		
 			delete p;
 			return true;
 		}
@@ -66,4 +67,13 @@ void ILevel::Tick(float dt){
 	for (auto &it : *entities) {
 		it->tick(dt);
 	}
+}
+
+bool ILevel::isGameOver() {
+	return m_Player->isScheduledForRemoval();
+}
+
+ILevel::~ILevel() {
+	delete m_Player;
+
 }

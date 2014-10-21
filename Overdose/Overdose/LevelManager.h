@@ -1,10 +1,12 @@
 #pragma once
 #include "ILevel.h"
 #include "MainMenu.h"
+#include "GameOver.h"
 #include "Level1.h"
 namespace overdose {
 enum levels{
 	LevelMainMenu,
+	LevelGameOver,
 	level1,
 	level2,
 	level3
