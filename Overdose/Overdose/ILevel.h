@@ -7,6 +7,7 @@
 #include "DrawManager.h"
 
 namespace overdose {
+
 	class ILevel
 	{
 	public:
@@ -20,13 +21,15 @@ namespace overdose {
 		virtual std::vector<GameEntity*> *getEnemies();
 		virtual std::vector<GameEntity*> *getCollectibles();
 		virtual void Tick(float a_DT);
+		virtual bool isGameOver();
+		virtual ~ILevel();
 	protected:
 		std::vector<GameEntity*> *entities;
 		std::vector<GameEntity*> *enemies;
 		std::vector<GameEntity*> *collectibles;
 		virtual void DrawBackground();
 		Surface* m_Background;
-		GameEntity* m_Player;
+		GameEntity* m_Player = nullptr;
 
 	};
 }

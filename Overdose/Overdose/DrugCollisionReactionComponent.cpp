@@ -1,6 +1,7 @@
 #include "DrugCollisionReactionComponent.h"
 #include "DrugComponent.h"
 #include "SpeedDrugComponent.h"
+#include "MarijuanaComponent.h"
 #include "LevelManager.h"
 
 
@@ -50,6 +51,9 @@ void DrugCollisionReactionComponent::tick(float dt, GameEntity *entity) {
 		switch (entity->getEnum()){
 			case Drug_Speed:
 				drugComponent = new SpeedDrugComponent();
+			break;
+			case Drug_Marijuana:
+				drugComponent = new MarijuanaComponent();
 			break;
 		}
 	}

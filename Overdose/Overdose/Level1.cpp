@@ -56,9 +56,9 @@ void Level1::Init()
 	entityDrugSpeed->setSpeedY(0);
 	this->addEntities(entityDrugSpeed);
 
-	GameEntity *entityDrugSpeed2 = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Drug_Speed);
-	entityDrugSpeed2->setPosX(300);
-	entityDrugSpeed2->setPosY(410 - 10);
+	GameEntity *entityDrugSpeed2 = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Drug_Marijuana);
+	entityDrugSpeed2->setPosX(450);
+	entityDrugSpeed2->setPosY(410 - 60);
 	entityDrugSpeed2->setSpeedX(0);
 	entityDrugSpeed2->setSpeedY(0);
 	this->addEntities(entityDrugSpeed2);

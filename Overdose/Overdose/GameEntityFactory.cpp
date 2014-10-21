@@ -98,6 +98,17 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		animation->setAnimation(Default);//set default animation
 		newObject->addComponent(animation);
 		break;
+	case Drug_Marijuana:
+		newObject->addComponent(new ClickableComponent());
+		//newObject->addComponent(new MoveComponent());
+		newObject->addComponent(new CollisionComponent());
+		newObject->addComponent(new DrugCollisionReactionComponent());
+
+		animations->insert({ Default, new Animation("assets/sprites/drug_marijuana_30x30.png", 1) });
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Default);//set default animation
+		newObject->addComponent(animation);
+		break;
 	case Grass:
 		newObject->addComponent(new CollisionComponent());
 

@@ -183,6 +183,9 @@
     <ClInclude Include="SpeedDrugComponent.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
+    <ClInclude Include="MarijuanaComponent.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
     <ClInclude Include="GameOver.h">
       <Filter>Header Files\Level</Filter>
     </ClInclude>
@@ -301,6 +304,9 @@
     </ClCompile>
     <ClCompile Include="Animation.cpp">
       <Filter>Source Files\Component\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="MarijuanaComponent.cpp">
+      <Filter>Source Files\Component</Filter>
     </ClCompile>
     <ClCompile Include="HealthComponent.cpp">
       <Filter>Source Files\Component</Filter>
