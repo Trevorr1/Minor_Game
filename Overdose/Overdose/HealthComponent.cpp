@@ -7,7 +7,7 @@ HealthComponent::HealthComponent(int health) {
 	m_healthDecreaseReactionList->push_back(ComponentMessage::CollissionComponent_REACTION_TOP);
 	m_healthDecreaseReactionList->push_back(ComponentMessage::CollissionComponent_REACTION_LEFT);
 	m_healthDecreaseReactionList->push_back(ComponentMessage::CollissionComponent_REACTION_RIGHT);
-
+	m_healthDecreaseReactionList->push_back(ComponentMessage::MoveComponent_OUTOFAREA);
 	m_health = health;
 }
 
@@ -28,8 +28,13 @@ void HealthComponent::init(GameEntity* entity) {
 
 void HealthComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
 
+	if (m_invincibleTime > 0) {
+		return;
+	}
+
+
 	// environment / drugs shouldn't hurt the entity
-	if (object->getEnum() == Environment || object->getEnum() == Drug_Speed) {
+	if (object->getEnum() == Grass || object->getEnum() == Drug_Speed) {
 		return;
 	}
 
@@ -37,6 +42,7 @@ void HealthComponent::receive(Component *subject, ComponentMessage message, Game
 
 	// Vector list contains message?
 	if (it != m_healthDecreaseReactionList->end()) {
+		m_invincibleTime = 1000;
 		m_scheduleHealthDecrease = true;
 	}
 }
@@ -51,6 +57,11 @@ void HealthComponent::tick(float dt, GameEntity *entity) {
 	}
 	if (m_health <= 0) {
 		entity->scheduleForRemoval();
+	}
+
+	if (m_invincibleTime >= 0) {
+		m_invincibleTime -= dt;
+
 	}
 
 

@@ -10,6 +10,8 @@ namespace overdose {
 		bool m_scheduleHealthDecrease = false;
 		std::vector<ComponentMessage> *m_healthDecreaseReactionList;
 
+		float m_invincibleTime = 0;
+
 	public:
 		HealthComponent(int health);
 		HealthComponent(int health, std::vector<ComponentMessage> *healthDecreaseReactionList );
