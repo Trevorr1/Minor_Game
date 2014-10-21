@@ -102,6 +102,26 @@ bool GameEntity::isScheduledForRemoval() {
 	return m_scheduledForRemoval;
 }
 
+bool GameEntity::isJumping()
+{
+	return m_jumping;
+}
+
+void GameEntity::setJumping(bool isJumping)
+{
+	m_jumping = isJumping;
+}
+
+void GameEntity::setJumpingSpeed(float jspeed)
+{
+	m_jumpSpeed = jspeed;
+}
+
+float GameEntity::getJumpingSpeed()
+{
+	return m_jumpSpeed;
+}
+
 float GameEntity::getPosX() {
 	return posX;
 }

@@ -11,10 +11,12 @@ namespace overdose {
 	protected:
 		float posX = 0.0, posY = 0.0, speedX = 0.0, speedY = 0.0;
 		float m_movementSpeed = 0.0f;
+		float m_jumpSpeed = 0.0f;
 		float width = 0, height = 0;
 		eFacing m_Facing = FrontView;
 		eGameEntity m_EntityEnum;
 		bool m_scheduledForRemoval = false;
+		bool m_jumping = true;
 
 		std::vector <int> *componentListToRemove = new std::vector < int >;
 		std::vector<Component*> *componentList = new std::vector < Component* > ;
@@ -34,6 +36,12 @@ namespace overdose {
 
 		void scheduleForRemoval();
 		bool isScheduledForRemoval();
+
+		bool isJumping();
+		void setJumping(bool isJumping);
+
+		float getJumpingSpeed();
+		void setJumpingSpeed(float jspeed);
 
 		float getWidth();
 		float getHeight();
