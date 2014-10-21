@@ -47,8 +47,6 @@ void Level1::Init()
 	GameEntity* entityCop = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Policeman);
 	entityCop->setPosX(530);
 	entityCop->setPosY(410-54);
-	entityCop->setSpeedX(0.1f);
-	entityCop->setSpeedY(0.0f);
 	this->addEntities(entityCop);
 
 	GameEntity *entityDrugSpeed = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Drug_Speed);
@@ -67,9 +65,9 @@ void Level1::Init()
 
 	int grassWall = 22;
 	for (int i = 0; i < grassWall; i++){
-		if (i > (grassWall/2 - 2) && i < (grassWall/2 + 2)){
+		/*if (i > (grassWall/2 - 2) && i < (grassWall/2 + 2)){
 			continue;
-		}
+		}*/
 		GameEntity* grass1 = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Grass);
 		grass1->setPosX(50 + 32 * i);
 		grass1->setPosY(410);

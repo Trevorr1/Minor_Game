@@ -10,6 +10,7 @@
 #include "gravityComponent.h"
 #include "CollisionReactionComponent.h"
 #include "PlayerCollisionReactionComponent.h"
+#include "PolicemanCollisionReactionComponent.h"
 #include "DrugCollisionReactionComponent.h"
 #include "ButtonClickableReactionComponent.h"
 #include <stdexcept>
@@ -36,16 +37,20 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 
 	switch (entityEnum){
 	case Policeman:
-		newObject->setSpeedX(-1);
+		newObject->setSpeedX(0.05f);
 		//	newObject->addComponent(*new DummyComponent());
 		newObject->addComponent(new EnemyMoveComponent());
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new MoveComponent());
+		newObject->addComponent(new CollisionComponent());
+		newObject->addComponent(new PlayerCollisionReactionComponent());//moet nog verandert worden naar PolicemanCollisionReactionComponent
+		newObject->addComponent(new gravityComponent());
 	//	newObject->addComponent(new CollisionComponent());
 
-		animations->insert({ Default, new Animation("assets/sprites/cop.png", 1) });
+		animations->insert({ WalkLeft, new Animation("assets/sprites/Policeman/PolicemanWalkLeft.png", 4, 5) });
+		animations->insert({ WalkRight, new Animation("assets/sprites/Policeman/PolicemanWalkRight.png", 4, 5) });
 		animation = new DrawComponent(animations);
-		animation->setAnimation(Default);//set default animation
+		animation->setAnimation(WalkLeft);//set default animation
 		newObject->addComponent(animation);
 		break;
 	case Drugdealer:
