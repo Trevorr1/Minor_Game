@@ -189,6 +189,9 @@
     <ClInclude Include="GameOver.h">
       <Filter>Header Files\Level</Filter>
     </ClInclude>
+    <ClInclude Include="NegativeSpeedDrugComponent.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -310,6 +313,9 @@
     </ClCompile>
     <ClCompile Include="GameOver.cpp">
       <Filter>Source Files\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="NegativeSpeedDrugComponent.cpp">
+      <Filter>Source Files\Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

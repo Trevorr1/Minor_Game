@@ -1,4 +1,5 @@
 #include "SpeedDrugComponent.h"
+#include "NegativeSpeedDrugComponent.h"
 //#include "GameEntity.h"
 
 
@@ -9,6 +10,8 @@ SpeedDrugComponent::SpeedDrugComponent()
 	//previous_speedX = getPrevious_SpeedX();
 	drug_speedX = 2.0f;
 	drug_effect_ms = 1000 * 5;
+
+	entityForNegativeEffect = new std::vector<GameEntity*>();
 	//timer_start = NULL;
 }
 
@@ -22,6 +25,13 @@ void SpeedDrugComponent::receive(Component *subject, ComponentMessage message, G
 }
 
 void SpeedDrugComponent::tick(float dt, GameEntity *entity) {
+	//for (int i = 0; i < entityForNegativeEffect->size(); i++)
+	//{
+	//	GameEntity* e = entityForNegativeEffect->at(i);
+	//	e->addComponent(new NegativeSpeedDrugComponent());
+	//	//entityForNegativeEffect->erase(entityForNegativeEffect->begin()+i);
+	//}
+
 	DrugComponent::tick(dt, entity);
 	//if (timer_start == NULL){
 	//	timer_start = getTimer_Start();
@@ -49,6 +59,12 @@ void SpeedDrugComponent::tick(float dt, GameEntity *entity) {
 	//	//Delete this SpeedDrugComponent
 	//	delete this;
 	//}
+}
+
+void SpeedDrugComponent::insertNegativeEffect(GameEntity* entity)
+{
+	//entityForNegativeEffect->push_back(entity);
+	entity->delayedAddComponent(new NegativeSpeedDrugComponent());
 }
 
 float SpeedDrugComponent::getDrugSpeed_X(){
