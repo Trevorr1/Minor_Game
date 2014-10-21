@@ -35,3 +35,6 @@ void GameOver::Init()
 	SoundManager::getInstance()->PlaySound(eSound::GameOverSound);
 }
 
+bool GameOver::isGameOver() {
+	return false;
+}

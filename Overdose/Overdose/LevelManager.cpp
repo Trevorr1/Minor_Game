@@ -45,6 +45,9 @@ ILevel* LevelManager::createLevel(levels l)
 }
 
 void LevelManager::Tick(float dt){
+	if (currentLevel->isGameOver()) {
+		createLevel(levels::LevelGameOver);
+	}
 	currentLevel->Tick(dt);
 }
 

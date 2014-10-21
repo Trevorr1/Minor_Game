@@ -7,6 +7,7 @@ namespace overdose {
 		MainMenu();
 		virtual  ~MainMenu();
 		void Init();
+		bool isGameOver();
 	private:
 		std::vector<GameEntity*> *enemies;
 		std::vector<GameEntity*> *collectibles;

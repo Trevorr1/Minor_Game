@@ -47,3 +47,7 @@ void MainMenu::Init()
 
 
 }
+
+bool MainMenu::isGameOver() {
+	return false;
+}
