@@ -1,11 +1,11 @@
 #pragma once
 #include "Ilevel.h"
 namespace overdose {
-	class MainMenu : public ILevel
+	class GameOver : public ILevel
 	{
 	public:
-		MainMenu();
-		virtual  ~MainMenu();
+		GameOver();
+		virtual  ~GameOver();
 		void Init();
 		bool isGameOver();
 	private:

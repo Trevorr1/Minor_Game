@@ -25,6 +25,9 @@ MainMenu::MainMenu()
 MainMenu::~MainMenu()
 {
 	delete entities;
+	delete collectibles;
+	delete m_Background;
+	delete enemies;
 }
 
 void MainMenu::Init()
@@ -40,7 +43,11 @@ void MainMenu::Init()
 	button->setPosY(100);
 	this->addEntities(button);
 
-	SoundManager::getInstance()->PlayMusic(eMusic::MainMenu);
+	SoundManager::getInstance()->PlayMusic(eMusic::MainMenuTheme);
 
 
+}
+
+bool MainMenu::isGameOver() {
+	return false;
 }

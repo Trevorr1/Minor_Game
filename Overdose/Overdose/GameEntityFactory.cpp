@@ -13,6 +13,7 @@
 #include "PolicemanCollisionReactionComponent.h"
 #include "DrugCollisionReactionComponent.h"
 #include "ButtonClickableReactionComponent.h"
+#include "HealthComponent.h"
 #include <stdexcept>
 using namespace overdose;
 
@@ -67,7 +68,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new PlayerCollisionReactionComponent());
 		newObject->addComponent(new gravityComponent());
-
+		newObject->addComponent(new HealthComponent(3));
 
 		animations->insert({ IdleLeft, new Animation("assets/sprites/Ross/RossIdleLeft.png", 1) });
 		animations->insert({ IdleRight, new Animation("assets/sprites/Ross/RossIdleRight.png", 1) });
@@ -93,6 +94,17 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new DrugCollisionReactionComponent());
 
 		animations->insert({ Default, new Animation("assets/sprites/drug_speed_30x30.png", 1) });
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Default);//set default animation
+		newObject->addComponent(animation);
+		break;
+	case Drug_Marijuana:
+		newObject->addComponent(new ClickableComponent());
+		//newObject->addComponent(new MoveComponent());
+		newObject->addComponent(new CollisionComponent());
+		newObject->addComponent(new DrugCollisionReactionComponent());
+
+		animations->insert({ Default, new Animation("assets/sprites/drug_marijuana_30x30.png", 1) });
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set default animation
 		newObject->addComponent(animation);

@@ -11,14 +11,20 @@ namespace overdose {
 		DrugComponent();
 		virtual ~DrugComponent();
 
-		void receive(Component *subject, ComponentMessage message, GameEntity *object);
-		void tick(float dt, GameEntity *entity);
+		virtual void receive(Component *subject, ComponentMessage message, GameEntity *object);
+		virtual void tick(float dt, GameEntity *entity);
 
-		std::clock_t    timer_start;
+		float getPrevious_SpeedX();
+		int getTimer_Start();
+		virtual float getDrugSpeed_X();
+		virtual int getDrugEffectMs();
+
 		std::string getComponentID();
 
 	private:
 		float previous_speedX;
+		std::clock_t    timer_start;
+		virtual void insertNegativeEffect(GameEntity* entity);
 	};
 }
 
