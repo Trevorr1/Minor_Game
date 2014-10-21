@@ -94,6 +94,7 @@
     <ClInclude Include="Enum.h" />
     <ClInclude Include="GameEntityFactory.h" />
     <ClInclude Include="GameEntity.h" />
+    <ClInclude Include="GameOver.h" />
     <ClInclude Include="gravityComponent.h" />
     <ClInclude Include="AnimationEnum.h" />
     <ClInclude Include="HealthComponent.h" />
@@ -134,6 +135,7 @@
     <ClCompile Include="EndNode.cpp" />
     <ClCompile Include="GameEntityFactory.cpp" />
     <ClCompile Include="GameEntity.cpp" />
+    <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="gravityComponent.cpp" />
     <ClCompile Include="HealthComponent.cpp" />
     <ClCompile Include="Ilevel.cpp" />

@@ -57,6 +57,7 @@ void HealthComponent::tick(float dt, GameEntity *entity) {
 	}
 	if (m_health <= 0) {
 		entity->scheduleForRemoval();
+		LevelManager::getInstance()->createLevel(levels::LevelGameOver); // TIJDELIJK OM GAMEOVER TE SHOWEN!!! MOET VERPLAATST WORDEN, WANT ANDERS IS HEALTHCOMPONENT NIET ENTITY-ONAFHANKELIJK
 	}
 
 	if (m_invincibleTime >= 0) {

@@ -7,8 +7,9 @@
 namespace overdose {
 	enum eMusic{
 		Stop,
-		MainMenu,
-		Street
+		MainMenuTheme,
+		Street,
+		GameOverTheme
 	};
 
 	enum eSound{
@@ -40,6 +41,7 @@ namespace overdose {
 		//The music that will be played
 		Mix_Music *gMusicMainMenu = NULL;
 		Mix_Music *gMusicStreet = NULL;
+		Mix_Music *gMusicGameOver = NULL;
 
 		//The sound effects that will be used
 		Mix_Chunk *gHigh = NULL;

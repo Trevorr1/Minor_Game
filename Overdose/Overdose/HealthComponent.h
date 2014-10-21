@@ -1,7 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "Component.h"
-
+#include "LevelManager.h"
 namespace overdose {
 	class HealthComponent : public Component
 	{

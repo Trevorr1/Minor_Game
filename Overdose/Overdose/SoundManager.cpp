@@ -88,6 +88,12 @@ bool SoundManager::loadMedia()
 		printf("Failed to load beat music! SDL_mixer Error: %s\n", Mix_GetError());
 		success = false;
 	}
+	gMusicGameOver = Mix_LoadMUS("assets/music/GameOver.wav");
+	if (gMusicGameOver == NULL)
+	{
+		printf("Failed to load beat music! SDL_mixer Error: %s\n", Mix_GetError());
+		success = false;
+	}
 
 	//Load sound effects
 	gHigh = Mix_LoadWAV("assets/sfx/high.wav");
@@ -126,12 +132,15 @@ void SoundManager::PlayMusic(eMusic music){
 	Mix_Music* sound = nullptr;
 	switch (music)
 	{
-	case MainMenu:
+	case MainMenuTheme:
 		sound = gMusicMainMenu;
 		break;
 
 	case Street:
 		sound = gMusicStreet;
+		break;
+	case GameOverTheme:
+		sound = gMusicGameOver;
 		break;
 	}
 

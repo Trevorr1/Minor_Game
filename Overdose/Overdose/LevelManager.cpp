@@ -22,7 +22,7 @@ ILevel* LevelManager::getCurrentLevel(){
 
 ILevel* LevelManager::createLevel(levels l)
 {
-	switch(l){
+	switch (l){
 	case level1:
 		if (currentLevel != nullptr){
 			//delete currentLevel; //weet niet waarom maar dit ging nog even fout
@@ -34,8 +34,11 @@ ILevel* LevelManager::createLevel(levels l)
 	case LevelMainMenu:
 		currentLevel = new MainMenu();
 		break;
+
+	case LevelGameOver:
+		currentLevel = new GameOver();
+		break;
 	}
-	
 	
 	currentLevel->Init();
 	return currentLevel;
