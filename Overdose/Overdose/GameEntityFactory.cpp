@@ -10,6 +10,7 @@
 #include "gravityComponent.h"
 #include "CollisionReactionComponent.h"
 #include "PlayerCollisionReactionComponent.h"
+#include "PolicemanCollisionReactionComponent.h"
 #include "DrugCollisionReactionComponent.h"
 #include "ButtonClickableReactionComponent.h"
 #include <stdexcept>
@@ -42,7 +43,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new MoveComponent());
 		newObject->addComponent(new CollisionComponent());
-		newObject->addComponent(new PlayerCollisionReactionComponent());//moet nog verandert worden
+		newObject->addComponent(new PlayerCollisionReactionComponent());//moet nog verandert worden naar PolicemanCollisionReactionComponent
 		newObject->addComponent(new gravityComponent());
 	//	newObject->addComponent(new CollisionComponent());
 
