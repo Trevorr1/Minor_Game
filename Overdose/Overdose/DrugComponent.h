@@ -16,6 +16,8 @@ namespace overdose {
 
 		float getPrevious_SpeedX();
 		int getTimer_Start();
+		virtual float getDrugSpeed_X();
+		virtual int getDrugEffectMs();
 
 		std::string getComponentID();
 

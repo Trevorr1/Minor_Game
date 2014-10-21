@@ -58,6 +58,13 @@ void Level1::Init()
 	entityDrugSpeed->setSpeedY(0);
 	this->addEntities(entityDrugSpeed);
 
+	GameEntity *entityDrugSpeed2 = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Drug_Speed);
+	entityDrugSpeed2->setPosX(300);
+	entityDrugSpeed2->setPosY(410 - 10);
+	entityDrugSpeed2->setSpeedX(0);
+	entityDrugSpeed2->setSpeedY(0);
+	this->addEntities(entityDrugSpeed2);
+
 	int grassWall = 22;
 	for (int i = 0; i < grassWall; i++){
 		if (i > (grassWall/2 - 2) && i < (grassWall/2 + 2)){

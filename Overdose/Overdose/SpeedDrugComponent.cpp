@@ -6,8 +6,10 @@ using namespace overdose;
 
 SpeedDrugComponent::SpeedDrugComponent()
 {
-	previous_speedX = getPrevious_SpeedX();
-	timer_start = getTimer_Start();
+	//previous_speedX = getPrevious_SpeedX();
+	drug_speedX = 2.0f;
+	drug_effect_ms = 1000 * 5;
+	//timer_start = NULL;
 }
 
 
@@ -20,31 +22,42 @@ void SpeedDrugComponent::receive(Component *subject, ComponentMessage message, G
 }
 
 void SpeedDrugComponent::tick(float dt, GameEntity *entity) {
-	if (previous_speedX == getPrevious_SpeedX()){
-		previous_speedX = entity->getSpeedX();
-	}
+	DrugComponent::tick(dt, entity);
+	//if (timer_start == NULL){
+	//	timer_start = getTimer_Start();
+	//}
 
-	float drugSpeed = 2.0f;
-	entity->setSpeedX(drugSpeed);
+	//if (previous_speedX == getPrevious_SpeedX()){
+	//	previous_speedX = entity->getSpeedX();
+	//}
 
-	int timer_end = (std::clock() - timer_start) / (double)(CLOCKS_PER_SEC / 1000);
-	int drug_effect_ms = 1000 * 5;
+	//float drugSpeed = 2.0f;
+	//entity->setSpeedX(drugSpeed);
 
-	// drug timer checker
-	if (timer_end < drug_effect_ms){
-		std::cout << "Time: " << timer_end << " ms" << std::endl;
-	}
-	else{
-		entity->setSpeedX(previous_speedX);
-		// Delete this drug component of gameEntity
-		entity->removeComponent(getComponentID());
+	//int timer_end = (std::clock() - timer_start) / (double)(CLOCKS_PER_SEC / 1000);
+	//int drug_effect_ms = 1000 * 5;
 
-		//TODO Delete this entity
-		//delete entity;
-		//delete this;
-	}
+	//// drug timer checker
+	//if (timer_end < drug_effect_ms){
+	//	std::cout << "Time: " << timer_end << " ms" << std::endl;
+	//}
+	//else{
+	//	entity->setSpeedX(previous_speedX);
+	//	// Delete this drug component of gameEntity
+	//	entity->removeComponent(getComponentID());
+
+	//	//Delete this SpeedDrugComponent
+	//	delete this;
+	//}
 }
 
+float SpeedDrugComponent::getDrugSpeed_X(){
+	return drug_speedX;
+}
+
+int SpeedDrugComponent::getDrugEffectMs(){
+	return drug_effect_ms;
+}
 
 std::string SpeedDrugComponent::getComponentID(){
 	return "SpeedDrugComponent";

@@ -46,7 +46,7 @@ void GameEntity::tick(float dt) {
 	//Delete the component
 	if (componentListToRemove->size() != 0){
 		for (auto &it : *componentListToRemove){
-			delete componentList->at(it); //delete object werk niet,SpeedDrug destructor wordt niet aangeroepen
+			//delete componentList->at(it); //delete object werk niet,SpeedDrug destructor wordt niet aangeroepen
 			componentList->erase(componentList->begin() + it); // delete position in vector
 		}
 
