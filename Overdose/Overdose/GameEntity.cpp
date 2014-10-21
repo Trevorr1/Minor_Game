@@ -73,6 +73,18 @@ float GameEntity::getPosition(int index)
 }
 
 
+int GameEntity::getHealth() {
+	if (m_health == nullptr) {
+		return -1;
+	}
+
+	return *m_health;
+}
+
+void GameEntity::setHealthPointer(int* health) {
+	m_health = health;
+}
+
 
 
 void GameEntity::broadcast(Component *subject, ComponentMessage message, GameEntity *object) {

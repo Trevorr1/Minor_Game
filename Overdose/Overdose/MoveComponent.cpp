@@ -17,6 +17,11 @@ void  MoveComponent::tick(float dt, GameEntity *entity) {
 	entity->setPosX(posX + speedX);
 	entity->setPosY(posY + speedY);
 
+	if (posY > 1000) {
+		entity->broadcast(this, MoveComponent_OUTOFAREA, entity);
+		entity->setPosY(0);
+	}
+
 }
 
 std::string MoveComponent::getComponentID(){
