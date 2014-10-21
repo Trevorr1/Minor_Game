@@ -88,12 +88,6 @@ bool SoundManager::loadMedia()
 		printf("Failed to load beat music! SDL_mixer Error: %s\n", Mix_GetError());
 		success = false;
 	}
-	gMusicGameOver = Mix_LoadMUS("assets/music/GameOver.wav");
-	if (gMusicGameOver == NULL)
-	{
-		printf("Failed to load beat music! SDL_mixer Error: %s\n", Mix_GetError());
-		success = false;
-	}
 
 	//Load sound effects
 	gHigh = Mix_LoadWAV("assets/sfx/high.wav");
@@ -123,6 +117,13 @@ bool SoundManager::loadMedia()
 		success = false;
 	}
 
+	gGameOver = Mix_LoadWAV("assets/sfx/GameOver.wav");
+	if (gGameOver == NULL)
+	{
+		printf("Failed to load gameover sound effect! SDL_mixer Error: %s\n", Mix_GetError());
+		success = false;
+	}
+
 	return success;
 }
 
@@ -138,9 +139,6 @@ void SoundManager::PlayMusic(eMusic music){
 
 	case Street:
 		sound = gMusicStreet;
-		break;
-	case GameOverTheme:
-		sound = gMusicGameOver;
 		break;
 	}
 
@@ -200,6 +198,9 @@ void SoundManager::PlaySound(eSound sound){
 		//Play Death sound effect
 		case Death:
 			Mix_PlayChannel(-1, gDeath, 0);
+			break;
+		case GameOverSound:
+			Mix_PlayChannel(-1, gGameOver, 0);
 			break;
 	}
 }

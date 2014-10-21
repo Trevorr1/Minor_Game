@@ -30,6 +30,8 @@ GameOver::~GameOver()
 
 void GameOver::Init()
 {
-	SoundManager::getInstance()->PlayMusic(eMusic::GameOverTheme);
+
+	SoundManager::getInstance()->StopMusic();
+	SoundManager::getInstance()->PlaySound(eSound::GameOverSound);
 }
 
