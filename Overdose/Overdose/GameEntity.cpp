@@ -50,8 +50,9 @@ void GameEntity::tick(float dt) {
 	//Delete the component
 	if (componentListToRemove->size() != 0){
 		for (auto &it : *componentListToRemove){
-			//delete componentList->at(it); //delete object werk niet,SpeedDrug destructor wordt niet aangeroepen
+			delete componentList->at(it); //delete WERKT, er was geen virtual destructor in Interface Component
 			componentList->erase(componentList->begin() + it); // delete position in vector
+			//break;
 		}
 
 		componentListToRemove->clear();
@@ -59,7 +60,7 @@ void GameEntity::tick(float dt) {
 
 	if (componentListToAdd->size() != 0){
 		for (int i = 0; i < componentListToAdd->size(); i ++){
-			//delete componentList->at(it); //delete object werk niet,SpeedDrug destructor wordt niet aangeroepen
+			//delete componentList->at(i); //delete object werk niet,SpeedDrug destructor wordt niet aangeroepen
 			componentList->push_back(componentListToAdd->at(i)); // delete position in vector
 		}
 

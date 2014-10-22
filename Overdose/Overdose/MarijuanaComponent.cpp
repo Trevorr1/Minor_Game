@@ -12,7 +12,6 @@ MarijuanaComponent::MarijuanaComponent()
 MarijuanaComponent::~MarijuanaComponent()
 {
 	printf("deleted MarijuanaComponent \n");
-
 }
 
 void MarijuanaComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {

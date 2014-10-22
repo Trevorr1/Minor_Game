@@ -14,8 +14,7 @@ DrugComponent::DrugComponent()
 
 DrugComponent::~DrugComponent()
 {
-	printf("deleted DrugComponent");
-
+	printf("deleted DrugComponent \n");
 }
 
 void DrugComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
@@ -46,9 +45,11 @@ void DrugComponent::tick(float dt, GameEntity *entity) {
 		insertNegativeEffect(entity);
 		//delete this drugcomponent
 		// entity->insertNegativeEffect
-		delete this;
+		//delete this;
 	}
 }
+
+
 
 float DrugComponent::getPrevious_SpeedX(){
 	return previous_speedX;
