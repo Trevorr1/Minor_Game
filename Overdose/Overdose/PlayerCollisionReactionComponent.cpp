@@ -38,6 +38,10 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 		while (!clear)
 		{
 			entity->setPosY(posy + 1);
+
+			posy = entity->getPosY();
+			boxY = (int)posy + (int)entity->getHeight();
+
 			if (!(posy > colY && posy < colBoxY))
 				clear = true;
 		}
@@ -45,10 +49,15 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 	}
 	if (collidedBottom)
 	{
+		entity->setJumping(false);
 		entity->setSpeedY(0);
 		while (!clear)
 		{
-			entity->setPosY(posy - 1);
+			entity->setPosY(posy - 1); 
+			
+			posy = entity->getPosY();
+			boxY = (int)posy + (int)entity->getHeight();
+
 			if (!(boxY > colY && boxY < colBoxY))
 				clear = true;
 		}
@@ -60,6 +69,10 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 		while (!clear)
 		{
 			entity->setPosX(posx + 2);
+
+			posx = entity->getPosX();
+			boxX = (int)posx + (int)entity->getWidth();
+
 			if (!(posx > colX && posx < colBoxX))
 				clear = true;
 		}
@@ -71,6 +84,10 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 		while (!clear)
 		{
 			entity->setPosX(posx - 2);
+
+			posx = entity->getPosX();
+			boxX = (int)posx + (int)entity->getWidth();
+
 			if (!(boxX > colX && boxX < colBoxX))
 				clear = true;
 		}

@@ -32,6 +32,15 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 	else {
 		entity->setSpeedX(0);
 	}
+
+	if (InputManager::getInstance()->isKeyPressed(SDL_SCANCODE_SPACE)) {
+		if (!entity->isJumping())
+		{
+			entity->setJumping(true);
+			entity->setJumpingSpeed(-4.5);
+		}
+
+	}
 }
 
 std::string PlayerInputComponent ::getComponentID(){

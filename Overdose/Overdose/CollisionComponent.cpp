@@ -107,7 +107,7 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 			*/
 
 			ComponentMessage message = CollissionComponent_COLLISION_DEFAULT;
-			bool bump = (other->getEnum() == Environment);
+			bool bump = (other->getEnum() == Environment || other->getEnum() == Grass);
 
 			if (collides)
 			{

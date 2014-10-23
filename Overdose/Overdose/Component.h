@@ -8,6 +8,7 @@ namespace overdose {
 	class Component
 	{
 	public:
+		virtual ~Component();
 		virtual void init(GameEntity *entity);
 
 		virtual void receive(Component *subject, ComponentMessage message, GameEntity *object) = 0;

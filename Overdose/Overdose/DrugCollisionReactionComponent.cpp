@@ -30,7 +30,7 @@ void DrugCollisionReactionComponent::receive(Component *subject, ComponentMessag
 			{
 				//inList = true;
 				object->removeComponent(object->getComponentList()->at(i)->getComponentID());
-				delete object->getComponentList()->at(i);
+				//delete object->getComponentList()->at(i);
 			}
 		}
 		/*if (!inList)

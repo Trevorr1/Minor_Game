@@ -118,6 +118,7 @@
     <ClInclude Include="surface.h" />
     <ClInclude Include="template.h" />
     <ClInclude Include="TreeNode.h" />
+    <ClInclude Include="XTCDrugComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
@@ -160,6 +161,7 @@
     <ClCompile Include="surface.cpp" />
     <ClCompile Include="template.cpp" />
     <ClCompile Include="TreeNode.cpp" />
+    <ClCompile Include="XTCDrugComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Overdose.rc" />

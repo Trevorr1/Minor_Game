@@ -4,7 +4,7 @@ using namespace overdose;
 
 gravityComponent::gravityComponent()
 {
-	gravity = 1.0f;
+	gravity = 0.15f;
 }
 
 gravityComponent::gravityComponent(float aGravity)
@@ -25,6 +25,8 @@ void gravityComponent::receive(Component *subject, ComponentMessage message, Gam
 void gravityComponent::tick(float dt, GameEntity *entity)
 {
 	entity->setSpeedY(gravity);
+	// gravity needs to increase to create that illusion of acceleration when decending up to a cap
+	// terminal velocity :/ need to do more :/
 }
 
 std::string gravityComponent::getComponentID()
