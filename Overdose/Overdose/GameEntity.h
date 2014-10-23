@@ -22,7 +22,7 @@ namespace overdose {
 
 		std::vector <int> *componentListToRemove = new std::vector < int >;
 		std::vector<Component*> *componentList = new std::vector < Component* > ;
-
+		std::vector<Component*> *componentListTemporary = new std::vector < Component* >;
 		// only use 
 		int* m_health = nullptr;
 	public:
@@ -38,6 +38,8 @@ namespace overdose {
 
 		virtual void removeComponent(std::string componentString);
 
+		virtual void addComponentTemporary(Component* component);
+
 		void scheduleForRemoval();
 		bool isScheduledForRemoval();
 
@@ -46,6 +48,8 @@ namespace overdose {
 
 		float getJumpingSpeed();
 		void setJumpingSpeed(float jspeed);
+
+		bool unVulnerability;
 
 		float getWidth();
 		float getHeight();

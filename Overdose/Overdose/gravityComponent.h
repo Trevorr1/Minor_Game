@@ -17,6 +17,7 @@ namespace overdose {
 
 	private:
 		float gravity;
+		int m_terminalVelocity = 4;
 	};
 
 } // namespace overdose

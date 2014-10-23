@@ -15,6 +15,7 @@ MarijuanaComponent::~MarijuanaComponent()
 }
 
 void MarijuanaComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
+	
 }
 
 void MarijuanaComponent::tick(float dt, GameEntity *entity) {

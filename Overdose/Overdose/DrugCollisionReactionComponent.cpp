@@ -2,6 +2,7 @@
 #include "DrugComponent.h"
 #include "SpeedDrugComponent.h"
 #include "MarijuanaComponent.h"
+#include "XTCDrugComponent.h"
 #include "LevelManager.h"
 
 
@@ -54,6 +55,9 @@ void DrugCollisionReactionComponent::tick(float dt, GameEntity *entity) {
 			break;
 			case Drug_Marijuana:
 				drugComponent = new MarijuanaComponent();
+			break;
+			case Drug_XTC:
+				drugComponent = new XTCDrugComponent();
 			break;
 		}
 	}

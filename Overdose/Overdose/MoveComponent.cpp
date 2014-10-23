@@ -12,15 +12,14 @@ void  MoveComponent::tick(float dt, GameEntity *entity) {
 	float posX = entity->getPosX();
 	float posY = entity->getPosY();
 	float speedX = entity->getSpeedX() * dt;
-	float speedY = entity->getSpeedY() * dt;
-	float jspeed = entity->getJumpingSpeed() * dt;
+	float speedY = entity->getSpeedY();
+	float jspeed = entity->getJumpingSpeed();
 
 	float addY = speedY + jspeed;
+	addY *= dt;
 
 	entity->setPosX(posX + speedX);
 	entity->setPosY(posY + addY);
-
-
 
 	if (jspeed >= 0)
 	{
@@ -28,8 +27,8 @@ void  MoveComponent::tick(float dt, GameEntity *entity) {
 	}
 	else
 	{
-		speedY /= dt;
-		jspeed /= dt;
+		speedY;
+		jspeed;
 		jspeed += speedY;
 		entity->setJumpingSpeed(jspeed);
 	}
