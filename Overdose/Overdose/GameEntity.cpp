@@ -41,6 +41,10 @@ void GameEntity::removeComponent(std::string componentID)
 	}
 }
 
+void GameEntity::addComponentTemporary(Component* component){
+	componentListTemporary->push_back(component);
+}
+
 std::vector<Component*>* GameEntity::getComponentList()
 {
 	return componentList;
@@ -67,6 +71,20 @@ void GameEntity::tick(float dt) {
 		componentListToAdd->clear();
 	}
 
+	//check for XTC DrugComponent
+	if (componentListTemporary->size() != 0){
+		for (int i = 0; i < componentList->size(); i++){
+			if (componentListTemporary->at(0) == componentList->at(i)){
+				componentList->erase(componentList->begin() + i);
+			}
+		}
+
+		if (!unVulnerability){
+			componentList->push_back(componentListTemporary->at(0));
+			componentListTemporary->clear();
+			unVulnerability = true;
+		}
+	}
 	
 	for (auto &it : *componentList) {
 		it->tick(dt, this);

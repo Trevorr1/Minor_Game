@@ -16,8 +16,13 @@ namespace overdose{
 		float getDrugSpeed_X();
 		int getDrugEffectMs();
 
+		void setVulnerability();
+		void setUnvulnerability();
+
 		std::clock_t    timer_start;
 		std::string getComponentID();
+
+		GameEntity* XTC_gameEntity;
 
 	private:
 		float previous_speedX;
