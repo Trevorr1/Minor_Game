@@ -56,12 +56,19 @@ void Level1::Init()
 	entityDrugSpeed->setSpeedY(0);
 	this->addEntities(entityDrugSpeed);
 
-	GameEntity *entityDrugSpeed2 = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Drug_Marijuana);
-	entityDrugSpeed2->setPosX(450);
-	entityDrugSpeed2->setPosY(410 - 60);
-	entityDrugSpeed2->setSpeedX(0);
-	entityDrugSpeed2->setSpeedY(0);
-	this->addEntities(entityDrugSpeed2);
+	GameEntity *entityDrugMarijuana = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Drug_Marijuana);
+	entityDrugMarijuana->setPosX(450);
+	entityDrugMarijuana->setPosY(410 - 60);
+	entityDrugMarijuana->setSpeedX(0);
+	entityDrugMarijuana->setSpeedY(0);
+	this->addEntities(entityDrugMarijuana);
+
+	GameEntity *entityDrugXTC = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Drug_XTC);
+	entityDrugXTC->setPosX(300);
+	entityDrugXTC->setPosY(410 - 30);
+	entityDrugXTC->setSpeedX(0);
+	entityDrugXTC->setSpeedY(0);
+	this->addEntities(entityDrugXTC);
 
 	int grassWall = 22;
 	for (int i = 0; i < grassWall; i++){
