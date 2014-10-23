@@ -2,14 +2,16 @@
 #include "ILevel.h"
 #include "MainMenu.h"
 #include "GameOver.h"
+#include "GameWon.h"
 #include "Level1.h"
+#include "Level2.h"
 namespace overdose {
 enum levels{
 	LevelMainMenu,
-	LevelGameOver,
 	level1,
 	level2,
-	level3
+	LevelGameWon,
+	LevelGameOver
 };
 
 class LevelManager
@@ -22,8 +24,10 @@ class LevelManager
 		void LevelManager::Tick(float dt);
 	private:
 		ILevel* currentLevel;
+		levels currentLevelEnum;
 		LevelManager(void);
 		static LevelManager* _instance;
+		void nextLevel();
 	};
 
 }

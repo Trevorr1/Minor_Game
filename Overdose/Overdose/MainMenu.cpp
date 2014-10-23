@@ -38,11 +38,17 @@ void MainMenu::Init()
 	entityPtr->setPosX(0);
 	this->addEntities(entityPtr);
 
-	GameEntity *button = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::ButtonPlay);
-	button->setPosX(100);
-	button->setPosY(100);
-	this->addEntities(button);
+	GameEntity *buttonPlay = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::ButtonPlay);
+	buttonPlay->setPosX(100);
+	buttonPlay->setPosY(100);
+	this->addEntities(buttonPlay);
 
+	GameEntity *buttonQuitGame = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::ButtonQuitGame);
+	buttonQuitGame->setPosX(100);
+	buttonQuitGame->setPosY(200);
+	this->addEntities(buttonQuitGame);
+
+	SoundManager::getInstance()->StopMusic();
 	SoundManager::getInstance()->PlayMusic(eMusic::MainMenuTheme);
 
 

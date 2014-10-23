@@ -61,6 +61,12 @@
     <Filter Include="Header Files\Component\Animation">
       <UniqueIdentifier>{bd439496-17d6-4855-9f33-e1984d4703a4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Component\button">
+      <UniqueIdentifier>{b05a74ea-1ddf-4119-ad7c-3497b68e6149}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Component\button">
+      <UniqueIdentifier>{642d757a-81e3-40d0-aac8-de831fa67cf8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -147,9 +153,6 @@
     <ClInclude Include="MainMenu.h">
       <Filter>Header Files\Level</Filter>
     </ClInclude>
-    <ClInclude Include="ButtonClickableReactionComponent.h">
-      <Filter>Header Files\Component</Filter>
-    </ClInclude>
     <ClInclude Include="GameEntityFactory.h">
       <Filter>Header Files\Entity</Filter>
     </ClInclude>
@@ -194,6 +197,21 @@
     </ClInclude>
     <ClInclude Include="XTCDrugComponent.h">
       <Filter>Header Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="FlagCollisionReactionComponent.h">
+      <Filter>Header Files\Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="GameWon.h">
+      <Filter>Header Files\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="Level2.h">
+      <Filter>Header Files\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="QuitOnClickComponent.h">
+      <Filter>Header Files\Component\button</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonClickableReactionComponent.h">
+      <Filter>Header Files\Component\button</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -281,9 +299,6 @@
     <ClCompile Include="Ilevel.cpp">
       <Filter>Source Files\Level</Filter>
     </ClCompile>
-    <ClCompile Include="ButtonClickableReactionComponent.cpp">
-      <Filter>Source Files\Component</Filter>
-    </ClCompile>
     <ClCompile Include="MainMenu.cpp">
       <Filter>Source Files\Level</Filter>
     </ClCompile>
@@ -322,6 +337,21 @@
     </ClCompile>
     <ClCompile Include="XTCDrugComponent.cpp">
       <Filter>Source Files\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="FlagCollisionReactionComponent.cpp">
+      <Filter>Source Files\Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="GameWon.cpp">
+      <Filter>Source Files\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="Level2.cpp">
+      <Filter>Source Files\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonClickableReactionComponent.cpp">
+      <Filter>Source Files\Component\button</Filter>
+    </ClCompile>
+    <ClCompile Include="QuitOnClickComponent.cpp">
+      <Filter>Source Files\Component\button</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

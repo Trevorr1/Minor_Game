@@ -50,6 +50,7 @@ void ILevel::DrawBackground(){
 }
 
 void ILevel::Tick(float dt){
+
 	DrawBackground();
 
 
@@ -72,6 +73,13 @@ void ILevel::Tick(float dt){
 bool ILevel::isGameOver() {
 	return m_Player->isScheduledForRemoval();
 }
+bool ILevel::isGameWon() {
+	return m_IsGameWon;
+}
+void ILevel::setGameWon(){
+	m_IsGameWon = true;
+}
+
 
 ILevel::~ILevel() {
 	delete m_Player;

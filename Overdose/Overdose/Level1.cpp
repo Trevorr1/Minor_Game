@@ -18,7 +18,7 @@ Level1::Level1()
 	entities = new std::vector<GameEntity*>();
 	enemies = new std::vector<GameEntity*>();
 	collectibles = new std::vector<GameEntity*>();
-	m_Background = new Surface("assets/backgrounds/background.jpg");
+	m_Background = new Surface("assets/backgrounds/background.png");
 
 }
 
@@ -44,10 +44,10 @@ void Level1::Init()
 	this->addEntities(player);
 	m_Player = player;
 
-	GameEntity* entityCop = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Policeman);
-	entityCop->setPosX(530);
-	entityCop->setPosY(410-54);
-	this->addEntities(entityCop);
+	//GameEntity* entityCop = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Policeman);
+	//entityCop->setPosX(530);
+	//entityCop->setPosY(410-54);
+	//this->addEntities(entityCop);
 
 	GameEntity *entityDrugSpeed = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Drug_Speed);
 	entityDrugSpeed->setPosX(200);
@@ -57,7 +57,7 @@ void Level1::Init()
 	this->addEntities(entityDrugSpeed);
 
 	GameEntity *entityDrugSpeed2 = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Drug_Marijuana);
-	entityDrugSpeed2->setPosX(450);
+	entityDrugSpeed2->setPosX(350);
 	entityDrugSpeed2->setPosY(410 - 60);
 	entityDrugSpeed2->setSpeedX(0);
 	entityDrugSpeed2->setSpeedY(0);
@@ -74,6 +74,14 @@ void Level1::Init()
 		this->addEntities(grass1);
 	}
 
+
+	GameEntity *flaggot = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Flag);
+	flaggot->setPosX(700);
+	flaggot->setPosY(410 - 112);
+	this->addEntities(flaggot);
+
+
+	SoundManager::getInstance()->StopMusic();
 	SoundManager::getInstance()->PlayMusic(eMusic::Street);
-	SoundManager::getInstance()->PlaySound(eSound::Death);
+	//SoundManager::getInstance()->PlaySound(eSound::Death);
 }

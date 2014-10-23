@@ -88,6 +88,7 @@
     <ClInclude Include="DrugCollisionReactionComponent.h" />
     <ClInclude Include="DrugComponent.h" />
     <ClInclude Include="EnemyMoveComponent.h" />
+    <ClInclude Include="FlagCollisionReactionComponent.h" />
     <ClInclude Include="FPSDrawComponent.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="EndNode.h" />
@@ -95,12 +96,14 @@
     <ClInclude Include="GameEntityFactory.h" />
     <ClInclude Include="GameEntity.h" />
     <ClInclude Include="GameOver.h" />
+    <ClInclude Include="GameWon.h" />
     <ClInclude Include="gravityComponent.h" />
     <ClInclude Include="AnimationEnum.h" />
     <ClInclude Include="HealthComponent.h" />
     <ClInclude Include="ILevel.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Level1.h" />
+    <ClInclude Include="Level2.h" />
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="MarijuanaComponent.h" />
@@ -109,6 +112,7 @@
     <ClInclude Include="PlayerCollisionReactionComponent.h" />
     <ClInclude Include="PlayerInputComponent.h" />
     <ClInclude Include="PolicemanCollisionReactionComponent.h" />
+    <ClInclude Include="QuitOnClickComponent.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SDLTemplate.h" />
     <ClInclude Include="SoundManager.h" />
@@ -132,6 +136,7 @@
     <ClCompile Include="DrugCollisionReactionComponent.cpp" />
     <ClCompile Include="DrugComponent.cpp" />
     <ClCompile Include="EnemyMoveComponent.cpp" />
+    <ClCompile Include="FlagCollisionReactionComponent.cpp" />
     <ClCompile Include="FPSDrawComponent.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="BspTree.cpp" />
@@ -139,11 +144,13 @@
     <ClCompile Include="GameEntityFactory.cpp" />
     <ClCompile Include="GameEntity.cpp" />
     <ClCompile Include="GameOver.cpp" />
+    <ClCompile Include="GameWon.cpp" />
     <ClCompile Include="gravityComponent.cpp" />
     <ClCompile Include="HealthComponent.cpp" />
     <ClCompile Include="Ilevel.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Level1.cpp" />
+    <ClCompile Include="Level2.cpp" />
     <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
@@ -153,6 +160,7 @@
     <ClCompile Include="PlayerCollisionReactionComponent.cpp" />
     <ClCompile Include="PlayerInputComponent.cpp" />
     <ClCompile Include="PolicemanCollisionReactionComponent.cpp" />
+    <ClCompile Include="QuitOnClickComponent.cpp" />
     <ClCompile Include="SDLTemplate.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="SpeedDrugComponent.cpp" />

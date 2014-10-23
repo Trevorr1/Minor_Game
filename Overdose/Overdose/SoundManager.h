@@ -8,17 +8,16 @@ namespace overdose {
 	enum eMusic{
 		Stop,
 		MainMenuTheme,
-		Street
+		Street,
+		People
 
 	};
 
 	enum eSound{
-		High,
-		Medium,
-		Low,
-		Scratch,
+		Click,
 		Death,
-		GameOverSound
+		GameOverSound,
+		PartyHorn
 	};
 
 	class SoundManager
@@ -42,14 +41,17 @@ namespace overdose {
 		//The music that will be played
 		Mix_Music *gMusicMainMenu = NULL;
 		Mix_Music *gMusicStreet = NULL;
+		Mix_Music *gPeople = NULL;
 		
 
 		//The sound effects that will be used
-		Mix_Chunk *gHigh = NULL;
-		Mix_Chunk *gMedium = NULL;
-		Mix_Chunk *gLow = NULL;
+		Mix_Chunk *gClick = NULL;
 		Mix_Chunk *gDeath = NULL;
 		Mix_Chunk *gGameOver = NULL;
+		Mix_Chunk *gPartyHorn = NULL;
+		
+
+		 
 	};
 
 }

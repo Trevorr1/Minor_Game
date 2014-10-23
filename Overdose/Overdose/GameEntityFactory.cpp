@@ -13,7 +13,9 @@
 #include "PolicemanCollisionReactionComponent.h"
 #include "DrugCollisionReactionComponent.h"
 #include "ButtonClickableReactionComponent.h"
+#include "QuitOnClickComponent.h";
 #include "HealthComponent.h"
+#include "FlagCollisionReactionComponent.h"
 #include <stdexcept>
 using namespace overdose;
 
@@ -44,14 +46,14 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new MoveComponent());
 		newObject->addComponent(new CollisionComponent());
-		newObject->addComponent(new PlayerCollisionReactionComponent());//moet nog verandert worden naar PolicemanCollisionReactionComponent
+		newObject->addComponent(new PolicemanCollisionReactionComponent());//moet nog verandert worden naar PolicemanCollisionReactionComponent
 		newObject->addComponent(new gravityComponent());
 	//	newObject->addComponent(new CollisionComponent());
 
 		animations->insert({ WalkLeft, new Animation("assets/sprites/Policeman/PolicemanWalkLeft.png", 4, 5) });
 		animations->insert({ WalkRight, new Animation("assets/sprites/Policeman/PolicemanWalkRight.png", 4, 5) });
 		animation = new DrawComponent(animations);
-		animation->setAnimation(WalkLeft);//set default animation
+		animation->setAnimation(WalkLeft);//set starting animation
 		newObject->addComponent(animation);
 		break;
 	case Drugdealer:
@@ -75,16 +77,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		animations->insert({ WalkLeft, new Animation("assets/sprites/Ross/RossWalkingLeft.png", 8, 10) });
 		animations->insert({ WalkRight, new Animation("assets/sprites/Ross/RossWalkingRight.png", 8, 10) });
 		animation = new DrawComponent(animations);
-		animation->setAnimation(IdleRight);//set default animation
-		newObject->addComponent(animation);
-		break;
-	case ButtonPlay:
-		newObject->addComponent(new ClickableComponent());
-		newObject->addComponent(new ButtonClickableReactionComponent(level1));
-
-		animations->insert({ Default, new Animation("assets/buttons/button_play.jpg", 1) });
-		animation = new DrawComponent(animations);
-		animation->setAnimation(Default);//set default animation
+		animation->setAnimation(IdleRight);//set starting animation
 		newObject->addComponent(animation);
 		break;
 	case Drug_Speed:
@@ -95,7 +88,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 
 		animations->insert({ Default, new Animation("assets/sprites/drug_speed_30x30.png", 1) });
 		animation = new DrawComponent(animations);
-		animation->setAnimation(Default);//set default animation
+		animation->setAnimation(Default);//set starting animation
 		newObject->addComponent(animation);
 		break;
 	case Drug_Marijuana:
@@ -106,7 +99,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 
 		animations->insert({ Default, new Animation("assets/sprites/drug_marijuana_30x30.png", 1) });
 		animation = new DrawComponent(animations);
-		animation->setAnimation(Default);//set default animation
+		animation->setAnimation(Default);//set starting animation
 		newObject->addComponent(animation);
 		break;
 	case Drug_XTC:
@@ -117,7 +110,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 
 		animations->insert({ Default, new Animation("assets/sprites/drug_xtc_30x30.png", 1) });
 		animation = new DrawComponent(animations);
-		animation->setAnimation(Default);//set default animation
+		animation->setAnimation(Default);//set starting animation
 		newObject->addComponent(animation);
 		break;
 	case Grass:
@@ -125,9 +118,66 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 
 		animations->insert({ Default, new Animation("assets/sprites/grass.png", 1) });
 		animation = new DrawComponent(animations);
-		animation->setAnimation(Default);//set default animation
+		animation->setAnimation(Default);//set starting animation
 		newObject->addComponent(animation);
 		break;
+	case Flag:
+		newObject->addComponent(new CollisionComponent());
+		newObject->addComponent(new FlagCollisionReactionComponent());
+
+		animations->insert({ Default, new Animation("assets/sprites/Party/Flag/flag.png", 9, 10) });
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Default);//set starting animation
+		newObject->addComponent(animation);
+		break;
+
+
+
+
+
+		/* BUTTONS: */
+	case ButtonPlay:
+		newObject->addComponent(new ClickableComponent());
+		newObject->addComponent(new ButtonClickableReactionComponent(level1));
+
+		animations->insert({ Default, new Animation("assets/buttons/button_play.jpg", 1) });
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Default);//set starting animation
+		newObject->addComponent(animation);
+		break;
+	case ButtonPlayAgain:
+		newObject->addComponent(new ClickableComponent());
+		newObject->addComponent(new ButtonClickableReactionComponent(level1));
+
+		animations->insert({ Default, new Animation("assets/buttons/button_play_again.png", 1) });
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Default);//set starting animation
+		newObject->addComponent(animation);
+		break;
+	case ButtonMainMenu:
+		newObject->addComponent(new ClickableComponent());
+		newObject->addComponent(new ButtonClickableReactionComponent(LevelMainMenu));
+
+		animations->insert({ Default, new Animation("assets/buttons/button_main_menu.png", 1) });
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Default);//set starting animation
+		newObject->addComponent(animation);
+		break;
+	case ButtonQuitGame:
+		newObject->addComponent(new ClickableComponent());
+		newObject->addComponent(new QuitOnClickComponent());
+
+		animations->insert({ Default, new Animation("assets/buttons/button_quit_game.png", 1) });
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Default);//set starting animation
+		newObject->addComponent(animation);
+		break;
+
+
+
+
+
+
 	default:
 		throw std::invalid_argument("Invalid game Entity passed to the factory"); // Veel te lang moeten debuggen waarom mij entities geen components hadden... >.<
 	}
