@@ -19,7 +19,7 @@ void  EnemyMoveComponent::receive(Component *subject, ComponentMessage message, 
 
 void  EnemyMoveComponent::tick(float dt, GameEntity *entity)
 {
-	if (entity->getPosX() < 466 - 5 || entity->getPosX() > 724 + 5)
+	if (entity->getPosX() < 466 - 5 || entity->getPosX() > 624 + 5)
 	{
 		entity->setSpeedX(entity->getSpeedX() * -1);
 	}

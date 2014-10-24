@@ -16,7 +16,7 @@ void ClickableComponent::tick(float dt, GameEntity *entity) {
 
 		std::cout << "Hit!" << std::endl;
 
-		SoundManager::getInstance()->PlaySound(High);
+		SoundManager::getInstance()->PlaySound(Click);
 	}
 }
 

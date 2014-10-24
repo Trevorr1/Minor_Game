@@ -22,6 +22,8 @@ namespace overdose {
 		virtual std::vector<GameEntity*> *getCollectibles();
 		virtual void Tick(float a_DT);
 		virtual bool isGameOver();
+		bool isGameWon();
+		void setGameWon();
 		virtual ~ILevel();
 	protected:
 		std::vector<GameEntity*> *entities;
@@ -30,6 +32,7 @@ namespace overdose {
 		virtual void DrawBackground();
 		Surface* m_Background;
 		GameEntity* m_Player = nullptr;
+		bool m_IsGameWon = false;
 
 	};
 }

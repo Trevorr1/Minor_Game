@@ -37,18 +37,23 @@ SoundManager::SoundManager()
 SoundManager::~SoundManager()
 {
 	//Free the sound effects
-	Mix_FreeChunk(gHigh);
-	Mix_FreeChunk(gMedium);
-	Mix_FreeChunk(gLow);
+	Mix_FreeChunk(gClick);
 	Mix_FreeChunk(gDeath);
-	gHigh = NULL;
-	gMedium = NULL;
-	gLow = NULL;
-	gDeath = NULL;
+	Mix_FreeChunk(gGameOver);
+	Mix_FreeChunk(gPartyHorn);
 
-	//Free the music
+	gClick = NULL;
+	gDeath = NULL;
+	gGameOver = NULL;
+	gPartyHorn = NULL;
+
+		//Free the music
 	Mix_FreeMusic(gMusicMainMenu);
+	Mix_FreeMusic(gMusicStreet);
+	Mix_FreeMusic(gPeople);
 	gMusicMainMenu = NULL;
+	gMusicStreet = NULL;
+	gPeople = NULL;
 
 	//Quit SDL subsystems
 	Mix_Quit();
@@ -88,32 +93,25 @@ bool SoundManager::loadMedia()
 		printf("Failed to load beat music! SDL_mixer Error: %s\n", Mix_GetError());
 		success = false;
 	}
+	gPeople = Mix_LoadMUS("assets/sfx/people.wav");
+	if (gPeople == NULL)
+	{
+		printf("Failed to load people sound effect! SDL_mixer Error: %s\n", Mix_GetError());
+		success = false;
+	}
 
 	//Load sound effects
-	gHigh = Mix_LoadWAV("assets/sfx/high.wav");
-	if (gHigh == NULL)
+	gClick = Mix_LoadWAV("assets/sfx/click.wav");
+	if (gDeath == NULL)
 	{
-		printf("Failed to load high sound effect! SDL_mixer Error: %s\n", Mix_GetError());
+		printf("Failed to load death sound effect! SDL_mixer Error: %s\n", Mix_GetError());
 		success = false;
 	}
 
-	gMedium = Mix_LoadWAV("assets/sfx/medium.wav");
-	if (gMedium == NULL)
-	{
-		printf("Failed to load medium sound effect! SDL_mixer Error: %s\n", Mix_GetError());
-		success = false;
-	}
-
-	gLow = Mix_LoadWAV("assets/sfx/low.wav");
-	if (gLow == NULL)
-	{
-		printf("Failed to load low sound effect! SDL_mixer Error: %s\n", Mix_GetError());
-		success = false;
-	}
 	gDeath = Mix_LoadWAV("assets/sfx/scream.wav");
 	if (gDeath == NULL)
 	{
-		printf("Failed to load low sound effect! SDL_mixer Error: %s\n", Mix_GetError());
+		printf("Failed to load death sound effect! SDL_mixer Error: %s\n", Mix_GetError());
 		success = false;
 	}
 
@@ -123,6 +121,15 @@ bool SoundManager::loadMedia()
 		printf("Failed to load gameover sound effect! SDL_mixer Error: %s\n", Mix_GetError());
 		success = false;
 	}
+
+	gPartyHorn = Mix_LoadWAV("assets/sfx/party-horn.wav");
+	if (gPartyHorn == NULL)
+	{
+		printf("Failed to load party-horn sound effect! SDL_mixer Error: %s\n", Mix_GetError());
+		success = false;
+	}
+
+
 
 	return success;
 }
@@ -139,6 +146,10 @@ void SoundManager::PlayMusic(eMusic music){
 
 	case Street:
 		sound = gMusicStreet;
+		break;
+
+	case People:
+		sound = gPeople;
 		break;
 	}
 
@@ -180,27 +191,17 @@ void SoundManager::PlaySound(eSound sound){
 	
 	switch (sound)
 	{
-		//Play high sound effect
-		case High:
-			Mix_PlayChannel(-1, gHigh, 0);
+		case Click:
+			Mix_PlayChannel(-1, gClick, 0);
 			break;
-
-		//Play medium sound effect
-		case Medium:
-			Mix_PlayChannel(-1, gMedium, 0);
-			break;
-
-		//Play low sound effect
-		case Low:
-			Mix_PlayChannel(-1, gLow, 0);
-			break;
-
-		//Play Death sound effect
 		case Death:
 			Mix_PlayChannel(-1, gDeath, 0);
 			break;
 		case GameOverSound:
 			Mix_PlayChannel(-1, gGameOver, 0);
+			break;
+		case PartyHorn:
+			Mix_PlayChannel(-1, gPartyHorn, 0);
 			break;
 	}
 }

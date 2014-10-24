@@ -14,13 +14,21 @@ PolicemanCollisionReactionComponent::~PolicemanCollisionReactionComponent()
 
 void PolicemanCollisionReactionComponent::tick(float dt, GameEntity *entity) 
 {
+	float posx = entity->getPosX();
+	float posy = entity->getPosY();
+
+	int boxX = (int)posx + (int)entity->getWidth();
+	int boxY = (int)posy + (int)entity->getHeight();
+	
+	bool clear = false;
+
 	if (!isAlive){
 		//TODO how to delete?
 		//vector<GameEntity*> *gameEntities = LevelManager::getInstance()->getCurrentLevel()->getEntities();
 		//gameEntities->erase(gameEntities->begin() + 1);
 		//delete entity;
 	}
-	if (collidedTop || collidedBottom)
+	if (collidedTop)
 	{
 		entity->setSpeedY(0);
 		collidedTop = false;
@@ -35,6 +43,22 @@ void PolicemanCollisionReactionComponent::tick(float dt, GameEntity *entity)
 	{
 		entity->setSpeedX(0);
 		collidedRight = false;
+	}
+	if (collidedBottom)
+	{
+		entity->setJumping(false);
+		entity->setSpeedY(0);
+		while (!clear)
+		{
+			entity->setPosY(posy - 1);
+
+			posy = entity->getPosY();
+			boxY = (int)posy + (int)entity->getHeight();
+
+			if (!(boxY > colY && boxY < colBoxY))
+				clear = true;
+		}
+		collidedBottom = false;
 	}
 	if (reactTop || reactBottom)
 	{
