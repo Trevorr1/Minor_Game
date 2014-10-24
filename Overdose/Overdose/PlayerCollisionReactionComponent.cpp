@@ -96,7 +96,7 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 	if (reactTop)
 	{
 		entity->setSpeedY(0);
-		while (!clear)
+		/*while (!clear)
 		{
 			entity->setPosY(posy + 1);
 
@@ -105,13 +105,13 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 
 			if (!(posy > colY && posy < colBoxY))
 				clear = true;
-		}
+		}*/
 		reactTop = false;
 	}
 	if (reactBottom)
 	{
 		entity->setSpeedY(0);
-		while (!clear)
+		/*while (!clear)
 		{
 			entity->setPosY(posy - 1);
 
@@ -122,13 +122,13 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 			{
 				clear = true;
 			}
-		}
+		}*/
 		reactBottom = false;
 	}
 	if (reactLeft)
 	{
 		entity->setSpeedX(0);
-		while (!clear)
+		/*while (!clear)
 		{
 			entity->setPosX(posx + 2);
 
@@ -137,7 +137,7 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 
 			if (!(posx > colX && posx < colBoxX))
 				clear = true;
-		}
+		}*/
 		reactLeft = false;
 	}
 	if (reactRight)
