@@ -44,10 +44,10 @@ void Level1::Init()
 	this->addEntities(player);
 	m_Player = player;
 
-	//GameEntity* entityCop = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Policeman);
-	//entityCop->setPosX(530);
-	//entityCop->setPosY(410-54);
-	//this->addEntities(entityCop);
+	GameEntity* entityCop = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Policeman);
+	entityCop->setPosX(500);
+	entityCop->setPosY(410-54);
+	this->addEntities(entityCop);
 
 	GameEntity *entityDrugSpeed = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Drug_Speed);
 	entityDrugSpeed->setPosX(200);
