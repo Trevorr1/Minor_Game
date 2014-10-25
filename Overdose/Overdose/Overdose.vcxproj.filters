@@ -213,6 +213,9 @@
     <ClInclude Include="ButtonClickableReactionComponent.h">
       <Filter>Header Files\Component\button</Filter>
     </ClInclude>
+    <ClInclude Include="KnockBackComponent.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -352,6 +355,9 @@
     </ClCompile>
     <ClCompile Include="QuitOnClickComponent.cpp">
       <Filter>Source Files\Component\button</Filter>
+    </ClCompile>
+    <ClCompile Include="KnockBackComponent.cpp">
+      <Filter>Source Files\Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
