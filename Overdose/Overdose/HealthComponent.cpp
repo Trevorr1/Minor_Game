@@ -34,7 +34,7 @@ void HealthComponent::receive(Component *subject, ComponentMessage message, Game
 
 
 	// environment / drugs shouldn't hurt the entity
-	if (object->getEnum() == Grass || object->getEnum() == Drug_Speed) {
+	if (object->getEnum() == Grass || object->getEnum() == Drug_Speed || object->getEnum() == Flag) {
 		return;
 	}
 
