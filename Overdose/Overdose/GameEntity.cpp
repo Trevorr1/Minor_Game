@@ -139,9 +139,19 @@ bool GameEntity::isJumping()
 	return m_jumping;
 }
 
+bool GameEntity::isFalling()
+{
+	return m_falling;
+}
+
 void GameEntity::setJumping(bool isJumping)
 {
 	m_jumping = isJumping;
+}
+
+void GameEntity::setFalling(bool isFalling)
+{
+	m_falling = isFalling;
 }
 
 void GameEntity::setJumpingSpeed(float jspeed)

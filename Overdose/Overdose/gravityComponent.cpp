@@ -24,15 +24,15 @@ void gravityComponent::receive(Component *subject, ComponentMessage message, Gam
 
 void gravityComponent::tick(float dt, GameEntity *entity)
 {
-	if (entity->isJumping())
+	if (entity->isJumping() || entity->isFalling())
 	{
 		if (gravity < m_terminalVelocity)
 			gravity += gravity * 0.08f;
+		if (gravity < 0.04f)
+			entity->setJumping(true);
 	}
 	else gravity = 0.007f;
 	entity->setSpeedY(gravity);
-	// gravity needs to increase to create that illusion of acceleration when decending up to a cap
-	// terminal velocity :/ need to do more :/
 }
 
 std::string gravityComponent::getComponentID()

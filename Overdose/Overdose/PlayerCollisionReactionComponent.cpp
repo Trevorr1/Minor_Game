@@ -50,6 +50,7 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 	if (collidedBottom)
 	{
 		entity->setJumping(false);
+		entity->setFalling(false);
 		entity->setSpeedY(0);
 		while (!clear)
 		{
@@ -62,6 +63,10 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 				clear = true;
 		}
 		collidedBottom = false;
+	}
+	else
+	{
+		entity->setFalling(true);
 	}
 	if (collidedLeft)
 	{
