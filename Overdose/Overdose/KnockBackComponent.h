@@ -12,7 +12,8 @@ namespace overdose{
 
 		std::string getComponentID();
 	private:
-		bool hit = false;
-		int knockbackValue = 5;
+		bool knockBackToLeft = false;
+		bool knockBackToRight = false;
+		const int knockbackValue = 15;
 	};
 }
