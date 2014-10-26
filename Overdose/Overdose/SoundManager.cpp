@@ -185,6 +185,7 @@ void SoundManager::PlayMusic(eMusic music){
 
 void SoundManager::StopMusic(){
 	Mix_HaltMusic();
+	//Mix_HaltChannel(-1); <-- stopt alles.
 }
 
 void SoundManager::PlaySound(eSound sound){

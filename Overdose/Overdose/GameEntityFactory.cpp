@@ -42,16 +42,19 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	case Policeman:
 	{
 		newObject->setSpeedX(0.05f);
-		//	newObject->addComponent(*new DummyComponent());
+		newObject->addComponent(new CollisionComponent());
+		newObject->addComponent(new PolicemanCollisionReactionComponent());//moet nog verandert worden naar PolicemanCollisionReactionComponent
 		newObject->addComponent(new EnemyMoveComponent());
+		newObject->addComponent(new MoveComponent());
+
 
 		std::vector<ComponentMessage>* healthDecreaseList = new std::vector < ComponentMessage > ; // delete called in HealthComponent
 		healthDecreaseList->push_back(ComponentMessage::CollissionComponent_REACTION_TOP);
+		healthDecreaseList->push_back(ComponentMessage::CollissionComponent_COLLISION_TOP);
 		newObject->addComponent(new HealthComponent(1, healthDecreaseList));
 
-		newObject->addComponent(new MoveComponent());
-		newObject->addComponent(new CollisionComponent());
-		newObject->addComponent(new PolicemanCollisionReactionComponent());//moet nog verandert worden naar PolicemanCollisionReactionComponent
+
+
 		newObject->addComponent(new gravityComponent());
 		//	newObject->addComponent(new CollisionComponent());
 
