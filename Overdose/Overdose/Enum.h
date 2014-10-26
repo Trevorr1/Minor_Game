@@ -7,7 +7,7 @@ namespace overdose {
 		ButtonPlay, 
 
 		/*Win/GameOver Menu*/
-		ButtonPlayAgain, ButtonMainMenu, ButtonQuitGame
+		ButtonPlayAgain, ButtonMainMenu, ButtonQuitGame, ButtonQuitGameGreen, ButtonPlayAgainGreen, ButtonMainMenuGreen
 	};
 	enum eFacing {
 		Left, FrontView, Right

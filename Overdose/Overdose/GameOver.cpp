@@ -37,13 +37,13 @@ void GameOver::Init()
 	entityPtr->setPosX(0);
 	this->addEntities(entityPtr);
 
-	GameEntity *buttonPlayAgain = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::ButtonPlayAgain);
-	buttonPlayAgain->setPosX(100);
+	GameEntity *buttonPlayAgain = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::ButtonPlayAgainGreen);
+	buttonPlayAgain->setPosX(50);
 	buttonPlayAgain->setPosY(150);
 	this->addEntities(buttonPlayAgain);
 
-	GameEntity *buttonMainMenu = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::ButtonMainMenu);
-	buttonMainMenu->setPosX(100);
+	GameEntity *buttonMainMenu = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::ButtonMainMenuGreen);
+	buttonMainMenu->setPosX(50);
 	buttonMainMenu->setPosY(250);
 	this->addEntities(buttonMainMenu);
 
