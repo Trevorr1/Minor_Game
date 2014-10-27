@@ -120,6 +120,9 @@ void GameEntity::setHealthPointer(int* health) {
 
 
 void GameEntity::broadcast(Component *subject, ComponentMessage message, GameEntity *object) {
+	if (object == nullptr) {
+		throw std::invalid_argument("A component broadcasted a nullptr as Object parameter which is bad, mmkay?.");
+	}
 	for (auto &it : *componentList) {
 		it->receive(subject, message, object);
 	}

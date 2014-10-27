@@ -73,7 +73,6 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	case Player:
 		newObject->setMovementSpeed(0.4f);
 		newObject->addComponent(new PlayerInputComponent());
-		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new MoveComponent());
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new PlayerCollisionReactionComponent());
