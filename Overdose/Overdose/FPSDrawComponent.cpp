@@ -19,14 +19,12 @@ void FPSDrawComponent::tick(float dt, GameEntity *entity) {
 		m_ticks++;
 		m_dt = m_dt + dt;
 		
-		if (m_dt > 1000) {
+		if (m_dt > 1) {
 			m_fps = m_ticks;
 			std::cout << "FPS " << m_fps << std::endl;
 			m_ticks = 0;
-			m_dt = m_dt - 1000;
+			m_dt = m_dt - 1;
 		}
-		
-
 
 		// En dit casten kan waarschijnlijk beter
 		std::string str = std::to_string(m_fps);

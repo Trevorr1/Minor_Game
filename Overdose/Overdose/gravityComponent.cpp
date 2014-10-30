@@ -4,7 +4,7 @@ using namespace overdose;
 
 gravityComponent::gravityComponent()
 {
-	gravity = 0.007f;
+	gravity = 50.0f;
 }
 
 gravityComponent::gravityComponent(float aGravity)
@@ -26,13 +26,14 @@ void gravityComponent::tick(float dt, GameEntity *entity)
 {
 	if (entity->isJumping() || entity->isFalling())
 	{
-		if (gravity < m_terminalVelocity)
-			gravity += gravity * 0.08f;
-		if (gravity < 0.04f)
-			entity->setJumping(true);
+		if (gravity < m_terminalVelocity) // prevents super high gravity
+			gravity += gravity * 0.5f;
+		//if (gravity < 600.0f) // prevents jumping when walking off ledge
+			//entity->setJumping(true);
 	}
-	else gravity = 0.007f;
+	else gravity = 50.0f;
 	entity->setSpeedY(gravity);
+
 }
 
 std::string gravityComponent::getComponentID()

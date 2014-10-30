@@ -203,12 +203,17 @@ void SDLTemplate::initTemplate()
 	int exitapp = 0;
 	game = new Game();
 	game->SetTarget(surface);
+	float deltaTime = 0.0f;
+	float timedifference = 0.0f;
+	int thisTime = 0;
+	int lastTime = 0;
+
 	while (!exitapp)
 	{
-
-		// calculate frame time and pass it to game->Tick
-		int frametime = SDL_GetTicks();
-		float dt = frametime / 1000;
+		thisTime = GetTickCount();
+		timedifference = (float)(thisTime - lastTime);
+		deltaTime = timedifference / 1000;
+		lastTime = thisTime;
 
 		if (vbo) // frame buffer swapping for VBO mode
 		{
@@ -230,8 +235,7 @@ void SDLTemplate::initTemplate()
 			firstframe = false;
 		}
 
-		game->Tick(dt);
-		
+		game->Tick(deltaTime);
 		
 		// event loop
 		SDL_Event event;
@@ -260,13 +264,13 @@ void SDLTemplate::initTemplate()
 			}
 		}
 
-		float ticks = SDL_GetTicks();
-		int totalframetime = ticks - frametime;
 
-		if (totalframetime < m_desiredDeltaLoop) {
-			// We gaan te snel!
-			int pause = m_desiredDeltaLoop - totalframetime;
-			SDL_Delay(pause);
+		//Goodnight
+		if (timedifference < m_desiredDeltaLoop){
+			SDL_Delay(m_desiredDeltaLoop - timedifference);
+		} 
+		else{
+			//SDL_Delay(1);
 		}
 	}
 	SDL_Quit();

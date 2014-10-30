@@ -71,7 +71,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new FPSDrawComponent());
 		break;
 	case Player:
-		newObject->setMovementSpeed(0.4f);
+		newObject->setMovementSpeed(100.0f);
 		newObject->addComponent(new PlayerInputComponent());
 		newObject->addComponent(new MoveComponent());
 		newObject->addComponent(new CollisionComponent());
@@ -84,6 +84,8 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		animations->insert({ IdleRight, new Animation("assets/sprites/Ross/RossIdleRight.png", 1) });
 		animations->insert({ WalkLeft, new Animation("assets/sprites/Ross/RossWalkingLeft.png", 8, 10) });
 		animations->insert({ WalkRight, new Animation("assets/sprites/Ross/RossWalkingRight.png", 8, 10) });
+		animations->insert({ JumpLeft, new Animation("assets/sprites/Ross/RossJumpLeft.png", 1) });
+		animations->insert({ JumpRight, new Animation("assets/sprites/Ross/RossJumpRight.png", 1) });
 		animation = new DrawComponent(animations);
 		animation->setAnimation(IdleRight);//set starting animation
 		newObject->addComponent(animation);

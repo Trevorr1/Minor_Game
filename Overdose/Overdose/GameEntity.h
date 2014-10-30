@@ -19,7 +19,7 @@ namespace overdose {
 		eFacing m_Facing = FrontView;
 		eGameEntity m_EntityEnum;
 		bool m_scheduledForRemoval = false;
-		bool m_jumping = true, m_falling = true;
+		bool m_jumping = false, m_falling = false;
 
 		std::vector <int> *componentListToRemove = new std::vector < int >;
 		std::vector<Component*> *componentList = new std::vector < Component* > ;
