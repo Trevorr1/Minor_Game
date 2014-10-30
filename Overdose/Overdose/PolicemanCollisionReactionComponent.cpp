@@ -56,7 +56,7 @@ void PolicemanCollisionReactionComponent::tick(float dt, GameEntity *entity)
 			posy = entity->getPosY();
 			boxY = (int)posy + (int)entity->getHeight();
 
-			if (!(boxY > colY && boxY < colBoxY))
+			if (!(boxY >= colY && boxY <= colBoxY))
 				clear = true;
 		}
 		collidedBottom = false;
