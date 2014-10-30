@@ -86,6 +86,18 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		animations->insert({ WalkRight, new Animation("assets/sprites/Ross/RossWalkingRight.png", 8, 10) });
 		animations->insert({ JumpLeft, new Animation("assets/sprites/Ross/RossJumpLeft.png", 1) });
 		animations->insert({ JumpRight, new Animation("assets/sprites/Ross/RossJumpRight.png", 1) });
+
+		/*
+		animations->insert({ IdleLeft, new Animation("assets/sprites/Beardman/BeardmanIdleLeft.png", 1) });
+		animations->insert({ IdleRight, new Animation("assets/sprites/Beardman/BeardmanIdleRight.png", 1) });
+		animations->insert({ WalkLeft, new Animation("assets/sprites/Beardman/BeardmanWalkLeft.png", 8, 10) });
+		animations->insert({ WalkRight, new Animation("assets/sprites/Beardman/BeardmanWalkRight.png", 8, 10) });
+		animations->insert({ JumpLeft, new Animation("assets/sprites/Beardman/BeardmanJumpLeft.png", 1) });
+		animations->insert({ JumpRight, new Animation("assets/sprites/Beardman/BeardmanJumpRight.png", 1) });
+		//BeardmanFallLeft
+		//BeardmanFallRight
+		*/
+
 		animation = new DrawComponent(animations);
 		animation->setAnimation(IdleRight);//set starting animation
 		newObject->addComponent(animation);
