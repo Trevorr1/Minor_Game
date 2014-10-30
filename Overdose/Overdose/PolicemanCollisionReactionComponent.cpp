@@ -47,6 +47,7 @@ void PolicemanCollisionReactionComponent::tick(float dt, GameEntity *entity)
 	if (collidedBottom)
 	{
 		entity->setJumping(false);
+		entity->setFalling(false);
 		entity->setSpeedY(0);
 		while (!clear)
 		{
@@ -60,9 +61,16 @@ void PolicemanCollisionReactionComponent::tick(float dt, GameEntity *entity)
 		}
 		collidedBottom = false;
 	}
-	if (reactTop || reactBottom)
+	else
+	{
+		entity->setFalling(true);
+	}
+	if (reactTop)
 	{
 		reactTop = false;
+	}
+	if (reactBottom)
+	{
 		reactBottom = false;
 	}
 	if (reactLeft)

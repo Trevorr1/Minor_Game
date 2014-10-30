@@ -35,6 +35,13 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 	int wstep = (int)(width * 1.0 / 6);
 	int hstep = (int)(height * 1.0 / 6);
 
+	int nextX = (int)entity->getSpeedX();
+	int nextY = (int)entity->getSpeedY();
+
+	float vectorLength;
+	int segment;
+	int projectedMoveX, projectedMoveY;
+
 	// dir : 0 = top, dir : 1 = bottom, dir : 2 = left, dir : 3 = right
 	// the following creates a octagon instead of a box:
 	// this is to determind from which direction of the GameEntity the collsision occurs
@@ -70,18 +77,20 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 
 	vector<GameEntity*> *gameEntities = LevelManager::getInstance()->getCurrentLevel()->getEntities();
 
-	for (int i = 0; i < (int)gameEntities->size(); i++){
-		GameEntity* other = gameEntities->at(i);
+	for (vector<GameEntity*>::iterator other = gameEntities->begin(); other != gameEntities->end(); ++other)
+	{
+	/*for (int i = 0; i < (int)gameEntities->size(); i++){
+		GameEntity* other = gameEntities->at(i);*/
 
 		// assuming that only GameEntities that have collisionComponents are relevant
 		// to the collision calculation
-		if (entity != other)
+		if (entity != *other)
 		{
 			// define the collision box of the "other" GameEntity
-			int oposx = (int)other->getPosX();
-			int oposy = (int)other->getPosY();
-			int oboxw = oposx + (int)other->getWidth();
-			int oboxh = oposy + (int)other->getHeight();
+			int oposx = (int)(*other)->getPosX();
+			int oposy = (int)(*other)->getPosY();
+			int oboxw = oposx + (int)(*other)->getWidth();
+			int oboxh = oposy + (int)(*other)->getHeight();
 
 			// check which of the directions of this GameEntity
 			// "Collides" with the other object bounding box
@@ -89,9 +98,55 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 			int dir;
 			for (dir = 0; dir < 4 && !collides; dir++)
 			{
-				if ((cPoints[dir]->first.x > oposx && cPoints[dir]->first.x < oboxw) && (cPoints[dir]->first.y > oposy && cPoints[dir]->first.y < oboxh)
-					|| (cPoints[dir]->second.x > oposx && cPoints[dir]->second.x < oboxw) && (cPoints[dir]->second.y > oposy && cPoints[dir]->second.y < oboxh))
+				if (dir == 0 && nextY > 0) continue;
+				if (dir == 1 && nextY < 0) continue;
+				if (dir == 2 && nextX > 0) continue;
+				if (dir == 3 && nextX < 0) continue;
+
+				// Our current position along the anticipated movement vector of the player this frame
+				projectedMoveX = projectedMoveY = 0;
+
+				// Calculate the length of the movement vector using Pythagoras
+				vectorLength = sqrt(nextX * nextX + nextY * nextY);
+				segment = 0;
+
+				// Advance along the vector until it intersects with some geometry
+				// or we reach the end
+				while (!((cPoints[dir]->first.x + projectedMoveX > oposx && cPoints[dir]->first.x + projectedMoveX < oboxw) && (cPoints[dir]->first.y + projectedMoveY > oposy && cPoints[dir]->first.y + projectedMoveY < oboxh)
+					|| (cPoints[dir]->second.x + projectedMoveX > oposx && cPoints[dir]->second.x + projectedMoveX < oboxw) && (cPoints[dir]->second.y + projectedMoveY > oposy && cPoints[dir]->second.y + projectedMoveY < oboxh))
+					&& segment < vectorLength)
 				{
+					projectedMoveX += nextX / vectorLength;
+					projectedMoveY += nextY / vectorLength;
+					segment++;
+				}
+
+
+				if ((cPoints[dir]->first.x + projectedMoveX > oposx && cPoints[dir]->first.x + projectedMoveX < oboxw) && (cPoints[dir]->first.y + projectedMoveY > oposy && cPoints[dir]->first.y + projectedMoveY < oboxh)
+					|| (cPoints[dir]->second.x + projectedMoveX > oposx && cPoints[dir]->second.x + projectedMoveX < oboxw) && (cPoints[dir]->second.y + projectedMoveY > oposy && cPoints[dir]->second.y + projectedMoveY < oboxh))
+				{
+					// If an intersection occurred...
+					if (segment < vectorLength) {
+						// Apply correction for over-movement
+						if (segment > 0)
+						{
+							projectedMoveX -= nextX / vectorLength;
+							projectedMoveY -= nextY / vectorLength;
+						}
+
+						// Adjust the X or Y component of the vector depending on
+						// which direction we are currently testing
+						if (dir >= 2 && dir <= 3)
+						{
+							nextX = projectedMoveX;
+							entity->setSpeedX(nextX);
+						}
+						if (dir >= 0 && dir <= 1)
+						{
+							nextY = projectedMoveY;
+							entity->setSpeedY(nextY);
+						}
+					}
 					collides = true;
 					break;
 				}
@@ -107,7 +162,7 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 			*/
 
 			ComponentMessage message = CollissionComponent_COLLISION_DEFAULT;
-			bool bump = (other->getEnum() == Environment || other->getEnum() == Grass);
+			bool bump = ((*other)->getEnum() == Environment || (*other)->getEnum() == Grass);
 
 			if (collides)
 			{
@@ -126,7 +181,7 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 					break;
 				}
 
-				entity->broadcast(this, message, other);
+				entity->broadcast(this, message, *other);
 			}
 		}
 	}
