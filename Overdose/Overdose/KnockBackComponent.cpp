@@ -20,6 +20,7 @@ void KnockBackComponent::receive(Component *subject, ComponentMessage message, G
 	case Drug_XTC:
 	case Environment:
 	case Grass:
+	case Flag:
 		return;
 	
 	}

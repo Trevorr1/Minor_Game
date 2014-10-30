@@ -3,6 +3,7 @@
 #include "Enum.h"
 #include "Component.h"
 #include "ComponentMessage.h" 
+#include <exception>
 
 namespace overdose {
 	class Component;

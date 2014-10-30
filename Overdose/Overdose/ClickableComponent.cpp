@@ -12,7 +12,7 @@ void ClickableComponent::tick(float dt, GameEntity *entity) {
 	if (click.x >= entity->getPosX() && click.x <= entity->getPosX() + entity->getWidth() &&
 		click.y >= entity->getPosY() && click.y <= entity->getPosY() + entity->getHeight()) {
 
-		entity->broadcast(this, ClickableComponent_CLICK, nullptr);
+		entity->broadcast(this, ClickableComponent_CLICK, entity);
 
 		std::cout << "Hit!" << std::endl;
 

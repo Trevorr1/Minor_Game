@@ -9,14 +9,14 @@ void  PlayerInputComponent::receive(Component *subject, ComponentMessage message
 
 void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 
-	int speedX = (int)entity->getSpeedX();
+	float speedX = entity->getSpeedX();
 
 	if (InputManager::getInstance()->isKeyPressed(SDL_SCANCODE_RIGHT)) {
 		if (speedX > 0) {
 			//entity->setSpeedX(speedX * -1);
 			entity->setSpeedX((float)speedX);
 		}
-		if ((int)speedX == 0) {
+		if (speedX == 0) {
 			entity->setSpeedX(entity->getMovementSpeed());
 		}
 		
