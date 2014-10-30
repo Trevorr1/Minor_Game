@@ -205,14 +205,10 @@ void SDLTemplate::initTemplate()
 	game->SetTarget(surface);
 	while (!exitapp)
 	{
-		if (lastftime < m_desiredDeltaLoop) {
-			// We gaan te snel!
-			int pause = (int)(m_desiredDeltaLoop - lastftime) / (1000 * 1000);
 
-			std::chrono::microseconds dura(pause);
-			std::this_thread::sleep_for(dura);
-		}
-		
+		// calculate frame time and pass it to game->Tick
+		int frametime = SDL_GetTicks();
+		float dt = frametime / 1000;
 
 		if (vbo) // frame buffer swapping for VBO mode
 		{
@@ -233,13 +229,8 @@ void SDLTemplate::initTemplate()
 			game->Init();
 			firstframe = false;
 		}
-		// calculate frame time and pass it to game->Tick
-		LARGE_INTEGER start, end;
-		QueryPerformanceCounter(&start);
-		float dt_ms = (float)lastftime / 1000;
-		game->Tick(dt_ms);
-		QueryPerformanceCounter(&end);
-		lastftime = (double)(end.QuadPart - start.QuadPart);
+
+		game->Tick(dt);
 		
 		
 		// event loop
@@ -267,6 +258,15 @@ void SDLTemplate::initTemplate()
 				// more info on events in SDL: http://sdl.beuc.net/sdl.wiki/SDL_Event
 				break;
 			}
+		}
+
+		float ticks = SDL_GetTicks();
+		int totalframetime = ticks - frametime;
+
+		if (totalframetime < m_desiredDeltaLoop) {
+			// We gaan te snel!
+			int pause = m_desiredDeltaLoop - totalframetime;
+			SDL_Delay(pause);
 		}
 	}
 	SDL_Quit();
