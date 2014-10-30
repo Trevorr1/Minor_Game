@@ -14,7 +14,14 @@ DrugComponent::DrugComponent()
 
 DrugComponent::~DrugComponent()
 {
-	printf("deleted DrugComponent \n");
+	std::cout << "speed ervoor: " << entity->getSpeedX() << std::endl;
+	entity->setSpeedX(previous_speedX);
+	std::cout << "speed erna: " << entity->getSpeedX() << std::endl;
+}
+
+void DrugComponent::init(GameEntity* entity)
+{
+	this->entity = entity;
 }
 
 void DrugComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
@@ -29,20 +36,23 @@ void DrugComponent::tick(float dt, GameEntity *entity) {
 		previous_speedX = entity->getSpeedX();
 	}
 
-	entity->setSpeedX(getDrugSpeed_X());
-
 	int timer_end = (std::clock() - timer_start) / (double)(CLOCKS_PER_SEC / 1000);
 	int drug_effect_ms = getDrugEffectMs();
 
 	// drug timer checker
 	if (timer_end < drug_effect_ms){
+		float speed_drug = getDrugSpeed_X();
+		entity->setSpeedX(previous_speedX * speed_drug);
 		//std::cout << "Time: " << timer_end << " ms" << std::endl;
 	}
 	else{
-		entity->setSpeedX(previous_speedX);
+		//entity->setSpeedX(previous_speedX);
 		// Delete this drug component of gameEntity
+		
 		entity->removeComponent(getComponentID());
-		insertNegativeEffect(entity);
+		if (getComponentID() == "SpeedDrugComponent"){
+			insertNegativeEffect(entity);
+		}
 		//delete this drugcomponent
 		// entity->insertNegativeEffect
 		//delete this;

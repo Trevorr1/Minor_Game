@@ -4,14 +4,14 @@ using namespace overdose;
 
 NegativeSpeedDrugComponent::NegativeSpeedDrugComponent()
 {
-	drug_speedX = -1.0f;
+	drug_speedX = 0.5f;
 	drug_effect_ms = 1000 * 3;
 }
 
 
 NegativeSpeedDrugComponent::~NegativeSpeedDrugComponent()
 {
-	printf("deleted NegativeSpeedDrugComponent");
+	printf("deleted NegativeSpeedDrugComponent \n");
 }
 
 void NegativeSpeedDrugComponent::tick(float dt, GameEntity *entity) {
