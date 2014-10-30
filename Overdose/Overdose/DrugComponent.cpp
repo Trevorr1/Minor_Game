@@ -14,9 +14,9 @@ DrugComponent::DrugComponent()
 
 DrugComponent::~DrugComponent()
 {
-	std::cout << "speed ervoor: " << entity->getSpeedX() << std::endl;
-	entity->setSpeedX(previous_speedX);
-	std::cout << "speed erna: " << entity->getSpeedX() << std::endl;
+	std::cout << "speed ervoor: " << entity->getMovementSpeed() << std::endl;
+	entity->setMovementSpeed(previous_speedX);
+	std::cout << "speed erna: " << entity->getMovementSpeed() << std::endl;
 }
 
 void DrugComponent::init(GameEntity* entity)
@@ -33,7 +33,7 @@ void DrugComponent::tick(float dt, GameEntity *entity) {
 	}
 
 	if (previous_speedX == -999){
-		previous_speedX = entity->getSpeedX();
+		previous_speedX = entity->getMovementSpeed();
 	}
 
 	int timer_end = (std::clock() - timer_start) / (double)(CLOCKS_PER_SEC / 1000);
@@ -42,17 +42,14 @@ void DrugComponent::tick(float dt, GameEntity *entity) {
 	// drug timer checker
 	if (timer_end < drug_effect_ms){
 		float speed_drug = getDrugSpeed_X();
-		entity->setSpeedX(previous_speedX * speed_drug);
+		entity->setMovementSpeed(previous_speedX * speed_drug);
 		//std::cout << "Time: " << timer_end << " ms" << std::endl;
 	}
 	else{
 		//entity->setSpeedX(previous_speedX);
 		// Delete this drug component of gameEntity
-		
 		entity->removeComponent(getComponentID());
-		if (getComponentID() == "SpeedDrugComponent"){
-			insertNegativeEffect(entity);
-		}
+		insertNegativeEffect(entity);
 		//delete this drugcomponent
 		// entity->insertNegativeEffect
 		//delete this;
