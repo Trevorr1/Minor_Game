@@ -10,7 +10,10 @@ void FPSDrawComponent::receive(Component *subject, ComponentMessage message, Gam
 void FPSDrawComponent::tick(float dt, GameEntity *entity) {
 	
 	if (InputManager::getInstance().isKeyPressed(SDL_SCANCODE_GRAVE)) { // tilde 
-		draw = (draw) ? false : true;
+		if (drawTimer <= 0){
+			draw = (draw) ? false : true;
+			drawTimer = 30;
+		}
 	}
 	
 	if (draw) {
@@ -32,6 +35,10 @@ void FPSDrawComponent::tick(float dt, GameEntity *entity) {
 		char *fps_chars = const_cast<char*>(t);
 
 		surface->Print(fps_chars, entity->getPosX(), entity->getPosY(), *new Pixel(0xff0000));
+	}
+
+	if (drawTimer > 0){
+		drawTimer--;
 	}
 
 }

@@ -12,9 +12,10 @@ namespace overdose {
 
 		double m_dt = 0;
 		int m_ticks = 0;
-		int m_fps = 0;
+		int m_fps = 60;
 
 		bool draw = false;
+		int drawTimer = 0;
 
 
 	public:
