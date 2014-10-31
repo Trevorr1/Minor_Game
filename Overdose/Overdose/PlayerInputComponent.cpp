@@ -11,15 +11,17 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 
 	float speedX = entity->getSpeedX();
 
-	if (InputManager::getInstance().isKeyPressed(SDL_SCANCODE_RIGHT)) {
-		if (speedX > 0) {
-			//entity->setSpeedX(speedX * -1);
-			entity->setSpeedX((float)speedX);
+
+	if (InputManager::getInstance().isKeyPressed(SDL_SCANCODE_RIGHT) && InputManager::getInstance().isKeyPressed(SDL_SCANCODE_LEFT)) {
+		entity->setSpeedX(0);
+	}
+	else if (InputManager::getInstance().isKeyPressed(SDL_SCANCODE_RIGHT)) {
+		if (speedX < 0) {
+			entity->setSpeedX((float)speedX * -1);
 		}
 		if (speedX == 0) {
 			entity->setSpeedX(entity->getMovementSpeed());
 		}
-		
 	}
 	else if (InputManager::getInstance().isKeyPressed(SDL_SCANCODE_LEFT)) {
 		if (speedX > 0){
