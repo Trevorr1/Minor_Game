@@ -30,9 +30,9 @@ void  MoveComponent::tick(float dt, GameEntity *entity) {
 		entity->setJumpingSpeed(jspeed);
 	}
 
-	if (posY > 1000) {
+	if (posY > 600) { //screen height is 480 at the moment
 		entity->broadcast(this, MoveComponent_OUTOFAREA, entity);
-		entity->setPosY(0);
+		entity->respawn();
 	}
 
 }

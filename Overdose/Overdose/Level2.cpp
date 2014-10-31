@@ -28,8 +28,7 @@ void Level2::Init()
 	this->addEntities(fpsCounter);
 
 	GameEntity *player = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Player);
-	player->setPosX(100);
-	player->setPosY(0);
+	player->setStartingPosition(100, 0);
 	this->addEntities(player);
 	m_Player = player;
 	
@@ -39,14 +38,12 @@ void Level2::Init()
 		continue;
 		}*/
 		GameEntity* grass1 = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Grass);
-		grass1->setPosX(50 + 32 * i);
-		grass1->setPosY(100 + 16 * i);
+		grass1->setStartingPosition(50 + 32 * i, 100 + 16 * i);
 		this->addEntities(grass1);
 	}
 
 	GameEntity *flaggot = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Flag);
-	flaggot->setPosX(700);
-	flaggot->setPosY(410 - 112);
+	flaggot->setStartingPosition(700, 410 - 112);
 	this->addEntities(flaggot);
 
 

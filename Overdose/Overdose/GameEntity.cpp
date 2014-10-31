@@ -219,6 +219,16 @@ void GameEntity::setPosX(float px) {
 void GameEntity::setPosY(float py) {
 	posY = py;
 }
+
+void GameEntity::setStartingPosition(float x, float y){
+	posX = startPosX = x;
+	posY = startPosY = y;
+}
+void GameEntity::respawn(){
+	posX = startPosX;
+	posY = startPosY;
+}
+
 void GameEntity::setMovementSpeed(float movementspeed){
 	this->m_movementSpeed = movementspeed;
 }
