@@ -2,7 +2,6 @@
 
 using namespace overdose;
 
-InputManager *InputManager::_instance = nullptr;
 
 InputManager::InputManager()
 {
@@ -11,8 +10,8 @@ InputManager::InputManager()
 
 InputManager::~InputManager()
 {
-	delete m_keystates;
-	delete _instance;
+	//delete m_keystates;
+
 }
 
 void InputManager::setKeyStates(const Uint8 *keyStates) {
@@ -66,9 +65,7 @@ void InputManager::clearMouseBufferButOne() {
 	}
 }
 
-InputManager* InputManager::getInstance() {
-	if (InputManager::_instance == nullptr) {
-		InputManager::_instance = new InputManager;
-	}
-	return InputManager::_instance;
+InputManager &InputManager::getInstance() {
+	static InputManager _instance;
+	return _instance;
 }

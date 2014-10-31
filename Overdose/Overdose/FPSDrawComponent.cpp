@@ -36,7 +36,6 @@ void FPSDrawComponent::tick(float dt, GameEntity *entity) {
 
 }
 
-
 std::string FPSDrawComponent::getComponentID(){
 	return "FPSDrawComponent";
 }

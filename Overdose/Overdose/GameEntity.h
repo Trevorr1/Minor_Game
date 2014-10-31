@@ -3,11 +3,12 @@
 #include "Enum.h"
 #include "Component.h"
 #include "ComponentMessage.h" 
+#include "ScheduleForRemovalFlag.h"
 #include <exception>
 
 namespace overdose {
 	class Component;
-	class GameEntity
+	class GameEntity : public ScheduleForRemovalFlag
 	{
 	private:
 		std::vector<Component*> *componentListToAdd = new std::vector<Component*>;
@@ -18,8 +19,10 @@ namespace overdose {
 		float width = 0, height = 0;
 		eFacing m_Facing = FrontView;
 		eGameEntity m_EntityEnum;
+		
 		bool m_scheduledForRemoval = false;
 		bool m_jumping = false, m_falling = false;
+
 
 		std::vector <int> *componentListToRemove = new std::vector < int >;
 		std::vector<Component*> *componentList = new std::vector < Component* > ;
@@ -41,8 +44,6 @@ namespace overdose {
 
 		virtual void addComponentTemporary(Component* component);
 
-		void scheduleForRemoval();
-		bool isScheduledForRemoval();
 
 		bool isJumping();
 		bool isFalling();

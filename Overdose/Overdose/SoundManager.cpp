@@ -4,14 +4,9 @@
 
 using namespace overdose;
 
-SoundManager* SoundManager::_instance = nullptr;
-
-SoundManager* SoundManager::getInstance()
+SoundManager &SoundManager::getInstance()
 {
-	if (_instance == nullptr)
-	{
-		_instance = new SoundManager();
-	}
+	static SoundManager _instance;
 	return _instance;
 }
 

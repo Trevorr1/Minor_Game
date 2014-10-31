@@ -7,9 +7,6 @@ namespace overdose {
 		Level1();
 		virtual ~Level1();
 		void Init();
-	private:
-		std::vector<GameEntity*> *enemies;
-		std::vector<GameEntity*> *collectibles;
 	};
 
 }

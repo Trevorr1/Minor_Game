@@ -8,15 +8,15 @@ void ILevel::addEntities(GameEntity* entities)
 	this->entities->push_back(entities);
 }
 
-void ILevel::addEnemies(GameEntity* entities)
-{
-	this->enemies->push_back(entities);
-}
-
-void ILevel::addCollectibles(GameEntity* entities)
-{
-	this->collectibles->push_back(entities);
-}
+//void ILevel::addEnemies(GameEntity* entities)
+//{
+//	this->enemies->push_back(entities);
+//}
+//
+//void ILevel::addCollectibles(GameEntity* entities)
+//{
+//	this->collectibles->push_back(entities);
+//}
 
 void ILevel::removeEntity(GameEntity* entity) {
 	
@@ -37,16 +37,16 @@ std::vector<GameEntity*>* ILevel::getEntities(){
 	return entities;
 }
 
-std::vector<GameEntity*>* ILevel::getCollectibles(){
-	return collectibles;
-}
-
-std::vector<GameEntity*>* ILevel::getEnemies(){
-	return enemies;
-}
+//std::vector<GameEntity*>* ILevel::getCollectibles(){
+//	return collectibles;
+//}
+//
+//std::vector<GameEntity*>* ILevel::getEnemies(){
+//	return enemies;
+//}
 
 void ILevel::DrawBackground(){
-	m_Background->CopyTo(DrawManager::getInstance()->getSurface(), 0, 0);
+	m_Background->CopyTo(DrawManager::getInstance().getSurface(), 0, 0);
 }
 
 void ILevel::Tick(float dt){
@@ -82,6 +82,14 @@ void ILevel::setGameWon(){
 
 
 ILevel::~ILevel() {
-	delete m_Player;
+	printf("Level unloaded from the game.\n");
+	//delete m_Player;
+
+	while (!entities->empty()) {
+		delete entities->back();
+		entities->pop_back();
+	}
+
+	delete entities;
 
 }

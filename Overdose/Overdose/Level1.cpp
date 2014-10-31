@@ -10,14 +10,8 @@
 using namespace overdose;
 
 
-/*Test Data*/
-//GameEntity* entityPtr = nullptr;
-
 Level1::Level1()
 {
-	entities = new std::vector<GameEntity*>();
-	enemies = new std::vector<GameEntity*>();
-	collectibles = new std::vector<GameEntity*>();
 	m_Background = new Surface("assets/backgrounds/background.png");
 
 }
@@ -25,11 +19,8 @@ Level1::Level1()
 
 Level1::~Level1()
 {
-	for (int i = entities->size(); i >= 0; i--)
-	{
-		delete entities->at(i);
-	}
-	delete entities;
+	delete m_Background;
+	
 }
 
 void Level1::Init()
@@ -49,12 +40,12 @@ void Level1::Init()
 	entityCop->setPosY(410-54);
 	this->addEntities(entityCop);
 
-	//GameEntity *entityDrugSpeed = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Drug_Speed);
-	//entityDrugSpeed->setPosX(200);
-	//entityDrugSpeed->setPosY(410 - 30);
-	//entityDrugSpeed->setSpeedX(0);
-	//entityDrugSpeed->setSpeedY(0);
-	//this->addEntities(entityDrugSpeed);
+	GameEntity *entityDrugSpeed = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Drug_Speed);
+	entityDrugSpeed->setPosX(200);
+	entityDrugSpeed->setPosY(410 - 30);
+	entityDrugSpeed->setSpeedX(0);
+	entityDrugSpeed->setSpeedY(0);
+	this->addEntities(entityDrugSpeed);
 
 
 	//GameEntity *entityDrugMarijuana = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Drug_Marijuana);
@@ -89,7 +80,7 @@ void Level1::Init()
 	this->addEntities(flaggot);
 
 
-	SoundManager::getInstance()->StopMusic();
-	SoundManager::getInstance()->PlayMusic(eMusic::Street);
+	SoundManager::getInstance().StopMusic();
+	SoundManager::getInstance().PlayMusic(eMusic::Street);
 	//SoundManager::getInstance()->PlaySound(eSound::Death);
 }

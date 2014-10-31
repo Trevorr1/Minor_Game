@@ -11,6 +11,7 @@ namespace overdose {
 		DrugComponent();
 		virtual ~DrugComponent();
 
+		void init(GameEntity *entity);
 		virtual void receive(Component *subject, ComponentMessage message, GameEntity *object);
 		virtual void tick(float dt, GameEntity *entity);
 
@@ -22,6 +23,7 @@ namespace overdose {
 		std::string getComponentID();
 
 	private:
+		GameEntity* entity;
 		float previous_speedX;
 		std::clock_t    timer_start;
 		virtual void insertNegativeEffect(GameEntity* entity);

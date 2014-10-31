@@ -11,8 +11,9 @@ GameEntity::GameEntity(eGameEntity entityEnum) {
 }
 
 GameEntity::~GameEntity() {
-	for (auto *it : *componentList) {
-		delete it;
+	while (!componentList->empty()) {
+		delete componentList->back();
+		componentList->pop_back();
 	}
 	delete componentList;
 }
@@ -51,6 +52,9 @@ std::vector<Component*>* GameEntity::getComponentList()
 }
 
 void GameEntity::tick(float dt) {
+	/*if (m_EntityEnum == Player){
+		std::cout << speedX << std::endl;
+	}*/
 	//Delete the component
 	if (componentListToRemove->size() != 0){
 		for (auto &it : *componentListToRemove){
@@ -65,7 +69,7 @@ void GameEntity::tick(float dt) {
 	if (componentListToAdd->size() != 0){
 		for (int i = 0; i < componentListToAdd->size(); i ++){
 			//delete componentList->at(i); //delete object werk niet,SpeedDrug destructor wordt niet aangeroepen
-			componentList->push_back(componentListToAdd->at(i)); // delete position in vector
+			addComponent(componentListToAdd->at(i)); // delete position in vector
 		}
 
 		componentListToAdd->clear();
@@ -128,14 +132,6 @@ void GameEntity::broadcast(Component *subject, ComponentMessage message, GameEnt
 	}
 }
 
-void GameEntity::scheduleForRemoval() {
-	std::cout << "Entity " << m_EntityEnum << " scheduled for removal" << std::endl;
-	m_scheduledForRemoval = true;
-}
-
-bool GameEntity::isScheduledForRemoval() {
-	return m_scheduledForRemoval;
-}
 
 bool GameEntity::isJumping()
 {

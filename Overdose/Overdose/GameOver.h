@@ -8,9 +8,6 @@ namespace overdose {
 		virtual  ~GameOver();
 		void Init();
 		bool isGameOver();
-	private:
-		std::vector<GameEntity*> *enemies;
-		std::vector<GameEntity*> *collectibles;
 	};
 
 }
