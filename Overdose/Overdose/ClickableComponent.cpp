@@ -7,7 +7,7 @@ void ClickableComponent::receive(Component *subject, ComponentMessage message, G
 }
 
 void ClickableComponent::tick(float dt, GameEntity *entity) {
-	MouseClick click = InputManager::getInstance()->getLastMouseClick();
+	MouseClick click = InputManager::getInstance().getLastMouseClick();
 
 	if (click.x >= entity->getPosX() && click.x <= entity->getPosX() + entity->getWidth() &&
 		click.y >= entity->getPosY() && click.y <= entity->getPosY() + entity->getHeight()) {
@@ -16,7 +16,7 @@ void ClickableComponent::tick(float dt, GameEntity *entity) {
 
 		std::cout << "Hit!" << std::endl;
 
-		SoundManager::getInstance()->PlaySound(Click);
+		SoundManager::getInstance().PlaySound(Click);
 	}
 }
 

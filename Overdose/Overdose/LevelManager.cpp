@@ -71,12 +71,9 @@ void LevelManager::Tick(float dt){
 
 
 
-LevelManager* LevelManager::getInstance()
+LevelManager &LevelManager::getInstance()
 {
-	if (_instance == nullptr)
-	{
-		_instance = new LevelManager();
-	}
+	static LevelManager _instance;
 	return _instance;
 }
 

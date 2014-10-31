@@ -14,7 +14,7 @@ void FPSDrawComponent::tick(float dt, GameEntity *entity) {
 
 	
 	if (ticksOnScreen > 0) {
-		Surface *surface = DrawManager::getInstance()->getSurface();
+		Surface *surface = DrawManager::getInstance().getSurface();
 
 		m_ticks++;
 		m_dt = m_dt + dt;
@@ -44,7 +44,7 @@ void FPSDrawComponent::tick(float dt, GameEntity *entity) {
 
 void FPSDrawComponent::calculateTicksOnScreen() {
 
-	if (InputManager::getInstance()->isKeyPressed(SDL_SCANCODE_GRAVE)) { // tilde 
+	if (InputManager::getInstance().isKeyPressed(SDL_SCANCODE_GRAVE)) { // tilde 
 		ticksOnScreen = 180;
 	}
 }

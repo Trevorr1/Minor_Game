@@ -46,7 +46,7 @@ std::vector<GameEntity*>* ILevel::getEntities(){
 //}
 
 void ILevel::DrawBackground(){
-	m_Background->CopyTo(DrawManager::getInstance()->getSurface(), 0, 0);
+	m_Background->CopyTo(DrawManager::getInstance().getSurface(), 0, 0);
 }
 
 void ILevel::Tick(float dt){

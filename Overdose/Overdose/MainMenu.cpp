@@ -41,8 +41,8 @@ void MainMenu::Init()
 	buttonQuitGame->setPosY(200);
 	this->addEntities(buttonQuitGame);
 
-	SoundManager::getInstance()->StopMusic();
-	SoundManager::getInstance()->PlayMusic(eMusic::MainMenuTheme);
+	SoundManager::getInstance().StopMusic();
+	SoundManager::getInstance().PlayMusic(eMusic::MainMenuTheme);
 
 
 }

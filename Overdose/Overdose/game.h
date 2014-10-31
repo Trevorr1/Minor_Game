@@ -17,6 +17,6 @@
 		~Game();
 	private:
 		Surface* m_Screen;
-		overdose::LevelManager* m_LevelManager;
+		
 		unsigned int m_mouseX, m_mouseY;
 	};

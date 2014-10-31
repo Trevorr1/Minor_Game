@@ -13,27 +13,27 @@ using namespace overdose;
 
 
 Game::Game(){
-	m_LevelManager = LevelManager::getInstance();
+	
 }
 Game::~Game(){
-	delete m_LevelManager;
+	
 }
 
 void Game::Init()
 {
 	// put your initialization code here; will be executed once
-	DrawManager::getInstance()->setTargetSurface(m_Screen);
+	DrawManager::getInstance().setTargetSurface(m_Screen);
 }
 
 void Game::Tick(float a_DT)
 {
-	m_LevelManager->Tick(a_DT);
-	InputManager::getInstance()->clearKeyBuffer();
-	InputManager::getInstance()->clearMouseBuffer();
+	LevelManager::getInstance().Tick(a_DT);
+	InputManager::getInstance().clearKeyBuffer();
+	InputManager::getInstance().clearMouseBuffer();
 }
 
 void Game::KeyStates(const Uint8 *keyStates) {
-	InputManager::getInstance()->setKeyStates(keyStates);
+	InputManager::getInstance().setKeyStates(keyStates);
 }
 
 
@@ -51,6 +51,6 @@ void Game::MouseDown(unsigned int button)
 	click.x = m_mouseX;
 	click.y = m_mouseY;
 	click.button = button;
-	InputManager::getInstance()->addMouseClick(click);
+	InputManager::getInstance().addMouseClick(click);
 }
 

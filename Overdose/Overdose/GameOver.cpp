@@ -43,9 +43,9 @@ void GameOver::Init()
 
 
 	/* SOUND/MUSIC */
-	SoundManager::getInstance()->StopMusic();
-	SoundManager::getInstance()->PlaySound(eSound::GameOverSound);
-	SoundManager::getInstance()->PlaySound(eSound::Death);
+	SoundManager::getInstance().StopMusic();
+	SoundManager::getInstance().PlaySound(eSound::GameOverSound);
+	SoundManager::getInstance().PlaySound(eSound::Death);
 }
 
 bool GameOver::isGameOver() {

@@ -80,7 +80,7 @@ void Level1::Init()
 	this->addEntities(flaggot);
 
 
-	SoundManager::getInstance()->StopMusic();
-	SoundManager::getInstance()->PlayMusic(eMusic::Street);
+	SoundManager::getInstance().StopMusic();
+	SoundManager::getInstance().PlayMusic(eMusic::Street);
 	//SoundManager::getInstance()->PlaySound(eSound::Death);
 }

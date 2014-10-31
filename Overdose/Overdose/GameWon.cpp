@@ -42,9 +42,9 @@ void GameWon::Init(){
 
 
 	/* MUSIC/SOUND */
-	SoundManager::getInstance()->StopMusic();
-	SoundManager::getInstance()->PlayMusic(People); 
-	SoundManager::getInstance()->PlaySound(PartyHorn);
+	SoundManager::getInstance().StopMusic();
+	SoundManager::getInstance().PlayMusic(People); 
+	SoundManager::getInstance().PlaySound(PartyHorn);
 }
 
 bool GameWon::isGameOver() {

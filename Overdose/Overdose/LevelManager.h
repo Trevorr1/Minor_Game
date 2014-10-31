@@ -18,7 +18,7 @@ class LevelManager
 {
 	public:
 		~LevelManager(void);
-		static LevelManager* getInstance();
+		static LevelManager &getInstance();
 		ILevel* createLevel(levels level);
 		ILevel* getCurrentLevel();
 		void LevelManager::Tick(float dt);

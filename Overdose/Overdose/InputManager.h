@@ -12,7 +12,6 @@ namespace overdose {
 	class InputManager
 	{
 	private:
-		static InputManager* _instance;
 		InputManager();
 		virtual ~InputManager();
 
@@ -33,7 +32,7 @@ namespace overdose {
 		void clearMouseBuffer();
 
 
-		static InputManager* getInstance();
+		static InputManager &getInstance();
 
 		
 	private:

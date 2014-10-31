@@ -11,8 +11,9 @@ GameEntity::GameEntity(eGameEntity entityEnum) {
 }
 
 GameEntity::~GameEntity() {
-	for (auto *it : *componentList) {
-		delete it;
+	while (!componentList->empty()) {
+		delete componentList->back();
+		componentList->pop_back();
 	}
 	delete componentList;
 }

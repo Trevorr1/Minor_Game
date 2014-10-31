@@ -18,7 +18,7 @@ void ButtonClickableReactionComponent::receive(Component *subject, ComponentMess
 
 void ButtonClickableReactionComponent::tick(float dt, GameEntity *entity) {
 	if (m_clicked) {
-		LevelManager::getInstance()->createLevel(m_loadScreen);
+		LevelManager::getInstance().createLevel(m_loadScreen);
 		m_clicked = false;
 	}
 }

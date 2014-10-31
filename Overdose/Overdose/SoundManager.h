@@ -24,7 +24,7 @@ namespace overdose {
 	{
 	public:
 		~SoundManager();
-		static SoundManager* getInstance();
+		static SoundManager &getInstance();
 
 		void StopMusic();
 		void PlayMusic(eMusic music);
