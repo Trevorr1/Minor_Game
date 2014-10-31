@@ -23,7 +23,8 @@ class LevelManager
 		ILevel* getCurrentLevel();
 		void LevelManager::Tick(float dt);
 	private:
-		ILevel* currentLevel;
+		ILevel* currentLevel = nullptr;
+		ILevel* previousLevel = nullptr;
 		levels currentLevelEnum;
 		LevelManager(void);
 		static LevelManager* _instance;

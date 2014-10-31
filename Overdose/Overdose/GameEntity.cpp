@@ -131,14 +131,6 @@ void GameEntity::broadcast(Component *subject, ComponentMessage message, GameEnt
 	}
 }
 
-void GameEntity::scheduleForRemoval() {
-	std::cout << "Entity " << m_EntityEnum << " scheduled for removal" << std::endl;
-	m_scheduledForRemoval = true;
-}
-
-bool GameEntity::isScheduledForRemoval() {
-	return m_scheduledForRemoval;
-}
 
 bool GameEntity::isJumping()
 {

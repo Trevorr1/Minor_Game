@@ -13,19 +13,13 @@ using namespace overdose;
 
 GameOver::GameOver()
 {
-	entities = new std::vector<GameEntity*>();
-	enemies = new std::vector<GameEntity*>();
-	collectibles = new std::vector<GameEntity*>();
 	m_Background = new Surface("assets/backgrounds/gameover.jpg");
 }
 
 
 GameOver::~GameOver()
 {
-	delete entities;
-	delete collectibles;
 	delete m_Background;
-	delete enemies;
 }
 
 void GameOver::Init()

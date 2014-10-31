@@ -10,24 +10,17 @@
 using namespace overdose;
 
 
-/*Test Data*/
-//GameEntity* entityPtr = nullptr;
 
 MainMenu::MainMenu()
 {
-	entities = new std::vector<GameEntity*>();
-	enemies = new std::vector<GameEntity*>();
-	collectibles = new std::vector<GameEntity*>();
 	m_Background = new Surface("assets/backgrounds/mainmenu.jpg");
 }
 
 
 MainMenu::~MainMenu()
 {
-	delete entities;
-	delete collectibles;
 	delete m_Background;
-	delete enemies;
+
 }
 
 void MainMenu::Init()

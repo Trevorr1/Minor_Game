@@ -10,14 +10,8 @@
 using namespace overdose;
 
 
-/*Test Data*/
-//GameEntity* entityPtr = nullptr;
-
 Level1::Level1()
 {
-	entities = new std::vector<GameEntity*>();
-	enemies = new std::vector<GameEntity*>();
-	collectibles = new std::vector<GameEntity*>();
 	m_Background = new Surface("assets/backgrounds/background.png");
 
 }
@@ -25,11 +19,8 @@ Level1::Level1()
 
 Level1::~Level1()
 {
-	for (int i = entities->size(); i >= 0; i--)
-	{
-		delete entities->at(i);
-	}
-	delete entities;
+	delete m_Background;
+	
 }
 
 void Level1::Init()

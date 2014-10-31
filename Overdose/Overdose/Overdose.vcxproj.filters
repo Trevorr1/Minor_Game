@@ -67,6 +67,12 @@
     <Filter Include="Header Files\Component\button">
       <UniqueIdentifier>{642d757a-81e3-40d0-aac8-de831fa67cf8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Util">
+      <UniqueIdentifier>{57e6e053-8e8e-452f-8094-a1ecfe0b8c16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Util">
+      <UniqueIdentifier>{7f4d427b-eba9-4916-aead-260e68c43fd9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -216,6 +222,9 @@
     <ClInclude Include="KnockBackComponent.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
+    <ClInclude Include="ScheduleForRemovalFlag.h">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -358,6 +367,9 @@
     </ClCompile>
     <ClCompile Include="KnockBackComponent.cpp">
       <Filter>Source Files\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="ScheduleForRemovalFlag.cpp">
+      <Filter>Source Files\Util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
