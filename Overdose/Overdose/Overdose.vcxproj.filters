@@ -225,6 +225,9 @@
     <ClInclude Include="ScheduleForRemovalFlag.h">
       <Filter>Header Files\Util</Filter>
     </ClInclude>
+    <ClInclude Include="NegativeMarijuanaComponent.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -370,6 +373,9 @@
     </ClCompile>
     <ClCompile Include="ScheduleForRemovalFlag.cpp">
       <Filter>Source Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="NegativeMarijuanaComponent.cpp">
+      <Filter>Source Files\Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
