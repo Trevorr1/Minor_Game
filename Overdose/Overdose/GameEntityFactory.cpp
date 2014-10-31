@@ -20,16 +20,13 @@
 #include <stdexcept>
 using namespace overdose;
 
-GameEntityFactory* GameEntityFactory::_instance = nullptr;
 
 GameEntityFactory::GameEntityFactory()
 {
 }
 
-GameEntityFactory* GameEntityFactory::getInstance(){
-	if (_instance == nullptr){
-		_instance = new GameEntityFactory;
-	}
+GameEntityFactory &GameEntityFactory::getInstance(){
+	static GameEntityFactory _instance;
 	return _instance;
 }
 
@@ -224,5 +221,5 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 
 GameEntityFactory::~GameEntityFactory()
 {
-	delete _instance;
+
 }

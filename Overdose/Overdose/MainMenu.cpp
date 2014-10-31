@@ -26,17 +26,17 @@ MainMenu::~MainMenu()
 void MainMenu::Init()
 {
 	/*Test Data*/
-	GameEntity *entityPtr = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::FPSCounter);
-	entityPtr->setSpeedY(0);
-	entityPtr->setPosX(0);
-	this->addEntities(entityPtr);
+	//GameEntity *entityPtr = GameEntityFactory::getInstance().getGameEntity(eGameEntity::FPSCounter);
+	//entityPtr->setSpeedY(0);
+	//entityPtr->setPosX(0);
+	//this->addEntities(entityPtr);
 
-	GameEntity *buttonPlay = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::ButtonPlay);
-	buttonPlay->setPosX(50);
-	buttonPlay->setPosY(100);
-	this->addEntities(buttonPlay);
+	//GameEntity *buttonPlay = GameEntityFactory::getInstance().getGameEntity(eGameEntity::ButtonPlay);
+	//buttonPlay->setPosX(50);
+	//buttonPlay->setPosY(100);
+	//this->addEntities(buttonPlay);
 
-	GameEntity *buttonQuitGame = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::ButtonQuitGameGreen);
+	GameEntity *buttonQuitGame = GameEntityFactory::getInstance().getGameEntity(eGameEntity::ButtonQuitGameGreen);
 	buttonQuitGame->setPosX(50);
 	buttonQuitGame->setPosY(200);
 	this->addEntities(buttonQuitGame);
