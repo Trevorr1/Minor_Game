@@ -269,5 +269,8 @@ void SDLTemplate::initTemplate()
 			}
 		}
 	}
+
+	
+	delete game;
 	SDL_Quit();
 }

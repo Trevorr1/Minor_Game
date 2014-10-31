@@ -75,7 +75,7 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 		}
 	}
 
-	vector<GameEntity*> *gameEntities = LevelManager::getInstance()->getCurrentLevel()->getEntities();
+	vector<GameEntity*> *gameEntities = LevelManager::getInstance().getCurrentLevel()->getEntities();
 
 	for (vector<GameEntity*>::iterator other = gameEntities->begin(); other != gameEntities->end(); ++other)
 	{

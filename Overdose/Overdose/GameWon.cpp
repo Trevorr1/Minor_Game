@@ -12,19 +12,14 @@ using namespace overdose;
 
 GameWon::GameWon()
 {
-	entities = new std::vector<GameEntity*>();
-	enemies = new std::vector<GameEntity*>();
-	collectibles = new std::vector<GameEntity*>();
 	m_Background = new Surface("assets/backgrounds/Party-Time2.png");
 }
 
 
 GameWon::~GameWon()
 {
-	delete entities;
-	delete collectibles;
 	delete m_Background;
-	delete enemies;
+
 }
 
 void GameWon::Init(){
@@ -47,9 +42,9 @@ void GameWon::Init(){
 
 
 	/* MUSIC/SOUND */
-	SoundManager::getInstance()->StopMusic();
-	SoundManager::getInstance()->PlayMusic(People); 
-	SoundManager::getInstance()->PlaySound(PartyHorn);
+	SoundManager::getInstance().StopMusic();
+	SoundManager::getInstance().PlayMusic(People); 
+	SoundManager::getInstance().PlaySound(PartyHorn);
 }
 
 bool GameWon::isGameOver() {

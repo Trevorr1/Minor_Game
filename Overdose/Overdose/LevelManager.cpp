@@ -22,10 +22,7 @@ ILevel* LevelManager::getCurrentLevel(){
 
 ILevel* LevelManager::createLevel(levels l)
 {
-
-	if (currentLevel != nullptr){
-		//delete currentLevel; //weet niet waarom maar dit ging nog even fout
-	}
+	previousLevel = currentLevel;
 
 	switch (l){
 	case level1:
@@ -51,27 +48,32 @@ ILevel* LevelManager::createLevel(levels l)
 
 	currentLevelEnum = l;
 	currentLevel->Init();
+
 	return currentLevel;
 }
 
 void LevelManager::Tick(float dt){
+
 	if (currentLevel->isGameOver()) {
 		createLevel(levels::LevelGameOver);
 	}
 	else if (currentLevel->isGameWon()){
 		nextLevel();
 	}
+	
+	if (previousLevel != nullptr) {
+		delete previousLevel;
+		previousLevel = nullptr;
+	}
+
 	currentLevel->Tick(dt);
 }
 
 
 
-LevelManager* LevelManager::getInstance()
+LevelManager &LevelManager::getInstance()
 {
-	if (_instance == nullptr)
-	{
-		_instance = new LevelManager();
-	}
+	static LevelManager _instance;
 	return _instance;
 }
 

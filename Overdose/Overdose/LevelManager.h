@@ -18,12 +18,13 @@ class LevelManager
 {
 	public:
 		~LevelManager(void);
-		static LevelManager* getInstance();
+		static LevelManager &getInstance();
 		ILevel* createLevel(levels level);
 		ILevel* getCurrentLevel();
 		void LevelManager::Tick(float dt);
 	private:
-		ILevel* currentLevel;
+		ILevel* currentLevel = nullptr;
+		ILevel* previousLevel = nullptr;
 		levels currentLevelEnum;
 		LevelManager(void);
 		static LevelManager* _instance;

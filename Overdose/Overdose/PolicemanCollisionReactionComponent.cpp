@@ -24,7 +24,7 @@ void PolicemanCollisionReactionComponent::tick(float dt, GameEntity *entity)
 
 	if (!isAlive){
 		//TODO how to delete?
-		//vector<GameEntity*> *gameEntities = LevelManager::getInstance()->getCurrentLevel()->getEntities();
+		//vector<GameEntity*> *gameEntities = LevelManager::getInstance().getCurrentLevel()->getEntities();
 		//gameEntities->erase(gameEntities->begin() + 1);
 		//delete entity;
 	}

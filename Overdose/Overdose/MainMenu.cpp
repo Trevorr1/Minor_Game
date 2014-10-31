@@ -10,24 +10,17 @@
 using namespace overdose;
 
 
-/*Test Data*/
-//GameEntity* entityPtr = nullptr;
 
 MainMenu::MainMenu()
 {
-	entities = new std::vector<GameEntity*>();
-	enemies = new std::vector<GameEntity*>();
-	collectibles = new std::vector<GameEntity*>();
 	m_Background = new Surface("assets/backgrounds/mainmenu.jpg");
 }
 
 
 MainMenu::~MainMenu()
 {
-	delete entities;
-	delete collectibles;
 	delete m_Background;
-	delete enemies;
+
 }
 
 void MainMenu::Init()
@@ -48,8 +41,8 @@ void MainMenu::Init()
 	buttonQuitGame->setPosY(200);
 	this->addEntities(buttonQuitGame);
 
-	SoundManager::getInstance()->StopMusic();
-	SoundManager::getInstance()->PlayMusic(eMusic::MainMenuTheme);
+	SoundManager::getInstance().StopMusic();
+	SoundManager::getInstance().PlayMusic(eMusic::MainMenuTheme);
 
 
 }

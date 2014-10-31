@@ -18,7 +18,7 @@ void FlagCollisionReactionComponent::receive(Component *subject, ComponentMessag
 
 	if (object != nullptr){
 		if (object->getEnum() == Player){
-			LevelManager::getInstance()->getCurrentLevel()->setGameWon();
+			LevelManager::getInstance().getCurrentLevel()->setGameWon();
 		}
 	}
 }
