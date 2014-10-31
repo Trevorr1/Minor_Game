@@ -13,11 +13,14 @@ using namespace overdose;
 
 SDLTemplate* sdltemplate = nullptr;
 
+void teardown() {
+	delete sdltemplate;
+}
 
 int main(int argc, const char* argv[])
 {
-	
-	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+	atexit(teardown);
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF );
 	/******************
 	 Ricardo's template
 	*******************/
@@ -27,3 +30,5 @@ int main(int argc, const char* argv[])
 	
 	return 0;
 }
+
+
