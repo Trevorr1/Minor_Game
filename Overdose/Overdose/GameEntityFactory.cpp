@@ -33,7 +33,8 @@ GameEntityFactory &GameEntityFactory::getInstance(){
 GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 
 	GameEntity* newObject = new GameEntity(entityEnum);
-	std::map<eAnimationState, Animation*>* animations = new std::map<eAnimationState, Animation*>();
+	
+	std::map<eAnimationState, Animation*>* animations;
 	DrawComponent* animation = nullptr;
 
 	switch (entityEnum){
@@ -52,7 +53,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new PolicemanCollisionReactionComponent());//moet nog verandert worden naar PolicemanCollisionReactionComponent
 		newObject->addComponent(new gravityComponent());
 		//	newObject->addComponent(new CollisionComponent());
-
+		 animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ WalkLeft, new Animation("assets/sprites/Policeman/PolicemanWalkLeft.png", 4, 5) });
 		animations->insert({ WalkRight, new Animation("assets/sprites/Policeman/PolicemanWalkRight.png", 4, 5) });
 		animation = new DrawComponent(animations);
@@ -76,7 +77,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new gravityComponent());
 		newObject->addComponent(new HealthComponent(3));
 		newObject->addComponent(new KnockBackComponent());
-
+		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ IdleLeft, new Animation("assets/sprites/Ross/RossIdleLeft.png", 1) });
 		animations->insert({ IdleRight, new Animation("assets/sprites/Ross/RossIdleRight.png", 1) });
 		animations->insert({ WalkLeft, new Animation("assets/sprites/Ross/RossWalkingLeft.png", 8, 10) });
@@ -90,7 +91,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		//newObject->addComponent(new MoveComponent());
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new DrugCollisionReactionComponent());
-
+		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ Default, new Animation("assets/sprites/drug_speed_30x30.png", 1) });
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
@@ -101,7 +102,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		//newObject->addComponent(new MoveComponent());
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new DrugCollisionReactionComponent());
-
+		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ Default, new Animation("assets/sprites/drug_marijuana_30x30.png", 1) });
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
@@ -112,7 +113,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		//newObject->addComponent(new MoveComponent());
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new DrugCollisionReactionComponent());
-
+		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ Default, new Animation("assets/sprites/drug_xtc_30x30.png", 1) });
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
@@ -120,7 +121,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		break;
 	case Grass:
 		newObject->addComponent(new CollisionComponent());
-
+		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ Default, new Animation("assets/sprites/grass.png", 1) });
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
@@ -129,7 +130,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	case Flag:
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new FlagCollisionReactionComponent());
-
+		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ Default, new Animation("assets/sprites/Party/Flag/flag.png", 9, 10) });
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
@@ -144,7 +145,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	case ButtonPlay:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(level1));
-
+		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ Default, new Animation("assets/buttons/button_play.jpg", 1) });
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
@@ -154,7 +155,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	case ButtonPlayAgain:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(level1));
-
+		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ Default, new Animation("assets/buttons/button_play_again.png", 1) });
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
@@ -163,7 +164,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	case ButtonPlayAgainGreen:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(level1));
-
+		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ Default, new Animation("assets/buttons/button_play_again_green.jpg", 1) });
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
@@ -172,7 +173,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	case ButtonMainMenu:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(LevelMainMenu));
-
+		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ Default, new Animation("assets/buttons/button_main_menu.png", 1) });
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
@@ -181,7 +182,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	case ButtonMainMenuGreen:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(LevelMainMenu));
-
+		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ Default, new Animation("assets/buttons/button_main_menu_green.jpg", 1) });
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
@@ -190,7 +191,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	case ButtonQuitGame:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new QuitOnClickComponent());
-
+		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ Default, new Animation("assets/buttons/button_quit_game.png", 1) });
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
@@ -199,7 +200,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	case ButtonQuitGameGreen:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new QuitOnClickComponent());
-
+		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ Default, new Animation("assets/buttons/button_quit_game_green.jpg", 1) });
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
