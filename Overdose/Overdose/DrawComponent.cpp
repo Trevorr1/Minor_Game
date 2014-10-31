@@ -11,6 +11,10 @@ DrawComponent::DrawComponent(std::map<eAnimationState, Animation*>* animations){
 
 DrawComponent::~DrawComponent()
 {
+	for (auto &kv : *m_Animations) {
+		delete kv.second;
+	}
+	delete m_Animations;
 	delete m_SpriteSheet;
 }
 
