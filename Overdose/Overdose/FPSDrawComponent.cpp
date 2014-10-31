@@ -9,12 +9,12 @@ void FPSDrawComponent::receive(Component *subject, ComponentMessage message, Gam
 /* DT: last frametime in milliseconds */
 void FPSDrawComponent::tick(float dt, GameEntity *entity) {
 	
-	if (InputManager::getInstance()->isKeyPressed(SDL_SCANCODE_GRAVE)) { // tilde 
+	if (InputManager::getInstance().isKeyPressed(SDL_SCANCODE_GRAVE)) { // tilde 
 		draw = (draw) ? false : true;
 	}
 	
 	if (draw) {
-		Surface *surface = DrawManager::getInstance()->getSurface();
+		Surface *surface = DrawManager::getInstance().getSurface();
 
 		m_ticks++;
 		m_dt = m_dt + dt;
