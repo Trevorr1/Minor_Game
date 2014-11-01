@@ -28,9 +28,6 @@ void HealthComponent::init(GameEntity* entity) {
 
 void HealthComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
 
-	if (m_invincibleTime > 0) {
-		return;
-	}
 
 
 	// environment / drugs shouldn't hurt the entity
@@ -38,11 +35,17 @@ void HealthComponent::receive(Component *subject, ComponentMessage message, Game
 		return;
 	}
 
+
+	if (m_invincibleTime > 0) {
+		std::cout << "Entity " << object->getEnum() << " is invincible for now." << std::endl;
+		return;
+	}
+
 	auto it = std::find(m_healthDecreaseReactionList->begin(), m_healthDecreaseReactionList->end(), message);
 
 	// Vector list contains message?
 	if (it != m_healthDecreaseReactionList->end()) {
-		m_invincibleTime = 1000;
+		m_invincibleTime = 1;
 		m_scheduleHealthDecrease = true;
 	}
 }
@@ -59,7 +62,7 @@ void HealthComponent::tick(float dt, GameEntity *entity) {
 		entity->scheduleForRemoval();
 	}
 
-	if (m_invincibleTime >= 0) {
+	if (m_invincibleTime > 0) {
 		m_invincibleTime -= dt;
 
 	}
