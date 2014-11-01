@@ -17,5 +17,5 @@ Animation::Animation(char* aFilePath, unsigned int numFrames, unsigned int FPS)
 
 Animation::~Animation()
 {
-
+//	delete m_SpriteSheet;
 }

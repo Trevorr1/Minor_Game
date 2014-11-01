@@ -31,10 +31,10 @@ void MainMenu::Init()
 	//entityPtr->setPosX(0);
 	//this->addEntities(entityPtr);
 
-	//GameEntity *buttonPlay = GameEntityFactory::getInstance().getGameEntity(eGameEntity::ButtonPlay);
-	//buttonPlay->setPosX(50);
-	//buttonPlay->setPosY(100);
-	//this->addEntities(buttonPlay);
+	GameEntity *buttonPlay = GameEntityFactory::getInstance().getGameEntity(eGameEntity::ButtonPlay);
+	buttonPlay->setPosX(50);
+	buttonPlay->setPosY(100);
+	this->addEntities(buttonPlay);
 
 	GameEntity *buttonQuitGame = GameEntityFactory::getInstance().getGameEntity(eGameEntity::ButtonQuitGameGreen);
 	buttonQuitGame->setPosX(50);
