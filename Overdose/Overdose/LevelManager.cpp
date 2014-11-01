@@ -3,7 +3,7 @@
 
 using namespace overdose;
 
-LevelManager* LevelManager::_instance = nullptr;
+
 
 LevelManager::LevelManager(void)
 {

@@ -24,10 +24,10 @@ Level2::~Level2()
 void Level2::Init()
 {
 	/*Test Data*/
-	GameEntity *fpsCounter = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::FPSCounter);
+	GameEntity *fpsCounter = GameEntityFactory::getInstance().getGameEntity(eGameEntity::FPSCounter);
 	this->addEntities(fpsCounter);
 
-	GameEntity *player = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Player);
+	GameEntity *player = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Player);
 	player->setStartingPosition(100, 0);
 	this->addEntities(player);
 	m_Player = player;
@@ -37,12 +37,12 @@ void Level2::Init()
 		/*if (i > (grassWall/2 - 2) && i < (grassWall/2 + 2)){
 		continue;
 		}*/
-		GameEntity* grass1 = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Grass);
+		GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
 		grass1->setStartingPosition(50 + 32 * i, 100 + 16 * i);
 		this->addEntities(grass1);
 	}
 
-	GameEntity *flaggot = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::Flag);
+	GameEntity *flaggot = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Flag);
 	flaggot->setStartingPosition(700, 410 - 112);
 	this->addEntities(flaggot);
 

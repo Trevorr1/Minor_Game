@@ -26,17 +26,17 @@ void GameOver::Init()
 {
 
 	/*BUTTONS*/
-	GameEntity *entityPtr = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::FPSCounter);
+	GameEntity *entityPtr = GameEntityFactory::getInstance().getGameEntity(eGameEntity::FPSCounter);
 	entityPtr->setSpeedY(0);
 	entityPtr->setPosX(0);
 	this->addEntities(entityPtr);
 
-	GameEntity *buttonPlayAgain = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::ButtonPlayAgainGreen);
+	GameEntity *buttonPlayAgain = GameEntityFactory::getInstance().getGameEntity(eGameEntity::ButtonPlayAgainGreen);
 	buttonPlayAgain->setPosX(50);
 	buttonPlayAgain->setPosY(150);
 	this->addEntities(buttonPlayAgain);
 
-	GameEntity *buttonMainMenu = GameEntityFactory::getInstance()->getGameEntity(eGameEntity::ButtonMainMenuGreen);
+	GameEntity *buttonMainMenu = GameEntityFactory::getInstance().getGameEntity(eGameEntity::ButtonMainMenuGreen);
 	buttonMainMenu->setPosX(50);
 	buttonMainMenu->setPosY(250);
 	this->addEntities(buttonMainMenu);
