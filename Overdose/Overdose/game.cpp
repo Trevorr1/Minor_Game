@@ -16,7 +16,7 @@ Game::Game(){
 	
 }
 Game::~Game(){
-	
+//	delete m_Screen;
 }
 
 void Game::Init()

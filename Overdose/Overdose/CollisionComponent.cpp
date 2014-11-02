@@ -16,6 +16,10 @@ CollisionComponent::CollisionComponent()
 
 CollisionComponent::~CollisionComponent()
 {
+	for (int dir = 0; dir < 4; dir++)
+	{
+		delete cPoints[dir];
+	}
 }
 
 void CollisionComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {

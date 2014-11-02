@@ -1,5 +1,6 @@
 #include "MoveComponent.h"
 #include "GameEntity.h"
+#include "LevelManager.h"
 
 using namespace overdose;
 
@@ -32,7 +33,8 @@ void  MoveComponent::tick(float dt, GameEntity *entity) {
 
 	if (posY > 600) { //screen height is 480 at the moment
 		entity->broadcast(this, MoveComponent_OUTOFAREA, entity);
-		entity->respawn();
+		//entity->respawn();
+		LevelManager::getInstance().reloadLevel();
 	}
 
 }

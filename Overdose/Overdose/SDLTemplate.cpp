@@ -200,7 +200,7 @@ void SDLTemplate::initTemplate()
 		SCRWIDTH,
 		SCRHEIGHT,
 		SDL_WINDOW_OPENGL);
-	int exitapp = 0;
+	
 	game = new Game();
 	game->SetTarget(surface);
 	float deltaTime = 0.0f;
@@ -208,7 +208,7 @@ void SDLTemplate::initTemplate()
 	int thisTime = 0;
 	int lastTime = 0;
 
-	while (!exitapp)
+	while (!m_exit)
 	{
 		thisTime = GetTickCount();
 		timedifference = (float)(thisTime - lastTime);
@@ -247,7 +247,7 @@ void SDLTemplate::initTemplate()
 			switch (event.type)
 			{
 			case SDL_QUIT:
-				exitapp = 1;
+				m_exit = true;
 				break;
 			case SDL_MOUSEMOTION:
 				game->MouseMove(event.motion.x, event.motion.y);
@@ -273,8 +273,13 @@ void SDLTemplate::initTemplate()
 			//SDL_Delay(1);
 		}
 	}
-
-	
 	delete game;
+	surface->clearBuffer = false;
+	delete surface;
+	
 	SDL_Quit();
+}
+
+void SDLTemplate::exit() {
+	m_exit = true;
 }
