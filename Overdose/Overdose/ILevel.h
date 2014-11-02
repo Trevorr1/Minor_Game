@@ -16,6 +16,7 @@ namespace overdose {
 		virtual void addEntities(GameEntity* entity);
 
 		virtual GameEntity* getPlayerEntity();
+		virtual GameEntity* takePlayerEntity();
 		void removeEntity(GameEntity* entity);
 		virtual std::vector<GameEntity*> *getEntities();
 
@@ -23,6 +24,8 @@ namespace overdose {
 		virtual bool isGameOver();
 		bool isGameWon();
 		void setGameWon();
+		bool isReloadLevel();
+		void setReloadLevel();
 		ILevel();
 		virtual ~ILevel();
 	protected:
@@ -31,7 +34,9 @@ namespace overdose {
 		virtual void DrawBackground();
 		Surface* m_Background;
 		GameEntity* m_Player = nullptr;
+
 		bool m_IsGameWon = false;
+		bool m_IsReloadLevel = false;
 
 	};
 }

@@ -10,23 +10,29 @@ using namespace overdose;
 
 Level6::Level6()
 {
-	m_Background = new Surface("assets/backgrounds/background.png");
 }
 
+Level6::Level6(GameEntity* player)
+{
+	m_Player = player;
+}
 
 Level6::~Level6()
 {
 	delete m_Background;
 }
 
-
 void Level6::Init()
 {
+	m_Background = new Surface("assets/backgrounds/background.png");
 
-	GameEntity *player = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Player);
-	player->setStartingPosition(100, 410 - 53 - 100);
-	this->addEntities(player);
-	m_Player = player;
+	if (m_Player == nullptr){
+		GameEntity *player = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Player);
+		m_Player = player;
+	}
+
+	this->addEntities(m_Player);
+	m_Player->setStartingPosition(100, 410 - 53 - 100);
 
 	GameEntity *entityDrugSpeed = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Drug_Speed);
 	entityDrugSpeed->setStartingPosition(200, 410 - 30);

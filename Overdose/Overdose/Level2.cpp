@@ -10,9 +10,12 @@ using namespace overdose;
 
 Level2::Level2()
 {
-	m_Background = new Surface("assets/backgrounds/background.png");
 }
 
+Level2::Level2(GameEntity* player)
+{
+	m_Player = player;
+}
 
 Level2::~Level2()
 {
@@ -21,12 +24,17 @@ Level2::~Level2()
 
 void Level2::Init()
 {
+	m_Background = new Surface("assets/backgrounds/background.png");
 
-	GameEntity *player = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Player);
-	player->setStartingPosition(100, 0);
-	this->addEntities(player);
-	m_Player = player;
-	
+	if (m_Player == nullptr){
+		GameEntity *player = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Player);
+		m_Player = player;
+	}
+
+	this->addEntities(m_Player);
+	m_Player->setStartingPosition(100, 0);
+
+
 	int grassWall = 22;
 	for (int i = 0; i < grassWall; i++){
 		/*if (i > (grassWall/2 - 2) && i < (grassWall/2 + 2)){
