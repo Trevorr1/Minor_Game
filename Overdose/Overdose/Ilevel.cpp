@@ -1,7 +1,13 @@
 #include "stdafx.h"
 #include "ILevel.h"
+#include "GameEntityFactory.h"
 
 using namespace overdose;
+
+ILevel::ILevel(){
+	GameEntity *fpsCounter = GameEntityFactory::getInstance().getGameEntity(eGameEntity::FPSCounter);
+	this->addEntities(fpsCounter);
+}
 
 void ILevel::addEntities(GameEntity* entities)
 {

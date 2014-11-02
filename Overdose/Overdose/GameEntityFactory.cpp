@@ -152,9 +152,6 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		break;
 
 
-
-
-
 		/* BUTTONS: */
 	case ButtonPlay:
 		newObject->addComponent(new ClickableComponent());

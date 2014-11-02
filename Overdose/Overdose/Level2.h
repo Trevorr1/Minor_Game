@@ -1,7 +1,8 @@
 #pragma once
 #include "Ilevel.h"
 namespace overdose {
-	class Level2 : public ILevel
+	class Level2 : 
+		public ILevel
 	{
 	public:
 		Level2();

@@ -23,6 +23,7 @@ namespace overdose {
 		virtual bool isGameOver();
 		bool isGameWon();
 		void setGameWon();
+		ILevel();
 		virtual ~ILevel();
 	protected:
 		std::vector<GameEntity*> *entities = new std::vector < GameEntity* > ;
