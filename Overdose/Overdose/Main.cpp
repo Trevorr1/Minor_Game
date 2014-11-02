@@ -1,12 +1,10 @@
-
-#define _CRTDBG_MAP_ALLOC
 #include "stdafx.h"
 #include "GameEntityFactory.h"
 #include "InputManager.h"
 
 #include "game.h"
 #include "SDLTemplate.h"
-
+//#include <vld.h>
 
 using namespace overdose;
 

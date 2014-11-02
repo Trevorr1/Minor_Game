@@ -58,13 +58,19 @@
 		{
 			unsigned char* line = FreeImage_GetScanLine(dib, m_Height - 1 - y);
 			memcpy(m_Buffer + y * m_Pitch, line, m_Width * sizeof(Pixel));
+			
 		}
 		FreeImage_Unload(dib);
+
+
 	}
 
 	Surface::~Surface()
 	{
-		FREE64(m_Buffer);
+		printf("Destruction surface\n");
+		if (clearBuffer) {
+			_aligned_free(m_Buffer);
+		}
 	}
 
 	void Surface::Clear(Pixel a_Color)
@@ -530,6 +536,9 @@
 			}
 			lastempty = empty;
 		}
+		// deletes toevegoegd door Gijs. Kijken of dit goed gaat.
+		/*delete a_Chars;
+		delete a_File;*/
 	}
 
 	Font::~Font()
