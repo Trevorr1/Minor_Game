@@ -10,8 +10,6 @@ SpeedDrugComponent::SpeedDrugComponent()
 	//previous_speedX = getPrevious_SpeedX();
 	drug_speedX = 4.0f;
 	drug_effect_ms = 1000 * 5;
-
-	entityForNegativeEffect = new std::vector<GameEntity*>();
 	//timer_start = NULL;
 }
 
