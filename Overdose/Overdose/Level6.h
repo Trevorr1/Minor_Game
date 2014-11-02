@@ -1,14 +1,12 @@
 #pragma once
-#include "Ilevel.h"
+#include "ILevel.h"
 namespace overdose {
-	class Level1 : 
+	class Level6 :
 		public ILevel
 	{
 	public:
-		Level1();
-		virtual ~Level1();
+		Level6();
+		~Level6();
 		void Init();
 	};
-
 }
-

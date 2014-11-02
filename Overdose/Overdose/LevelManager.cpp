@@ -31,6 +31,30 @@ ILevel* LevelManager::createLevel(levels l)
 	case level2:
 		currentLevel = new Level2();
 		break;
+	case level3:
+		currentLevel = new Level3();
+		break;
+	case level4:
+		currentLevel = new Level4();
+		break;
+	case level5:
+		currentLevel = new Level5();
+		break;
+	case level6:
+		currentLevel = new Level6();
+		break;
+	case level7:
+		currentLevel = new Level7();
+		break;
+	case level8:
+		currentLevel = new Level8();
+		break;
+	case level9:
+		currentLevel = new Level9();
+		break;
+	case level10:
+		currentLevel = new Level10();
+		break;
 	case LevelMainMenu:
 		currentLevel = new MainMenu();
 		break;
@@ -87,6 +111,30 @@ void LevelManager::nextLevel(){
 		createLevel(level2);
 		break;
 	case level2:
+		createLevel(level3);
+		break;
+	case level3:
+		createLevel(level4);
+		break;
+	case level4:
+		createLevel(level5);
+		break;
+	case level5:
+		createLevel(level6);
+		break;
+	case level6:
+		createLevel(level7);
+		break;
+	case level7:
+		createLevel(level8);
+		break;
+	case level8:
+		createLevel(level9);
+		break;
+	case level9:
+		createLevel(level10);
+		break;
+	case level10:
 		createLevel(LevelGameWon);
 		break;
 	case LevelGameOver:
@@ -96,5 +144,8 @@ void LevelManager::nextLevel(){
 		createLevel(LevelMainMenu);
 		break;
 	}
-	
+}
+
+void LevelManager::reloadLevel(){
+	createLevel(currentLevelEnum);
 }
