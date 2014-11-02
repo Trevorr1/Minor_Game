@@ -67,7 +67,7 @@
 
 	Surface::~Surface()
 	{
-		printf("Destruction surface\n");
+	//	printf("Destruction surface\n");
 		if (clearBuffer) {
 			_aligned_free(m_Buffer);
 		}
