@@ -40,7 +40,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	switch (entityEnum){
 	case Policeman:
 	{
-		newObject->setSpeedX(0.05f);
+		newObject->setSpeedX(110.0f);
 		//	newObject->addComponent(*new DummyComponent());
 		newObject->addComponent(new EnemyMoveComponent());
 

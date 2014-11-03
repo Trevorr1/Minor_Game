@@ -30,18 +30,18 @@ void PolicemanCollisionReactionComponent::tick(float dt, GameEntity *entity)
 	}
 	if (collidedTop)
 	{
-		entity->setSpeedY(0);
+	//	entity->setSpeedY(0);
 		collidedTop = false;
 		collidedBottom = false;
 	}
 	if (collidedLeft)
 	{
-		entity->setSpeedX(0);
+		entity->setSpeedX(entity->getSpeedX() * -1);
 		collidedLeft = false;
 	}
 	if (collidedRight)
 	{
-		entity->setSpeedX(0);
+		entity->setSpeedX(entity->getSpeedX() * -1);
 		collidedRight = false;
 	}
 	if (collidedBottom)

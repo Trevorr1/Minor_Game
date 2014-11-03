@@ -19,9 +19,17 @@ void  EnemyMoveComponent::receive(Component *subject, ComponentMessage message, 
 
 void  EnemyMoveComponent::tick(float dt, GameEntity *entity)
 {
-	if (entity->getPosX() < 466 - 5 || entity->getPosX() > 624 + 5)
+
+	if (entity->getPosX() < 366 - 5 || entity->getPosX() > 624 + 5)
 	{
+		printf("Enemy Move Component - Switching direction!\n");
 		entity->setSpeedX(entity->getSpeedX() * -1);
+	}
+	if (entity->getPosX() < 366 - 5) {
+		entity->setPosX(370);
+	}
+	if (entity->getPosX() > 629) {
+		entity->setPosX(628);
 	}
 }
 
