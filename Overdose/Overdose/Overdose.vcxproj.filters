@@ -225,6 +225,9 @@
     <ClInclude Include="ScheduleForRemovalFlag.h">
       <Filter>Header Files\Util</Filter>
     </ClInclude>
+    <ClInclude Include="NegativeMarijuanaComponent.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
     <ClInclude Include="Level10.h">
       <Filter>Header Files\Level</Filter>
     </ClInclude>
@@ -418,6 +421,9 @@
     </ClCompile>
     <ClCompile Include="Level9.cpp">
       <Filter>Source Files\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="NegativeMarijuanaComponent.cpp">
+      <Filter>Source Files\Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
