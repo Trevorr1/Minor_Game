@@ -39,6 +39,7 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 		if (!entity->isJumping())
 		{
 			entity->setJumping(true);
+			entity->setFalling(true); // was comminted out, don't know why I put it back in but if there are bugs with jumping we know why - Trev
 			entity->setJumpingSpeed(-1200.0f);
 		}
 
