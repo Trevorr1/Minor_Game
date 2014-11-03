@@ -22,18 +22,22 @@ void KnockBackComponent::receive(Component *subject, ComponentMessage message, G
 	case Grass:
 	case Flag:
 		return;
-	
 	}
 
 
-	if (message == CollissionComponent_COLLISION_LEFT || message == CollissionComponent_REACTION_LEFT) {
+	if (message == CollissionComponent_REACTION_LEFT) {
 		knockBackToRight = true;
 		printf("Knocking Back to the right\n");
 	}
 
-	if (message == CollissionComponent_COLLISION_RIGHT || message == CollissionComponent_REACTION_RIGHT) {
+	if (message == CollissionComponent_REACTION_RIGHT) {
 		knockBackToLeft = true;
 		printf("Knocking back to the left\n");
+	}
+
+	if (message == CollissionComponent_REACTION_BOTTOM) {
+		knockBackToTop = true;
+		printf("Knocking back to the bottom\n");
 	}
 }
 
@@ -49,6 +53,13 @@ void KnockBackComponent::tick(float dt, GameEntity *entity)
 	{
 		entity->setPosX(entity->getPosX() + knockbackValue);
 		knockBackToRight = false;
+	}
+
+	if (knockBackToTop)
+	{
+		//entity->setPosX(entity->getPosX() + knockbackValue);
+		entity->setSpeedY(entity->getSpeedY() - knockbackValue);
+		knockBackToTop = false;
 	}
 
 }
