@@ -46,7 +46,11 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 
 		std::vector<ComponentMessage>* healthDecreaseList = new std::vector < ComponentMessage > ; // delete called in HealthComponent
 		healthDecreaseList->push_back(ComponentMessage::CollissionComponent_REACTION_TOP);
-		newObject->addComponent(new HealthComponent(1, healthDecreaseList));
+
+		std::vector<eGameEntity>* hurtables = new std::vector < eGameEntity > ; 
+		hurtables->push_back(Player);
+
+		newObject->addComponent(new HealthComponent(1, healthDecreaseList, hurtables));
 
 		newObject->addComponent(new MoveComponent());
 		newObject->addComponent(new CollisionComponent());

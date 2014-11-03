@@ -2,24 +2,29 @@
 using namespace overdose;
 
 HealthComponent::HealthComponent(int health) {
-	m_healthDecreaseReactionList = new std::vector < ComponentMessage > ;
+	m_healthDecreaseReactionList = new vector < ComponentMessage > ;
 
 	m_healthDecreaseReactionList->push_back(ComponentMessage::CollissionComponent_REACTION_TOP);
 	m_healthDecreaseReactionList->push_back(ComponentMessage::CollissionComponent_REACTION_LEFT);
 	m_healthDecreaseReactionList->push_back(ComponentMessage::CollissionComponent_REACTION_RIGHT);
 	m_healthDecreaseReactionList->push_back(ComponentMessage::MoveComponent_OUTOFAREA);
 	m_health = health;
+
+	m_canHurt = new vector < eGameEntity > ;
+	m_canHurt->push_back(Policeman);
 }
 
 
 
-HealthComponent::HealthComponent(int health, std::vector<ComponentMessage> *healthDecreaseReactionList) {
+HealthComponent::HealthComponent(int health, vector<ComponentMessage> *healthDecreaseReactionList, vector<eGameEntity>* canHurt) {
 	m_health = health;
 	m_healthDecreaseReactionList = healthDecreaseReactionList;
+	m_canHurt = canHurt;
 }
 
 HealthComponent::~HealthComponent() {
 	delete m_healthDecreaseReactionList;
+	delete m_canHurt;
 }
 
 void HealthComponent::init(GameEntity* entity) {
@@ -30,10 +35,18 @@ void HealthComponent::receive(Component *subject, ComponentMessage message, Game
 
 
 
-	// environment / drugs shouldn't hurt the entity
+	// environment / drugs shouldn't never hurt the entity
 	if (object->getEnum() == Grass || object->getEnum() == Drug_Speed || object->getEnum() == Flag) {
 		return;
 	}
+
+	auto it_hurtable = std::find(m_canHurt->begin(), m_canHurt->end(), object->getEnum());
+
+	if (it_hurtable == m_canHurt->end()) {
+		// If not in the list, the entity is not hurtable.
+		return;
+	}
+
 
 
 	if (m_invincibleTime > 0) {
