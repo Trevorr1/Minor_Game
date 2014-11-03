@@ -1,7 +1,13 @@
 #include "stdafx.h"
 #include "ILevel.h"
+#include "GameEntityFactory.h"
 
 using namespace overdose;
+
+ILevel::ILevel(){
+	GameEntity *fpsCounter = GameEntityFactory::getInstance().getGameEntity(eGameEntity::FPSCounter);
+	this->addEntities(fpsCounter);
+}
 
 void ILevel::addEntities(GameEntity* entities)
 {
@@ -33,6 +39,20 @@ GameEntity* ILevel::getPlayerEntity(){
 	return m_Player;
 }
 
+//Steals the gameEntity, meaning removing it from this level
+GameEntity* ILevel::takePlayerEntity(){
+	GameEntity* player = getPlayerEntity();
+
+	if (player != nullptr){
+		std::vector<GameEntity*>::iterator position = std::find(entities->begin(), entities->end(), player);
+		if (position != entities->end()){
+			entities->erase(position);
+		}
+	}
+
+	return player;
+}
+
 std::vector<GameEntity*>* ILevel::getEntities(){
 	return entities;
 }
@@ -50,7 +70,7 @@ void ILevel::DrawBackground(){
 }
 
 void ILevel::Tick(float dt){
-
+	
 	DrawBackground();
 
 
@@ -80,6 +100,12 @@ void ILevel::setGameWon(){
 	m_IsGameWon = true;
 }
 
+bool ILevel::isReloadLevel() {
+	return m_IsReloadLevel;
+}
+void ILevel::setReloadLevel(){
+	m_IsReloadLevel = true;
+}
 
 ILevel::~ILevel() {
 	printf("Level unloaded from the game.\n");

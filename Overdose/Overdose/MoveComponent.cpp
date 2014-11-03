@@ -1,5 +1,6 @@
 #include "MoveComponent.h"
 #include "GameEntity.h"
+#include "LevelManager.h"
 
 using namespace overdose;
 
@@ -15,8 +16,7 @@ void  MoveComponent::tick(float dt, GameEntity *entity) {
 	float speedY = entity->getSpeedY();
 	float jspeed = entity->getJumpingSpeed();
 
-	float addY = speedY + jspeed;
-	addY *= dt;
+	float addY = (speedY + jspeed) * dt;
 
 	entity->setPosX(posX + speedX);
 	entity->setPosY(posY + addY);
@@ -27,15 +27,19 @@ void  MoveComponent::tick(float dt, GameEntity *entity) {
 	}
 	else
 	{
-		speedY;
-		jspeed;
 		jspeed += speedY;
 		entity->setJumpingSpeed(jspeed);
 	}
 
-	if (posY > 1000) {
+	if (posY > 600) { //screen height is 480 at the moment
 		entity->broadcast(this, MoveComponent_OUTOFAREA, entity);
-		entity->setPosY(0);
+		//entity->respawn();
+		if (entity->getEnum() == eGameEntity::Player) {
+			LevelManager::getInstance().getCurrentLevel()->setReloadLevel();
+		}
+		else {
+			entity->respawn();
+		}
 	}
 
 }

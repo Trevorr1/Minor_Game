@@ -200,19 +200,20 @@ void SDLTemplate::initTemplate()
 		SCRWIDTH,
 		SCRHEIGHT,
 		SDL_WINDOW_OPENGL);
-	int exitapp = 0;
+	
 	game = new Game();
 	game->SetTarget(surface);
-	while (!exitapp)
-	{
-		if (lastftime < m_desiredDeltaLoop) {
-			// We gaan te snel!
-			int pause = (int)(m_desiredDeltaLoop - lastftime) / (1000 * 1000);
+	float deltaTime = 0.0f;
+	float timedifference = 0.0f;
+	int thisTime = 0;
+	int lastTime = 0;
 
-			std::chrono::microseconds dura(pause);
-			std::this_thread::sleep_for(dura);
-		}
-		
+	while (!m_exit)
+	{
+		thisTime = GetTickCount();
+		timedifference = (float)(thisTime - lastTime);
+		deltaTime = timedifference / 1000;
+		lastTime = thisTime;
 
 		if (vbo) // frame buffer swapping for VBO mode
 		{
@@ -233,14 +234,8 @@ void SDLTemplate::initTemplate()
 			game->Init();
 			firstframe = false;
 		}
-		// calculate frame time and pass it to game->Tick
-		LARGE_INTEGER start, end;
-		QueryPerformanceCounter(&start);
-		float dt_ms = (float)lastftime / 1000;
-		game->Tick(dt_ms);
-		QueryPerformanceCounter(&end);
-		lastftime = (double)(end.QuadPart - start.QuadPart);
-		
+
+		game->Tick(deltaTime);
 		
 		// event loop
 		SDL_Event event;
@@ -252,7 +247,7 @@ void SDLTemplate::initTemplate()
 			switch (event.type)
 			{
 			case SDL_QUIT:
-				exitapp = 1;
+				m_exit = true;
 				break;
 			case SDL_MOUSEMOTION:
 				game->MouseMove(event.motion.x, event.motion.y);
@@ -268,9 +263,23 @@ void SDLTemplate::initTemplate()
 				break;
 			}
 		}
-	}
 
-	
+
+		//Goodnight
+		if (timedifference < m_desiredDeltaLoop){
+			SDL_Delay(m_desiredDeltaLoop - timedifference);
+		} 
+		else{
+			//SDL_Delay(1);
+		}
+	}
 	delete game;
+	surface->clearBuffer = false;
+	delete surface;
+	
 	SDL_Quit();
+}
+
+void SDLTemplate::exit() {
+	m_exit = true;
 }

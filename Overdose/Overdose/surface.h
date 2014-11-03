@@ -99,9 +99,11 @@
 		void Box(int x1, int y1, int x2, int y2, Pixel color);
 		void Bar(int x1, int y1, int x2, int y2, Pixel color);
 		void Resize(int a_Width, int a_Height, Surface* a_Orig);
+
+		bool clearBuffer = true;
 	private:
 		// Attributes
-		Pixel* m_Buffer;
+		Pixel* m_Buffer = nullptr;
 		int m_Width, m_Height, m_Pitch;
 		// Static attributes for the buildin font
 		char s_Font[51][5][5];

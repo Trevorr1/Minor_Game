@@ -16,6 +16,22 @@ GameEntity::~GameEntity() {
 		componentList->pop_back();
 	}
 	delete componentList;
+
+	componentListToRemove->clear();
+	delete componentListToRemove; //bevat alleen primitives
+
+	while (!componentListTemporary->empty()) {
+		delete componentListTemporary->back();
+		componentListTemporary->pop_back();
+	}
+	delete componentListTemporary;
+
+	while (!componentListToAdd->empty()) {
+		delete componentListToAdd->back();
+		componentListToAdd->pop_back();
+	}
+	delete componentListToAdd;
+
 }
 
 
@@ -219,6 +235,16 @@ void GameEntity::setPosX(float px) {
 void GameEntity::setPosY(float py) {
 	posY = py;
 }
+
+void GameEntity::setStartingPosition(float x, float y){
+	posX = startPosX = x;
+	posY = startPosY = y;
+}
+void GameEntity::respawn(){
+	posX = startPosX;
+	posY = startPosY;
+}
+
 void GameEntity::setMovementSpeed(float movementspeed){
 	this->m_movementSpeed = movementspeed;
 }

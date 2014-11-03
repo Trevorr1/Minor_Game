@@ -8,8 +8,9 @@
 	class SDLTemplate
 	{
 	private:
-		int m_desiredFPS = 60;
-		long m_desiredDeltaLoop = (1000 * 1000 * 1000) / m_desiredFPS;
+		int m_desiredFPS = 30;
+		long m_desiredDeltaLoop = 1000  / m_desiredFPS;
+		bool m_exit = false;
 	public:
 		SDLTemplate();
 		~SDLTemplate();
@@ -20,4 +21,6 @@
 		void swap();
 
 		void initTemplate();
+
+		void exit();
 	};

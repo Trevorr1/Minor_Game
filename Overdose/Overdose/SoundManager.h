@@ -17,7 +17,8 @@ namespace overdose {
 		Click,
 		Death,
 		GameOverSound,
-		PartyHorn
+		PartyHorn,
+		Ouch
 	};
 
 	class SoundManager
@@ -49,7 +50,7 @@ namespace overdose {
 		Mix_Chunk *gDeath = NULL;
 		Mix_Chunk *gGameOver = NULL;
 		Mix_Chunk *gPartyHorn = NULL;
-		
+		Mix_Chunk *gOuch = NULL;
 
 		 
 	};

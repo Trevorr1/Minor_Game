@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "Level2.h"
+#include "Level3.h"
 #include "PlayerInputComponent.h"
 #include "DrawComponent.h"
 #include "MoveComponent.h"
@@ -8,21 +8,21 @@
 
 using namespace overdose;
 
-Level2::Level2()
+Level3::Level3()
 {
 }
 
-Level2::Level2(GameEntity* player)
+Level3::Level3(GameEntity* player)
 {
 	m_Player = player;
 }
 
-Level2::~Level2()
+Level3::~Level3()
 {
 	delete m_Background;
 }
 
-void Level2::Init()
+void Level3::Init()
 {
 	m_Background = new Surface("assets/backgrounds/background.png");
 
@@ -32,8 +32,7 @@ void Level2::Init()
 	}
 
 	this->addEntities(m_Player);
-	m_Player->setStartingPosition(100, 0);
-
+	m_Player->setStartingPosition(100, 410 - 53 - 100);
 
 	int grassWall = 22;
 	for (int i = 0; i < grassWall; i++){
@@ -41,13 +40,13 @@ void Level2::Init()
 		continue;
 		}*/
 		GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
-		grass1->setStartingPosition(50 + 32 * i, 100 + 16 * i);
+		grass1->setStartingPosition(50 + 32 * i, 452 - 16 * i);
 		this->addEntities(grass1);
 	}
 
-	GameEntity *flaggot = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Flag);
-	flaggot->setStartingPosition(700, 410 - 112);
-	this->addEntities(flaggot);
 
+	GameEntity *flaggot = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Flag);
+	flaggot->setStartingPosition(695, 20);
+	this->addEntities(flaggot);
 
 }

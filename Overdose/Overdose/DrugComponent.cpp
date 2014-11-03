@@ -15,7 +15,7 @@ DrugComponent::DrugComponent()
 DrugComponent::~DrugComponent()
 {
 	std::cout << "speed ervoor: " << entity->getMovementSpeed() << std::endl;
-	entity->setMovementSpeed(previous_speedX);
+	entity->setSpeedX(previous_speedX);
 	std::cout << "speed erna: " << entity->getMovementSpeed() << std::endl;
 }
 
@@ -42,7 +42,7 @@ void DrugComponent::tick(float dt, GameEntity *entity) {
 	// drug timer checker
 	if (timer_end < drug_effect_ms){
 		float speed_drug = getDrugSpeed_X();
-		entity->setMovementSpeed(previous_speedX * speed_drug);
+		entity->setSpeedX(previous_speedX * speed_drug);
 		//std::cout << "Time: " << timer_end << " ms" << std::endl;
 	}
 	else{

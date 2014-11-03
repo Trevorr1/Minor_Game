@@ -12,10 +12,13 @@ DrawComponent::DrawComponent(std::map<eAnimationState, Animation*>* animations){
 DrawComponent::~DrawComponent()
 {
 	for (auto &kv : *m_Animations) {
+		
 		delete kv.second;
+		kv.second = NULL;
 	}
 	delete m_Animations;
-	delete m_SpriteSheet;
+	m_Animations = NULL;
+	
 }
 
 void DrawComponent::init(GameEntity *entity) {
@@ -33,14 +36,22 @@ void DrawComponent::tick(float dt, GameEntity *entity)
 	m_SpriteSheet->Draw((int)entity->getPosX(), (int)entity->getPosY(), DrawManager::getInstance().getSurface());
 
 	if (m_FPS > 0){
-		m_currentDTcount += dt;
+		m_currentDTcount += dt * 1000;
 		while (m_currentDTcount > m_timePerFrame){
 			NextSprite();
 			m_currentDTcount -= m_timePerFrame;
 		}
 	}
 
-	if (entity->getSpeedX() == 0){
+	if (entity->isJumping()){
+		if (entity->getFacing() == Left){
+ 			setAnimation(JumpLeft);
+		}
+		else{
+			setAnimation(JumpRight);
+		}
+	}
+	else if (entity->getSpeedX() == 0){
 		if (entity->getFacing() == Left){
 			setAnimation(IdleLeft);
 		}
@@ -93,6 +104,12 @@ void DrawComponent::setAnimation(eAnimationState state){
 				break;
 			case IdleRight:
 				setCurrentAnimation(m_Animations->find(IdleRight)->second);
+				break;
+			case JumpLeft:
+				setCurrentAnimation(m_Animations->find(JumpLeft)->second);
+				break;
+			case JumpRight:
+				setCurrentAnimation(m_Animations->find(JumpRight)->second);
 				break;
 		/*	case Attack:
 				setCurrentAnimation(m_Animations->find(Attack)->second);

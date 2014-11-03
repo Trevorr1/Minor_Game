@@ -9,44 +9,38 @@ void FPSDrawComponent::receive(Component *subject, ComponentMessage message, Gam
 /* DT: last frametime in milliseconds */
 void FPSDrawComponent::tick(float dt, GameEntity *entity) {
 	
-	calculateTicksOnScreen();
-
-
+	if (InputManager::getInstance().isKeyPressed(SDL_SCANCODE_GRAVE)) { // tilde 
+		if (drawTimer <= 0){
+			draw = (draw) ? false : true;
+			drawTimer = 30;
+		}
+	}
 	
-	if (ticksOnScreen > 0) {
+	if (draw) {
 		Surface *surface = DrawManager::getInstance().getSurface();
 
 		m_ticks++;
 		m_dt = m_dt + dt;
-
-		int fps = 0;
-
-		fps = m_ticks / (m_dt / 1000);
-
-		if (m_dt / 1000 > 1) {
-			std::cout << "FPS " << fps << std::endl;
-			m_ticks = 0;
-			m_dt = 0;
-		}
 		
-
+		if (m_dt > 1) {
+			m_fps = m_ticks;
+			std::cout << "FPS " << m_fps << std::endl;
+			m_ticks = 0;
+			m_dt = m_dt - 1;
+		}
 
 		// En dit casten kan waarschijnlijk beter
-		std::string str = std::to_string(fps);
+		std::string str = std::to_string(m_fps);
 		const char *t = str.c_str();
 		char *fps_chars = const_cast<char*>(t);
 
 		surface->Print(fps_chars, entity->getPosX(), entity->getPosY(), *new Pixel(0xff0000));
-		--ticksOnScreen;
 	}
 
-}
-
-void FPSDrawComponent::calculateTicksOnScreen() {
-
-	if (InputManager::getInstance().isKeyPressed(SDL_SCANCODE_GRAVE)) { // tilde 
-		ticksOnScreen = 180;
+	if (drawTimer > 0){
+		drawTimer--;
 	}
+
 }
 
 std::string FPSDrawComponent::getComponentID(){

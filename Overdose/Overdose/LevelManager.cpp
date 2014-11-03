@@ -3,7 +3,7 @@
 
 using namespace overdose;
 
-LevelManager* LevelManager::_instance = nullptr;
+
 
 LevelManager::LevelManager(void)
 {
@@ -22,6 +22,7 @@ ILevel* LevelManager::getCurrentLevel(){
 
 ILevel* LevelManager::createLevel(levels l)
 {
+	GameEntity* player = nullptr;
 	previousLevel = currentLevel;
 
 	switch (l){
@@ -29,7 +30,31 @@ ILevel* LevelManager::createLevel(levels l)
 		currentLevel = new Level1();
 		break;
 	case level2:
-		currentLevel = new Level2();
+		currentLevel = new Level2(previousLevel->takePlayerEntity());
+		break;
+	case level3:
+		currentLevel = new Level3(previousLevel->takePlayerEntity());
+		break;
+	case level4:
+		currentLevel = new Level4(previousLevel->takePlayerEntity());
+		break;
+	case level5:
+		currentLevel = new Level5(previousLevel->takePlayerEntity());
+		break;
+	case level6:
+		currentLevel = new Level6(previousLevel->takePlayerEntity());
+		break;
+	case level7:
+		currentLevel = new Level7(previousLevel->takePlayerEntity());
+		break;
+	case level8:
+		currentLevel = new Level8(previousLevel->takePlayerEntity());
+		break;
+	case level9:
+		currentLevel = new Level9(previousLevel->takePlayerEntity());
+		break;
+	case level10:
+		currentLevel = new Level10(previousLevel->takePlayerEntity());
 		break;
 	case LevelMainMenu:
 		currentLevel = new MainMenu();
@@ -60,6 +85,9 @@ void LevelManager::Tick(float dt){
 	else if (currentLevel->isGameWon()){
 		nextLevel();
 	}
+	else if (currentLevel->isReloadLevel()){
+		reloadLevel();
+	}
 	
 	if (previousLevel != nullptr) {
 		delete previousLevel;
@@ -87,6 +115,30 @@ void LevelManager::nextLevel(){
 		createLevel(level2);
 		break;
 	case level2:
+		createLevel(level3);
+		break;
+	case level3:
+		createLevel(level4);
+		break;
+	case level4:
+		createLevel(level5);
+		break;
+	case level5:
+		createLevel(level6);
+		break;
+	case level6:
+		createLevel(level7);
+		break;
+	case level7:
+		createLevel(level8);
+		break;
+	case level8:
+		createLevel(level9);
+		break;
+	case level9:
+		createLevel(level10);
+		break;
+	case level10:
 		createLevel(LevelGameWon);
 		break;
 	case LevelGameOver:
@@ -96,5 +148,8 @@ void LevelManager::nextLevel(){
 		createLevel(LevelMainMenu);
 		break;
 	}
-	
+}
+
+void LevelManager::reloadLevel(){
+	createLevel(currentLevelEnum);
 }

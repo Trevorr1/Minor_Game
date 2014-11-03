@@ -11,7 +11,7 @@ InputManager::InputManager()
 InputManager::~InputManager()
 {
 	//delete m_keystates;
-
+	delete m_mouseBuffer;
 }
 
 void InputManager::setKeyStates(const Uint8 *keyStates) {
