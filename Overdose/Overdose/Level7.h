@@ -6,6 +6,7 @@ namespace overdose {
 	{
 	public:
 		Level7();
+		Level7(GameEntity* player);
 		~Level7();
 		void Init();
 	};
