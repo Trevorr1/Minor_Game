@@ -6,8 +6,12 @@ namespace overdose{
 
 	class EnemyMoveComponent : public Component
 	{
+	private:
+		int m_minX;
+		int m_maxX;
+
 	public:
-		EnemyMoveComponent();
+		EnemyMoveComponent(int minX, int maxX);
 		~EnemyMoveComponent();
 		void receive(Component *subject, ComponentMessage message, GameEntity *object);
 		void tick(float dt, GameEntity *entity);
