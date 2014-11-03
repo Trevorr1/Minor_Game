@@ -2,7 +2,6 @@
 #include "stdafx.h"
 #include "Component.h"
 #include "LevelManager.h"
-#include "SoundManager.h"
 using std::vector;
 namespace overdose {
 	class HealthComponent : public Component
