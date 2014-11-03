@@ -36,19 +36,21 @@ SoundManager::~SoundManager()
 	Mix_FreeChunk(gDeath);
 	Mix_FreeChunk(gGameOver);
 	Mix_FreeChunk(gPartyHorn);
-
+	Mix_FreeChunk(gOuch);
 	gClick = NULL;
 	gDeath = NULL;
 	gGameOver = NULL;
 	gPartyHorn = NULL;
-
+	gOuch = NULL;
 		//Free the music
 	Mix_FreeMusic(gMusicMainMenu);
 	Mix_FreeMusic(gMusicStreet);
 	Mix_FreeMusic(gPeople);
+
 	gMusicMainMenu = NULL;
 	gMusicStreet = NULL;
 	gPeople = NULL;
+	
 
 	//Quit SDL subsystems
 	Mix_Quit();
@@ -121,6 +123,13 @@ bool SoundManager::loadMedia()
 	if (gPartyHorn == NULL)
 	{
 		printf("Failed to load party-horn sound effect! SDL_mixer Error: %s\n", Mix_GetError());
+		success = false;
+	}
+
+	gOuch = Mix_LoadWAV("assets/sfx/ouch.wav");
+	if (gOuch == NULL)
+	{
+		printf("Failed to load ouch sound effect! SDL_mixer Error: %s\n", Mix_GetError());
 		success = false;
 	}
 
@@ -197,6 +206,9 @@ void SoundManager::PlaySound(eSound sound){
 			break;
 		case PartyHorn:
 			Mix_PlayChannel(-1, gPartyHorn, 0);
+			break;
+		case Ouch:
+			Mix_PlayChannel(-1, gOuch, 0);
 			break;
 	}
 }

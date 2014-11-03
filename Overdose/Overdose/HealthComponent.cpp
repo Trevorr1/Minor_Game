@@ -65,7 +65,9 @@ void HealthComponent::receive(Component *subject, ComponentMessage message, Game
 
 void HealthComponent::tick(float dt, GameEntity *entity) {
 	if (m_scheduleHealthDecrease) {
-		
+		if (entity->getEnum() == Player) {
+			SoundManager::getInstance().PlaySound(Ouch);
+		}
 		m_health--;
 		std::cout << "Entity " << entity->getEnum() << " health has been decreased" << std::endl;
 		m_scheduleHealthDecrease = false;
@@ -73,6 +75,9 @@ void HealthComponent::tick(float dt, GameEntity *entity) {
 	}
 	if (m_health <= 0) {
 		entity->scheduleForRemoval();
+		if (entity->getEnum() != Player) {
+			SoundManager::getInstance().PlaySound(Click);
+		}
 	}
 
 	if (m_invincibleTime > 0) {
