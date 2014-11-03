@@ -34,19 +34,51 @@ void Level5::Init()
 	this->addEntities(m_Player);
 	m_Player->setStartingPosition(100, 410 - 53 - 100);
 
-	GameEntity *entityDrugSpeed = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Drug_Speed);
-	entityDrugSpeed->setStartingPosition(200, 410 - 30);
-	entityDrugSpeed->setSpeedX(0);
-	entityDrugSpeed->setSpeedY(0);
-	this->addEntities(entityDrugSpeed);
+	GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
+	entityCop->setStartingPosition(500, 410 - 54 -96);
+	this->addEntities(entityCop);
 
-	int grassWall = 22;
+	GameEntity* entityCop2 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
+	entityCop2->setStartingPosition(400, 410 - 54 - 96);
+	this->addEntities(entityCop2);
+
+	int grassWall = 4;
 	for (int i = 0; i < grassWall; i++){
 		GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
 		grass1->setStartingPosition(50 + 32 * i, 410);
 		this->addEntities(grass1);
+
+		if (i == 3){
+			GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
+			grass1->setStartingPosition(50 + 32 * i, 410-32);
+			this->addEntities(grass1);
+		}
+
 	}
 
+	grassWall = 18;
+	for (int i = 0; i < grassWall; i++){
+		if (i > 3){
+			GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
+			grass1->setStartingPosition(50 + 32 * i, 410 - 32 *3);
+			this->addEntities(grass1);
+		}
+
+		
+	}
+	grassWall = 22;
+	for (int i = 18; i < grassWall; i++){
+		GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
+		grass1->setStartingPosition(50 + 32 * i, 410);
+		this->addEntities(grass1);
+
+		if (i == 18){
+			GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
+			grass1->setStartingPosition(50 + 32 * i, 410 - 32);
+			this->addEntities(grass1);
+		}
+
+	}
 
 	GameEntity *flaggot = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Flag);
 	flaggot->setStartingPosition(700, 410 - 112);
