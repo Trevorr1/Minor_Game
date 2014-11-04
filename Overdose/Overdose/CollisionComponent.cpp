@@ -340,10 +340,6 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 
 			if (collides)
 			{
-				if (dir == 0 && other->getEnum() != Player && other->getEnum() != Flag)
-				{
-					int foo = 0;
-				}
 				switch (dir){
 				case 0:
 					message = bump? CollissionComponent_COLLISION_TOP : CollissionComponent_REACTION_TOP;
@@ -358,7 +354,6 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 					message = bump ? CollissionComponent_COLLISION_RIGHT : CollissionComponent_REACTION_RIGHT;
 					break;
 				}
-
 				entity->broadcast(this, message, other);
 			}
 		}

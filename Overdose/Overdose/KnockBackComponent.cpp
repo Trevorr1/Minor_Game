@@ -57,7 +57,7 @@ void KnockBackComponent::tick(float dt, GameEntity *entity)
 
 	if (knockBackToTop)
 	{
-		entity->setPosY(entity->getPosY() - knockbackValue);
+		entity->setSpeedY(entity->getSpeedY() - 400); // changed this so it would work, hate me later. - Trev
 		knockBackToTop = false;
 	}
 

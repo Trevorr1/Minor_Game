@@ -82,7 +82,6 @@ void HealthComponent::tick(float dt, GameEntity *entity) {
 
 	if (m_invincibleTime > 0) {
 		m_invincibleTime -= dt;
-
 	}
 
 
