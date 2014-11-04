@@ -16,6 +16,10 @@ DrugCollisionReactionComponent::DrugCollisionReactionComponent()
 
 DrugCollisionReactionComponent::~DrugCollisionReactionComponent()
 {
+	//fix for memory leak?
+	if (drugComponent == nullptr){
+		delete drugComponent;
+	}
 }
 
 void DrugCollisionReactionComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
