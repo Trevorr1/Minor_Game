@@ -17,7 +17,8 @@ namespace overdose {
 		Click,
 		Death,
 		GameOverSound,
-		PartyHorn
+		PartyHorn,
+		Ouch
 	};
 
 	class SoundManager
@@ -42,16 +43,16 @@ namespace overdose {
 		Mix_Music *gMusicMainMenu = NULL;
 		Mix_Music *gMusicStreet = NULL;
 		Mix_Music *gPeople = NULL;
-		
+
 
 		//The sound effects that will be used
 		Mix_Chunk *gClick = NULL;
 		Mix_Chunk *gDeath = NULL;
 		Mix_Chunk *gGameOver = NULL;
 		Mix_Chunk *gPartyHorn = NULL;
-		
+		Mix_Chunk *gOuch = NULL;
 
-		 
+
 	};
 
 }
