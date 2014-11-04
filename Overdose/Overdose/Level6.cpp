@@ -56,7 +56,7 @@ void Level6::Init()
 	grassWall = 24;
 	for (int i = 11; i < grassWall; i++){
 		GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
-		grass1->setStartingPosition(50 + 32 * i, 410 - 210);
+		grass1->setStartingPosition(50 + 32 * i, 410 - 190);
 		this->addEntities(grass1);
 	}
 

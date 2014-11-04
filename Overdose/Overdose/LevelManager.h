@@ -39,13 +39,14 @@ class LevelManager
 		ILevel* getCurrentLevel();
 		void LevelManager::Tick(float dt);
 		void reloadLevel();
+		void nextLevel();
 	private:
 		ILevel* currentLevel = nullptr;
 		ILevel* previousLevel = nullptr;
 		levels currentLevelEnum;
 		LevelManager(void);
 		static LevelManager* _instance;
-		void nextLevel();
+		
 	};
 
 }

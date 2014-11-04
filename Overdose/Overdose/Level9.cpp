@@ -35,18 +35,18 @@ void Level9::Init()
 	m_Player->setStartingPosition(50, 114);
 
 
-	int grassWall = 22;
+	int grassWall = 26;
 	for (int i = 0; i < grassWall; i++){
 		if (i % 2 == 0) {
 			GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
-			grass1->setStartingPosition(50 + 32 * i, 452 - 16 * i);
+			grass1->setStartingPosition(50 + 26 * i, 452 - 12 * i);
 			this->addEntities(grass1);
 		}
 	}
 
 
 	GameEntity *flaggot = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Flag);
-	flaggot->setStartingPosition(700, 30);
+	flaggot->setStartingPosition(700, 45);
 	this->addEntities(flaggot);
 
 }
