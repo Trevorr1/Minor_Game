@@ -3,6 +3,7 @@
 #include "PlayerInputComponent.h"
 #include "DrawComponent.h"
 #include "MoveComponent.h"
+#include "EnemyMoveComponent.h"
 #include "GameEntityFactory.h"
 #include "SoundManager.h"
 
@@ -35,11 +36,13 @@ void Level5::Init()
 	m_Player->setStartingPosition(100, 410 - 53 - 100);
 
 	GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
-	entityCop->setStartingPosition(500, 410 - 54 -96);
+	entityCop->setStartingPosition(500, 410 - 54 - 96);
+	entityCop->addComponent(new EnemyMoveComponent(360, 630));
 	this->addEntities(entityCop);
 
 	GameEntity* entityCop2 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
 	entityCop2->setStartingPosition(400, 410 - 54 - 96);
+	entityCop->addComponent(new EnemyMoveComponent(360, 630));
 	this->addEntities(entityCop2);
 
 	int grassWall = 4;

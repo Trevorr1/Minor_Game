@@ -50,6 +50,7 @@ void Level6::Init()
 
 	//GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
 	//entityCop->setStartingPosition(750, 410 - 210 - 50);
+	//entityCop->addComponent(new EnemyMoveComponent(360, 630));
 	//this->addEntities(entityCop);
 
 	grassWall = 24;

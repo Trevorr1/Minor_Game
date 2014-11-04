@@ -3,6 +3,7 @@
 #include "PlayerInputComponent.h"
 #include "DrawComponent.h"
 #include "MoveComponent.h"
+#include "EnemyMoveComponent.h"
 #include "GameEntityFactory.h"
 #include "SoundManager.h"
 
@@ -36,6 +37,7 @@ void Level1::Init()
 
 	GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
 	entityCop->setStartingPosition(500, 410 - 54);
+	entityCop->addComponent(new EnemyMoveComponent(360, 630));
 	this->addEntities(entityCop);
 
 	GameEntity *entityDrugSpeed = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Drug_Speed);

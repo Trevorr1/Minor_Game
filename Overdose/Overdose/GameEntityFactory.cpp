@@ -42,7 +42,6 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	{
 		newObject->setSpeedX(110.0f);
 		//	newObject->addComponent(*new DummyComponent());
-		newObject->addComponent(new EnemyMoveComponent(360, 630));
 
 		std::vector<ComponentMessage>* healthDecreaseList = new std::vector < ComponentMessage > ; // delete called in HealthComponent
 		healthDecreaseList->push_back(ComponentMessage::CollissionComponent_REACTION_TOP);
