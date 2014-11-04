@@ -2,7 +2,7 @@
 using namespace overdose;
 
 HealthComponent::HealthComponent(int health) {
-	m_healthDecreaseReactionList = new vector < ComponentMessage > ;
+	m_healthDecreaseReactionList = new vector < ComponentMessage >;
 
 	m_healthDecreaseReactionList->push_back(ComponentMessage::CollissionComponent_REACTION_TOP);
 	m_healthDecreaseReactionList->push_back(ComponentMessage::CollissionComponent_REACTION_LEFT);
@@ -10,7 +10,7 @@ HealthComponent::HealthComponent(int health) {
 	m_healthDecreaseReactionList->push_back(ComponentMessage::MoveComponent_OUTOFAREA);
 	m_health = health;
 
-	m_canHurt = new vector < eGameEntity > ;
+	m_canHurt = new vector < eGameEntity >;
 	m_canHurt->push_back(Policeman);
 }
 
@@ -65,7 +65,9 @@ void HealthComponent::receive(Component *subject, ComponentMessage message, Game
 
 void HealthComponent::tick(float dt, GameEntity *entity) {
 	if (m_scheduleHealthDecrease) {
-		
+		if (entity->getEnum() == Player) {
+			SoundManager::getInstance().PlaySound(Ouch);
+		}
 		m_health--;
 		std::cout << "Entity " << entity->getEnum() << " health has been decreased" << std::endl;
 		m_scheduleHealthDecrease = false;
@@ -73,6 +75,9 @@ void HealthComponent::tick(float dt, GameEntity *entity) {
 	}
 	if (m_health <= 0) {
 		entity->scheduleForRemoval();
+		if (entity->getEnum() != Player) {
+			SoundManager::getInstance().PlaySound(Click);
+		}
 	}
 
 	if (m_invincibleTime > 0) {

@@ -15,6 +15,12 @@ XTCDrugComponent::~XTCDrugComponent()
 {
 	printf("deleted XTCDrugComponent \n");
 	setUnvulnerability();
+	//Interface DrugComponent set the speed back.
+}
+
+void XTCDrugComponent::init(GameEntity* entity){
+	XTC_gameEntity = entity;
+	DrugComponent::init(entity);
 }
 
 void XTCDrugComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
@@ -25,12 +31,12 @@ void XTCDrugComponent::tick(float dt, GameEntity *entity) {
 	if (timer_start == NULL){
 		timer_start = getTimer_Start();
 
-		XTC_gameEntity = entity;
 		setVulnerability();
 	}
 
 	if (previous_speedX == -999){
-		previous_speedX = entity->getSpeedX();
+		//previous_speedX = entity->getSpeedX();
+		previous_speedX = entity->getMovementSpeed();
 	}
 
 	entity->setSpeedX(getDrugSpeed_X());
@@ -40,6 +46,8 @@ void XTCDrugComponent::tick(float dt, GameEntity *entity) {
 
 	// drug timer checker
 	if (timer_end < drug_effect_ms){
+		float speed_drug = getDrugSpeed_X();
+		entity->setSpeedX(previous_speedX * speed_drug);
 		//std::cout << "Time: " << timer_end << " ms" << std::endl;
 	}
 	else{

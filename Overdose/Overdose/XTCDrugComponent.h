@@ -10,6 +10,7 @@ namespace overdose{
 		XTCDrugComponent();
 		virtual ~XTCDrugComponent();
 
+		void init(GameEntity* entity);
 		void receive(Component *subject, ComponentMessage message, GameEntity *object);
 		void tick(float dt, GameEntity *entity);
 		void setDrugEffects();
