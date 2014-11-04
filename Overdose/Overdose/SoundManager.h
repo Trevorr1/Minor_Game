@@ -30,10 +30,15 @@ namespace overdose {
 		void StopMusic();
 		void PlayMusic(eMusic music);
 		void PlaySound(eSound sound);
-
+		void ToggleMute();
+		void ToggleMute(bool mute);
+		
 	private:
 		SoundManager();
 		static SoundManager* _instance;
+
+		//mute boolean
+		bool m_mute = false;
 
 		//Loads media
 		bool init();
@@ -52,6 +57,7 @@ namespace overdose {
 		Mix_Chunk *gPartyHorn = NULL;
 		Mix_Chunk *gOuch = NULL;
 
+		void SetVolume();
 
 	};
 

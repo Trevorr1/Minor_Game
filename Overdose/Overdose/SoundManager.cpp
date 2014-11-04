@@ -213,5 +213,26 @@ void SoundManager::PlaySound(eSound sound){
 	}
 }
 
+void SoundManager::ToggleMute(){
+	m_mute = (m_mute) ? false : true;
+	SetVolume();
+}
 
+void SoundManager::ToggleMute(bool mute){
+	m_mute = mute;
+	SetVolume();
+}
+
+void SoundManager::SetVolume(){
+	if (!m_mute){
+		Mix_Volume(-1, MIX_MAX_VOLUME);//Set all sound volume to max (128 i believe)
+		Mix_ResumeMusic();//Resume music 
+		//std::cout << "Unmuted" << std::endl;
+	}
+	else{
+		Mix_Volume(-1, 0);//Reduce all sound volume to 0 (sounds will be played, but won't be heard)
+		Mix_PauseMusic();//Pause music
+		//std::cout << "Muted" << std::endl;
+	}
+}
 
