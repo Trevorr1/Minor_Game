@@ -32,24 +32,34 @@ void Level10::Init()
 	}
 
 	this->addEntities(m_Player);
-	m_Player->setStartingPosition(100, 410 - 53 - 100);
+	m_Player->setStartingPosition(50, 200);
 
 	GameEntity *entityDrugSpeed = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Drug_Speed);
-	entityDrugSpeed->setStartingPosition(200, 410 - 30);
+	entityDrugSpeed->setStartingPosition(50, 378 - 30);
 	entityDrugSpeed->setSpeedX(0);
 	entityDrugSpeed->setSpeedY(0);
 	this->addEntities(entityDrugSpeed);
 
+
 	int grassWall = 22;
 	for (int i = 0; i < grassWall; i++){
+		if (i % 4 != 0) continue;
+		int posY;
+		if (i % 2 == 0) {
+			posY = 378;
+		}
+
+		else {
+			posY = 420;
+
+		}
 		GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
-		grass1->setStartingPosition(50 + 32 * i, 410);
+		grass1->setStartingPosition(50 + 42 * i, posY);
 		this->addEntities(grass1);
 	}
+		GameEntity *flaggot = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Flag);
+		flaggot->setStartingPosition(885, 277);
+		this->addEntities(flaggot);
 
-
-	GameEntity *flaggot = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Flag);
-	flaggot->setStartingPosition(700, 410 - 112);
-	this->addEntities(flaggot);
 
 }
