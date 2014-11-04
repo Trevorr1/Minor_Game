@@ -1,6 +1,7 @@
 #pragma once
 #include "Component.h"
 #include "InputManager.h"
+#include "LevelManager.h"
 namespace overdose{
 	class PlayerInputComponent :
 		public Component
