@@ -137,7 +137,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(animation);
 		break;
 	case Grass:
-		newObject->addComponent(new CollisionComponent());
+		//newObject->addComponent(new CollisionComponent());
 		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ Default, new Animation("assets/sprites/grass.png", 1) });
 		animation = new DrawComponent(animations);

@@ -35,6 +35,7 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 	if (collidedTop)
 	{
 		entity->setSpeedY(0);
+		entity->setJumpingSpeed(0);
 		while (!clear)
 		{
 			entity->setPosY(posy + 1);
@@ -73,7 +74,7 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 		entity->setSpeedX(0);
 		while (!clear)
 		{
-			entity->setPosX(posx + 2);
+			entity->setPosX(posx + 1);
 
 			posx = entity->getPosX();
 			boxX = (int)posx + (int)entity->getWidth();
@@ -85,10 +86,10 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 	}
 	if (collidedRight)
 	{
-		entity->setSpeedX(0);
+ 		entity->setSpeedX(0);
 		while (!clear)
 		{
-			entity->setPosX(posx - 2);
+			entity->setPosX(posx - 1);
 
 			posx = entity->getPosX();
 			boxX = (int)posx + (int)entity->getWidth();

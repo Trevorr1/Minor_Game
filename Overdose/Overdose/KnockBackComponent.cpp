@@ -38,7 +38,7 @@ void KnockBackComponent::receive(Component *subject, ComponentMessage message, G
 	if (message == CollissionComponent_REACTION_BOTTOM) {
 		knockBackToTop = true;
 		printf("Knocking back to top\n");
-}
+	}
 }
 
 void KnockBackComponent::tick(float dt, GameEntity *entity)
@@ -57,7 +57,7 @@ void KnockBackComponent::tick(float dt, GameEntity *entity)
 
 	if (knockBackToTop)
 	{
-		entity->setPosY(entity->getPosY() + knockbackValue);
+		entity->setPosY(entity->getPosY() - knockbackValue);
 		knockBackToTop = false;
 	}
 
