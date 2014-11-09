@@ -1,9 +1,11 @@
 #pragma once
 #include "stdafx.h"
 #include "SDL_scancode.h"
-
+#include <list>
+#define KEYBOARD_BUFFER_SIZE 2
 typedef uint8_t Uint8;
 using std::stack;
+using std::list;
 namespace overdose {
 	struct MouseClick {
 		int x, y, button;
@@ -17,14 +19,15 @@ namespace overdose {
 
 	protected:
 		// https://wiki.libsdl.org/SDL_Keycode
-		const Uint8 *m_keystates = nullptr;
-
+		Uint8 *m_keystate = nullptr;
+		list<Uint8*> *m_keystateBuffer = new list < Uint8* > ;
 		stack<MouseClick> *m_mouseBuffer = new stack<MouseClick>();
 
 	public:
-		void setKeyStates(const Uint8 *keyStates);
+		void setKeyStates(Uint8 *keyStates);
 		void addKeyPress(unsigned int keyPressed);
 		bool isKeyPressed(int sdl_code);
+		bool isKeyPressedOnce(int sdl_code);
 		void clearKeyBuffer();
 
 		void addMouseClick(MouseClick click);

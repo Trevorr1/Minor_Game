@@ -12,22 +12,49 @@ InputManager::~InputManager()
 {
 	//delete m_keystates;
 	delete m_mouseBuffer;
+	delete m_keystateBuffer;
 }
 
-void InputManager::setKeyStates(const Uint8 *keyStates) {
-	m_keystates = keyStates;
+void InputManager::setKeyStates(Uint8 *keyStates) {
+	m_keystate = keyStates;
+	m_keystateBuffer->push_back(m_keystate);
+
+	if (m_keystateBuffer->size() > KEYBOARD_BUFFER_SIZE) {
+		m_keystateBuffer->pop_front();
+	}
 }
 
 /* Keyboard Input */
 
 
 bool InputManager::isKeyPressed(int sdl_code) {
-
-	if (m_keystates == nullptr) {
+	if (m_keystate == nullptr) {
 		return false;
 	}
-	return m_keystates[sdl_code];
+	return m_keystate[sdl_code];
 //	return true;
+}
+// Niet echt een keyreleased oid, maar lijkt wel te werken. ^^
+bool InputManager::isKeyPressedOnce(int sdl_code) {
+	if (m_keystateBuffer->size() < KEYBOARD_BUFFER_SIZE) {
+		return false;
+	}
+	
+	bool isKeyPressed = true;
+	list<Uint8*>::const_iterator iterator = m_keystateBuffer->begin();
+	
+
+	while (iterator != m_keystateBuffer->end() && isKeyPressed) {
+
+		Uint8 *keystate = *iterator;
+		isKeyPressed = keystate[sdl_code];
+	
+		iterator++;
+	}
+
+	m_keystateBuffer->clear();
+	
+	return isKeyPressed;
 }
 
 void InputManager::clearKeyBuffer() {
