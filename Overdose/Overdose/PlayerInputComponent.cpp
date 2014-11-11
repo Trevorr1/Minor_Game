@@ -46,7 +46,7 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 	}
 
 	// spel is te moeilijk voor Antoine, cheat code zodat hij ook het winscherm kan zien.
-	if (InputManager::getInstance().isKeyPressed(SDL_SCANCODE_F1)) {
+	if (InputManager::getInstance().isKeyPressedOnce(SDL_SCANCODE_F1)) {
 		LevelManager::getInstance().getCurrentLevel()->setGameWon();
 	}
 }

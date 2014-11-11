@@ -9,7 +9,7 @@
 		void SetTarget(Surface* a_Surface) { m_Screen = a_Surface; }
 		void Init();
 		void Tick(float a_DT);
-		void KeyStates(const Uint8 *keyStates);
+		void KeyStates(Uint8 *keyStates);
 		void MouseMove(unsigned int x, unsigned int y);
 		void MouseUp(unsigned int button) {}
 		void MouseDown(unsigned int button);
