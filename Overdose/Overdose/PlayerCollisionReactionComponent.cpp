@@ -26,12 +26,11 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 
 	bool clear = false;
 
-	if (!isAlive){
-		//TODO how to delete?
-		//vector<GameEntity*> *gameEntities = LevelManager::getInstance().getCurrentLevel()->getEntities();
-		//gameEntities->erase(gameEntities->begin() + 1);
-		//delete entity;
+	if (collidedBottom && collidedRight)
+	{
+		int foo = 0;
 	}
+
 	if (collidedTop)
 	{
 		entity->setSpeedY(0);
