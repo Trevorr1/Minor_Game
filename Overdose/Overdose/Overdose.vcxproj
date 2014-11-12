@@ -125,6 +125,7 @@
     <ClInclude Include="QuitOnClickComponent.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="ScheduleForRemovalFlag.h" />
+    <ClInclude Include="Scoreboard.h" />
     <ClInclude Include="SDLTemplate.h" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="SpeedDrugComponent.h" />
@@ -132,6 +133,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="surface.h" />
     <ClInclude Include="template.h" />
+    <ClInclude Include="TextBox.h" />
     <ClInclude Include="TreeNode.h" />
     <ClInclude Include="XTCDrugComponent.h" />
   </ItemGroup>
@@ -183,6 +185,7 @@
     <ClCompile Include="PolicemanCollisionReactionComponent.cpp" />
     <ClCompile Include="QuitOnClickComponent.cpp" />
     <ClCompile Include="ScheduleForRemovalFlag.cpp" />
+    <ClCompile Include="Scoreboard.cpp" />
     <ClCompile Include="SDLTemplate.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="SpeedDrugComponent.cpp" />
@@ -190,6 +193,7 @@
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="surface.cpp" />
     <ClCompile Include="template.cpp" />
+    <ClCompile Include="TextBox.cpp" />
     <ClCompile Include="TreeNode.cpp" />
     <ClCompile Include="XTCDrugComponent.cpp" />
   </ItemGroup>

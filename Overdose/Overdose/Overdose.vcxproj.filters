@@ -252,6 +252,12 @@
     <ClInclude Include="Level9.h">
       <Filter>Header Files\Level</Filter>
     </ClInclude>
+    <ClInclude Include="Scoreboard.h">
+      <Filter>Header Files\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="TextBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -424,6 +430,12 @@
     </ClCompile>
     <ClCompile Include="NegativeMarijuanaComponent.cpp">
       <Filter>Source Files\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Scoreboard.cpp">
+      <Filter>Source Files\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="TextBox.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
