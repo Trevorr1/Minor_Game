@@ -12,7 +12,7 @@ void ParticleComponent::createParticleFor(GameEntity *entity) {
 	particle->addComponent(new MoveComponent);
 	particle->addComponent(new KillSwitchComponent(0.5));
 	std::map<eAnimationState, Animation*>* animations = new std::map<eAnimationState, Animation*>();
-	animations->insert({ Default, new Animation("assets/sprites/drug_speed_30x30.png", 1) });
+	animations->insert({ Default, new Animation("assets/sprites/smileyface.png", 1) });
 	DrawComponent *animation = new DrawComponent(animations);
 	animation->setAnimation(Default);//set starting animation
 	particle->addComponent(animation);
@@ -20,8 +20,8 @@ void ParticleComponent::createParticleFor(GameEntity *entity) {
 	particle->setPosY(entity->getPosY() + rand() % 10); // netter als we het niet op de game entity laten spawnen?
 	particle->setPosX(entity->getPosX() + rand() % 10);
 
-	particle->setSpeedX(rand() % 500); // uiteraard hier iets met angles doen
-	particle->setSpeedY(rand() % 500);
+	particle->setSpeedX(-250 + rand() % 500); // uiteraard hier iets met angles doen
+	particle->setSpeedY(-250 + rand() % 500);
 
 	LevelManager::getInstance().getCurrentLevel()->scheduleEntityForInsertion(particle);
 }
@@ -32,7 +32,6 @@ void ParticleComponent::tick(float dt, GameEntity *entity) {
 
 	// mensen met trage PC's (en dus hoge DT) moeten gecompenseerd worden met extra veel particles :D
 	while (m_totalDt >= m_maxDt) {
-		std::cout << "Imaginary Particle Fired" << std::endl;
 		m_totalDt -= m_maxDt;
 		hasFiredParticle = true;
 		createParticleFor(entity); 

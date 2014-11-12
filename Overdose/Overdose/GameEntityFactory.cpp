@@ -154,6 +154,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
 		newObject->addComponent(animation);
+		newObject->addComponent(new ParticleComponent(0.5));
 		break;
 
 
