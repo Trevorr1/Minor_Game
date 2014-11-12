@@ -14,15 +14,11 @@ void ILevel::addEntities(GameEntity* entities)
 	this->entities->push_back(entities);
 }
 
-//void ILevel::addEnemies(GameEntity* entities)
-//{
-//	this->enemies->push_back(entities);
-//}
-//
-//void ILevel::addCollectibles(GameEntity* entities)
-//{
-//	this->collectibles->push_back(entities);
-//}
+void ILevel::scheduleEntityForInsertion(GameEntity* entity) {
+	insertEntityBuffer->push_back(entity);
+}
+
+
 
 void ILevel::removeEntity(GameEntity* entity) {
 	
@@ -73,6 +69,13 @@ void ILevel::Tick(float dt){
 	
 	DrawBackground();
 
+	// gebufferde entities eerst
+	for (auto &it : *insertEntityBuffer) {
+		entities->push_back(it);
+	}
+
+	insertEntityBuffer->clear();
+
 
 	auto toRemove = std::remove_if(entities->begin(), entities->end(), [](GameEntity* p) {
 		if (p->isScheduledForRemoval() && p->getEnum() != eGameEntity::Player) {
@@ -117,5 +120,13 @@ ILevel::~ILevel() {
 	}
 
 	delete entities;
+
+	while (!insertEntityBuffer->empty()) {
+		delete insertEntityBuffer->back();
+		insertEntityBuffer->pop_back();
+	}
+
+	delete insertEntityBuffer;
+
 
 }

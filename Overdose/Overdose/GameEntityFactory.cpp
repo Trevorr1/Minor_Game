@@ -17,6 +17,7 @@
 #include "HealthComponent.h"
 #include "FlagCollisionReactionComponent.h"
 #include "KnockBackComponent.h"
+#include "ParticleComponent.h"
 #include <stdexcept>
 using namespace overdose;
 
@@ -80,6 +81,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new gravityComponent());
 		newObject->addComponent(new HealthComponent(3));
 		newObject->addComponent(new KnockBackComponent());
+		newObject->addComponent(new ParticleComponent(0.1));
 		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ IdleLeft, new Animation("assets/sprites/Ross/RossIdleLeft.png", 1) });
 		animations->insert({ IdleRight, new Animation("assets/sprites/Ross/RossIdleRight.png", 1) });

@@ -21,6 +21,7 @@ void KnockBackComponent::receive(Component *subject, ComponentMessage message, G
 	case Environment:
 	case Grass:
 	case Flag:
+	case Particle:
 		return;
 	}
 
