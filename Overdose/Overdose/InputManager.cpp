@@ -16,12 +16,14 @@ InputManager::~InputManager()
 }
 
 void InputManager::setKeyStates(Uint8 *keyStates) {
-	m_keystate = keyStates;
-	m_keystateBuffer->push_back(m_keystate);
 
+	m_keystateBuffer->push_back(m_keystate);
+		m_keystate = keyStates;
 	if (m_keystateBuffer->size() > KEYBOARD_BUFFER_SIZE) {
 		m_keystateBuffer->pop_front();
 	}
+
+	m_keystate = keyStates;
 }
 
 /* Keyboard Input */
@@ -42,19 +44,47 @@ bool InputManager::isKeyPressedOnce(int sdl_code) {
 	
 	bool isKeyPressed = true;
 	list<Uint8*>::const_iterator iterator = m_keystateBuffer->begin();
-	
+	int counter = 0;
 
-	while (iterator != m_keystateBuffer->end() && isKeyPressed) {
+	while (iterator != m_keystateBuffer->end() && isKeyPressed && counter < KEYBOARD_BUFFER_SIZE / 2) {
 
 		Uint8 *keystate = *iterator;
 		isKeyPressed = keystate[sdl_code];
 	
 		iterator++;
+		counter++;
 	}
 
-	m_keystateBuffer->clear();
+
+	bool isKeyReleased = false;
+	while (iterator != m_keystateBuffer->end()) {
+
+		Uint8 *keystate = *iterator;
+
+		if (keystate[sdl_code] != true) {
+			isKeyReleased = true;
+		}
+
+		iterator++;
+		
+	}
+
+	//m_keystateBuffer->clear();
+
+	bool testResult = (m_keystate[sdl_code] == false);
+
+	if (isKeyPressed) {
+		std::cout << "Debug:" << std::endl;
+		list<Uint8*>::const_iterator iterator = m_keystateBuffer->begin();
+		while (iterator != m_keystateBuffer->end()) {
+			std::cout << (m_keystate[sdl_code] == true) << std::endl;
+			iterator++;
+		}
+
+		std::cout << "Last press: " << (m_keystate[sdl_code] == true) << std::endl;
+	}
 	
-	return isKeyPressed;
+	return isKeyPressed && isKeyReleased;
 }
 
 void InputManager::clearKeyBuffer() {

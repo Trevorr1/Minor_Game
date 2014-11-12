@@ -2,7 +2,7 @@
 #include "stdafx.h"
 #include "SDL_scancode.h"
 #include <list>
-#define KEYBOARD_BUFFER_SIZE 2
+#define KEYBOARD_BUFFER_SIZE 6
 typedef uint8_t Uint8;
 using std::stack;
 using std::list;
