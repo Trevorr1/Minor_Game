@@ -19,6 +19,7 @@ namespace overdose {
 		virtual GameEntity* takePlayerEntity();
 		void removeEntity(GameEntity* entity);
 		virtual std::vector<GameEntity*> *getEntities();
+		Surface* getSurface(){ return m_Background; };
 
 		virtual void Tick(float a_DT);
 		virtual bool isGameOver();

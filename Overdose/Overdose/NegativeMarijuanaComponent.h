@@ -1,5 +1,6 @@
 #pragma once
 #include "DrugComponent.h"
+#include "DrawManager.h"
 
 
 namespace overdose {
@@ -21,6 +22,11 @@ namespace overdose {
 		float previous_speedX;
 		float drug_speedX;
 		int drug_effect_ms;
+
+		Surface* surfaceOriginal;
+		Surface* surfaceNegative;
+		Pixel* bufferOld;
+		Pixel* bufferNew;
 	};
 }
 

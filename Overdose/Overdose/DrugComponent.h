@@ -2,6 +2,9 @@
 #include "Component.h"
 #include <ctime>
 #include <iostream>
+#include "surface.h"
+#include "LevelManager.h"
+
 
 namespace overdose {
 	class DrugComponent :
@@ -14,6 +17,7 @@ namespace overdose {
 		void init(GameEntity *entity);
 		virtual void receive(Component *subject, ComponentMessage message, GameEntity *object);
 		virtual void tick(float dt, GameEntity *entity);
+		Surface* getSurface(){ return surface; };
 
 		float getPrevious_SpeedX();
 		int getTimer_Start();
@@ -27,6 +31,8 @@ namespace overdose {
 		float previous_speedX;
 		std::clock_t    timer_start;
 		virtual void insertNegativeEffect(GameEntity* entity);
+
+		Surface* surface;
 	};
 }
 
