@@ -243,7 +243,6 @@ void SDLTemplate::initTemplate()
 		{
 	
 			Uint8 *keyStates = const_cast<Uint8*>(SDL_GetKeyboardState(NULL));
-
 		
 
 

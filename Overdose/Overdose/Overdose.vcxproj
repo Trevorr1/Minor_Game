@@ -78,6 +78,7 @@
     <ClInclude Include="Animation.h" />
     <ClInclude Include="BspTree.h" />
     <ClInclude Include="ButtonClickableReactionComponent.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="ClickableComponent.h" />
     <ClInclude Include="CollisionComponent.h" />
     <ClInclude Include="CollisionReactionComponent.h" />
@@ -132,12 +133,14 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="surface.h" />
     <ClInclude Include="template.h" />
+    <ClInclude Include="Tile.h" />
     <ClInclude Include="TreeNode.h" />
     <ClInclude Include="XTCDrugComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="ButtonClickableReactionComponent.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ClickableComponent.cpp" />
     <ClCompile Include="CollisionComponent.cpp" />
     <ClCompile Include="CollisionReactionComponent.cpp" />
@@ -190,6 +193,7 @@
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="surface.cpp" />
     <ClCompile Include="template.cpp" />
+    <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TreeNode.cpp" />
     <ClCompile Include="XTCDrugComponent.cpp" />
   </ItemGroup>
