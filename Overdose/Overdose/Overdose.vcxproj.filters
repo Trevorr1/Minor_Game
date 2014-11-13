@@ -252,13 +252,13 @@
     <ClInclude Include="Level9.h">
       <Filter>Header Files\Level</Filter>
     </ClInclude>
-    <ClInclude Include="NegativeXTCComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ParticleComponent.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
     <ClInclude Include="KillSwitchComponent.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="NegativeXTCComponent.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
   </ItemGroup>
@@ -434,13 +434,13 @@
     <ClCompile Include="NegativeMarijuanaComponent.cpp">
       <Filter>Source Files\Component</Filter>
     </ClCompile>
-    <ClCompile Include="NegativeXTCComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ParticleComponent.cpp">
       <Filter>Source Files\Component</Filter>
     </ClCompile>
     <ClCompile Include="KillSwitchComponent.cpp">
+      <Filter>Source Files\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="NegativeXTCComponent.cpp">
       <Filter>Source Files\Component</Filter>
     </ClCompile>
   </ItemGroup>

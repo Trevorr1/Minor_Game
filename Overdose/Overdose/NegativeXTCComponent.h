@@ -10,6 +10,7 @@ namespace overdose {
 	public:
 		NegativeXTCComponent();
 		virtual ~NegativeXTCComponent();
+		void init(GameEntity *entity);
 
 		void receive(Component *subject, ComponentMessage message, GameEntity *object);
 		void tick(float dt, GameEntity *entity);
@@ -27,6 +28,8 @@ namespace overdose {
 		Surface* surfaceNegative;
 		Pixel* bufferOld;
 		Pixel* bufferNew;
+
+		GameEntity* entity;
 	};
 }
 

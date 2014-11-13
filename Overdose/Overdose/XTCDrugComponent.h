@@ -1,5 +1,6 @@
 #pragma once
 #include "DrugComponent.h"
+#include "NegativeXTCComponent.h"
 
 namespace overdose{
 
