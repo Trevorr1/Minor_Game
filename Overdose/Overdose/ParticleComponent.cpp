@@ -8,15 +8,12 @@ ParticleComponent::ParticleComponent(float maxDt) {
 
 void ParticleComponent::createParticleFor(GameEntity *entity) {
 	/* misschien in factory stoppen? Idk D:*/
-	GameEntity *particle = new GameEntity(Particle);
-	particle->addComponent(new MoveComponent);
-	particle->addComponent(new KillSwitchComponent(0.5));
 	std::map<eAnimationState, Animation*>* animations = new std::map<eAnimationState, Animation*>();
 	animations->insert({ Default, new Animation("assets/sprites/smileyface.png", 1) });
 	DrawComponent *animation = new DrawComponent(animations);
 	animation->setAnimation(Default);//set starting animation
-	particle->addComponent(animation);
 
+	GameEntity *particle = new GameEntity(Particle, new MoveComponent, new KillSwitchComponent(0.5), animation, FinalComponent);
 	particle->setPosY(entity->getPosY() + rand() % 10); // netter als we het niet op de game entity laten spawnen?
 	particle->setPosX(entity->getPosX() + rand() % 10);
 
