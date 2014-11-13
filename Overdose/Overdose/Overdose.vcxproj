@@ -119,6 +119,7 @@
     <ClInclude Include="MoveComponent.h" />
     <ClInclude Include="NegativeMarijuanaComponent.h" />
     <ClInclude Include="NegativeSpeedDrugComponent.h" />
+    <ClInclude Include="NegativeXTCComponent.h" />
     <ClInclude Include="PlayerCollisionReactionComponent.h" />
     <ClInclude Include="PlayerInputComponent.h" />
     <ClInclude Include="PolicemanCollisionReactionComponent.h" />
@@ -178,6 +179,7 @@
     <ClCompile Include="MoveComponent.cpp" />
     <ClCompile Include="NegativeMarijuanaComponent.cpp" />
     <ClCompile Include="NegativeSpeedDrugComponent.cpp" />
+    <ClCompile Include="NegativeXTCComponent.cpp" />
     <ClCompile Include="PlayerCollisionReactionComponent.cpp" />
     <ClCompile Include="PlayerInputComponent.cpp" />
     <ClCompile Include="PolicemanCollisionReactionComponent.cpp" />

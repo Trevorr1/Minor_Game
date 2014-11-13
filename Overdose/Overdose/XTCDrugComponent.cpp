@@ -60,6 +60,11 @@ void XTCDrugComponent::tick(float dt, GameEntity *entity) {
 	}
 }
 
+void XTCDrugComponent::insertNegativeEffect(GameEntity* entity)
+{
+	entity->delayedAddComponent(new XTCDrugComponent());
+}
+
 void XTCDrugComponent::setVulnerability(){
 	for (int i = 0; i < XTC_gameEntity->getComponentList()->size(); i++){
 		if (XTC_gameEntity->getComponentList()->at(i)->getComponentID() == "HealthComponent"){
