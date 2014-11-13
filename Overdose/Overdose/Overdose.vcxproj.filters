@@ -222,9 +222,6 @@
     <ClInclude Include="GameWon.h">
       <Filter>Header Files\Level</Filter>
     </ClInclude>
-    <ClInclude Include="Level2.h">
-      <Filter>Header Files\Level</Filter>
-    </ClInclude>
     <ClInclude Include="QuitOnClickComponent.h">
       <Filter>Header Files\Component\button</Filter>
     </ClInclude>
@@ -239,30 +236,6 @@
     </ClInclude>
     <ClInclude Include="NegativeMarijuanaComponent.h">
       <Filter>Header Files\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="Level10.h">
-      <Filter>Header Files\Level</Filter>
-    </ClInclude>
-    <ClInclude Include="Level3.h">
-      <Filter>Header Files\Level</Filter>
-    </ClInclude>
-    <ClInclude Include="Level4.h">
-      <Filter>Header Files\Level</Filter>
-    </ClInclude>
-    <ClInclude Include="Level5.h">
-      <Filter>Header Files\Level</Filter>
-    </ClInclude>
-    <ClInclude Include="Level6.h">
-      <Filter>Header Files\Level</Filter>
-    </ClInclude>
-    <ClInclude Include="Level7.h">
-      <Filter>Header Files\Level</Filter>
-    </ClInclude>
-    <ClInclude Include="Level8.h">
-      <Filter>Header Files\Level</Filter>
-    </ClInclude>
-    <ClInclude Include="Level9.h">
-      <Filter>Header Files\Level</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Header Files\Camera</Filter>
@@ -401,9 +374,6 @@
     <ClCompile Include="GameWon.cpp">
       <Filter>Source Files\Level</Filter>
     </ClCompile>
-    <ClCompile Include="Level2.cpp">
-      <Filter>Source Files\Level</Filter>
-    </ClCompile>
     <ClCompile Include="ButtonClickableReactionComponent.cpp">
       <Filter>Source Files\Component\button</Filter>
     </ClCompile>
@@ -415,30 +385,6 @@
     </ClCompile>
     <ClCompile Include="ScheduleForRemovalFlag.cpp">
       <Filter>Source Files\Util</Filter>
-    </ClCompile>
-    <ClCompile Include="Level10.cpp">
-      <Filter>Source Files\Level</Filter>
-    </ClCompile>
-    <ClCompile Include="Level3.cpp">
-      <Filter>Source Files\Level</Filter>
-    </ClCompile>
-    <ClCompile Include="Level4.cpp">
-      <Filter>Source Files\Level</Filter>
-    </ClCompile>
-    <ClCompile Include="Level5.cpp">
-      <Filter>Source Files\Level</Filter>
-    </ClCompile>
-    <ClCompile Include="Level6.cpp">
-      <Filter>Source Files\Level</Filter>
-    </ClCompile>
-    <ClCompile Include="Level7.cpp">
-      <Filter>Source Files\Level</Filter>
-    </ClCompile>
-    <ClCompile Include="Level8.cpp">
-      <Filter>Source Files\Level</Filter>
-    </ClCompile>
-    <ClCompile Include="Level9.cpp">
-      <Filter>Source Files\Level</Filter>
     </ClCompile>
     <ClCompile Include="NegativeMarijuanaComponent.cpp">
       <Filter>Source Files\Component</Filter>

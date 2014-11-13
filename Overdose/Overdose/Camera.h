@@ -1,6 +1,7 @@
 #pragma once
 
 #include "surface.h"
+#include "Tile.h"
 
 namespace overdose
 {
@@ -11,7 +12,10 @@ namespace overdose
 		Camera();
 		virtual ~Camera();
 
-		void Tick(Surface* aTarget);
+		void Tick();
+
+		void setTileMap(int tileMap[], int size);
+		void setTileAssets(Tile* tileAssets);		
 
 		void setEntityFocus(GameEntity* aFocusEntity);
 		GameEntity* getFocusEnity();
@@ -25,8 +29,12 @@ namespace overdose
 	private:
 		GameEntity* m_FocusEntity;
 
-		unsigned int m_CameraPositionX;
-		unsigned int m_CameraPositionY;
+		int *m_TileMap2;
+		int m_TileMap[32*12];
+		Tile* m_TileAssets;
+
+		unsigned int m_WorldCameraPositionX;
+		unsigned int m_WorldCameraPositionY;
 	};
 }
 
