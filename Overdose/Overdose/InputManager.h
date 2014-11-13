@@ -2,7 +2,7 @@
 #include "stdafx.h"
 #include "SDL_scancode.h"
 #include <list>
-#define KEYBOARD_BUFFER_SIZE 6
+#define KEYBOARD_BUFFER_SIZE 4
 typedef uint8_t Uint8;
 using std::stack;
 using std::list;
@@ -24,7 +24,7 @@ namespace overdose {
 		stack<MouseClick> *m_mouseBuffer = new stack<MouseClick>();
 
 	public:
-		void setKeyStates(Uint8 *keyStates);
+		void setKeyStates(Uint8 *keyStates, int size);
 		void addKeyPress(unsigned int keyPressed);
 		bool isKeyPressed(int sdl_code);
 		bool isKeyPressedOnce(int sdl_code);
