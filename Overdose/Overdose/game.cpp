@@ -42,8 +42,8 @@ void Game::Tick(float a_DT)
 	}
 }
 
-void Game::KeyStates(Uint8 *keyStates) {
-	InputManager::getInstance().setKeyStates(keyStates);
+void Game::KeyStates(Uint8 *keyStates, int size) {
+	InputManager::getInstance().setKeyStates(keyStates, size);
 }
 
 
