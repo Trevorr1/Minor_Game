@@ -5,7 +5,7 @@ using namespace overdose;
 NegativeMarijuanaComponent::NegativeMarijuanaComponent()
 {
 	drug_speedX = 1.0f;
-	drug_effect_ms = 1000 * 4;
+	drug_effect_ms = 1000 * 6;
 
 	surfaceOriginal = getSurface();
 	Pixel* buffer = surfaceOriginal->GetBuffer();
@@ -32,12 +32,12 @@ NegativeMarijuanaComponent::NegativeMarijuanaComponent()
 NegativeMarijuanaComponent::~NegativeMarijuanaComponent()
 {
 	printf("deleted NegativeMarijuanaComponent \n");
-	surfaceOriginal->SetBuffer(bufferOld);
+ 	if (getLevel() == LevelManager::getInstance().getCurrentLevel()){
+		surfaceOriginal->SetBuffer(bufferOld);
+		_aligned_free(bufferNew);//Buffer vrij maken
+	}
+
 	bufferOld = NULL;
-	
-	//delete bufferNew; //MEMORYLEAK: Waarom werkt dit niet? error: nBlockUse.
-	//Buffer vrij maken daarna NULL werkt.
-	_aligned_free(bufferNew);
 	bufferNew = NULL;
 }
 

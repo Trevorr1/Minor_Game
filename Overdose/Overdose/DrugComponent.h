@@ -17,6 +17,7 @@ namespace overdose {
 		void init(GameEntity *entity);
 		virtual void receive(Component *subject, ComponentMessage message, GameEntity *object);
 		virtual void tick(float dt, GameEntity *entity);
+		ILevel* getLevel(){ return level; };
 		Surface* getSurface(){ return surface; };
 
 		float getPrevious_SpeedX();
@@ -32,6 +33,7 @@ namespace overdose {
 		std::clock_t    timer_start;
 		virtual void insertNegativeEffect(GameEntity* entity);
 
+		ILevel* level;
 		Surface* surface;
 	};
 }
