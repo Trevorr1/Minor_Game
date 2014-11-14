@@ -16,6 +16,7 @@
 #include "QuitOnClickComponent.h";
 #include "HealthComponent.h"
 #include "FlagCollisionReactionComponent.h"
+#include "TextBoxInputComponent.h"
 #include "KnockBackComponent.h"
 #include <stdexcept>
 using namespace overdose;
@@ -67,6 +68,10 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	}
 	case Drugdealer:
 		//	newObject->addComponent(*new DummyComponent());
+		break;
+	case TextBox:
+		newObject->addComponent(new TextBoxInputComponent());
+		//newObject->addComponent(new DrawComponent());
 		break;
 	case FPSCounter:
 		newObject->addComponent(new FPSDrawComponent());

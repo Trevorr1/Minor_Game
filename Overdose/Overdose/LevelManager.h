@@ -3,6 +3,7 @@
 #include "MainMenu.h"
 #include "GameOver.h"
 #include "GameWon.h"
+#include "HighScore.h"
 #include "Level1.h"
 #include "Level2.h"
 #include "Level3.h"
@@ -27,7 +28,8 @@ enum levels{
 	level9,
 	level10,
 	LevelGameWon,
-	LevelGameOver
+	LevelGameOver,
+	SetHighScore
 };
 
 class LevelManager
