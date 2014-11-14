@@ -56,8 +56,13 @@ void XTCDrugComponent::tick(float dt, GameEntity *entity) {
 		entity->removeComponent(getComponentID());
 		setUnvulnerability();
 
-		//insertNegativeEffect(entity);
+		insertNegativeEffect(entity);
 	}
+}
+
+void XTCDrugComponent::insertNegativeEffect(GameEntity* entity)
+{
+	entity->delayedAddComponent(new NegativeXTCComponent());
 }
 
 void XTCDrugComponent::setVulnerability(){

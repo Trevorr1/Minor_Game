@@ -1,18 +1,19 @@
 #pragma once
 #include "Component.h"
-#include "InputManager.h"
-#include "LevelManager.h"
+using std::string;
 namespace overdose{
-	class PlayerInputComponent :
+	class KillSwitchComponent :
 		public Component
 	{
+	private:
+		float m_maxDt;
+		float m_totalDt = 0.0;
 	public:
+
+		KillSwitchComponent(float maxDt);
 		void receive(Component *subject, ComponentMessage message, GameEntity *object);
 		void tick(float dt, GameEntity *entity);
-		std::string getComponentID();
-
-	private:
-		bool reverseKeys = false;
+		string getComponentID();
 	};
 
 }

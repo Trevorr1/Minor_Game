@@ -210,6 +210,20 @@ void SDLTemplate::initTemplate()
 
 	while (!m_exit)
 	{
+		//glViewport(0, 0, 300, 400);
+
+		//glClearColor(0, 0, 0, 1);
+		//glClear(GL_COLOR_BUFFER_BIT);
+
+		//glMatrixMode(GL_PROJECTION);
+		//glLoadIdentity();
+		//glOrtho(0, 300, 0, 400, -1, 1); // gluOrtho2D is the most useless wrapper ever..., just put a -1, 1 as additional parameters to glOrtho
+
+		//glMatrixMode(GL_MODELVIEW);
+		//glLoadIdentity();
+
+		//glShadeModel(GL_SMOOTH);
+
 		thisTime = GetTickCount();
 		timedifference = (float)(thisTime - lastTime);
 		deltaTime = timedifference / 1000;
@@ -241,14 +255,15 @@ void SDLTemplate::initTemplate()
 		SDL_Event event;
 		while (SDL_PollEvent(&event))
 		{
-	
-			Uint8 *keyStates = const_cast<Uint8*>(SDL_GetKeyboardState(NULL));
+			
+			int size;
+			Uint8 *keyStates = const_cast<Uint8*>(SDL_GetKeyboardState(&size));
 
 		
 
 
 
-			game->KeyStates(keyStates);
+			game->KeyStates(keyStates, size);
 			switch (event.type)
 			{
 			case SDL_QUIT:

@@ -12,7 +12,6 @@ MarijuanaComponent::MarijuanaComponent()
 MarijuanaComponent::~MarijuanaComponent()
 {
 	printf("deleted MarijuanaComponent \n");
-	
 }
 
 void MarijuanaComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
@@ -21,6 +20,12 @@ void MarijuanaComponent::receive(Component *subject, ComponentMessage message, G
 
 void MarijuanaComponent::tick(float dt, GameEntity *entity) {
 	DrugComponent::tick(dt, entity);
+}
+
+void MarijuanaComponent::insertNegativeEffect(GameEntity* entity)
+{
+	//entityForNegativeEffect->push_back(entity);
+	entity->delayedAddComponent(new NegativeMarijuanaComponent());
 }
 
 float MarijuanaComponent::getDrugSpeed_X(){

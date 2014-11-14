@@ -18,6 +18,7 @@
 #include "FlagCollisionReactionComponent.h"
 #include "TextBoxInputComponent.h"
 #include "KnockBackComponent.h"
+#include "ParticleComponent.h"
 #include <stdexcept>
 using namespace overdose;
 
@@ -157,6 +158,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
 		newObject->addComponent(animation);
+		newObject->addComponent(new ParticleComponent(0.1));
 		break;
 
 

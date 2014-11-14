@@ -15,10 +15,13 @@ namespace overdose {
 		virtual void Init() = 0;
 		virtual void addEntities(GameEntity* entity);
 
+		void scheduleEntityForInsertion(GameEntity *entity);
+
 		virtual GameEntity* getPlayerEntity();
 		virtual GameEntity* takePlayerEntity();
 		void removeEntity(GameEntity* entity);
 		virtual std::vector<GameEntity*> *getEntities();
+		Surface* getSurface(){ return m_Background; };
 
 		virtual void Tick(float a_DT);
 		virtual bool isGameOver();
@@ -30,7 +33,7 @@ namespace overdose {
 		virtual ~ILevel();
 	protected:
 		std::vector<GameEntity*> *entities = new std::vector < GameEntity* > ;
-
+		std::vector<GameEntity*> *insertEntityBuffer = new std::vector < GameEntity* > ;
 		virtual void DrawBackground();
 		Surface* m_Background;
 		GameEntity* m_Player = nullptr;

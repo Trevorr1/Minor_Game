@@ -1,5 +1,6 @@
 #pragma once
 #include "DrugComponent.h"
+#include "NegativeXTCComponent.h"
 
 namespace overdose{
 
@@ -13,6 +14,7 @@ namespace overdose{
 		void init(GameEntity* entity);
 		void receive(Component *subject, ComponentMessage message, GameEntity *object);
 		void tick(float dt, GameEntity *entity);
+		void insertNegativeEffect(GameEntity* entitty);
 		void setDrugEffects();
 		float getDrugSpeed_X();
 		int getDrugEffectMs();

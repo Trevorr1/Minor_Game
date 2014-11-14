@@ -20,7 +20,8 @@ namespace overdose {
 
 		AnimationRight,
 		AnimationLeft,
-		AnimationIdle
+		AnimationIdle,
 
+		NegativeXTCComponent_REVERSE_KEYS
 	};
 }
