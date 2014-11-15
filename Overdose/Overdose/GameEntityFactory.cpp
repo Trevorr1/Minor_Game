@@ -153,7 +153,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
 		newObject->addComponent(animation);
-		newObject->addComponent(new ParticleComponent(0.1));
+		newObject->addComponent(new ParticleComponent(SmileyFace, 0.1, 0.5));
 		break;
 
 

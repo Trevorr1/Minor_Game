@@ -5,6 +5,9 @@
 #include "ComponentMessage.h" 
 #include "ScheduleForRemovalFlag.h"
 #include <exception>
+#include <stdarg.h>
+#define FinalComponent nullptr
+
 
 namespace overdose {
 	class Component;
@@ -93,6 +96,7 @@ namespace overdose {
 
 		GameEntity();
 		GameEntity(eGameEntity entityEnum);
+		GameEntity(eGameEntity entityEnum, Component *component, ...);
 
 		~GameEntity();
 	};
