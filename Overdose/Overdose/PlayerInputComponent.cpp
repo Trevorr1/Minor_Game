@@ -5,6 +5,10 @@ using namespace overdose;
 
 void  PlayerInputComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
 
+	//If NegativeXTCComponent is initialized and destructed, reverse the keys.
+	if (message == NegativeXTCComponent_REVERSE_KEYS){
+		reverseKeys = !reverseKeys;
+}
 }
 
 
@@ -14,10 +18,25 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 
 	float speedX = entity->getSpeedX();
 
-	if (InputManager::getInstance().isKeyPressed(SDL_SCANCODE_RIGHT) && InputManager::getInstance().isKeyPressed(SDL_SCANCODE_LEFT)) {
+	int left = SDL_SCANCODE_LEFT;
+	int right = SDL_SCANCODE_RIGHT;
+
+	int leftPressed = 0, rightPressed = 0;
+
+	if (!reverseKeys){
+		leftPressed = left;
+		rightPressed = right;
+	}
+	else{
+		leftPressed = right;
+		rightPressed = left;
+	}
+
+
+	if (InputManager::getInstance().isKeyPressed(rightPressed) && InputManager::getInstance().isKeyPressed(leftPressed)) {
 		entity->setSpeedX(0);
 	}
-	else if (InputManager::getInstance().isKeyPressed(SDL_SCANCODE_RIGHT)) {
+	else if (InputManager::getInstance().isKeyPressed(rightPressed)) {
 		if (speedX < 0) {
 			entity->setSpeedX((float)speedX);
 		}
@@ -25,7 +44,7 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 			entity->setSpeedX(entity->getMovementSpeed());
 		}
 	}
-	else if (InputManager::getInstance().isKeyPressed(SDL_SCANCODE_LEFT)) {
+	else if (InputManager::getInstance().isKeyPressed(leftPressed)) {
 		if (speedX > 0){
 			entity->setSpeedX((float)speedX * -1);
 		}

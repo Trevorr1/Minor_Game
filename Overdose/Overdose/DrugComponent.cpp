@@ -9,11 +9,15 @@ DrugComponent::DrugComponent()
 {
 	previous_speedX = -999;
 	timer_start = NULL;
+	level = LevelManager::getInstance().getCurrentLevel();
+	surface = LevelManager::getInstance().getCurrentLevel()->getSurface();
 }
 
 
 DrugComponent::~DrugComponent()
 {
+	surface = NULL;
+	level = NULL;
 	std::cout << "speed ervoor: " << entity->getMovementSpeed() << std::endl;
 	entity->setSpeedX(previous_speedX);
 	std::cout << "speed erna: " << entity->getMovementSpeed() << std::endl;

@@ -1,5 +1,6 @@
 #pragma once
 #include "DrugComponent.h"
+#include "NegativeMarijuanaComponent.h"
 
 namespace overdose {
 
@@ -13,6 +14,7 @@ namespace overdose {
 		void receive(Component *subject, ComponentMessage message, GameEntity *object);
 		void receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages);
 		void tick(float dt, GameEntity *entity);
+		void insertNegativeEffect(GameEntity* entitty);
 		void setDrugEffects();
 		float getDrugSpeed_X();
 		int getDrugEffectMs();
