@@ -21,6 +21,9 @@ void NegativeMarijuanaComponent::tick(float dt, GameEntity *entity) {
 void NegativeMarijuanaComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
 }
 
+
+void NegativeMarijuanaComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages) {}
+
 float NegativeMarijuanaComponent::getDrugSpeed_X(){
 	return drug_speedX;
 }

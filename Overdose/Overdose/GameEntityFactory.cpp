@@ -13,7 +13,7 @@
 #include "PolicemanCollisionReactionComponent.h"
 #include "DrugCollisionReactionComponent.h"
 #include "ButtonClickableReactionComponent.h"
-#include "QuitOnClickComponent.h";
+#include "QuitOnClickComponent.h"
 #include "HealthComponent.h"
 #include "FlagCollisionReactionComponent.h"
 #include "KnockBackComponent.h"

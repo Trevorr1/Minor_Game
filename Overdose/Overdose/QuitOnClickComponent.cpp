@@ -24,6 +24,9 @@ void QuitOnClickComponent::receive(Component *subject, ComponentMessage message,
 	}
 }
 
+
+void QuitOnClickComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages) {}
+
 void QuitOnClickComponent::tick(float dt, GameEntity *entity) {
 	if (m_clicked) {
 		SDL_Event user_event;

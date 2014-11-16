@@ -45,6 +45,9 @@ void DrugCollisionReactionComponent::receive(Component *subject, ComponentMessag
 	}
 }
 
+void DrugCollisionReactionComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages) {
+}
+
 
 void DrugCollisionReactionComponent::tick(float dt, GameEntity *entity) {
 	//delete this Drug, when collided

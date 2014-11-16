@@ -16,8 +16,10 @@ MarijuanaComponent::~MarijuanaComponent()
 }
 
 void MarijuanaComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
-	
 }
+
+
+void MarijuanaComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages) {}
 
 void MarijuanaComponent::tick(float dt, GameEntity *entity) {
 	DrugComponent::tick(dt, entity);

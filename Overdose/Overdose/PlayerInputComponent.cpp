@@ -7,17 +7,19 @@ void  PlayerInputComponent::receive(Component *subject, ComponentMessage message
 
 }
 
+
+void PlayerInputComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages) {}
+
 void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 
 	float speedX = entity->getSpeedX();
-
 
 	if (InputManager::getInstance().isKeyPressed(SDL_SCANCODE_RIGHT) && InputManager::getInstance().isKeyPressed(SDL_SCANCODE_LEFT)) {
 		entity->setSpeedX(0);
 	}
 	else if (InputManager::getInstance().isKeyPressed(SDL_SCANCODE_RIGHT)) {
 		if (speedX < 0) {
-			entity->setSpeedX((float)speedX * -1);
+			entity->setSpeedX((float)speedX);
 		}
 		if (speedX == 0) {
 			entity->setSpeedX(entity->getMovementSpeed());
@@ -31,7 +33,8 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 			entity->setSpeedX(-entity->getMovementSpeed());
 		}
 	}
-	else {
+	else 
+	{
 		entity->setSpeedX(0);
 	}
 
@@ -39,7 +42,7 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 		if (!entity->isJumping())
 		{
 			entity->setJumping(true);
-			entity->setFalling(true); // was comminted out, don't know why I put it back in but if there are bugs with jumping we know why - Trev
+			entity->setFalling(true);
 			entity->setJumpingSpeed(-1200.0f);
 		}
 

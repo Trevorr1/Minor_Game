@@ -41,6 +41,8 @@ namespace overdose {
 
 		void broadcast(Component *subject, ComponentMessage message, GameEntity *object);
 
+		void broadcastBatchMessages(Component *subject, std::map<ComponentMessage, GameEntity*> messages);
+
 		virtual void removeComponent(std::string componentString);
 
 		virtual void addComponentTemporary(Component* component);

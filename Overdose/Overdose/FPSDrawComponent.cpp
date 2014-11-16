@@ -3,8 +3,9 @@
 using namespace overdose;
 
 void FPSDrawComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
-
 }
+
+void FPSDrawComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages) {}
 
 /* DT: last frametime in milliseconds */
 void FPSDrawComponent::tick(float dt, GameEntity *entity) {
@@ -34,7 +35,7 @@ void FPSDrawComponent::tick(float dt, GameEntity *entity) {
 		const char *t = str.c_str();
 		char *fps_chars = const_cast<char*>(t);
 
-		surface->Print(fps_chars, entity->getPosX(), entity->getPosY(), *new Pixel(0xff0000));
+		surface->Print(fps_chars, (int)entity->getPosX(), (int)entity->getPosY(), *new Pixel(0xff0000));
 	}
 
 	if (drawTimer > 0){

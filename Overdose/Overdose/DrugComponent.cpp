@@ -27,6 +27,9 @@ void DrugComponent::init(GameEntity* entity)
 void DrugComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
 }
 
+void DrugComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages) {
+}
+
 void DrugComponent::tick(float dt, GameEntity *entity) {
 	if (timer_start == NULL){
 		timer_start = getTimer_Start();
@@ -36,7 +39,7 @@ void DrugComponent::tick(float dt, GameEntity *entity) {
 		previous_speedX = entity->getMovementSpeed();
 	}
 
-	int timer_end = (std::clock() - timer_start) / (double)(CLOCKS_PER_SEC / 1000);
+	int timer_end = (int)((std::clock() - timer_start) / (double)(CLOCKS_PER_SEC / 1000));
 	int drug_effect_ms = getDrugEffectMs();
 
 	// drug timer checker

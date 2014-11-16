@@ -21,6 +21,9 @@ void CollisionReactionComponent::receive(Component *subject, ComponentMessage me
 		colY = (int)object->getPosY();
 		colBoxX = colX + (int)object->getWidth();
 		colBoxY = colY + (int)object->getHeight();
+		// check if there is a problem with multiple collisions here
+		// might be cause to the fact that even though it feels more than one collision
+		// it doesnt react to another entity because it only hase one entities dimensions
 
 	}
 	// resolve the collisions here
@@ -58,40 +61,49 @@ void CollisionReactionComponent::receive(Component *subject, ComponentMessage me
 	{
 		reactRight = true;
 	}
-		//switch (message){
-		//case PlayerInputComponent_ATTACK:
-		//	break;
-		//case CollissionComponent_COLLISION_TOP:
-		//	collidedTop = true;
-		//	break;
-		//case CollissionComponent_COLLISION_BOTTOM:
-		//	collidedBottom = true;
-		//	break;
-		//case CollissionComponent_COLLISION_LEFT:
-		//	collidedLeft = true;
-		//	break;
-		//case CollissionComponent_COLLISION_RIGHT:
-		//	collidedRight = true;
-		//	break;
-		//case CollissionComponent_REACTION_TOP:
-		//	reactTop = true;
-		//	break;
-		//case CollissionComponent_REACTION_BOTTOM:
-		//	reactBottom = true;
-		//	break;
-		//case CollissionComponent_REACTION_LEFT:
-		//	reactLeft = true;
-		//	break;
-		//case CollissionComponent_REACTION_RIGHT:
-		//	reactRight = true;
-		//	break;
-		//case Player_ATTACKING:
-		//	isAlive = false;
-		//	break;
-		//default:
-		//	// do nothing for now
-		//	break;
-		//}
+}
+
+
+void CollisionReactionComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages)
+{
+	for (std::map<ComponentMessage, GameEntity*>::iterator it = messages.begin(); it != messages.end(); ++it)
+	{
+		switch (it->first){
+		case PlayerInputComponent_ATTACK:
+			break;
+		case CollissionComponent_COLLISION_TOP:
+			collidedTop = true;
+			m_Top = it->second;
+			break;
+		case CollissionComponent_COLLISION_BOTTOM:
+			collidedBottom = true;
+			m_Bot = it->second;
+			break;
+		case CollissionComponent_COLLISION_LEFT:
+			collidedLeft = true;
+			m_Left = it->second;
+			break;
+		case CollissionComponent_COLLISION_RIGHT:
+			collidedRight = true;
+			m_Right = it->second;
+			break;
+		case CollissionComponent_REACTION_TOP:
+			reactTop = true;
+			break;
+		case CollissionComponent_REACTION_BOTTOM:
+			reactBottom = true;
+			break;
+		case CollissionComponent_REACTION_LEFT:
+			reactLeft = true;
+			break;
+		case CollissionComponent_REACTION_RIGHT:
+			reactRight = true;
+			break;
+		case Player_ATTACKING:
+			isAlive = false;
+			break;
+		}
+	}
 }
 
 std::string CollisionReactionComponent::getComponentID(){

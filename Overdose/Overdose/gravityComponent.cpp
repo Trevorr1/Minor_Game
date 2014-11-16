@@ -22,6 +22,9 @@ void gravityComponent::receive(Component *subject, ComponentMessage message, Gam
 {
 }
 
+
+void gravityComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages){}
+
 void gravityComponent::tick(float dt, GameEntity *entity)
 {
 	if (entity->isJumping() || entity->isFalling())

@@ -26,6 +26,9 @@ void CollisionComponent::receive(Component *subject, ComponentMessage message, G
 
 }
 
+
+void CollisionComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages){}
+
 void CollisionComponent::tick(float dt, GameEntity *entity) {
 
 
@@ -45,8 +48,7 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 	float vectorLength;
 	int segment;
 	int projectedMoveX, projectedMoveY;
-
-	ComponentMessage message = CollissionComponent_COLLISION_DEFAULT;
+	std::map<ComponentMessage, GameEntity*> messages;
 
 	// dir : 0 = top, dir : 1 = bottom, dir : 2 = left, dir : 3 = right
 	// the following creates a octagon instead of a box:
@@ -102,36 +104,45 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 			if ((cPoints[dir]->first.x > oposx && cPoints[dir]->first.x < oboxw) && (cPoints[dir]->first.y > oposy && cPoints[dir]->first.y  < oboxh)
 				|| (cPoints[dir]->second.x  > oposx && cPoints[dir]->second.x < oboxw) && (cPoints[dir]->second.y > oposy && cPoints[dir]->second.y < oboxh))
 			{
+				ComponentMessage message = CollissionComponent_COLLISION_DEFAULT;
 				bool bump = (other->getEnum() == Environment || other->getEnum() == Grass);
 				message = bump ? CollissionComponent_COLLISION_TOP : CollissionComponent_REACTION_TOP;
-				entity->broadcast(this, message, other);
+				
+				messages.insert( std::make_pair(message, other));
 			}
 
 			dir = 1; // bottom
 			if ((cPoints[dir]->first.x > oposx && cPoints[dir]->first.x < oboxw) && (cPoints[dir]->first.y > oposy && cPoints[dir]->first.y  < oboxh)
 				|| (cPoints[dir]->second.x  > oposx && cPoints[dir]->second.x < oboxw) && (cPoints[dir]->second.y > oposy && cPoints[dir]->second.y < oboxh))
 			{
+				ComponentMessage message = CollissionComponent_COLLISION_DEFAULT;
 				bool bump = (other->getEnum() == Environment || other->getEnum() == Grass);
 				message = bump ? CollissionComponent_COLLISION_BOTTOM : CollissionComponent_REACTION_BOTTOM;
-				entity->broadcast(this, message, other);
+				
+				messages.insert(std::make_pair(message, other));
 			}
 
 			dir = 2; // left
 			if ((cPoints[dir]->first.x > oposx && cPoints[dir]->first.x < oboxw) && (cPoints[dir]->first.y > oposy && cPoints[dir]->first.y  < oboxh)
 				|| (cPoints[dir]->second.x  > oposx && cPoints[dir]->second.x < oboxw) && (cPoints[dir]->second.y > oposy && cPoints[dir]->second.y < oboxh))
 			{
+				ComponentMessage message = CollissionComponent_COLLISION_DEFAULT;
 				bool bump = (other->getEnum() == Environment || other->getEnum() == Grass);
 				message = bump ? CollissionComponent_COLLISION_LEFT : CollissionComponent_REACTION_LEFT;
-				entity->broadcast(this, message, other);
+				
+				messages.insert(std::make_pair(message, other));
 			}
 
 			dir = 3; // right
 			if ((cPoints[dir]->first.x > oposx && cPoints[dir]->first.x < oboxw) && (cPoints[dir]->first.y > oposy && cPoints[dir]->first.y  < oboxh)
 				|| (cPoints[dir]->second.x  > oposx && cPoints[dir]->second.x < oboxw) && (cPoints[dir]->second.y > oposy && cPoints[dir]->second.y < oboxh))
 			{
+
+				ComponentMessage message = CollissionComponent_COLLISION_DEFAULT;
 				bool bump = (other->getEnum() == Environment || other->getEnum() == Grass);
 				message = bump ? CollissionComponent_COLLISION_RIGHT : CollissionComponent_REACTION_RIGHT;
-				entity->broadcast(this, message, other);
+				
+				messages.insert(std::make_pair(message, other));
 			}
 
 			for (int d = 0; d < 4; d++)
@@ -186,27 +197,7 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 				}
 			}
 
-			/*ComponentMessage message = CollissionComponent_COLLISION_DEFAULT;
-			bool bump = (other->getEnum() == Environment || other->getEnum() == Grass);
-
-			if (collides)
-			{
-				switch (dir){
-				case 0:
-					message = bump ? CollissionComponent_COLLISION_TOP : CollissionComponent_REACTION_TOP;
-					break;
-				case 1:
-					message = bump ? CollissionComponent_COLLISION_BOTTOM : CollissionComponent_REACTION_BOTTOM;
-					break;
-				case 2:
-					message = bump ? CollissionComponent_COLLISION_LEFT : CollissionComponent_REACTION_LEFT;
-					break;
-				case 3:
-					message = bump ? CollissionComponent_COLLISION_RIGHT : CollissionComponent_REACTION_RIGHT;
-					break;
-				}
-				entity->broadcast(this, message, other);
-			}*/
+			entity->broadcastBatchMessages(this, messages);
 		}
 	}
 }
