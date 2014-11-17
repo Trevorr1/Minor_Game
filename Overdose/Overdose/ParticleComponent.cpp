@@ -54,6 +54,11 @@ void ParticleComponent::receive(Component *subject, ComponentMessage message, Ga
 
 }
 
+
+void ParticleComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages) {
+
+}
+
 string ParticleComponent::getComponentID() {
 	return "ParticleComponent";
 }
