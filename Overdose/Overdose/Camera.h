@@ -29,9 +29,8 @@ namespace overdose
 	private:
 		GameEntity* m_FocusEntity;
 
-		int *m_TileMap2;
 		int m_TileMap[32*12];
-		Tile* m_TileAssets;
+		Tile m_TileAssets[3];
 
 		unsigned int m_WorldCameraPositionX;
 		unsigned int m_WorldCameraPositionY;

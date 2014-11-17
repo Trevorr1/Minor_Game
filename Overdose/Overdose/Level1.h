@@ -13,8 +13,9 @@ namespace overdose {
 		Level1(GameEntity* player);
 		virtual ~Level1();
 
-		void Tick(float a_DT);
 		void Init();
+		void Tick(float a_DT);
+		void DrawBackground();
 
 	private:
 		

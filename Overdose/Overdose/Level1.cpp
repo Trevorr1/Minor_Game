@@ -15,22 +15,6 @@ using namespace overdose;
 Level1::Level1()
 {
 	m_Camera = new Camera();
-
-	/*m_TileMap[WORLD_SIZEY][WORLD_SIZEX] =
-	{
-		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-		{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-		{ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 }
-	};*/
 }
 
 Level1::Level1(GameEntity* player)
@@ -50,19 +34,23 @@ void Level1::Init()
 	//m_Background = new Surface("assets/backgrounds/background.png");
 
 	std::map<eAnimationState, Animation*>* animations = new std::map<eAnimationState, Animation*>();
-	animations->insert({ Default, new Animation("assets/sprites/tiles/level1/tile_air.png", 1, 1) });
+	animations->insert({ Default, new Animation("assets/sprites/tiles/level1/tile_air.png", 1) });
 	DrawComponent* animation = new DrawComponent(animations);
+	animation->setAnimation(Default);//set starting animation
 	m_Tiles[0].addComponent(animation);
+	
 	animations->clear();
 
-	animations->insert({ Default, new Animation("assets/sprites/tiles/level1/tile_grass.png", 1, 1) });
+	animations->insert({ Default, new Animation("assets/sprites/tiles/level1/tile_grass.png", 1) });
 	animation = new DrawComponent(animations);
+	animation->setAnimation(Default);//set starting animation
 	m_Tiles[1].addComponent(animation);
 
 	animations->clear();
 
-	animations->insert({ Default, new Animation("assets/sprites/tiles/level1/tile_ground.png", 1, 1) });
+	animations->insert({ Default, new Animation("assets/sprites/tiles/level1/tile_ground.png", 1) });
 	animation = new DrawComponent(animations);
+	animation->setAnimation(Default);//set starting animation
 	m_Tiles[2].addComponent(animation);
 
 	if (m_Player == nullptr)
@@ -143,5 +131,11 @@ void Level1::Init()
 
 void Level1::Tick(float a_DT)
 {
+	DrawBackground();
 	m_Camera->Tick();
+}
+
+void Level1::DrawBackground()
+{
+
 }
