@@ -116,7 +116,7 @@
     <ClInclude Include="Level9.h" />
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="MainMenu.h" />
-    <ClInclude Include="MarijuanaComponent.h" />
+    <ClInclude Include="MarijuanaDrugComponent.h" />
     <ClInclude Include="MoveComponent.h" />
     <ClInclude Include="NegativeMarijuanaComponent.h" />
     <ClInclude Include="NegativeSpeedDrugComponent.h" />
@@ -178,7 +178,7 @@
     <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
-    <ClCompile Include="MarijuanaComponent.cpp" />
+    <ClCompile Include="MarijuanaDrugComponent.cpp" />
     <ClCompile Include="MoveComponent.cpp" />
     <ClCompile Include="NegativeMarijuanaComponent.cpp" />
     <ClCompile Include="NegativeSpeedDrugComponent.cpp" />

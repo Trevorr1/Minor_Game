@@ -13,7 +13,7 @@ XTCDrugComponent::XTCDrugComponent()
 
 XTCDrugComponent::~XTCDrugComponent()
 {
-	printf("deleted XTCDrugComponent \n");
+	printf("Deleted XTCDrugComponent \n");
 	setUnvulnerability();
 	//Interface DrugComponent set the speed back.
 }
