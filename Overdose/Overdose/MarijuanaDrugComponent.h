@@ -4,12 +4,12 @@
 
 namespace overdose {
 
-	class MarijuanaComponent :
+	class MarijuanaDrugComponent :
 		public DrugComponent
 	{
 	public:
-		MarijuanaComponent();
-		virtual ~MarijuanaComponent();
+		MarijuanaDrugComponent();
+		virtual ~MarijuanaDrugComponent();
 
 		void receive(Component *subject, ComponentMessage message, GameEntity *object);
 		void tick(float dt, GameEntity *entity);

@@ -16,7 +16,7 @@ SpeedDrugComponent::SpeedDrugComponent()
 
 SpeedDrugComponent::~SpeedDrugComponent()
 {
-	printf("deleted speedDrugComponent \n");
+	printf("deleted SpeedDrugComponent \n");
 }
 
 void SpeedDrugComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
