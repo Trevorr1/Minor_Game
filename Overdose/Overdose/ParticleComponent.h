@@ -7,7 +7,8 @@
 using std::string;
 namespace overdose{
 	enum ParticleType {
-		SmileyFace
+		SmileyFace,
+		RedLum
 	};
 
 	class ParticleComponent :

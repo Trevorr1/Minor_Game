@@ -11,7 +11,13 @@ ParticleComponent::ParticleComponent(ParticleType type, float maxDt, float lifet
 void ParticleComponent::createParticleFor(GameEntity *entity) {
 	/* misschien in factory stoppen? Idk D:*/
 	std::map<eAnimationState, Animation*>* animations = new std::map<eAnimationState, Animation*>();
-	animations->insert({ Default, new Animation(getSpritePath(), 1) });
+
+	if (m_type == SmileyFace) {
+		animations->insert({ Default, new Animation(getSpritePath(), 1) });
+	}
+	else {
+		animations->insert({ Default, new Animation(getSpritePath(), 4, 20) });
+	}
 	DrawComponent *animation = new DrawComponent(animations);
 	animation->setAnimation(Default);//set starting animation
 
@@ -27,6 +33,8 @@ void ParticleComponent::createParticleFor(GameEntity *entity) {
 
 char* ParticleComponent::getSpritePath() {
 	switch (m_type) {
+	case RedLum:
+		return "assets/sprites/lum.png";
 	case SmileyFace:
 	default:
 		return "assets/sprites/smileyface.png";
