@@ -44,6 +44,11 @@ void Level3::Init()
 		this->addEntities(grass1);
 	}
 
+	GameEntity *entityDrugMarijuana = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Drug_Marijuana);
+	entityDrugMarijuana->setStartingPosition(208, 410 - 130);
+	entityDrugMarijuana->setSpeedX(0);
+	entityDrugMarijuana->setSpeedY(0);
+	this->addEntities(entityDrugMarijuana);
 
 	GameEntity *flaggot = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Flag);
 	flaggot->setStartingPosition(695, 20);
