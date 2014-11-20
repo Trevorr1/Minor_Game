@@ -3,8 +3,6 @@
 
 using namespace overdose;
 
-
-
 LevelManager::LevelManager(void)
 {
 	std::cout << "Succesfully initialised LevelManager" << std::endl;
@@ -49,19 +47,23 @@ ILevel* LevelManager::createLevel(levels l)
 	return currentLevel;
 }
 
-void LevelManager::Tick(float dt){
-
-	if (currentLevel->isGameOver()) {
+void LevelManager::Tick(float dt)
+{
+	if (currentLevel->isGameOver()) 
+	{
 		createLevel(levels::LevelGameOver);
 	}
-	else if (currentLevel->isGameWon()){
+	else if (currentLevel->isGameWon())
+	{
 		nextLevel();
 	}
-	else if (currentLevel->isReloadLevel()){
+	else if (currentLevel->isReloadLevel())
+	{
 		reloadLevel();
 	}
 	
-	if (previousLevel != nullptr) {
+	if (previousLevel != nullptr) 
+	{
 		delete previousLevel;
 		previousLevel = nullptr;
 	}
@@ -69,16 +71,17 @@ void LevelManager::Tick(float dt){
 	currentLevel->Tick(dt);
 }
 
-
-
 LevelManager &LevelManager::getInstance()
 {
 	static LevelManager _instance;
 	return _instance;
 }
 
-void LevelManager::nextLevel(){
+void LevelManager::nextLevel()
+{
 	//even lelijk:
+	//to do, remove all levels
+	//Ricardo :D
 	switch (currentLevelEnum){
 	case LevelMainMenu:
 		createLevel(level1);
@@ -122,6 +125,7 @@ void LevelManager::nextLevel(){
 	}
 }
 
-void LevelManager::reloadLevel(){
+void LevelManager::reloadLevel()
+{
 	createLevel(currentLevelEnum);
 }

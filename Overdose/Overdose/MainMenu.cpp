@@ -9,19 +9,15 @@
 
 using namespace overdose;
 
-
-
 MainMenu::MainMenu()
 {
 	m_Camera = new Camera();
 	m_Background = new Surface("assets/backgrounds/mainmenu.jpg");
 }
 
-
 MainMenu::~MainMenu()
 {
 	delete m_Background;
-
 }
 
 void MainMenu::Init()
@@ -44,10 +40,9 @@ void MainMenu::Init()
 
 	SoundManager::getInstance().StopMusic();
 	SoundManager::getInstance().PlayMusic(eMusic::MainMenuTheme);
-
-
 }
 
-bool MainMenu::isGameOver() {
+bool MainMenu::isGameOver() 
+{
 	return false;
 }

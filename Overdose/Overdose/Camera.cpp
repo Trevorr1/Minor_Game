@@ -19,19 +19,6 @@ Camera::~Camera()
 
 void Camera::Tick(float dt)
 {
-	/*if ((px - world_camerax > SCRWIDTH - 200) && (world_camerax < SCRWIDTH))
-	{
-		if (playerspeedx > 0)
-			world_camerax += playerspeedx;
-	}
-
-	if (px - world_camerax < 200)
-	{
-		if (playerspeedx < 0 && world_camerax > 0)
-			world_camerax += playerspeedx;
-	}
-*/
-
 	if (m_FocusEntity != nullptr)
 	{
 		float playerx = m_FocusEntity->getPosX();
@@ -41,7 +28,7 @@ void Camera::Tick(float dt)
 
 		float playerspeedx = m_FocusEntity->getSpeedX() * dt;
 
-		int screenWidth = 960; //get this from game.h or somehting :D
+		int screenWidth = 940; //get this from game.h or somehting :D
 		int playerWidth = 27;
 
 		float screenOffset = 400;
@@ -61,9 +48,6 @@ void Camera::Tick(float dt)
 				m_WorldCameraPositionX = playerx - screenOffset;
 			}
 		}
-
-		printf("Playerx: %f, WorldCameraX: %d \n", playerCameraX, m_WorldCameraPositionX);
-
 	}
 	
 	DrawManager::getInstance().convertLevelToCamera(m_WorldCameraPositionX, m_WorldCameraPositionY);

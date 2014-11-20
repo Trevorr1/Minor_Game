@@ -10,12 +10,10 @@
 
 using namespace overdose;
 
-
-
 Level1::Level1()
 {
 	m_Camera = new Camera();
-	createLevel(940*2, 480);
+	createLevel(940*2, 480); //create the level here widthx height
 }
 
 Level1::Level1(GameEntity* player)
@@ -34,25 +32,25 @@ void Level1::Init()
 {
 	m_Background = new Surface("assets/backgrounds/background.png");
 
-	std::map<eAnimationState, Animation*>* animations = new std::map<eAnimationState, Animation*>();
-	animations->insert({ Default, new Animation("assets/sprites/tiles/level1/tile_air.png", 1) });
-	DrawComponent* animation = new DrawComponent(animations);
-	animation->setAnimation(Default);//set starting animation
-	m_Tiles[0].addComponent(animation);
-	
-	animations->clear();
+	//std::map<eAnimationState, Animation*>* animations = new std::map<eAnimationState, Animation*>();
+	//animations->insert({ Default, new Animation("assets/sprites/tiles/level1/tile_air.png", 1) });
+	//DrawComponent* animation = new DrawComponent(animations);
+	//animation->setAnimation(Default);//set starting animation
+	//m_Tiles[0].addComponent(animation);
+	//
+	//animations->clear();
 
-	animations->insert({ Default, new Animation("assets/sprites/tiles/level1/tile_grass.png", 1) });
-	animation = new DrawComponent(animations);
-	animation->setAnimation(Default);//set starting animation
-	m_Tiles[1].addComponent(animation);
+	//animations->insert({ Default, new Animation("assets/sprites/tiles/level1/tile_grass.png", 1) });
+	//animation = new DrawComponent(animations);
+	//animation->setAnimation(Default);//set starting animation
+	//m_Tiles[1].addComponent(animation);
 
-	animations->clear();
+	//animations->clear();
 
-	animations->insert({ Default, new Animation("assets/sprites/tiles/level1/tile_ground.png", 1) });
-	animation = new DrawComponent(animations);
-	animation->setAnimation(Default);//set starting animation
-	m_Tiles[2].addComponent(animation);
+	//animations->insert({ Default, new Animation("assets/sprites/tiles/level1/tile_ground.png", 1) });
+	//animation = new DrawComponent(animations);
+	//animation->setAnimation(Default);//set starting animation
+	//m_Tiles[2].addComponent(animation);
 
 	if (m_Player == nullptr)
 	{
@@ -82,8 +80,8 @@ void Level1::Init()
 	m_Player->setStartingPosition(100, 410 - 53 - 100); //set to world coordinates
 
 	m_Camera->setEntityFocus(m_Player);
-	m_Camera->setTileAssets(m_Tiles);
-	m_Camera->setTileMap(tileMap, 12 * 32);
+	//m_Camera->setTileAssets(m_Tiles);
+	//m_Camera->setTileMap(tileMap, 12 * 32);
 
 	//GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
 	//entityCop->setStartingPosition(500, 410 - 54);
@@ -112,10 +110,8 @@ void Level1::Init()
 	////this->addEntities(entityDrugXTC);
 
 	int grassWall = 68;
-	for (int i = 0; i < grassWall; i++){
-		/*if (i > (grassWall/2 - 2) && i < (grassWall/2 + 2)){
-			continue;
-		}*/
+	for (int i = 0; i < grassWall; i++)
+	{
 		GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
 		grass1->setStartingPosition(50 + 32 * i, 410);
 		this->addEntities(grass1);
@@ -131,16 +127,3 @@ void Level1::Init()
 	SoundManager::getInstance().PlayMusic(eMusic::Street);
 	//SoundManager::getInstance()->PlaySound(eSound::Death);
 }
-
-//void Level1::Tick(float a_DT)
-//{
-//	//DrawBackground();
-//	//m_Camera->Tick(); //tile assets
-//	//tick assetes
-//	
-//}
-
-//void Level1::DrawBackground()
-//{
-//
-//}

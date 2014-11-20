@@ -6,9 +6,10 @@ class DrawManager
 {
 public:
 	static DrawManager& getInstance();
-	virtual ~DrawManager() { delete m_Level; delete m_Camera; }
+	virtual ~DrawManager() { /*delete m_Level; delete m_Camera;*/ }
 
 	void setTargetSurface(Surface* aSurface) { m_Level = aSurface; }
+
 	void createLevelSurface(int width, int height);
 	void setTargetCameraSurface(Surface* aSurface) { m_Camera = aSurface; }
 
