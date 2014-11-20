@@ -8,8 +8,11 @@ void  PlayerInputComponent::receive(Component *subject, ComponentMessage message
 	//If NegativeXTCComponent is initialized and destructed, reverse the keys.
 	if (message == NegativeXTCComponent_REVERSE_KEYS){
 		reverseKeys = !reverseKeys;
-	}
 }
+}
+
+
+void PlayerInputComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages) {}
 
 void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 
@@ -35,7 +38,7 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 	}
 	else if (InputManager::getInstance().isKeyPressed(rightPressed)) {
 		if (speedX < 0) {
-			entity->setSpeedX((float)speedX * -1);
+			entity->setSpeedX((float)speedX);
 		}
 		if (speedX == 0) {
 			entity->setSpeedX(entity->getMovementSpeed());
@@ -49,7 +52,8 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 			entity->setSpeedX(-entity->getMovementSpeed());
 		}
 	}
-	else {
+	else 
+	{
 		entity->setSpeedX(0);
 	}
 
@@ -57,8 +61,8 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 		if (!entity->isJumping())
 		{
 			entity->setJumping(true);
-			entity->setFalling(true); // was comminted out, don't know why I put it back in but if there are bugs with jumping we know why - Trev
-			entity->setJumpingSpeed(-1200.0f);
+			entity->setFalling(true);
+			entity->setJumpingSpeed(-650.0f);
 		}
 
 	}

@@ -16,6 +16,10 @@ void ButtonClickableReactionComponent::receive(Component *subject, ComponentMess
 	}
 }
 
+void ButtonClickableReactionComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages) {
+
+}
+
 void ButtonClickableReactionComponent::tick(float dt, GameEntity *entity) {
 	if (m_clicked) {
 		LevelManager::getInstance().createLevel(m_loadScreen);

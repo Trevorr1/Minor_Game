@@ -18,6 +18,9 @@ void MarijuanaDrugComponent::receive(Component *subject, ComponentMessage messag
 	
 }
 
+void MarijuanaDrugComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages) {
+}
+
 void MarijuanaDrugComponent::tick(float dt, GameEntity *entity) {
 	DrugComponent::tick(dt, entity);
 }

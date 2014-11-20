@@ -10,6 +10,17 @@ GameEntity::GameEntity(eGameEntity entityEnum) {
 	m_EntityEnum = entityEnum;
 }
 
+GameEntity::GameEntity(eGameEntity entityEnum, Component *component, ...) : m_EntityEnum(entityEnum) {
+	va_list arguments;
+	for (va_start(arguments, component); component != FinalComponent; component = va_arg(arguments, Component *)) {
+			component->init(this);
+			componentList->push_back(component);
+	}
+
+	va_end(arguments);
+
+}
+
 GameEntity::~GameEntity() {
 	while (!componentList->empty()) {
 		delete componentList->back();
@@ -139,12 +150,20 @@ void GameEntity::setHealthPointer(int* health) {
 
 
 
-void GameEntity::broadcast(Component *subject, ComponentMessage message, GameEntity *object) {
+void GameEntity::broadcast(Component *subject, ComponentMessage message, GameEntity *object)
+{
 	if (object == nullptr) {
 		throw std::invalid_argument("A component broadcasted a nullptr as Object parameter which is bad, mmkay?.");
 	}
 	for (auto &it : *componentList) {
 		it->receive(subject, message, object);
+	}
+}
+
+void GameEntity::broadcastBatchMessages(Component *subject, std::map<ComponentMessage, GameEntity*> messages)
+{
+	for (auto &it : *componentList) {
+		it->receiveMessageBatch(subject, messages);
 	}
 }
 
@@ -246,7 +265,7 @@ void GameEntity::respawn(){
 }
 
 void GameEntity::setMovementSpeed(float movementspeed){
-	this->m_movementSpeed = movementspeed;
+	m_movementSpeed = movementspeed;
 }
 
 void GameEntity::setFacing(eFacing facing){

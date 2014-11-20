@@ -26,8 +26,10 @@ void CollisionComponent::receive(Component *subject, ComponentMessage message, G
 
 }
 
-void CollisionComponent::tick(float dt, GameEntity *entity) {
 
+void CollisionComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages){}
+
+void CollisionComponent::tick(float dt, GameEntity *entity) {
 
 	// setup the collision points
 	int posx = (int)entity->getPosX();
@@ -36,17 +38,19 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 	int width = (int)entity->getWidth();
 	int height = (int)entity->getHeight();
 
-	int wstep = (int)(width * 1.0 / 3);
-	int hstep = (int)(height * 1.0 / 10);
+	int wstep = (int)(width * 1.0 / 4);
+	int hstep = (int)(height * 1.0 / 12);
 
-	int nextX = (int)entity->getSpeedX();
-	int nextY = (int)entity->getSpeedY();
+	float nextX = entity->getSpeedX();
+	float nextY = entity->getSpeedY();
+
+	nextX *= dt;
+	nextY *= dt;
 
 	float vectorLength;
 	int segment;
-	int projectedMoveX, projectedMoveY;
-
-	ComponentMessage message = CollissionComponent_COLLISION_DEFAULT;
+	float projectedMoveX, projectedMoveY;
+	std::map<ComponentMessage, GameEntity*> messages;
 
 	// dir : 0 = top, dir : 1 = bottom, dir : 2 = left, dir : 3 = right
 	// the following creates a octagon instead of a box:
@@ -83,115 +87,33 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 
 	vector<GameEntity*> *gameEntities = LevelManager::getInstance().getCurrentLevel()->getEntities();
 
-	for (int i = 0; i < (int)gameEntities->size(); i++){
+	for (int i = 0; i < (int)gameEntities->size(); i++)
+	{
 		GameEntity* other = gameEntities->at(i);
 
 		// assuming that only GameEntities that have collisionComponents are relevant
 		// to the collision calculation
-		if (entity != other)
+		if (entity == other) continue;
+
+		// define the collision box of the "other" GameEntity
+		int oposx = (int)other->getPosX();
+		int oposy = (int)other->getPosY();
+		int oboxw = oposx + (int)other->getWidth();
+		int oboxh = oposy + (int)other->getHeight();
+
+		ComponentMessage message = CollissionComponent_COLLISION_DEFAULT;
+
+		for (int dir = 0; dir < 4; dir++)
 		{
-
-			// define the collision box of the "other" GameEntity
-			int oposx = (int)other->getPosX();
-			int oposy = (int)other->getPosY();
-			int oboxw = oposx + (int)other->getWidth();
-			int oboxh = oposy + (int)other->getHeight();
-
 			// check for collisions in the four different directions
-			int dir = 0; // top
+			//int dir = 0; // top
 			if ((cPoints[dir]->first.x > oposx && cPoints[dir]->first.x < oboxw) && (cPoints[dir]->first.y > oposy && cPoints[dir]->first.y  < oboxh)
 				|| (cPoints[dir]->second.x  > oposx && cPoints[dir]->second.x < oboxw) && (cPoints[dir]->second.y > oposy && cPoints[dir]->second.y < oboxh))
 			{
 				bool bump = (other->getEnum() == Environment || other->getEnum() == Grass);
-				message = bump ? CollissionComponent_COLLISION_TOP : CollissionComponent_REACTION_TOP;
-				entity->broadcast(this, message, other);
-			}
 
-			dir = 1; // bottom
-			if ((cPoints[dir]->first.x > oposx && cPoints[dir]->first.x < oboxw) && (cPoints[dir]->first.y > oposy && cPoints[dir]->first.y  < oboxh)
-				|| (cPoints[dir]->second.x  > oposx && cPoints[dir]->second.x < oboxw) && (cPoints[dir]->second.y > oposy && cPoints[dir]->second.y < oboxh))
-			{
-				bool bump = (other->getEnum() == Environment || other->getEnum() == Grass);
-				message = bump ? CollissionComponent_COLLISION_BOTTOM : CollissionComponent_REACTION_BOTTOM;
-				entity->broadcast(this, message, other);
-			}
-
-			dir = 2; // left
-			if ((cPoints[dir]->first.x > oposx && cPoints[dir]->first.x < oboxw) && (cPoints[dir]->first.y > oposy && cPoints[dir]->first.y  < oboxh)
-				|| (cPoints[dir]->second.x  > oposx && cPoints[dir]->second.x < oboxw) && (cPoints[dir]->second.y > oposy && cPoints[dir]->second.y < oboxh))
-			{
-				bool bump = (other->getEnum() == Environment || other->getEnum() == Grass);
-				message = bump ? CollissionComponent_COLLISION_LEFT : CollissionComponent_REACTION_LEFT;
-				entity->broadcast(this, message, other);
-			}
-
-			dir = 3; // right
-			if ((cPoints[dir]->first.x > oposx && cPoints[dir]->first.x < oboxw) && (cPoints[dir]->first.y > oposy && cPoints[dir]->first.y  < oboxh)
-				|| (cPoints[dir]->second.x  > oposx && cPoints[dir]->second.x < oboxw) && (cPoints[dir]->second.y > oposy && cPoints[dir]->second.y < oboxh))
-			{
-				bool bump = (other->getEnum() == Environment || other->getEnum() == Grass);
-				message = bump ? CollissionComponent_COLLISION_RIGHT : CollissionComponent_REACTION_RIGHT;
-				entity->broadcast(this, message, other);
-			}
-
-			for (int d = 0; d < 4; d++)
-			{
-
-				if (d == 0 && nextY > 0) continue;
-				if (d == 1 && nextY < 0) continue;
-				if (d == 2 && nextX > 0) continue;
-				if (d == 3 && nextX < 0) continue;
-
-
-				// Our current position along the anticipated movement vector of the player this frame
-				projectedMoveX = projectedMoveY = 0;
-
-				// Calculate the length of the movement vector using Pythagoras
-				vectorLength = (float)sqrt(nextX * nextX + nextY * nextY);
-				segment = 0;
-
-				// Advance along the vector until it intersects with some geometry
-				// or we reach the end
-				while (!((cPoints[d]->first.x + projectedMoveX > oposx && cPoints[d]->first.x + projectedMoveX < oboxw) && (cPoints[d]->first.y + projectedMoveY > oposy && cPoints[d]->first.y + projectedMoveY < oboxh)
-					|| (cPoints[d]->second.x + projectedMoveX > oposx && cPoints[d]->second.x + projectedMoveX < oboxw) && (cPoints[d]->second.y + projectedMoveY > oposy && cPoints[d]->second.y + projectedMoveY < oboxh))
-					&& segment < vectorLength)
+				switch (dir)
 				{
-					projectedMoveX += (int)(nextX / vectorLength);
-					projectedMoveY += (int)(nextY / vectorLength);
-					segment++;
-				}
-
-				// If an intersection occurred...
-				if (segment < vectorLength)
-				{
-					// Apply correction for over-movement
-					if (segment > 0)
-					{
-						projectedMoveX -= (int)(nextX / vectorLength);
-						projectedMoveY -= (int)(nextY / vectorLength);
-					}
-
-					// Adjust the X or Y component of the vector depending on
-					// which direction we are currently testing
-					if (d >= 2 && d <= 3)
-					{
-						nextX = projectedMoveX;
-						entity->setSpeedX((float)nextX);
-					}
-					if (d >= 0 && d <= 1)
-					{
-						nextY = projectedMoveY;
-						entity->setSpeedY((float)nextY);
-					}
-				}
-			}
-
-			/*ComponentMessage message = CollissionComponent_COLLISION_DEFAULT;
-			bool bump = (other->getEnum() == Environment || other->getEnum() == Grass);
-
-			if (collides)
-			{
-				switch (dir){
 				case 0:
 					message = bump ? CollissionComponent_COLLISION_TOP : CollissionComponent_REACTION_TOP;
 					break;
@@ -205,11 +127,75 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 					message = bump ? CollissionComponent_COLLISION_RIGHT : CollissionComponent_REACTION_RIGHT;
 					break;
 				}
-				entity->broadcast(this, message, other);
-			}*/
+
+				if (entity->getEnum() == Player || entity->getEnum() == Policeman)
+				{
+					messages.insert(std::make_pair(message, other));
+				}
+				else
+				{
+					entity->broadcast(this, message, other);
+					return;
+				}
+			}
+		}
+		// if the map has collisions broadcast them and end the method
+		if (messages.size() > 0)
+		{
+			entity->broadcastBatchMessages(this, messages);
+		}
+
+		//if there were no collisions
+		for (int dir = 0; dir < 4; dir++)
+		{
+			if (dir == 0 && (int)nextY >= 0) continue;
+			if (dir == 1 && (int)nextY <= 0) continue;
+			if (dir == 2 && (int)nextX >= 0) continue;
+			if (dir == 3 && (int)nextX <= 0) continue;
+
+
+			// Our current position along the anticipated movement vector of the player this frame
+			projectedMoveX = projectedMoveY = 0;
+
+			// Calculate the length of the movement vector using Pythagoras
+			vectorLength = sqrt(nextX * nextX + nextY * nextY);
+			segment = 0;
+
+			// Advance along the vector until it intersects with some geometry
+			// or we reach the end
+			while (!((cPoints[dir]->first.x + projectedMoveX > oposx && cPoints[dir]->first.x + projectedMoveX < oboxw) && (cPoints[dir]->first.y + projectedMoveY > oposy && cPoints[dir]->first.y + projectedMoveY < oboxh)
+				|| (cPoints[dir]->second.x + projectedMoveX > oposx && cPoints[dir]->second.x + projectedMoveX < oboxw) && (cPoints[dir]->second.y + projectedMoveY > oposy && cPoints[dir]->second.y + projectedMoveY < oboxh))
+				&& segment < vectorLength)
+			{
+				projectedMoveX += (nextX / vectorLength);
+				projectedMoveY += (nextY / vectorLength);
+				segment++;
+			}
+
+			// If an intersection occurred...
+			if (segment < vectorLength && segment > 0)
+			{
+				// Apply correction for over-movement
+				projectedMoveX -= (nextX / vectorLength);
+				projectedMoveY -= (nextY / vectorLength);
+
+				// Adjust the X or Y component of the vector depending on
+				// which direction we are currently testing
+				if (dir >= 2 && dir <= 3)
+				{
+					projectedMoveX /= dt;
+					entity->setSpeedX(projectedMoveX);
+				}
+				if (dir >= 0 && dir <= 1)
+				{
+					projectedMoveY /= dt;
+					entity->setSpeedY(projectedMoveY);
+				}
+			}
 		}
 	}
 }
+
 std::string CollisionComponent::getComponentID(){
 	return "CollisionComponent";
 }

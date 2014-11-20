@@ -6,6 +6,9 @@ using namespace overdose;
 void ClickableComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
 }
 
+
+void ClickableComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages) {}
+
 void ClickableComponent::tick(float dt, GameEntity *entity) {
 	MouseClick click = InputManager::getInstance().getLastMouseClick();
 

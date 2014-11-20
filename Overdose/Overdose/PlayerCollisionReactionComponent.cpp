@@ -25,16 +25,17 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 	float speedy = entity->getSpeedY();
 
 	bool clear = false;
-
-	if (collidedBottom && collidedRight)
-	{
-		int foo = 0;
-	}
-
+	
 	if (collidedTop)
 	{
 		entity->setSpeedY(0);
 		entity->setJumpingSpeed(0);
+
+		colX = (int)m_Top->getPosX();
+		colY = (int)m_Top->getPosY();
+		colBoxX = colX + (int)m_Top->getWidth();
+		colBoxY = colY + (int)m_Top->getHeight();
+
 		while (!clear)
 		{
 			entity->setPosY(posy + 1);
@@ -52,6 +53,12 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 		entity->setJumping(false);
 		entity->setFalling(false);
 		entity->setSpeedY(0);
+
+		colX = (int)m_Bot->getPosX();
+		colY = (int)m_Bot->getPosY();
+		colBoxX = colX + (int)m_Bot->getWidth();
+		colBoxY = colY + (int)m_Bot->getHeight();
+
 		while (!clear)
 		{
 			entity->setPosY(posy - 1); 
@@ -71,6 +78,12 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 	if (collidedLeft)
 	{
 		entity->setSpeedX(0);
+
+        colX = (int)m_Left->getPosX();
+		colY = (int)m_Left->getPosY();
+		colBoxX = colX + (int)m_Left->getWidth();
+		colBoxY = colY + (int)m_Left->getHeight();
+
 		while (!clear)
 		{
 			entity->setPosX(posx + 1);
@@ -86,6 +99,12 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 	if (collidedRight)
 	{
  		entity->setSpeedX(0);
+
+		colX = (int)m_Right->getPosX();
+		colY = (int)m_Right->getPosY();
+		colBoxX = colX + (int)m_Right->getWidth();
+		colBoxY = colY + (int)m_Right->getHeight();
+
 		while (!clear)
 		{
 			entity->setPosX(posx - 1);
@@ -164,6 +183,7 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 	}
 
 }
+
 std::string PlayerCollisionReactionComponent::getComponentID(){
 	return "PlayerCollisionReactionComponent";
 }

@@ -61,7 +61,7 @@
 			__m128i irgba;
 		};
 	};
-
+	class Font;
 	class Surface
 	{
 		enum
@@ -88,6 +88,7 @@
 		void SetChar(int c, char* c1, char* c2, char* c3, char* c4, char* c5);
 		void Centre(char* a_String, int y1, Pixel color);
 		void Print(char* a_String, int x1, int y1, Pixel color);
+
 		void Clear(Pixel a_Color);
 		void Line(float x1, float y1, float x2, float y2, Pixel color);
 		void Plot(int x, int y, Pixel c);
@@ -99,6 +100,7 @@
 		void Box(int x1, int y1, int x2, int y2, Pixel color);
 		void Bar(int x1, int y1, int x2, int y2, Pixel color);
 		void Resize(int a_Width, int a_Height, Surface* a_Orig);
+		void WriteText(char* text, int x, int y);
 
 		bool clearBuffer = true;
 	private:
@@ -108,6 +110,7 @@
 		// Static attributes for the buildin font
 		char s_Font[51][5][5];
 		int s_Transl[256];
+		Font* m_Font = nullptr;
 	};
 
 	class Sprite

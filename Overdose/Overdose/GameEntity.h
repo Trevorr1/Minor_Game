@@ -5,6 +5,9 @@
 #include "ComponentMessage.h" 
 #include "ScheduleForRemovalFlag.h"
 #include <exception>
+#include <stdarg.h>
+#define FinalComponent nullptr
+
 
 namespace overdose {
 	class Component;
@@ -40,6 +43,8 @@ namespace overdose {
 		virtual std::vector<Component*>* getComponentList();
 
 		void broadcast(Component *subject, ComponentMessage message, GameEntity *object);
+
+		void broadcastBatchMessages(Component *subject, std::map<ComponentMessage, GameEntity*> messages);
 
 		virtual void removeComponent(std::string componentString);
 
@@ -93,6 +98,7 @@ namespace overdose {
 
 		GameEntity();
 		GameEntity(eGameEntity entityEnum);
+		GameEntity(eGameEntity entityEnum, Component *component, ...);
 
 		virtual ~GameEntity();
 	};

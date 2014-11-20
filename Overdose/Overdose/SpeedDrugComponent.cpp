@@ -22,6 +22,10 @@ SpeedDrugComponent::~SpeedDrugComponent()
 void SpeedDrugComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
 }
 
+
+void SpeedDrugComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages) {
+}
+
 void SpeedDrugComponent::tick(float dt, GameEntity *entity) {
 	//for (int i = 0; i < entityForNegativeEffect->size(); i++)
 	//{

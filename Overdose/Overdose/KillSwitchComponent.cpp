@@ -19,6 +19,11 @@ void KillSwitchComponent::receive(Component *subject, ComponentMessage message, 
 
 }
 
+
+void KillSwitchComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages){
+
+}
+
 string KillSwitchComponent::getComponentID() {
 	return "KillSwitchComponent";
 }

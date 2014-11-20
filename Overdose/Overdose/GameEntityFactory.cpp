@@ -13,7 +13,7 @@
 #include "PolicemanCollisionReactionComponent.h"
 #include "DrugCollisionReactionComponent.h"
 #include "ButtonClickableReactionComponent.h"
-#include "QuitOnClickComponent.h";
+#include "QuitOnClickComponent.h"
 #include "HealthComponent.h"
 #include "FlagCollisionReactionComponent.h"
 #include "KnockBackComponent.h"
@@ -79,8 +79,8 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new PlayerCollisionReactionComponent());
 		newObject->addComponent(new gravityComponent());
-		newObject->addComponent(new HealthComponent(3));
 		newObject->addComponent(new KnockBackComponent());
+		newObject->addComponent(new HealthComponent(3));
 		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ IdleLeft, new Animation("assets/sprites/Ross/RossIdleLeft.png", 1) });
 		animations->insert({ IdleRight, new Animation("assets/sprites/Ross/RossIdleRight.png", 1) });
@@ -153,7 +153,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
 		newObject->addComponent(animation);
-		newObject->addComponent(new ParticleComponent(0.1));
+		newObject->addComponent(new ParticleComponent(SmileyFace, 0.1, 0.5));
 		break;
 
 

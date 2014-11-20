@@ -13,6 +13,7 @@ namespace overdose {
 		~CollisionReactionComponent();
 
 		void receive(Component *subject, ComponentMessage message, GameEntity *object);
+		void receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages);
 		virtual void tick(float dt, GameEntity *entity) = 0;
 		std::string getComponentID();
 
@@ -20,6 +21,10 @@ namespace overdose {
 		bool isAlive = true, collidedTop = false, collidedBottom = false, collidedLeft = false,
 			collidedRight = false, reactTop = false, reactBottom = false, reactLeft = false, reactRight = false;
 		int colX = 0, colY = 0, colBoxX = 0, colBoxY = 0;
+		GameEntity* m_Top;
+		GameEntity* m_Bot;
+		GameEntity* m_Left;
+		GameEntity* m_Right;
 	};
 
 }

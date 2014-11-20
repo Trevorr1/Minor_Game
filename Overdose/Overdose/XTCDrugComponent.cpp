@@ -26,6 +26,9 @@ void XTCDrugComponent::init(GameEntity* entity){
 void XTCDrugComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
 }
 
+void XTCDrugComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages) {
+}
+
 void XTCDrugComponent::tick(float dt, GameEntity *entity) {
 	//DrugComponent::tick(dt, entity);
 	if (timer_start == NULL){
@@ -41,7 +44,7 @@ void XTCDrugComponent::tick(float dt, GameEntity *entity) {
 
 	entity->setSpeedX(getDrugSpeed_X());
 
-	int timer_end = (std::clock() - timer_start) / (double)(CLOCKS_PER_SEC / 1000);
+	int timer_end = (int)(((std::clock() - timer_start) / (double)(CLOCKS_PER_SEC / 1000)));
 	int drug_effect_ms = getDrugEffectMs();
 
 	// drug timer checker
@@ -66,7 +69,7 @@ void XTCDrugComponent::insertNegativeEffect(GameEntity* entity)
 }
 
 void XTCDrugComponent::setVulnerability(){
-	for (int i = 0; i < XTC_gameEntity->getComponentList()->size(); i++){
+	for (std::vector<Component*>::size_type i = 0; i < XTC_gameEntity->getComponentList()->size(); i++){
 		if (XTC_gameEntity->getComponentList()->at(i)->getComponentID() == "HealthComponent"){
 			XTC_gameEntity->addComponentTemporary(XTC_gameEntity->getComponentList()->at(i));
 		}

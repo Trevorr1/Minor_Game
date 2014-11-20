@@ -63,6 +63,11 @@ void HealthComponent::receive(Component *subject, ComponentMessage message, Game
 	}
 }
 
+
+void HealthComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages) {
+
+}
+
 void HealthComponent::tick(float dt, GameEntity *entity) {
 	if (m_scheduleHealthDecrease) {
 		if (entity->getEnum() == Player) {

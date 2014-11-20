@@ -8,6 +8,8 @@ void  MoveComponent::receive(Component *subject, ComponentMessage message, GameE
 
 }
 
+void MoveComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages) {}
+
 void  MoveComponent::tick(float dt, GameEntity *entity) {
 
 	float posX = entity->getPosX();

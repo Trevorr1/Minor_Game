@@ -31,6 +31,9 @@ void DrawComponent::receive(Component *subject, ComponentMessage message, GameEn
 
 }
 
+
+void DrawComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages){}
+
 void DrawComponent::tick(float dt, GameEntity *entity)
 {
 	m_SpriteSheet->Draw((int)entity->getPosX(), (int)entity->getPosY(), DrawManager::getInstance().getSurface());
@@ -132,5 +135,5 @@ void DrawComponent::setCurrentAnimation(Animation* animation){
 	}
 	m_SpriteSheet = animation->getSpriteSheet();
 	m_FPS = animation->getFPS();
-	m_timePerFrame = animation->getTimePerFrame();
+	m_timePerFrame = (float)animation->getTimePerFrame();
 }

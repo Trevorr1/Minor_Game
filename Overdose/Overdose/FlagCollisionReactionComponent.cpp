@@ -23,6 +23,9 @@ void FlagCollisionReactionComponent::receive(Component *subject, ComponentMessag
 	}
 }
 
+
+void FlagCollisionReactionComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages){}
+
 void FlagCollisionReactionComponent::tick(float dt, GameEntity *entity){
 
 }

@@ -17,15 +17,16 @@ InputManager::~InputManager()
 
 void InputManager::setKeyStates(Uint8 *keyStates, int size) {
 
-	m_keystateBuffer->push_back(m_keystate);
 	m_keystate = new Uint8[size]; // memleak?
 	for (int i = 0; i < size; i++) {
 		m_keystate[i] = keyStates[i];
 	}
+	m_keystateBuffer->push_front(m_keystate);
+	
 		//m_keystate = keyStates;
 	if (m_keystateBuffer->size() > KEYBOARD_BUFFER_SIZE) {
 	//	delete m_keystateBuffer->front();
-		m_keystateBuffer->pop_front();
+		m_keystateBuffer->pop_back();
 	}
 
 
@@ -47,28 +48,40 @@ bool InputManager::isKeyPressedOnce(int sdl_code) {
 		return false;
 	}
 	
-	bool isKeyPressed = true;
+
+	bool isKeyReleased = !m_keystate[sdl_code]; /* Op het moment van checken moet de key niet meer ingedrukt zijn */
+	bool isKeyPressed = false;
+	
+
 	list<Uint8*>::const_iterator iterator = m_keystateBuffer->begin();
 	int counter = 0;
 
-	while (iterator != m_keystateBuffer->end() && isKeyPressed && counter < KEYBOARD_BUFFER_SIZE / 2) {
-
-		Uint8 *keystate = *iterator;
-		isKeyPressed = keystate[sdl_code];
-	
-		iterator++;
-		counter++;
-	}
-
-
-	bool isKeyReleased = true;
 	while (iterator != m_keystateBuffer->end() && isKeyReleased) {
 
 		Uint8 *keystate = *iterator;
 
-		isKeyReleased = (keystate[sdl_code] == false);
+		if (keystate[sdl_code] == true)
+		{
+			counter++;
+		}
+
 		iterator++;
 		
+	}
+
+	isKeyPressed = counter >= 1;
+
+	if (isKeyPressed) {
+		std::cout << "KeyPressedOnce: Bufferdump" << std::endl; 
+		for (Uint8 *state : *m_keystateBuffer) {
+			std::cout << (state[sdl_code] == true) << std::endl;
+		}
+
+		std::cout << "Last Keystate: " << (m_keystate[sdl_code] == true) << std::endl;
+	}
+
+	if (isKeyPressed && isKeyReleased) {
+		m_keystateBuffer->clear();
 	}
 
 	
