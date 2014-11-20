@@ -24,7 +24,7 @@ NegativeMarijuanaComponent::NegativeMarijuanaComponent()
 		bufferOld[i] = buffer[i];
 		bufferNew[i] = (255 - buffer[i]);
 	}
-	buffer = NULL;
+	buffer = nullptr;
 	surfaceOriginal->SetBuffer(bufferNew);
 }
 
@@ -37,8 +37,8 @@ NegativeMarijuanaComponent::~NegativeMarijuanaComponent()
 		_aligned_free(bufferNew);//Buffer vrij maken
 	}
 
-	bufferOld = NULL;
-	bufferNew = NULL;
+	bufferOld = nullptr;
+	bufferNew = nullptr;
 }
 
 void NegativeMarijuanaComponent::tick(float dt, GameEntity *entity) {
