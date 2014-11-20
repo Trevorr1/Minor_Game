@@ -25,12 +25,7 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 	float speedy = entity->getSpeedY();
 
 	bool clear = false;
-
-	if (collidedBottom && collidedRight)
-	{
-		int foo = 0;
-	}
-
+	
 	if (collidedTop)
 	{
 		entity->setSpeedY(0);

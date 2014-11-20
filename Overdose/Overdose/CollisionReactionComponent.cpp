@@ -68,7 +68,8 @@ void CollisionReactionComponent::receiveMessageBatch(Component *subject, std::ma
 {
 	for (std::map<ComponentMessage, GameEntity*>::iterator it = messages.begin(); it != messages.end(); ++it)
 	{
-		switch (it->first){
+		switch (it->first)
+		{
 		case PlayerInputComponent_ATTACK:
 			break;
 		case CollissionComponent_COLLISION_TOP:
