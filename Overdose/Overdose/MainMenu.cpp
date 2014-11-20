@@ -13,6 +13,7 @@ using namespace overdose;
 
 MainMenu::MainMenu()
 {
+	m_Camera = new Camera();
 	m_Background = new Surface("assets/backgrounds/mainmenu.jpg");
 }
 

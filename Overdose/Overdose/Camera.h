@@ -12,7 +12,7 @@ namespace overdose
 		Camera();
 		virtual ~Camera();
 
-		void Tick();
+		void Tick(float dt);
 
 		void setTileMap(int tileMap[], int size);
 		void setTileAssets(Tile* tileAssets);		

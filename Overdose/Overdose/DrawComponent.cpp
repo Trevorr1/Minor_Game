@@ -33,7 +33,7 @@ void DrawComponent::receive(Component *subject, ComponentMessage message, GameEn
 
 void DrawComponent::tick(float dt, GameEntity *entity)
 {
-	m_SpriteSheet->Draw((int)entity->getPosX(), (int)entity->getPosY(), DrawManager::getInstance().getSurface());
+	m_SpriteSheet->Draw((int)entity->getPosX(), (int)entity->getPosY(), DrawManager::getInstance().getLevelSurface());
 
 	if (m_FPS > 0){
 		m_currentDTcount += dt * 1000;

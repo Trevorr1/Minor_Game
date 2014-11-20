@@ -23,7 +23,8 @@ Game::~Game(){
 void Game::Init()
 {
 	// put your initialization code here; will be executed once
-	DrawManager::getInstance().setTargetSurface(m_Screen);
+	//DrawManager::getInstance().setTargetSurface(m_Screen);
+	DrawManager::getInstance().setTargetCameraSurface(m_Screen);
 }
 
 void Game::Tick(float a_DT)

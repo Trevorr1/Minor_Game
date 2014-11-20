@@ -26,6 +26,9 @@ namespace overdose {
 
 		virtual void Tick(float a_DT);
 		virtual bool isGameOver();
+
+		virtual void createLevel(int width, int height);
+
 		bool isGameWon();
 		void setGameWon();
 		bool isReloadLevel();

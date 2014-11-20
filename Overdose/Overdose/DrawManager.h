@@ -6,13 +6,20 @@ class DrawManager
 {
 public:
 	static DrawManager& getInstance();
-	virtual ~DrawManager() {}
+	virtual ~DrawManager() { delete m_Level; delete m_Camera; }
 
-	void setTargetSurface(Surface* aSurface) { m_Surface = aSurface;  }
-	Surface* getSurface() { return m_Surface;  }
+	void setTargetSurface(Surface* aSurface) { m_Level = aSurface; }
+	void createLevelSurface(int width, int height);
+	void setTargetCameraSurface(Surface* aSurface) { m_Camera = aSurface; }
+
+	void convertLevelToCamera(int xoffset, int yoffset);
+
+	Surface* getLevelSurface() { return m_Level; }
+	Surface* getCameraSurface() { return m_Camera; }
 
 private:
 	DrawManager() {}
-	Surface* m_Surface;
+	Surface* m_Level;
+	Surface* m_Camera;
 };
 

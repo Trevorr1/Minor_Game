@@ -15,6 +15,7 @@ using namespace overdose;
 Level1::Level1()
 {
 	m_Camera = new Camera();
+	createLevel(940*2, 480);
 }
 
 Level1::Level1(GameEntity* player)
@@ -26,12 +27,12 @@ Level1::~Level1()
 {
 	//dont forget to delete m_Tiles RICARDO!!
 	//delete m_Background;
-	delete m_Camera;
+	//delete m_Camera;
 }
 
 void Level1::Init()
 {
-	//m_Background = new Surface("assets/backgrounds/background.png");
+	m_Background = new Surface("assets/backgrounds/background.png");
 
 	std::map<eAnimationState, Animation*>* animations = new std::map<eAnimationState, Animation*>();
 	animations->insert({ Default, new Animation("assets/sprites/tiles/level1/tile_air.png", 1) });
@@ -57,6 +58,8 @@ void Level1::Init()
 	{
 		GameEntity *player = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Player);
 		m_Player = player;
+
+		m_Camera->setEntityFocus(m_Player);
 	}
 
 	int tileMap[WORLD_SIZEY*WORLD_SIZEX] = 
@@ -108,15 +111,15 @@ void Level1::Init()
 	////entityDrugXTC->setSpeedY(0);
 	////this->addEntities(entityDrugXTC);
 
-	//int grassWall = 22;
-	//for (int i = 0; i < grassWall; i++){
-	//	/*if (i > (grassWall/2 - 2) && i < (grassWall/2 + 2)){
-	//		continue;
-	//	}*/
-	//	GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
-	//	grass1->setStartingPosition(50 + 32 * i, 410);
-	//	this->addEntities(grass1);
-	//}
+	int grassWall = 68;
+	for (int i = 0; i < grassWall; i++){
+		/*if (i > (grassWall/2 - 2) && i < (grassWall/2 + 2)){
+			continue;
+		}*/
+		GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
+		grass1->setStartingPosition(50 + 32 * i, 410);
+		this->addEntities(grass1);
+	}
 
 
 	//GameEntity *flaggot = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Flag);
@@ -129,13 +132,15 @@ void Level1::Init()
 	//SoundManager::getInstance()->PlaySound(eSound::Death);
 }
 
-void Level1::Tick(float a_DT)
-{
-	DrawBackground();
-	m_Camera->Tick();
-}
+//void Level1::Tick(float a_DT)
+//{
+//	//DrawBackground();
+//	//m_Camera->Tick(); //tile assets
+//	//tick assetes
+//	
+//}
 
-void Level1::DrawBackground()
-{
-
-}
+//void Level1::DrawBackground()
+//{
+//
+//}

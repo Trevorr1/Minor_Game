@@ -7,6 +7,10 @@ using namespace overdose;
 ILevel::ILevel(){
 	GameEntity *fpsCounter = GameEntityFactory::getInstance().getGameEntity(eGameEntity::FPSCounter);
 	this->addEntities(fpsCounter);
+
+	createLevel(940, 480);
+
+
 }
 
 void ILevel::addEntities(GameEntity* entities)
@@ -66,10 +70,22 @@ std::vector<GameEntity*>* ILevel::getEntities(){
 //}
 
 void ILevel::DrawBackground(){
-	m_Background->CopyTo(DrawManager::getInstance().getSurface(), 0, 0);
+	
+	//m_Background->CopyTo(DrawManager::getInstance().getSurface(), 0, 0);
+	//Surface* surface = DrawManager::getInstance().getSurface();
+	//Surface* level = new Surface(32 * 32, 12 * 32);
+	//surface->CopyTo(level, 0, 0);
+	
+	//m_Background->CopyTo(DrawManager::getInstance().getSurface(), 0, 0);
+	//m_Background->CopyTo(level, 0, 0);
+	m_Background->CopyTo(DrawManager::getInstance().getLevelSurface(), 0, 0);
+	m_Background->CopyTo(DrawManager::getInstance().getLevelSurface(), 940, 0);
+
+	//m_Background->Clear(0x000000);
 }
 
 void ILevel::Tick(float dt){
+	
 	
 	DrawBackground();
 
@@ -88,11 +104,20 @@ void ILevel::Tick(float dt){
 	for (auto &it : *entities) {
 		it->tick(dt);
 	}
+
+	
+	m_Camera->Tick(dt);
 }
 
 bool ILevel::isGameOver() {
 	return m_Player->isScheduledForRemoval();
 }
+
+void ILevel::createLevel(int width, int height)
+{
+	DrawManager::getInstance().createLevelSurface(width, height);
+}
+
 bool ILevel::isGameWon() {
 	return m_IsGameWon;
 }

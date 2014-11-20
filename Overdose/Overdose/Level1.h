@@ -14,8 +14,8 @@ namespace overdose {
 		virtual ~Level1();
 
 		void Init();
-		void Tick(float a_DT);
-		void DrawBackground();
+		//void Tick(float a_DT);
+		//void DrawBackground();
 
 	private:
 		
