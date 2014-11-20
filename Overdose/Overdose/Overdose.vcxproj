@@ -75,6 +75,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Advertisement.h" />
     <ClInclude Include="Animation.h" />
     <ClInclude Include="BspTree.h" />
     <ClInclude Include="ButtonClickableReactionComponent.h" />
@@ -139,6 +140,7 @@
     <ClInclude Include="XTCDrugComponent.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Advertisement.cpp" />
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="ButtonClickableReactionComponent.cpp" />
     <ClCompile Include="ClickableComponent.cpp" />

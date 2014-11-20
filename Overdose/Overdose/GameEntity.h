@@ -94,7 +94,7 @@ namespace overdose {
 		GameEntity();
 		GameEntity(eGameEntity entityEnum);
 
-		~GameEntity();
+		virtual ~GameEntity();
 	};
 
 

@@ -3,6 +3,9 @@ namespace overdose {
 	enum eGameEntity {
 		Player, Policeman, DrugAddict, Junky, Drugdealer, FPSCounter, Environment, Drug_Speed, Drug_Marijuana, Drug_XTC, Grass, Flag,
 
+		/*Advertisement */
+		Advertisement_GameEntity,
+
 		/*Main Menu*/
 		ButtonPlay, 
 
