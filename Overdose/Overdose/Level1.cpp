@@ -23,9 +23,7 @@ Level1::Level1(GameEntity* player)
 
 Level1::~Level1()
 {
-	//dont forget to delete m_Tiles RICARDO!!
-	//delete m_Background;
-	//delete m_Camera;
+	delete m_Background;
 }
 
 void Level1::Init()

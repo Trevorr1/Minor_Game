@@ -137,6 +137,7 @@ void ILevel::setReloadLevel()
 ILevel::~ILevel() 
 {
 	printf("Level unloaded from the game.\n");
+	delete m_Camera;
 	//delete m_Player;
 
 	while (!entities->empty()) 
