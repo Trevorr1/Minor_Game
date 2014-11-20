@@ -2,6 +2,8 @@
 #include "surface.h"
 #include "freeimage.h"
 
+
+
 	void NotifyUser(char* s);
 
 	// -----------------------------------------------------------
@@ -65,12 +67,22 @@
 
 	}
 
+	void Surface::WriteText(char* text, int x, int y) {
+	
+		if (!m_Font){
+			m_Font = new Font("assets/fonts/font.tga", "1234567890abcdefghijklmnopqrstuvwxyz");
+		}
+		m_Font->Print(this, text, x, y);
+	}
+
 	Surface::~Surface()
 	{
 	//	printf("Destruction surface\n");
 		if (clearBuffer) {
 			_aligned_free(m_Buffer);
 		}
+
+		delete m_Font;
 	}
 
 	void Surface::Clear(Pixel a_Color)

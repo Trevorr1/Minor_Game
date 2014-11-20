@@ -46,11 +46,21 @@ GameEntity* ILevel::takePlayerEntity(){
 		}
 	}
 
+	removeDrugComponents(player);
+
 	return player;
 }
 
 std::vector<GameEntity*>* ILevel::getEntities(){
 	return entities;
+}
+
+void ILevel::removeDrugComponents(GameEntity* player){
+	for (auto component : *player->getComponentList()){
+		if (component->getComponentID().find("DrugComponent") != std::string::npos || component->getComponentID().find("Negative") != std::string::npos){
+			player->removeComponent(component->getComponentID());
+		}
+	}
 }
 
 //std::vector<GameEntity*>* ILevel::getCollectibles(){

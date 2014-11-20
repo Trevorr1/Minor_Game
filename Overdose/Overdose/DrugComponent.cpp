@@ -16,11 +16,12 @@ DrugComponent::DrugComponent()
 
 DrugComponent::~DrugComponent()
 {
+	//std::cout << "deleted DrugComponent" << std::endl;
 	surface = NULL;
 	level = NULL;
-	std::cout << "speed ervoor: " << entity->getMovementSpeed() << std::endl;
+	//std::cout << "speed ervoor: " << entity->getMovementSpeed() << std::endl;
 	entity->setSpeedX(previous_speedX);
-	std::cout << "speed erna: " << entity->getMovementSpeed() << std::endl;
+	//std::cout << "speed erna: " << entity->getMovementSpeed() << std::endl;
 }
 
 void DrugComponent::init(GameEntity* entity)

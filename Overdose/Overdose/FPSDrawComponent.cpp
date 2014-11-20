@@ -35,7 +35,8 @@ void FPSDrawComponent::tick(float dt, GameEntity *entity) {
 		const char *t = str.c_str();
 		char *fps_chars = const_cast<char*>(t);
 
-		surface->Print(fps_chars, (int)entity->getPosX(), (int)entity->getPosY(), *new Pixel(0xff0000));
+		//surface->Print(fps_chars,, *new Pixel(0xff0000));
+		surface->WriteText(fps_chars, (int)entity->getPosX(), (int)entity->getPosY());
 	}
 
 	if (drawTimer > 0){
