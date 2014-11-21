@@ -12,6 +12,7 @@ namespace overdose {
 	public:
 
 		DrawComponent(std::map<eAnimationState, Animation*>* animations);
+		DrawComponent(std::map<eAnimationState, Animation*>* animations, DrawComponent* floatToRight);
 		virtual ~DrawComponent();
 
 		void init(GameEntity *entity);
@@ -32,5 +33,6 @@ namespace overdose {
 		std::map<eAnimationState, Animation*>* m_Animations;
 		void setCurrentAnimation(Animation* animation);
 
+		DrawComponent* m_floatToRight;
 	};
 }

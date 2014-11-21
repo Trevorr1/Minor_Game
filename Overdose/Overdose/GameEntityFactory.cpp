@@ -224,14 +224,15 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		break;
 	case Advertisement_GameEntity:
 		newObject = new Advertisement();
-		newObject->addComponent(new ClickableComponent());
-		newObject->addComponent(new QuitOnClickComponent());
-		animations = new std::map<eAnimationState, Animation*>();
-		animations->insert({ Default, new Animation("assets/ads/ad_1_small.png", 1) });
+		//newObject->addComponent(new ClickableComponent());
+		//newObject->addComponent(new QuitOnClickComponent());
+		//animations = new std::map<eAnimationState, Animation*>();
+		//animations->insert({ Default, new Animation("assets/ads/ad_1_small.png", 1) });
+		//animations->insert({ Default, new Animation("assets/ads/ad_1.png", 1) });
 		//animations->insert({ Default, new Animation("assets/ads/close.png", 1) });
-		animation = new DrawComponent(animations);
-		animation->setAnimation(Default);//set starting animation
-		newObject->addComponent(animation);
+		//animation = new DrawComponent(animations);
+		//animation->setAnimation(Default);//set starting animation
+		//newObject->addComponent(animation);
 		break;
 
 
