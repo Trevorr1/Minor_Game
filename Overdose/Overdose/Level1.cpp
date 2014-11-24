@@ -113,7 +113,7 @@ void Level1::Init()
 	entityAdvertisement->setSpeedY(0);
 	this->addEntities(entityAdvertisement);
 
-	int grassWall = 22;
+	int grassWall = 68;
 	for (int i = 0; i < grassWall; i++){
 		/*if (i > (grassWall/2 - 2) && i < (grassWall/2 + 2)){
 			continue;

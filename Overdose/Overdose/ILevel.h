@@ -29,7 +29,6 @@ namespace overdose {
 		void removeDrugComponents(GameEntity* player);
 		void removeEntity(GameEntity* entity);
 		virtual std::vector<GameEntity*>* getEntities();
-		virtual std::vector<GameEntity*> *getEntities();
 		Surface* getSurface(){ return m_Background; };
 
 		virtual void Tick(float a_DT);

@@ -42,13 +42,13 @@ void DrawComponent::receiveMessageBatch(Component *subject, std::map<ComponentMe
 void DrawComponent::tick(float dt, GameEntity *entity)
 {
 	if (m_floatToRight == nullptr){
-		m_SpriteSheet->Draw((int)entity->getPosX(), (int)entity->getPosY(), DrawManager::getInstance().getSurface());
+		m_SpriteSheet->Draw((int)entity->getPosX(), (int)entity->getPosY(), DrawManager::getInstance().getLevelSurface());
 	}
 	else{
 		m_SpriteSheet->Draw(
 			(int)entity->getPosX() + m_floatToRight->m_SpriteSheet->GetWidth() - m_SpriteSheet->GetWidth(),
 			(int)entity->getPosY(),
-			DrawManager::getInstance().getSurface());
+			DrawManager::getInstance().getLevelSurface());
 	}
 
 	if (m_FPS > 0){
