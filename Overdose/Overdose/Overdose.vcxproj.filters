@@ -279,6 +279,9 @@
     <ClInclude Include="HealthHearts.h">
       <Filter>Header Files\HUD</Filter>
     </ClInclude>
+    <ClInclude Include="DrugDurationGauge.h">
+      <Filter>Header Files\HUD</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -466,6 +469,9 @@
     </ClCompile>
     <ClCompile Include="HealthHearts.cpp">
       <Filter>Source Files\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="DrugDurationGauge.cpp">
+      <Filter>Source Files\Entity</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
