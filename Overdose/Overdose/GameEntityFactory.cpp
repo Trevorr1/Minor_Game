@@ -16,6 +16,7 @@
 #include "QuitOnClickComponent.h"
 #include "HealthComponent.h"
 #include "FlagCollisionReactionComponent.h"
+#include "TextBoxInputComponent.h"
 #include "KnockBackComponent.h"
 #include "ParticleComponent.h"
 #include <stdexcept>
@@ -68,6 +69,10 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	}
 	case Drugdealer:
 		//	newObject->addComponent(*new DummyComponent());
+		break;
+	case TextBox:
+		newObject->addComponent(new TextBoxInputComponent());
+		//newObject->addComponent(new DrawComponent());
 		break;
 	case FPSCounter:
 		newObject->addComponent(new FPSDrawComponent());
@@ -224,13 +229,15 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		break;
 	case Advertisement_GameEntity:
 		newObject = new Advertisement();
-		newObject->addComponent(new ClickableComponent());
-		newObject->addComponent(new QuitOnClickComponent());
-		animations = new std::map<eAnimationState, Animation*>();
-		animations->insert({ Default, new Animation("assets/ads/ad_1_small.png", 1) });
-		animation = new DrawComponent(animations);
-		animation->setAnimation(Default);//set starting animation
-		newObject->addComponent(animation);
+		//newObject->addComponent(new ClickableComponent());
+		//newObject->addComponent(new QuitOnClickComponent());
+		//animations = new std::map<eAnimationState, Animation*>();
+		//animations->insert({ Default, new Animation("assets/ads/ad_1_small.png", 1) });
+		//animations->insert({ Default, new Animation("assets/ads/ad_1.png", 1) });
+		//animations->insert({ Default, new Animation("assets/ads/close.png", 1) });
+		//animation = new DrawComponent(animations);
+		//animation->setAnimation(Default);//set starting animation
+		//newObject->addComponent(animation);
 		break;
 
 

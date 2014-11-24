@@ -116,6 +116,9 @@ void LevelManager::nextLevel()
 	case level10:
 		createLevel(LevelGameWon);
 		break;
+	case SetHighScore:
+		createLevel(LevelMainMenu);
+		break;
 	case LevelGameOver:
 		createLevel(LevelMainMenu);
 		break;

@@ -102,6 +102,7 @@
     <ClInclude Include="gravityComponent.h" />
     <ClInclude Include="AnimationEnum.h" />
     <ClInclude Include="HealthComponent.h" />
+    <ClInclude Include="HighScore.h" />
     <ClInclude Include="ILevel.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="KillSwitchComponent.h" />
@@ -128,6 +129,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="surface.h" />
     <ClInclude Include="template.h" />
+    <ClInclude Include="TextBoxInputComponent.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TreeNode.h" />
     <ClInclude Include="XTCDrugComponent.h" />
@@ -157,6 +159,7 @@
     <ClCompile Include="GameWon.cpp" />
     <ClCompile Include="gravityComponent.cpp" />
     <ClCompile Include="HealthComponent.cpp" />
+    <ClCompile Include="HighScore.cpp" />
     <ClCompile Include="Ilevel.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="KillSwitchComponent.cpp" />
@@ -183,6 +186,7 @@
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="surface.cpp" />
     <ClCompile Include="template.cpp" />
+    <ClCompile Include="TextBoxInputComponent.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TreeNode.cpp" />
     <ClCompile Include="XTCDrugComponent.cpp" />
