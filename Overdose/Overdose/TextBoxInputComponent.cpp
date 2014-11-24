@@ -28,6 +28,10 @@ void TextBoxInputComponent::tick(float dt, GameEntity *entity)
 void TextBoxInputComponent::receive(Component *subject, ComponentMessage message, GameEntity *object)
 {}
 
+
+void TextBoxInputComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages) {
+}
+
 void TextBoxInputComponent::Init()
 {
 	sdlKeyCodes->insert({ SDL_SCANCODE_A, "A" });
