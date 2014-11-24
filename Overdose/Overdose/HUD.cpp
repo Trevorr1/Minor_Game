@@ -7,11 +7,7 @@ using namespace overdose;
 HUD::HUD()
 	: m_Entity{ nullptr }, m_MaxHealth{ 0 }, m_CurrentHealth{ 0 }, m_DrugEffect_ms{ INT_MAX }, m_CurrentEffect_ms{ INT_MAX }
 {
-	std::map<eAnimationState, Animation*>* animations = new std::map<eAnimationState, Animation*>();
-	animations->insert({ Default, new Animation("assets/sprites/heart.png", 2) });
-	m_DrawComponent = new DrawComponent(animations);
-	m_DrawComponent->setAnimation(Default);//set starting animation
-	addComponent(m_DrawComponent);
+	// hearts and gauge
 	posX = 20.0f;
 	posY = 440.0f;
 }
@@ -19,19 +15,22 @@ HUD::HUD()
 HUD::HUD(GameEntity* entity)
 	: m_Entity{ entity }, m_DrugEffect_ms{ INT_MAX }, m_CurrentEffect_ms{ INT_MAX }
 {
+	// hearts and gauge
+	m_DrugGauge = new DrugDurationGauge();
+	for (std::vector<HealthHearts*>::iterator it = m_Hearts->begin(); it != m_Hearts->end(); it++)
+	{
+		*it = new HealthHearts();
+	}
 	m_MaxHealth = m_Entity->getHealth();
 	m_CurrentHealth = m_MaxHealth;
-	std::map<eAnimationState, Animation*>* animations = new std::map<eAnimationState, Animation*>();
-	animations->insert({ Default, new Animation("assets/sprites/heart.png", 2) });
-	m_DrawComponent = new DrawComponent(animations);
-	m_DrawComponent->setAnimation(Default);
-	addComponent(m_DrawComponent);
-	posX = 20.0f;
+	posX = 20.0f;// these values should not be hardcoded :<
 	posY = 440.0f;
 }
 
 HUD::~HUD()
 {
+	delete m_DrugGauge;
+	delete m_Hearts;
 }
 
 void HUD::tick(float dt)

@@ -1,8 +1,8 @@
 #pragma once
 #include <vector>
 #include "GameEntity.h"
-#include "DrawComponent.h"
 #include "HealthHearts.h"
+#include "DrugDurationGauge.h"
 
 namespace overdose {
 	class HUD :
@@ -16,12 +16,12 @@ namespace overdose {
 		void tick(float dt);
 	private:
 		GameEntity* m_Entity;
-		DrawComponent* m_DrawComponent;
+		DrugDurationGauge* m_DrugGauge;
+		std::vector<HealthHearts*>* m_Hearts;
 		int m_DrugEffect_ms;
 		int m_CurrentEffect_ms;
 		int m_MaxHealth;
 		int m_CurrentHealth;
-		std::vector<HealthHearts*> m_Hearts;
 	};
 
 } // namespace overdose

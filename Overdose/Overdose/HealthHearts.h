@@ -1,5 +1,6 @@
 #pragma once
 #include "GameEntity.h"
+#include "DrawComponent.h"
 
 namespace overdose {
 
@@ -9,6 +10,7 @@ namespace overdose {
 	public:
 		HealthHearts();
 		virtual ~HealthHearts();
+	private:
+		DrawComponent* m_DrawComponent;
 	};
-
 } // namespace overdose
