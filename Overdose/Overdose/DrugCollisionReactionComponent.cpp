@@ -31,7 +31,7 @@ void DrugCollisionReactionComponent::receive(Component *subject, ComponentMessag
 		for (unsigned int i = 0; i < object->getComponentList()->size(); i++)
 		{
 			//if (typeid(object->getComponentList()->at(i)) ==  typeid(DrugComponent))
-			if (dynamic_cast<DrugComponent*>(object->getComponentList()->at(i)) != NULL)
+			if (dynamic_cast<DrugComponent*>(object->getComponentList()->at(i)) != nullptr)
 			{
 				//inList = true;
 				object->removeComponent(object->getComponentList()->at(i)->getComponentID());

@@ -20,7 +20,7 @@ DrugComponent::~DrugComponent()
 	surface = NULL;
 	level = NULL;
 	//std::cout << "speed ervoor: " << entity->getMovementSpeed() << std::endl;
-	entity->setSpeedX(previous_speedX);
+	//entity->setSpeedX(previous_speedX);
 	//std::cout << "speed erna: " << entity->getMovementSpeed() << std::endl;
 }
 

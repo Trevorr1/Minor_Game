@@ -17,7 +17,7 @@ namespace overdose {
 		void setDrugEffects();
 		float getDrugSpeed_X();
 		int getDrugEffectMs();
-		std::clock_t    timer_start;
+		std::clock_t timer_start;
 		std::string getComponentID();
 	private:
 		float previous_speedX;

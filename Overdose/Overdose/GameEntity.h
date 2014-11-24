@@ -94,8 +94,6 @@ namespace overdose {
 		void setMovementSpeed(float movementspeed);
 
 
-		//void setCollided();
-
 		GameEntity();
 		GameEntity(eGameEntity entityEnum);
 		GameEntity(eGameEntity entityEnum, Component *component, ...);

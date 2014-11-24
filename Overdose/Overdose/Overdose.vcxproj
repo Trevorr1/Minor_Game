@@ -100,6 +100,8 @@
     <ClInclude Include="gravityComponent.h" />
     <ClInclude Include="AnimationEnum.h" />
     <ClInclude Include="HealthComponent.h" />
+    <ClInclude Include="HealthHearts.h" />
+    <ClInclude Include="HUD.h" />
     <ClInclude Include="ILevel.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="KillSwitchComponent.h" />
@@ -161,6 +163,8 @@
     <ClCompile Include="GameWon.cpp" />
     <ClCompile Include="gravityComponent.cpp" />
     <ClCompile Include="HealthComponent.cpp" />
+    <ClCompile Include="HealthHearts.cpp" />
+    <ClCompile Include="HUD.cpp" />
     <ClCompile Include="Ilevel.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="KillSwitchComponent.cpp" />

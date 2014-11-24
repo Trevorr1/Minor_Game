@@ -73,6 +73,18 @@
     <Filter Include="Source Files\Util">
       <UniqueIdentifier>{7f4d427b-eba9-4916-aead-260e68c43fd9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Component\Drugs">
+      <UniqueIdentifier>{7a09a521-a61b-420d-a395-2ce7461559dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\HUD">
+      <UniqueIdentifier>{5b469e71-e952-4d6e-b610-e0cc3c582157}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Drugs">
+      <UniqueIdentifier>{671d2943-4613-4f74-a654-b36e3d48753b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\HUD">
+      <UniqueIdentifier>{5888a767-68ca-45eb-9a81-95d1b1551552}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -189,17 +201,8 @@
     <ClInclude Include="HealthComponent.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
-    <ClInclude Include="SpeedDrugComponent.h">
-      <Filter>Header Files\Component</Filter>
-    </ClInclude>
     <ClInclude Include="GameOver.h">
       <Filter>Header Files\Level</Filter>
-    </ClInclude>
-    <ClInclude Include="NegativeSpeedDrugComponent.h">
-      <Filter>Header Files\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="XTCDrugComponent.h">
-      <Filter>Header Files\Component</Filter>
     </ClInclude>
     <ClInclude Include="FlagCollisionReactionComponent.h">
       <Filter>Header Files\Component\Collision</Filter>
@@ -221,9 +224,6 @@
     </ClInclude>
     <ClInclude Include="ScheduleForRemovalFlag.h">
       <Filter>Header Files\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="NegativeMarijuanaComponent.h">
-      <Filter>Header Files\Component</Filter>
     </ClInclude>
     <ClInclude Include="Level10.h">
       <Filter>Header Files\Level</Filter>
@@ -255,11 +255,29 @@
     <ClInclude Include="KillSwitchComponent.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
-    <ClInclude Include="NegativeXTCComponent.h">
-      <Filter>Header Files\Component</Filter>
-    </ClInclude>
     <ClInclude Include="MarijuanaDrugComponent.h">
-      <Filter>Header Files\Component</Filter>
+      <Filter>Header Files\Component\Drugs</Filter>
+    </ClInclude>
+    <ClInclude Include="XTCDrugComponent.h">
+      <Filter>Header Files\Component\Drugs</Filter>
+    </ClInclude>
+    <ClInclude Include="SpeedDrugComponent.h">
+      <Filter>Header Files\Component\Drugs</Filter>
+    </ClInclude>
+    <ClInclude Include="NegativeSpeedDrugComponent.h">
+      <Filter>Header Files\Component\Drugs</Filter>
+    </ClInclude>
+    <ClInclude Include="NegativeMarijuanaComponent.h">
+      <Filter>Header Files\Component\Drugs</Filter>
+    </ClInclude>
+    <ClInclude Include="NegativeXTCComponent.h">
+      <Filter>Header Files\Component\Drugs</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD.h">
+      <Filter>Header Files\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HealthHearts.h">
+      <Filter>Header Files\HUD</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -362,9 +380,6 @@
     <ClCompile Include="gravityComponent.cpp">
       <Filter>Source Files\Component</Filter>
     </ClCompile>
-    <ClCompile Include="SpeedDrugComponent.cpp">
-      <Filter>Source Files\Component</Filter>
-    </ClCompile>
     <ClCompile Include="DrawComponent.cpp">
       <Filter>Source Files\Component\Animation</Filter>
     </ClCompile>
@@ -376,12 +391,6 @@
     </ClCompile>
     <ClCompile Include="GameOver.cpp">
       <Filter>Source Files\Level</Filter>
-    </ClCompile>
-    <ClCompile Include="NegativeSpeedDrugComponent.cpp">
-      <Filter>Source Files\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="XTCDrugComponent.cpp">
-      <Filter>Source Files\Component</Filter>
     </ClCompile>
     <ClCompile Include="FlagCollisionReactionComponent.cpp">
       <Filter>Source Files\Component\Collision</Filter>
@@ -428,20 +437,35 @@
     <ClCompile Include="Level9.cpp">
       <Filter>Source Files\Level</Filter>
     </ClCompile>
-    <ClCompile Include="NegativeMarijuanaComponent.cpp">
-      <Filter>Source Files\Component</Filter>
-    </ClCompile>
     <ClCompile Include="ParticleComponent.cpp">
       <Filter>Source Files\Component</Filter>
     </ClCompile>
     <ClCompile Include="KillSwitchComponent.cpp">
       <Filter>Source Files\Component</Filter>
     </ClCompile>
+    <ClCompile Include="XTCDrugComponent.cpp">
+      <Filter>Source Files\Drugs</Filter>
+    </ClCompile>
+    <ClCompile Include="SpeedDrugComponent.cpp">
+      <Filter>Source Files\Drugs</Filter>
+    </ClCompile>
     <ClCompile Include="NegativeXTCComponent.cpp">
-      <Filter>Source Files\Component</Filter>
+      <Filter>Source Files\Drugs</Filter>
+    </ClCompile>
+    <ClCompile Include="NegativeSpeedDrugComponent.cpp">
+      <Filter>Source Files\Drugs</Filter>
+    </ClCompile>
+    <ClCompile Include="NegativeMarijuanaComponent.cpp">
+      <Filter>Source Files\Drugs</Filter>
     </ClCompile>
     <ClCompile Include="MarijuanaDrugComponent.cpp">
-      <Filter>Source Files\Component</Filter>
+      <Filter>Source Files\Drugs</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD.cpp">
+      <Filter>Source Files\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HealthHearts.cpp">
+      <Filter>Source Files\HUD</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

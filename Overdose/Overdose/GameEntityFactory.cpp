@@ -56,7 +56,6 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new PolicemanCollisionReactionComponent());//moet nog verandert worden naar PolicemanCollisionReactionComponent
 		newObject->addComponent(new gravityComponent());
-		//	newObject->addComponent(new CollisionComponent());
 		 animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ WalkLeft, new Animation("assets/sprites/Policeman/PolicemanWalkLeft.png", 4, 5) });
 		animations->insert({ WalkRight, new Animation("assets/sprites/Policeman/PolicemanWalkRight.png", 4, 5) });

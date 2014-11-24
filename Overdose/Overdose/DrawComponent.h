@@ -18,10 +18,10 @@ namespace overdose {
 		void receive(Component *subject, ComponentMessage message, GameEntity *object);
 		void receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages);
 		void tick(float dt, GameEntity *entity);
-		std::string getComponentID();
 
 		void setAnimation(eAnimationState state);
 
+		std::string getComponentID();
 	private:
 		Sprite* m_SpriteSheet;
 		void NextSprite();

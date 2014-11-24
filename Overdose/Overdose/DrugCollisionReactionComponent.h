@@ -20,7 +20,7 @@ namespace overdose{
 
 	private:
 		bool isCollided = false;
-		DrugComponent *drugComponent = NULL;
+		DrugComponent *drugComponent = nullptr;
 	};
 
 

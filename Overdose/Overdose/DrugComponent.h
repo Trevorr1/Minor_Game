@@ -23,6 +23,9 @@ namespace overdose {
 
 		float getPrevious_SpeedX();
 		int getTimer_Start();
+
+		int getStartTime() { return timer_start; }
+
 		virtual float getDrugSpeed_X();
 		virtual int getDrugEffectMs();
 
@@ -31,7 +34,7 @@ namespace overdose {
 	private:
 		GameEntity* entity;
 		float previous_speedX;
-		std::clock_t    timer_start;
+		std::clock_t timer_start;
 		virtual void insertNegativeEffect(GameEntity* entity);
 
 		ILevel* level;
