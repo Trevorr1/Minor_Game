@@ -18,7 +18,7 @@ void FPSDrawComponent::tick(float dt, GameEntity *entity) {
 	}
 	
 	if (draw) {
-		Surface *surface = DrawManager::getInstance().getSurface();
+		Surface *surface = DrawManager::getInstance().getCameraSurface();
 
 		m_ticks++;
 		m_dt = m_dt + dt;
