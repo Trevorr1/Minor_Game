@@ -192,9 +192,6 @@
     <ClInclude Include="SpeedDrugComponent.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
-    <ClInclude Include="MarijuanaComponent.h">
-      <Filter>Header Files\Component</Filter>
-    </ClInclude>
     <ClInclude Include="GameOver.h">
       <Filter>Header Files\Level</Filter>
     </ClInclude>
@@ -260,6 +257,12 @@
     </ClInclude>
     <ClInclude Include="NegativeXTCComponent.h">
       <Filter>Header Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="MarijuanaDrugComponent.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Advertisement.h">
+      <Filter>Header Files\Entity</Filter>
     </ClInclude>
     <ClInclude Include="TextBoxInputComponent.h">
       <Filter>Header Files\Component</Filter>
@@ -377,9 +380,6 @@
     <ClCompile Include="Animation.cpp">
       <Filter>Source Files\Component\Animation</Filter>
     </ClCompile>
-    <ClCompile Include="MarijuanaComponent.cpp">
-      <Filter>Source Files\Component</Filter>
-    </ClCompile>
     <ClCompile Include="HealthComponent.cpp">
       <Filter>Source Files\Component</Filter>
     </ClCompile>
@@ -448,6 +448,12 @@
     </ClCompile>
     <ClCompile Include="NegativeXTCComponent.cpp">
       <Filter>Source Files\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="MarijuanaDrugComponent.cpp">
+      <Filter>Source Files\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Advertisement.cpp">
+      <Filter>Source Files\Entity</Filter>
     </ClCompile>
     <ClCompile Include="TextBoxInputComponent.cpp">
       <Filter>Source Files\Component</Filter>

@@ -4,14 +4,15 @@
 
 namespace overdose {
 
-	class MarijuanaComponent :
+	class MarijuanaDrugComponent :
 		public DrugComponent
 	{
 	public:
-		MarijuanaComponent();
-		virtual ~MarijuanaComponent();
+		MarijuanaDrugComponent();
+		virtual ~MarijuanaDrugComponent();
 
 		void receive(Component *subject, ComponentMessage message, GameEntity *object);
+		void receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages);
 		void tick(float dt, GameEntity *entity);
 		void insertNegativeEffect(GameEntity* entitty);
 		void setDrugEffects();

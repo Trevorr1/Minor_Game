@@ -42,6 +42,9 @@ void KnockBackComponent::receive(Component *subject, ComponentMessage message, G
 	}
 }
 
+
+void KnockBackComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages){}
+
 void KnockBackComponent::tick(float dt, GameEntity *entity)
 {
 	if (knockBackToLeft)

@@ -61,6 +61,12 @@ void Level1::Init()
 	//entityDrugXTC->setSpeedY(0);
 	//this->addEntities(entityDrugXTC);
 
+	GameEntity *entityAdvertisement = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Advertisement_GameEntity);
+	entityAdvertisement->setStartingPosition(50, 50);
+	entityAdvertisement->setSpeedX(0);
+	entityAdvertisement->setSpeedY(0);
+	this->addEntities(entityAdvertisement);
+
 	int grassWall = 22;
 	for (int i = 0; i < grassWall; i++){
 		/*if (i > (grassWall/2 - 2) && i < (grassWall/2 + 2)){

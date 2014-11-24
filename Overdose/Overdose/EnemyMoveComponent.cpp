@@ -18,6 +18,9 @@ void  EnemyMoveComponent::receive(Component *subject, ComponentMessage message, 
 
 }
 
+
+void EnemyMoveComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages){}
+
 void  EnemyMoveComponent::tick(float dt, GameEntity *entity)
 {
 

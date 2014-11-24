@@ -16,10 +16,14 @@ SpeedDrugComponent::SpeedDrugComponent()
 
 SpeedDrugComponent::~SpeedDrugComponent()
 {
-	printf("deleted speedDrugComponent \n");
+	printf("deleted SpeedDrugComponent \n");
 }
 
 void SpeedDrugComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
+}
+
+
+void SpeedDrugComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages) {
 }
 
 void SpeedDrugComponent::tick(float dt, GameEntity *entity) {

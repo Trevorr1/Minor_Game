@@ -1,7 +1,7 @@
 #include "DrugCollisionReactionComponent.h"
 #include "DrugComponent.h"
 #include "SpeedDrugComponent.h"
-#include "MarijuanaComponent.h"
+#include "MarijuanaDrugComponent.h"
 #include "XTCDrugComponent.h"
 #include "LevelManager.h"
 
@@ -47,6 +47,9 @@ void DrugCollisionReactionComponent::receive(Component *subject, ComponentMessag
 	}
 }
 
+void DrugCollisionReactionComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages) {
+}
+
 
 void DrugCollisionReactionComponent::tick(float dt, GameEntity *entity) {
 	//delete this Drug, when collided
@@ -60,7 +63,7 @@ void DrugCollisionReactionComponent::tick(float dt, GameEntity *entity) {
 				drugComponent = new SpeedDrugComponent();
 			break;
 			case Drug_Marijuana:
-				drugComponent = new MarijuanaComponent();
+				drugComponent = new MarijuanaDrugComponent();
 			break;
 			case Drug_XTC:
 				drugComponent = new XTCDrugComponent();

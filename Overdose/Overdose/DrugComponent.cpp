@@ -16,11 +16,12 @@ DrugComponent::DrugComponent()
 
 DrugComponent::~DrugComponent()
 {
+	//std::cout << "deleted DrugComponent" << std::endl;
 	surface = NULL;
 	level = NULL;
-	std::cout << "speed ervoor: " << entity->getMovementSpeed() << std::endl;
+	//std::cout << "speed ervoor: " << entity->getMovementSpeed() << std::endl;
 	entity->setSpeedX(previous_speedX);
-	std::cout << "speed erna: " << entity->getMovementSpeed() << std::endl;
+	//std::cout << "speed erna: " << entity->getMovementSpeed() << std::endl;
 }
 
 void DrugComponent::init(GameEntity* entity)
@@ -29,6 +30,9 @@ void DrugComponent::init(GameEntity* entity)
 }
 
 void DrugComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
+}
+
+void DrugComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages) {
 }
 
 void DrugComponent::tick(float dt, GameEntity *entity) {
@@ -40,7 +44,7 @@ void DrugComponent::tick(float dt, GameEntity *entity) {
 		previous_speedX = entity->getMovementSpeed();
 	}
 
-	int timer_end = (std::clock() - timer_start) / (double)(CLOCKS_PER_SEC / 1000);
+	int timer_end = (int)((std::clock() - timer_start) / (double)(CLOCKS_PER_SEC / 1000));
 	int drug_effect_ms = getDrugEffectMs();
 
 	// drug timer checker

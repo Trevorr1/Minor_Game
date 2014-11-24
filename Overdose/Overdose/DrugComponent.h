@@ -16,6 +16,7 @@ namespace overdose {
 
 		void init(GameEntity *entity);
 		virtual void receive(Component *subject, ComponentMessage message, GameEntity *object);
+		virtual void receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages);
 		virtual void tick(float dt, GameEntity *entity);
 		ILevel* getLevel(){ return level; };
 		Surface* getSurface(){ return surface; };

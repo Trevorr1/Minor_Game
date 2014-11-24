@@ -16,7 +16,7 @@ namespace overdose {
 		~Animation();
 
 		Sprite* getSpriteSheet(){ return m_SpriteSheet; }
-		unsigned int getTimePerFrame(){ return m_timePerFrame; }
+		unsigned int getTimePerFrame(){ return (int)m_timePerFrame; }
 		unsigned int getFPS(){ return m_FPS; }
 	};
 
