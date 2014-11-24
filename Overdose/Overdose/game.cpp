@@ -37,7 +37,7 @@ void Game::Tick(float a_DT)
 	if (InputManager::getInstance().isKeyPressed(SDL_SCANCODE_M)){
 		SoundManager::getInstance().ToggleMute(true);
 	}
-	if (InputManager::getInstance().isKeyPressed(SDL_SCANCODE_N)){
+	else if (InputManager::getInstance().isKeyPressed(SDL_SCANCODE_N)){
 		SoundManager::getInstance().ToggleMute(false);
 	}
 }

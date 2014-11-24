@@ -1,4 +1,5 @@
 #pragma once
+
 #include "ILevel.h"
 #include "MainMenu.h"
 #include "GameOver.h"
@@ -42,12 +43,14 @@ class LevelManager
 		void LevelManager::Tick(float dt);
 		void reloadLevel();
 		void nextLevel();
+		float getSpeedModifier() { return m_SpeedModifier; }
 	private:
 		ILevel* currentLevel = nullptr;
 		ILevel* previousLevel = nullptr;
 		levels currentLevelEnum;
 		LevelManager(void);
 		static LevelManager* _instance;
+		float m_SpeedModifier = 1;
 		
 	};
 

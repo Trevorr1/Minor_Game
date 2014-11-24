@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "LevelManager.h"
-
+#include "SoundManager.h"
+#include "InputManager.h"
 using namespace overdose;
 
 
@@ -97,7 +98,16 @@ void LevelManager::Tick(float dt){
 		previousLevel = nullptr;
 	}
 
-	currentLevel->Tick(dt);
+	if (InputManager::getInstance().isKeyPressedOnce(SDL_SCANCODE_PAGEUP)) {
+		SoundManager::getInstance().PlaySound1(Click);
+		m_SpeedModifier += 0.1;
+	}
+
+	else if (InputManager::getInstance().isKeyPressedOnce(SDL_SCANCODE_PAGEDOWN)) {
+		SoundManager::getInstance().PlaySound1(Click);
+		m_SpeedModifier -= 0.1;
+	}
+	currentLevel->Tick(dt * m_SpeedModifier);
 }
 
 

@@ -213,6 +213,11 @@ void SoundManager::PlaySound(eSound sound){
 	}
 }
 
+void SoundManager::PlaySound1(eSound sound) {
+	PlaySound(sound);
+}
+
+
 void SoundManager::ToggleMute(){
 	m_mute = (m_mute) ? false : true;
 	SetVolume();
