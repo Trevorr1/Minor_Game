@@ -16,8 +16,8 @@ namespace overdose {
 	private:
 		std::vector<Component*> *componentListToAdd = new std::vector<Component*>;
 	protected:
-		float posX = 0.0, posY = 0.0, speedX = 0.0, speedY = 0.0;
-		float startPosX = 0.0, startPosY = 0.0;
+		float posX = 0.0f, posY = 0.0f, speedX = 0.0f, speedY = 0.0f;
+		float startPosX = 0.0f, startPosY = 0.0f;
 		float m_movementSpeed = 0.0f;
 		float m_jumpSpeed = 0.0f;
 		float width = 0, height = 0;

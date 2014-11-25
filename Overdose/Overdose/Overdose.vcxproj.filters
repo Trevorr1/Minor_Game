@@ -282,6 +282,9 @@
     <ClInclude Include="DrugDurationGauge.h">
       <Filter>Header Files\HUD</Filter>
     </ClInclude>
+    <ClInclude Include="HUDEntity.h">
+      <Filter>Header Files\HUD</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -470,8 +473,11 @@
     <ClCompile Include="HealthHearts.cpp">
       <Filter>Source Files\HUD</Filter>
     </ClCompile>
+    <ClCompile Include="HUDEntity.cpp">
+      <Filter>Source Files\HUD</Filter>
+    </ClCompile>
     <ClCompile Include="DrugDurationGauge.cpp">
-      <Filter>Source Files\Entity</Filter>
+      <Filter>Source Files\HUD</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

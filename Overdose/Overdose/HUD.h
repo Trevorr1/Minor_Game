@@ -9,7 +9,6 @@ namespace overdose {
 		public GameEntity
 	{
 	public:
-		HUD();
 		HUD(GameEntity* entity);
 		virtual ~HUD();
 
@@ -23,5 +22,4 @@ namespace overdose {
 		int m_MaxHealth;
 		int m_CurrentHealth;
 	};
-
 } // namespace overdose

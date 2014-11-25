@@ -2,7 +2,8 @@
 
 using namespace overdose;
 
-HealthHearts::HealthHearts()
+HealthHearts::HealthHearts(int x, int y) 
+	: HUDEntity(x, y), m_State{Heart_Full}
 {
 	std::map<eAnimationState, Animation*>* animations = new std::map<eAnimationState, Animation*>();
 	animations->insert({ Default, new Animation("assets/sprites/heart.png", 2) });
@@ -14,4 +15,9 @@ HealthHearts::HealthHearts()
 
 HealthHearts::~HealthHearts()
 {
+}
+
+void HealthHearts::tick(float dt)
+{
+	m_DrawComponent->tick(dt, this);
 }
