@@ -71,14 +71,6 @@ bool InputManager::isKeyPressedOnce(int sdl_code) {
 
 	isKeyPressed = counter >= 1;
 
-	if (isKeyPressed) {
-		std::cout << "KeyPressedOnce: Bufferdump" << std::endl; 
-		for (Uint8 *state : *m_keystateBuffer) {
-			std::cout << (state[sdl_code] == true) << std::endl;
-		}
-
-		std::cout << "Last Keystate: " << (m_keystate[sdl_code] == true) << std::endl;
-	}
 
 	if (isKeyPressed && isKeyReleased) {
 		m_keystateBuffer->clear();
