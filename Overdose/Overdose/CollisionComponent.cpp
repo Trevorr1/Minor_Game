@@ -93,7 +93,7 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 
 		// assuming that only GameEntities that have collisionComponents are relevant
 		// to the collision calculation
-		if (entity == other) continue;
+		if (entity == other && other->getEnum() != Advertisement_GameEntity) continue;
 
 		// define the collision box of the "other" GameEntity
 		int oposx = (int)other->getPosX();

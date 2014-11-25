@@ -6,12 +6,6 @@ using namespace overdose;
 
 DrawComponent::DrawComponent(std::map<eAnimationState, Animation*>* animations){
 	m_Animations = animations;
-	m_floatToRight = nullptr;
-}
-
-DrawComponent::DrawComponent(std::map<eAnimationState, Animation*>* animations, DrawComponent* floatToRight){
-	m_Animations = animations;
-	m_floatToRight = floatToRight;
 }
 
 DrawComponent::~DrawComponent()
@@ -41,15 +35,7 @@ void DrawComponent::receiveMessageBatch(Component *subject, std::map<ComponentMe
 
 void DrawComponent::tick(float dt, GameEntity *entity)
 {
-	if (m_floatToRight == nullptr){
-		m_SpriteSheet->Draw((int)entity->getPosX(), (int)entity->getPosY(), DrawManager::getInstance().getSurface());
-	}
-	else{
-		m_SpriteSheet->Draw(
-			(int)entity->getPosX() + m_floatToRight->m_SpriteSheet->GetWidth() - m_SpriteSheet->GetWidth(),
-			(int)entity->getPosY(),
-			DrawManager::getInstance().getSurface());
-	}
+	m_SpriteSheet->Draw((int)entity->getPosX(), (int)entity->getPosY(), DrawManager::getInstance().getSurface());
 
 	if (m_FPS > 0){
 		m_currentDTcount += dt * 1000;

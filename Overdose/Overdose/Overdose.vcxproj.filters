@@ -264,6 +264,12 @@
     <ClInclude Include="Advertisement.h">
       <Filter>Header Files\Entity</Filter>
     </ClInclude>
+    <ClInclude Include="DeleteEntityClickComponent.h">
+      <Filter>Header Files\Component\button</Filter>
+    </ClInclude>
+    <ClInclude Include="URLClickComponent.h">
+      <Filter>Header Files\Component\button</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -448,6 +454,12 @@
     </ClCompile>
     <ClCompile Include="Advertisement.cpp">
       <Filter>Source Files\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteEntityClickComponent.cpp">
+      <Filter>Source Files\Component\button</Filter>
+    </ClCompile>
+    <ClCompile Include="URLClickComponent.cpp">
+      <Filter>Source Files\Component\button</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

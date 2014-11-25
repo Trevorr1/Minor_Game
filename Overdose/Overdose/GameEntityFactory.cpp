@@ -18,6 +18,8 @@
 #include "FlagCollisionReactionComponent.h"
 #include "KnockBackComponent.h"
 #include "ParticleComponent.h"
+#include "DeleteEntityClickComponent.h"
+#include "URLClickComponent.h";
 #include <stdexcept>
 using namespace overdose;
 
@@ -41,30 +43,30 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	switch (entityEnum){
 	case Policeman:
 	{
-		newObject->setSpeedX(110.0f);
-		//	newObject->addComponent(*new DummyComponent());
+					  newObject->setSpeedX(110.0f);
+					  //	newObject->addComponent(*new DummyComponent());
 
-		std::vector<ComponentMessage>* healthDecreaseList = new std::vector < ComponentMessage > ; // delete called in HealthComponent
-		healthDecreaseList->push_back(ComponentMessage::CollissionComponent_REACTION_TOP);
+					  std::vector<ComponentMessage>* healthDecreaseList = new std::vector < ComponentMessage >; // delete called in HealthComponent
+					  healthDecreaseList->push_back(ComponentMessage::CollissionComponent_REACTION_TOP);
 
-		std::vector<eGameEntity>* hurtables = new std::vector < eGameEntity > ; 
-		hurtables->push_back(Player);
+					  std::vector<eGameEntity>* hurtables = new std::vector < eGameEntity >;
+					  hurtables->push_back(Player);
 
-		newObject->addComponent(new HealthComponent(1, healthDecreaseList, hurtables));
+					  newObject->addComponent(new HealthComponent(1, healthDecreaseList, hurtables));
 
-		newObject->addComponent(new MoveComponent());
-		newObject->addComponent(new CollisionComponent());
-		newObject->addComponent(new PolicemanCollisionReactionComponent());//moet nog verandert worden naar PolicemanCollisionReactionComponent
-		newObject->addComponent(new gravityComponent());
-		//	newObject->addComponent(new CollisionComponent());
-		 animations = new std::map<eAnimationState, Animation*>();
-		animations->insert({ WalkLeft, new Animation("assets/sprites/Policeman/PolicemanWalkLeft.png", 4, 5) });
-		animations->insert({ WalkRight, new Animation("assets/sprites/Policeman/PolicemanWalkRight.png", 4, 5) });
-		animation = new DrawComponent(animations);
-		animation->setAnimation(WalkLeft);//set starting animation
-		newObject->addComponent(animation);
+					  newObject->addComponent(new MoveComponent());
+					  newObject->addComponent(new CollisionComponent());
+					  newObject->addComponent(new PolicemanCollisionReactionComponent());//moet nog verandert worden naar PolicemanCollisionReactionComponent
+					  newObject->addComponent(new gravityComponent());
+					  //	newObject->addComponent(new CollisionComponent());
+					  animations = new std::map<eAnimationState, Animation*>();
+					  animations->insert({ WalkLeft, new Animation("assets/sprites/Policeman/PolicemanWalkLeft.png", 4, 5) });
+					  animations->insert({ WalkRight, new Animation("assets/sprites/Policeman/PolicemanWalkRight.png", 4, 5) });
+					  animation = new DrawComponent(animations);
+					  animation->setAnimation(WalkLeft);//set starting animation
+					  newObject->addComponent(animation);
 
-		break;
+					  break;
 	}
 	case Drugdealer:
 		//	newObject->addComponent(*new DummyComponent());
@@ -223,20 +225,32 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(animation);
 		break;
 	case Advertisement_GameEntity:
-		newObject = new Advertisement();
-		//newObject->addComponent(new ClickableComponent());
-		//newObject->addComponent(new QuitOnClickComponent());
-		//animations = new std::map<eAnimationState, Animation*>();
-		//animations->insert({ Default, new Animation("assets/ads/ad_1_small.png", 1) });
-		//animations->insert({ Default, new Animation("assets/ads/ad_1.png", 1) });
-		//animations->insert({ Default, new Animation("assets/ads/close.png", 1) });
-		//animation = new DrawComponent(animations);
-		//animation->setAnimation(Default);//set starting animation
-		//newObject->addComponent(animation);
+	{
+		GameEntity* closeButton = new GameEntity();
+		std::map<eAnimationState, Animation*>* animations2;
+		animations2 = new std::map<eAnimationState, Animation*>();
+		animations2->insert({ Default, new Animation("assets/ads/close.png", 1) });
+		//DrawComponent* animation2 = new DrawComponent(animations2, animation);
+		DrawComponent* animation2 = new DrawComponent(animations2);
+		animation2->setAnimation(Default);//set starting animation
+		closeButton->addComponent(animation2);
+		closeButton->addComponent(new ClickableComponent());
+		closeButton->addComponent(new DeleteEntityClickComponent());
+
+		newObject = new Advertisement(entityEnum, closeButton);
+		newObject->addComponent(new ClickableComponent());
+		newObject->addComponent(new URLClickComponent("https://www.google.nl/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=klm"));
+		animations = new std::map<eAnimationState, Animation*>();
+		animations->insert({ Default, new Animation("assets/ads/ad_1_small.png", 1) });
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Default);//set starting animation
+		newObject->addComponent(animation);
+
+		closeButton = nullptr;
+		animations2 = nullptr;
+		animation2 = nullptr;
 		break;
-
-
-
+	}
 
 
 

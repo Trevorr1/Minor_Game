@@ -84,6 +84,7 @@
     <ClInclude Include="CollisionReactionComponent.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="ComponentMessage.h" />
+    <ClInclude Include="DeleteEntityClickComponent.h" />
     <ClInclude Include="DrawComponent.h" />
     <ClInclude Include="DrawManager.h" />
     <ClInclude Include="DrugCollisionReactionComponent.h" />
@@ -137,6 +138,7 @@
     <ClInclude Include="surface.h" />
     <ClInclude Include="template.h" />
     <ClInclude Include="TreeNode.h" />
+    <ClInclude Include="URLClickComponent.h" />
     <ClInclude Include="XTCDrugComponent.h" />
   </ItemGroup>
   <ItemGroup>
@@ -147,6 +149,7 @@
     <ClCompile Include="CollisionComponent.cpp" />
     <ClCompile Include="CollisionReactionComponent.cpp" />
     <ClCompile Include="Component.cpp" />
+    <ClCompile Include="DeleteEntityClickComponent.cpp" />
     <ClCompile Include="DrawComponent.cpp" />
     <ClCompile Include="DrawManager.cpp" />
     <ClCompile Include="DrugCollisionReactionComponent.cpp" />
@@ -199,6 +202,7 @@
     <ClCompile Include="surface.cpp" />
     <ClCompile Include="template.cpp" />
     <ClCompile Include="TreeNode.cpp" />
+    <ClCompile Include="URLClickComponent.cpp" />
     <ClCompile Include="XTCDrugComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
