@@ -1,4 +1,5 @@
 #include "FPSDrawComponent.h"
+#include "LevelManager.h"
 
 using namespace overdose;
 
@@ -9,6 +10,9 @@ void FPSDrawComponent::receiveMessageBatch(Component *subject, std::map<Componen
 
 /* DT: last frametime in milliseconds */
 void FPSDrawComponent::tick(float dt, GameEntity *entity) {
+
+	// speedmodifier mag geen invloed hebben op springen. Krijg je rare dingen anders
+	dt = (dt / LevelManager::getInstance().getSpeedModifier()) * 1;
 	
 	if (InputManager::getInstance().isKeyPressed(SDL_SCANCODE_GRAVE)) { // tilde 
 		if (drawTimer <= 0){
