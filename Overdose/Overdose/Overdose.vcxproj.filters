@@ -412,6 +412,7 @@
     </ClCompile>
     <ClCompile Include="Tile.cpp">
       <Filter>Source Files</Filter>
+	</ClCompile>
     <ClCompile Include="Level4.cpp">
       <Filter>Source Files\Level</Filter>
     </ClCompile>
