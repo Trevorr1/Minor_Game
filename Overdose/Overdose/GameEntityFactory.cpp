@@ -166,66 +166,46 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	case ButtonPlay:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(level1));
-		animations = new std::map<eAnimationState, Animation*>();
-		animations->insert({ Default, new Animation("assets/buttons/button_play.jpg", 1) });
-		animation = new DrawComponent(animations);
-		animation->setAnimation(Default);//set starting animation
-		newObject->addComponent(animation);
+		newObject->addComponent(new DrawComponent("assets/buttons/button_play.jpg"));
 		break;
 
 	case ButtonPlayAgain:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(level1));
-		animations = new std::map<eAnimationState, Animation*>();
-		animations->insert({ Default, new Animation("assets/buttons/button_play_again.png", 1) });
-		animation = new DrawComponent(animations);
-		animation->setAnimation(Default);//set starting animation
-		newObject->addComponent(animation);
+		newObject->addComponent(new DrawComponent("assets/buttons/button_play_again.png"));
 		break;
 	case ButtonPlayAgainGreen:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(level1));
-		animations = new std::map<eAnimationState, Animation*>();
-		animations->insert({ Default, new Animation("assets/buttons/button_play_again_green.jpg", 1) });
-		animation = new DrawComponent(animations);
-		animation->setAnimation(Default);//set starting animation
-		newObject->addComponent(animation);
+		newObject->addComponent(new DrawComponent("assets/buttons/button_play_again_green.jpg"));
 		break;
 	case ButtonMainMenu:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(LevelMainMenu));
-		animations = new std::map<eAnimationState, Animation*>();
-		animations->insert({ Default, new Animation("assets/buttons/button_main_menu.png", 1) });
-		animation = new DrawComponent(animations);
-		animation->setAnimation(Default);//set starting animation
-		newObject->addComponent(animation);
+		newObject->addComponent(new DrawComponent("assets/buttons/button_main_menu.png"));
+		
 		break;
 	case ButtonMainMenuGreen:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(LevelMainMenu));
-		animations = new std::map<eAnimationState, Animation*>();
-		animations->insert({ Default, new Animation("assets/buttons/button_main_menu_green.jpg", 1) });
-		animation = new DrawComponent(animations);
-		animation->setAnimation(Default);//set starting animation
-		newObject->addComponent(animation);
+		newObject->addComponent(new DrawComponent("assets/buttons/button_main_menu_green.jpg"));
+		
 		break;
 	case ButtonQuitGame:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new QuitOnClickComponent());
-		animations = new std::map<eAnimationState, Animation*>();
-		animations->insert({ Default, new Animation("assets/buttons/button_quit_game.png", 1) });
-		animation = new DrawComponent(animations);
-		animation->setAnimation(Default);//set starting animation
-		newObject->addComponent(animation);
+		newObject->addComponent(new DrawComponent("assets/buttons/button_quit_game.png"));
+
 		break;
 	case ButtonQuitGameGreen:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new QuitOnClickComponent());
-		animations = new std::map<eAnimationState, Animation*>();
-		animations->insert({ Default, new Animation("assets/buttons/button_quit_game_green.jpg", 1) });
-		animation = new DrawComponent(animations);
-		animation->setAnimation(Default);//set starting animation
-		newObject->addComponent(animation);
+		newObject->addComponent(new DrawComponent("assets/buttons/button_quit_game_green.jpg"));
+		break;
+	case ButtonCredits:
+		newObject->addComponent(new ClickableComponent());
+		newObject->addComponent(new QuitOnClickComponent());
+		newObject->addComponent(new DrawComponent("assets/buttons/button_credits.jpg"));
 		break;
 	case Advertisement_GameEntity:
 		newObject = new Advertisement();
@@ -246,7 +226,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 
 
 	default:
-		throw std::invalid_argument("Invalid game Entity passed to the factory"); // Veel te lang moeten debuggen waarom mij entities geen components hadden... >.<
+		throw std::invalid_argument("Invalid game Entity passed to the factory"); // Veel te lang moeten debuggen waarom mijn entities geen components hadden... >.<
 	}
 
 	return newObject;

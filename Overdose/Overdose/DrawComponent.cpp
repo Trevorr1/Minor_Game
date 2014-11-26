@@ -4,14 +4,18 @@
 
 using namespace overdose;
 
-DrawComponent::DrawComponent(std::map<eAnimationState, Animation*>* animations){
-	m_Animations = animations;
+DrawComponent::DrawComponent(std::map<eAnimationState, Animation*>* animations) : m_Animations(animations) {
 	m_floatToRight = nullptr;
 }
 
-DrawComponent::DrawComponent(std::map<eAnimationState, Animation*>* animations, DrawComponent* floatToRight){
-	m_Animations = animations;
-	m_floatToRight = floatToRight;
+DrawComponent::DrawComponent(std::map<eAnimationState, Animation*>* animations, DrawComponent* floatToRight) : m_Animations(animations), m_floatToRight(floatToRight) {
+	
+}
+
+DrawComponent::DrawComponent(char* filePath) {
+	m_Animations = new std::map<eAnimationState, Animation*>();
+	m_Animations->insert({ Default, new Animation(filePath, 1) });
+	setAnimation(Default);
 }
 
 DrawComponent::~DrawComponent()

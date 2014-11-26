@@ -240,9 +240,6 @@
     <ClInclude Include="Tile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Level9.h">
-      <Filter>Header Files\Level</Filter>
-    </ClInclude>
     <ClInclude Include="ParticleComponent.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
@@ -262,6 +259,9 @@
       <Filter>Header Files\Component</Filter>
     </ClInclude>
     <ClInclude Include="HighScore.h">
+      <Filter>Header Files\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="Credits.h">
       <Filter>Header Files\Level</Filter>
     </ClInclude>
   </ItemGroup>
@@ -412,24 +412,6 @@
     </ClCompile>
     <ClCompile Include="Tile.cpp">
       <Filter>Source Files</Filter>
-	</ClCompile>
-    <ClCompile Include="Level4.cpp">
-      <Filter>Source Files\Level</Filter>
-    </ClCompile>
-    <ClCompile Include="Level5.cpp">
-      <Filter>Source Files\Level</Filter>
-    </ClCompile>
-    <ClCompile Include="Level6.cpp">
-      <Filter>Source Files\Level</Filter>
-    </ClCompile>
-    <ClCompile Include="Level7.cpp">
-      <Filter>Source Files\Level</Filter>
-    </ClCompile>
-    <ClCompile Include="Level8.cpp">
-      <Filter>Source Files\Level</Filter>
-    </ClCompile>
-    <ClCompile Include="Level9.cpp">
-      <Filter>Source Files\Level</Filter>
     </ClCompile>
     <ClCompile Include="NegativeMarijuanaComponent.cpp">
       <Filter>Source Files\Component</Filter>
@@ -453,6 +435,9 @@
       <Filter>Source Files\Component</Filter>
     </ClCompile>
     <ClCompile Include="HighScore.cpp">
+      <Filter>Source Files\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="Credits.cpp">
       <Filter>Source Files\Level</Filter>
     </ClCompile>
   </ItemGroup>
