@@ -104,7 +104,7 @@ void LevelManager::nextLevel()
 		createLevel(level1);
 		break;
 	case level1:
-		createLevel(level2);
+		createLevel(LevelGameWon);
 		break;
 	case level2:
 		createLevel(level3);
