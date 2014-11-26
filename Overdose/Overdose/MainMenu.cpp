@@ -38,6 +38,11 @@ void MainMenu::Init()
 	buttonQuitGame->setPosY(200);
 	this->addEntities(buttonQuitGame);
 
+	GameEntity *buttonCredits = GameEntityFactory::getInstance().getGameEntity(eGameEntity::ButtonCredits);
+	buttonCredits->setPosX(50);
+	buttonCredits->setPosY(300);
+	this->addEntities(buttonCredits);
+
 	SoundManager::getInstance().StopMusic();
 	SoundManager::getInstance().PlayMusic(eMusic::MainMenuTheme);
 }

@@ -13,6 +13,8 @@ namespace overdose {
 
 		DrawComponent(std::map<eAnimationState, Animation*>* animations);
 		DrawComponent(std::map<eAnimationState, Animation*>* animations, DrawComponent* floatToRight);
+
+		DrawComponent(char* filePath);
 		virtual ~DrawComponent();
 
 		void init(GameEntity *entity);

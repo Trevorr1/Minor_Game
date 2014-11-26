@@ -85,6 +85,7 @@
     <ClInclude Include="CollisionReactionComponent.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="ComponentMessage.h" />
+    <ClInclude Include="Credits.h" />
     <ClInclude Include="DrawComponent.h" />
     <ClInclude Include="DrawManager.h" />
     <ClInclude Include="DrugCollisionReactionComponent.h" />
@@ -143,6 +144,7 @@
     <ClCompile Include="CollisionComponent.cpp" />
     <ClCompile Include="CollisionReactionComponent.cpp" />
     <ClCompile Include="Component.cpp" />
+    <ClCompile Include="Credits.cpp" />
     <ClCompile Include="DrawComponent.cpp" />
     <ClCompile Include="DrawManager.cpp" />
     <ClCompile Include="DrugCollisionReactionComponent.cpp" />
