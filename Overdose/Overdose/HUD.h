@@ -13,6 +13,7 @@ namespace overdose {
 		virtual ~HUD();
 
 		void tick(float dt);
+		void delayedAddHeart();
 	private:
 		GameEntity* m_Entity;
 		DrugDurationGauge* m_DrugGauge;
@@ -21,5 +22,7 @@ namespace overdose {
 		int m_CurrentEffect_ms;
 		int m_MaxHealth;
 		int m_CurrentHealth;
+
+		bool isScheduledToAddHeart = false;
 	};
 } // namespace overdose

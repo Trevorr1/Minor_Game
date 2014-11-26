@@ -1,4 +1,5 @@
 #include "HealthHearts.h"
+#include "LevelManager.h"
 
 using namespace overdose;
 
@@ -10,6 +11,8 @@ HealthHearts::HealthHearts(int x, int y)
 	m_DrawComponent = new DrawComponent(animations);
 	m_DrawComponent->setAnimation(Default);//set starting animation
 	addComponent(m_DrawComponent);
+	LevelManager::getInstance().getCurrentLevel()->scheduleEntityForInsertion(this);
+
 }
 
 
