@@ -6,9 +6,11 @@
 #include "GameWon.h"
 #include "HighScore.h"
 #include "Level1.h"
+#include "Credits.h"
 namespace overdose {
 enum levels{
 	LevelMainMenu,
+	LevelCredits,
 	level1,
 	level2,
 	level3,

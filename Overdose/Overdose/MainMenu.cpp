@@ -39,8 +39,8 @@ void MainMenu::Init()
 	this->addEntities(buttonQuitGame);
 
 	GameEntity *buttonCredits = GameEntityFactory::getInstance().getGameEntity(eGameEntity::ButtonCredits);
-	buttonQuitGame->setPosX(50);
-	buttonQuitGame->setPosY(300);
+	buttonCredits->setPosX(50);
+	buttonCredits->setPosY(300);
 	this->addEntities(buttonCredits);
 
 	SoundManager::getInstance().StopMusic();

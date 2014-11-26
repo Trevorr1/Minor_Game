@@ -204,7 +204,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		break;
 	case ButtonCredits:
 		newObject->addComponent(new ClickableComponent());
-		newObject->addComponent(new QuitOnClickComponent());
+		newObject->addComponent(new ButtonClickableReactionComponent(LevelCredits));
 		newObject->addComponent(new DrawComponent("assets/buttons/button_credits.jpg"));
 		break;
 	case Advertisement_GameEntity:

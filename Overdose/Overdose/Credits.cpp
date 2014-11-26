@@ -25,12 +25,12 @@ void Credits::Init()
 
 	GameEntity *buttonPlay = GameEntityFactory::getInstance().getGameEntity(eGameEntity::ButtonPlay);
 	buttonPlay->setPosX(50);
-	buttonPlay->setPosY(100);
+	buttonPlay->setPosY(300);
 	this->addEntities(buttonPlay);
 
-	GameEntity *buttonMainMenu = GameEntityFactory::getInstance().getGameEntity(eGameEntity::ButtonMainMenu);
-	buttonMainMenu->setPosX(50);
-	buttonMainMenu->setPosY(200);
+	GameEntity *buttonMainMenu = GameEntityFactory::getInstance().getGameEntity(eGameEntity::ButtonMainMenuGreen);
+	buttonMainMenu->setPosX(500);
+	buttonMainMenu->setPosY(300);
 	this->addEntities(buttonMainMenu);
 
 	SoundManager::getInstance().StopMusic();

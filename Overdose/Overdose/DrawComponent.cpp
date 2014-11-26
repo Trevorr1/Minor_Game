@@ -15,6 +15,7 @@ DrawComponent::DrawComponent(std::map<eAnimationState, Animation*>* animations, 
 DrawComponent::DrawComponent(char* filePath) {
 	m_Animations = new std::map<eAnimationState, Animation*>();
 	m_Animations->insert({ Default, new Animation(filePath, 1) });
+	m_floatToRight = nullptr;
 	setAnimation(Default);
 }
 
