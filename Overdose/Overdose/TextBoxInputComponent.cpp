@@ -14,19 +14,50 @@ TextBoxInputComponent::~TextBoxInputComponent()
 
 void TextBoxInputComponent::tick(float dt, GameEntity *entity)
 {
-	typedef std::map<int, std::string>::iterator iterator_type;
-	for (iterator_type iterator = sdlKeyCodes->begin(); iterator != sdlKeyCodes->end(); iterator++)
+	Surface *surface = DrawManager::getInstance().getLevelSurface();
+	/*surface->WriteText("test", (int)entity->getPosX(), (int)entity->getPosY());*/
+
+	if (clicked)
 	{
-		if (InputManager::getInstance().isKeyPressed(iterator->first))
+
+		typedef std::map<int, std::string>::iterator iterator_type;
+		for (iterator_type iterator = sdlKeyCodes->begin(); iterator != sdlKeyCodes->end(); iterator++)
 		{
-			std::cout << iterator->second << std::endl;
+			if (InputManager::getInstance().isKeyPressedOnce(iterator->first))
+			{
+				if (toWrite.size() < 10)
+				{
+					std::cout << "Letter pressed: " + iterator->second << std::endl;
+					if (iterator->second == "BACKSPACE")
+						toWrite.erase(toWrite.end() - 1);
+					else if (iterator->second == "RETURN")
+						clicked = false;
+					else
+						toWrite.append(iterator->second);
+				}
+				else
+				{
+					clicked = false;
+				}
+			}
 		}
 	}
+	const char *t = toWrite.c_str();
+	char *chars = const_cast<char*>(t);
+	surface->WriteText(chars, (int)entity->getPosX(), (int)entity->getPosY());
 
 }
 
 void TextBoxInputComponent::receive(Component *subject, ComponentMessage message, GameEntity *object)
-{}
+{
+	if (object->getEnum() == eGameEntity::TextBox)
+	{
+		if (message == ClickableComponent_CLICK)
+		{
+			clicked = true;
+		}
+	}
+}
 
 
 void TextBoxInputComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages) {
@@ -34,33 +65,34 @@ void TextBoxInputComponent::receiveMessageBatch(Component *subject, std::map<Com
 
 void TextBoxInputComponent::Init()
 {
-	sdlKeyCodes->insert({ SDL_SCANCODE_A, "A" });
-	sdlKeyCodes->insert({ SDL_SCANCODE_B, "B" });
-	sdlKeyCodes->insert({ SDL_SCANCODE_C, "C" });
-	sdlKeyCodes->insert({ SDL_SCANCODE_D, "D" });
-	sdlKeyCodes->insert({ SDL_SCANCODE_E, "E" });
-	sdlKeyCodes->insert({ SDL_SCANCODE_F, "F" });
-	sdlKeyCodes->insert({ SDL_SCANCODE_G, "G" });
-	sdlKeyCodes->insert({ SDL_SCANCODE_H, "H" });
-	sdlKeyCodes->insert({ SDL_SCANCODE_I, "I" });
-	sdlKeyCodes->insert({ SDL_SCANCODE_J, "J" });
-	sdlKeyCodes->insert({ SDL_SCANCODE_K, "K" });
-	sdlKeyCodes->insert({ SDL_SCANCODE_L, "L" });
-	sdlKeyCodes->insert({ SDL_SCANCODE_M, "M" });
-	sdlKeyCodes->insert({ SDL_SCANCODE_N, "N" });
-	sdlKeyCodes->insert({ SDL_SCANCODE_O, "O" });
-	sdlKeyCodes->insert({ SDL_SCANCODE_P, "P" });
-	sdlKeyCodes->insert({ SDL_SCANCODE_Q, "Q" });
-	sdlKeyCodes->insert({ SDL_SCANCODE_R, "R" });
-	sdlKeyCodes->insert({ SDL_SCANCODE_S, "S" });
-	sdlKeyCodes->insert({ SDL_SCANCODE_T, "T" });
-	sdlKeyCodes->insert({ SDL_SCANCODE_U, "U" });
-	sdlKeyCodes->insert({ SDL_SCANCODE_V, "V" });
-	sdlKeyCodes->insert({ SDL_SCANCODE_W, "W" });
-	sdlKeyCodes->insert({ SDL_SCANCODE_X, "X" });
-	sdlKeyCodes->insert({ SDL_SCANCODE_Y, "Y" });
-	sdlKeyCodes->insert({ SDL_SCANCODE_Z, "Z" });
-
+	sdlKeyCodes->insert({ SDL_SCANCODE_A, "a" });
+	sdlKeyCodes->insert({ SDL_SCANCODE_B, "b" });
+	sdlKeyCodes->insert({ SDL_SCANCODE_C, "c" });
+	sdlKeyCodes->insert({ SDL_SCANCODE_D, "d" });
+	sdlKeyCodes->insert({ SDL_SCANCODE_E, "e" });
+	sdlKeyCodes->insert({ SDL_SCANCODE_F, "f" });
+	sdlKeyCodes->insert({ SDL_SCANCODE_G, "g" });
+	sdlKeyCodes->insert({ SDL_SCANCODE_H, "h" });
+	sdlKeyCodes->insert({ SDL_SCANCODE_I, "i" });
+	sdlKeyCodes->insert({ SDL_SCANCODE_J, "j" });
+	sdlKeyCodes->insert({ SDL_SCANCODE_K, "k" });
+	sdlKeyCodes->insert({ SDL_SCANCODE_L, "l" });
+	sdlKeyCodes->insert({ SDL_SCANCODE_M, "m" });
+	sdlKeyCodes->insert({ SDL_SCANCODE_N, "n" });
+	sdlKeyCodes->insert({ SDL_SCANCODE_O, "o" });
+	sdlKeyCodes->insert({ SDL_SCANCODE_P, "p" });
+	sdlKeyCodes->insert({ SDL_SCANCODE_Q, "q" });
+	sdlKeyCodes->insert({ SDL_SCANCODE_R, "r" });
+	sdlKeyCodes->insert({ SDL_SCANCODE_S, "s" });
+	sdlKeyCodes->insert({ SDL_SCANCODE_T, "t" });
+	sdlKeyCodes->insert({ SDL_SCANCODE_U, "u" });
+	sdlKeyCodes->insert({ SDL_SCANCODE_V, "v" });
+	sdlKeyCodes->insert({ SDL_SCANCODE_W, "w" });
+	sdlKeyCodes->insert({ SDL_SCANCODE_X, "x" });
+	sdlKeyCodes->insert({ SDL_SCANCODE_Y, "y" });
+	sdlKeyCodes->insert({ SDL_SCANCODE_Z, "z" });
+	sdlKeyCodes->insert({ SDL_SCANCODE_BACKSPACE, "BACKSPACE" });
+	sdlKeyCodes->insert({ SDL_SCANCODE_RETURN, "RETURN" });
 }
 std::string TextBoxInputComponent::getComponentID(){
 	return "TextBoxInputComponent";

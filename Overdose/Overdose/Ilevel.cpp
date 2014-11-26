@@ -113,8 +113,8 @@ void ILevel::Tick(float dt)
 	{
 		it->tick(dt);
 	}
-
-	m_Camera->Tick(dt);
+	if (m_Camera != nullptr)
+		m_Camera->Tick(dt);
 }
 
 bool ILevel::isGameOver() 

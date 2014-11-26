@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Component.h"
 #include "InputManager.h"
+#include "DrawManager.h"
 
 namespace overdose{
 	class TextBoxInputComponent : public Component
@@ -20,6 +21,8 @@ namespace overdose{
 
 	private:
 		void Init();
+		bool clicked = false;
+		std::string toWrite = "";
 
 		std::map<int, std::string>* sdlKeyCodes = new std::map<int, std::string>();
 	};

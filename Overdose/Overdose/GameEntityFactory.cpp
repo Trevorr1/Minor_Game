@@ -73,9 +73,10 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	case TextBox:
 		newObject->addComponent(new TextBoxInputComponent());
 		newObject->addComponent(new ClickableComponent());
-		newObject->setWidth(50);
-		newObject->setHeight(50);
-		//newObject->addComponent(new DrawComponent());
+		//animations = new std::map<eAnimationState, Animation*>();
+		//animations->insert({ Default, new Animation("assets/sprites/TextBox.png", 1) });
+		//animation->setAnimation(Default);//set starting animation
+		newObject->addComponent(new DrawComponent("assets/sprites/TextBox.png"));
 		break;
 	case FPSCounter:
 		newObject->addComponent(new FPSDrawComponent());

@@ -12,6 +12,7 @@ using namespace overdose;
 
 GameWon::GameWon()
 {
+	m_Camera = new Camera();
 	m_Background = new Surface("assets/backgrounds/Party-Time2.png");
 }
 
