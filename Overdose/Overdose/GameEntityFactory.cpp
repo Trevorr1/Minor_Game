@@ -72,6 +72,9 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		break;
 	case TextBox:
 		newObject->addComponent(new TextBoxInputComponent());
+		newObject->addComponent(new ClickableComponent());
+		newObject->setWidth(50);
+		newObject->setHeight(50);
 		//newObject->addComponent(new DrawComponent());
 		break;
 	case FPSCounter:
