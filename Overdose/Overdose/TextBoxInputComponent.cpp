@@ -25,20 +25,13 @@ void TextBoxInputComponent::tick(float dt, GameEntity *entity)
 		{
 			if (InputManager::getInstance().isKeyPressedOnce(iterator->first))
 			{
-				if (toWrite.size() < 10)
-				{
-					std::cout << "Letter pressed: " + iterator->second << std::endl;
-					if (iterator->second == "BACKSPACE")
-						toWrite.erase(toWrite.end() - 1);
-					else if (iterator->second == "RETURN")
-						clicked = false;
-					else
-						toWrite.append(iterator->second);
-				}
-				else
-				{
+				std::cout << "Letter pressed: " + iterator->second << std::endl;
+				if (iterator->second == "BACKSPACE")
+					toWrite.erase(toWrite.end() - 1);
+				else if (iterator->second == "RETURN")
 					clicked = false;
-				}
+				else if (toWrite.size() < 10)
+					toWrite.append(iterator->second);
 			}
 		}
 	}

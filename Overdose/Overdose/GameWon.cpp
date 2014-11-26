@@ -32,8 +32,8 @@ void GameWon::Init(){
 	this->addEntities(entityPtr);
 
 	GameEntity *highscore = GameEntityFactory::getInstance().getGameEntity(eGameEntity::TextBox);
-	highscore->setPosY(50);
-	highscore->setPosX(20);
+	highscore->setPosY(125);
+	highscore->setPosX(350);
 	this->addEntities(highscore);
 
 	GameEntity *buttonPlayAgain = GameEntityFactory::getInstance().getGameEntity(eGameEntity::ButtonPlayAgain);
