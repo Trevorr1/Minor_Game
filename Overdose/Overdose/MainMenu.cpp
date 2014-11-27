@@ -18,6 +18,7 @@ MainMenu::MainMenu()
 MainMenu::~MainMenu()
 {
 	delete m_Background;
+	//delete m_Camera; wordt al gedelete in destructor
 }
 
 void MainMenu::Init()

@@ -16,3 +16,8 @@ void DrawManager::convertLevelToCamera(int xoffset, int yoffset)
 {
 	m_Level->CopyTo(m_Camera, -xoffset, yoffset);
 }
+
+DrawManager::~DrawManager() {
+	delete m_Level;
+	//delete m_Camera;
+}

@@ -12,7 +12,14 @@ InputManager::~InputManager()
 {
 	//delete m_keystates;
 	delete m_mouseBuffer;
+
+	while (!m_keystateBuffer->empty()) {
+		delete m_keystateBuffer->back();
+		m_keystateBuffer->pop_back();
+	}
 	delete m_keystateBuffer;
+
+
 }
 
 void InputManager::setKeyStates(Uint8 *keyStates, int size) {
@@ -25,7 +32,7 @@ void InputManager::setKeyStates(Uint8 *keyStates, int size) {
 	
 		//m_keystate = keyStates;
 	if (m_keystateBuffer->size() > KEYBOARD_BUFFER_SIZE) {
-	//	delete m_keystateBuffer->front();
+		delete m_keystateBuffer->back();
 		m_keystateBuffer->pop_back();
 	}
 
