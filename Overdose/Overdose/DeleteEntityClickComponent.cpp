@@ -26,7 +26,7 @@ void DeleteEntityClickComponent::receiveMessageBatch(Component *subject, std::ma
 
 void DeleteEntityClickComponent::tick(float dt, GameEntity *entity) {
 	if (m_clicked) {
-		std::cout << " DeleteEntityClickComponent delete entity" << std::endl;
+		std::cout << "DeleteEntityClickComponent delete entity" << std::endl;
 		entity->scheduleForRemoval(); //this removal only works when in getEntities list in level.
 		m_clicked = false;
 	}
