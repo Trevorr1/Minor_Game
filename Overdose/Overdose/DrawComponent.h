@@ -11,6 +11,7 @@ namespace overdose {
 	{
 	public:
 
+		DrawComponent(char* filePath);
 		DrawComponent(std::map<eAnimationState, Animation*>* animations);
 		virtual ~DrawComponent();
 

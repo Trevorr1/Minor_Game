@@ -8,6 +8,12 @@ DrawComponent::DrawComponent(std::map<eAnimationState, Animation*>* animations){
 	m_Animations = animations;
 }
 
+DrawComponent::DrawComponent(char* filePath) {
+	m_Animations = new std::map<eAnimationState, Animation*>();
+	m_Animations->insert({ Default, new Animation(filePath, 1) });
+	setAnimation(Default);
+}
+
 DrawComponent::~DrawComponent()
 {
 	for (auto &kv : *m_Animations) {
@@ -35,7 +41,7 @@ void DrawComponent::receiveMessageBatch(Component *subject, std::map<ComponentMe
 
 void DrawComponent::tick(float dt, GameEntity *entity)
 {
-	m_SpriteSheet->Draw((int)entity->getPosX(), (int)entity->getPosY(), DrawManager::getInstance().getSurface());
+	m_SpriteSheet->Draw((int)entity->getPosX(), (int)entity->getPosY(), DrawManager::getInstance().getLevelSurface());//getSurface()
 
 	if (m_FPS > 0){
 		m_currentDTcount += dt * 1000;
