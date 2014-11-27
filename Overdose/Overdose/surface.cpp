@@ -78,11 +78,11 @@
 	Surface::~Surface()
 	{
 	//	printf("Destruction surface\n");
-		if (clearBuffer) {
-			_aligned_free(m_Buffer);
+		if (clearBuffer && m_Buffer != nullptr) {
+	 	_aligned_free(m_Buffer);
 		}
-
-		delete m_Font;
+		m_Buffer = nullptr;
+	//	delete m_Font;
 	}
 
 	void Surface::Clear(Pixel a_Color)
@@ -555,10 +555,9 @@
 
 	Font::~Font()
 	{
-		delete m_Surface;
-		delete m_Trans;
-		delete m_Width;
-		delete m_Offset;
+	//	delete m_Trans;
+	//	delete m_Width;
+	//	delete m_Offset;
 	}
 
 	int Font::Width(char* a_Text)

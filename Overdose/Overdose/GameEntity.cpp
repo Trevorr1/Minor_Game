@@ -13,11 +13,12 @@ GameEntity::GameEntity(eGameEntity entityEnum) {
 GameEntity::GameEntity(eGameEntity entityEnum, Component *component, ...) : m_EntityEnum(entityEnum) {
 	va_list arguments;
 	for (va_start(arguments, component); component != FinalComponent; component = va_arg(arguments, Component *)) {
-			component->init(this);
-			componentList->push_back(component);
-	}
+		component->init(this);
+		componentList->push_back(component);
 
+	}
 	va_end(arguments);
+	delete arguments;
 
 }
 
@@ -27,6 +28,7 @@ GameEntity::~GameEntity() {
 		componentList->pop_back();
 	}
 	delete componentList;
+
 
 	componentListToRemove->clear();
 	delete componentListToRemove; //bevat alleen primitives
