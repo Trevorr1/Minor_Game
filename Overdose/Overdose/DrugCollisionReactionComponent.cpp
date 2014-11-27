@@ -24,24 +24,26 @@ DrugCollisionReactionComponent::~DrugCollisionReactionComponent()
 
 void DrugCollisionReactionComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
 	if (object != nullptr)
-	if (object->getEnum() == Player){
-		//printf("Player collided with this drug \n");
-		isCollided = true;
-		//bool inList = false;
-		for (unsigned int i = 0; i < object->getComponentList()->size(); i++)
-		{
-			//if (typeid(object->getComponentList()->at(i)) ==  typeid(DrugComponent))
-			if (dynamic_cast<DrugComponent*>(object->getComponentList()->at(i)) != NULL)
+	{
+		if (object->getEnum() == Player){
+			//printf("Player collided with this drug \n");
+			isCollided = true;
+			//bool inList = false;
+			for (unsigned int i = 0; i < object->getComponentList()->size(); i++)
 			{
-				//inList = true;
-				object->removeComponent(object->getComponentList()->at(i)->getComponentID());
-				//delete object->getComponentList()->at(i);
+				//if (typeid(object->getComponentList()->at(i)) ==  typeid(DrugComponent))
+				if (dynamic_cast<DrugComponent*>(object->getComponentList()->at(i)) != NULL)
+				{
+					//inList = true;
+					object->removeComponent(object->getComponentList()->at(i)->getComponentID());
+					//delete object->getComponentList()->at(i);
+				}
 			}
-		}
-		/*if (!inList)
-		{*/
+			/*if (!inList)
+			{*/
 			object->addComponent(drugComponent);
-		//}
+			//}
+		}
 	}
 }
 

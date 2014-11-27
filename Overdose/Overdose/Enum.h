@@ -10,7 +10,7 @@ namespace overdose {
 		ButtonPlay, 
 
 		/*Win/GameOver Menu*/
-		ButtonPlayAgain, ButtonMainMenu, ButtonQuitGame, ButtonQuitGameGreen, ButtonPlayAgainGreen, ButtonMainMenuGreen,
+		TextBox, ButtonPlayAgain, ButtonMainMenu, ButtonQuitGame, ButtonQuitGameGreen, ButtonPlayAgainGreen, ButtonMainMenuGreen,ButtonCredits,
 
 		/* Particle */
 		Particle

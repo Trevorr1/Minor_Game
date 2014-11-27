@@ -23,7 +23,8 @@ Game::~Game(){
 void Game::Init()
 {
 	// put your initialization code here; will be executed once
-	DrawManager::getInstance().setTargetSurface(m_Screen);
+	//DrawManager::getInstance().setTargetSurface(m_Screen);
+	DrawManager::getInstance().setTargetCameraSurface(m_Screen);
 }
 
 void Game::Tick(float a_DT)
@@ -32,13 +33,8 @@ void Game::Tick(float a_DT)
 	InputManager::getInstance().clearKeyBuffer();
 	InputManager::getInstance().clearMouseBuffer();
 
-	//Todo: This should imo be put on one key and just use the 'ToggleMute()' function (without a parameter), but for that we need a 'isKeyReleased()' method in the inputManager
-	// Also.. this code might need to be repositioned to somewhere else, maybe the levelManager, i don't know...
-	if (InputManager::getInstance().isKeyPressed(SDL_SCANCODE_M)){
-		SoundManager::getInstance().ToggleMute(true);
-	}
-	if (InputManager::getInstance().isKeyPressed(SDL_SCANCODE_N)){
-		SoundManager::getInstance().ToggleMute(false);
+	if (InputManager::getInstance().isKeyPressedOnce(SDL_SCANCODE_M)){
+		SoundManager::getInstance().ToggleMute();
 	}
 }
 

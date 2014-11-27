@@ -1,9 +1,8 @@
 #include "stdafx.h"
 #include "LevelManager.h"
-
+#include "SoundManager.h"
+#include "InputManager.h"
 using namespace overdose;
-
-
 
 LevelManager::LevelManager(void)
 {
@@ -29,42 +28,17 @@ ILevel* LevelManager::createLevel(levels l)
 	case level1:
 		currentLevel = new Level1();
 		break;
-	case level2:
-		currentLevel = new Level2(previousLevel->takePlayerEntity());
-		break;
-	case level3:
-		currentLevel = new Level3(previousLevel->takePlayerEntity());
-		break;
-	case level4:
-		currentLevel = new Level4(previousLevel->takePlayerEntity());
-		break;
-	case level5:
-		currentLevel = new Level5(previousLevel->takePlayerEntity());
-		break;
-	case level6:
-		currentLevel = new Level6(previousLevel->takePlayerEntity());
-		break;
-	case level7:
-		currentLevel = new Level7(previousLevel->takePlayerEntity());
-		break;
-	case level8:
-		currentLevel = new Level8(previousLevel->takePlayerEntity());
-		break;
-	case level9:
-		currentLevel = new Level9(previousLevel->takePlayerEntity());
-		break;
-	case level10:
-		currentLevel = new Level10(previousLevel->takePlayerEntity());
-		break;
 	case LevelMainMenu:
 		currentLevel = new MainMenu();
 		break;
-
 	case LevelGameOver:
 		currentLevel = new GameOver();
 		break;
 	case LevelGameWon:
 		currentLevel = new GameWon();
+		break;
+	case LevelCredits:
+		currentLevel = new Credits();
 		break;
 	default:
 		throw std::invalid_argument("Invalid level enum");
@@ -77,27 +51,42 @@ ILevel* LevelManager::createLevel(levels l)
 	return currentLevel;
 }
 
-void LevelManager::Tick(float dt){
-
-	if (currentLevel->isGameOver()) {
+void LevelManager::Tick(float dt)
+{
+	if (currentLevel->isGameOver()) 
+	{
 		createLevel(levels::LevelGameOver);
 	}
-	else if (currentLevel->isGameWon()){
+	else if (currentLevel->isGameWon())
+	{
 		nextLevel();
 	}
-	else if (currentLevel->isReloadLevel()){
+	else if (currentLevel->isReloadLevel())
+	{
 		reloadLevel();
 	}
 	
-	if (previousLevel != nullptr) {
+	if (previousLevel != nullptr) 
+	{
 		delete previousLevel;
 		previousLevel = nullptr;
 	}
 
-	currentLevel->Tick(dt);
+	if (InputManager::getInstance().isKeyPressedOnce(SDL_SCANCODE_PAGEUP) && m_SpeedModifier <= 2.5) {
+		SoundManager::getInstance().PlaySound1(Click);
+		m_SpeedModifier += 0.1;
+	}
+
+	else if (InputManager::getInstance().isKeyPressedOnce(SDL_SCANCODE_PAGEDOWN) && m_SpeedModifier >= 0.5) {
+		SoundManager::getInstance().PlaySound1(Click);
+		m_SpeedModifier -= 0.1;
+	}
+	else if (InputManager::getInstance().isKeyPressedOnce(SDL_SCANCODE_HOME)) {
+		SoundManager::getInstance().PlaySound1(Click);
+		m_SpeedModifier = 1;
+	}
+	currentLevel->Tick(dt * m_SpeedModifier);
 }
-
-
 
 LevelManager &LevelManager::getInstance()
 {
@@ -105,14 +94,17 @@ LevelManager &LevelManager::getInstance()
 	return _instance;
 }
 
-void LevelManager::nextLevel(){
+void LevelManager::nextLevel()
+{
 	//even lelijk:
+	//to do, remove all levels
+	//Ricardo :D
 	switch (currentLevelEnum){
 	case LevelMainMenu:
 		createLevel(level1);
 		break;
 	case level1:
-		createLevel(level2);
+		createLevel(LevelGameWon);
 		break;
 	case level2:
 		createLevel(level3);
@@ -141,6 +133,9 @@ void LevelManager::nextLevel(){
 	case level10:
 		createLevel(LevelGameWon);
 		break;
+	case SetHighScore:
+		createLevel(LevelMainMenu);
+		break;
 	case LevelGameOver:
 		createLevel(LevelMainMenu);
 		break;
@@ -150,6 +145,7 @@ void LevelManager::nextLevel(){
 	}
 }
 
-void LevelManager::reloadLevel(){
+void LevelManager::reloadLevel()
+{
 	createLevel(currentLevelEnum);
 }

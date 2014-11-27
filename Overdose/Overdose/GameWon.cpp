@@ -12,6 +12,7 @@ using namespace overdose;
 
 GameWon::GameWon()
 {
+	m_Camera = new Camera();
 	m_Background = new Surface("assets/backgrounds/Party-Time2.png");
 }
 
@@ -29,6 +30,11 @@ void GameWon::Init(){
 	entityPtr->setSpeedY(0);
 	entityPtr->setPosX(0);
 	this->addEntities(entityPtr);
+
+	GameEntity *highscore = GameEntityFactory::getInstance().getGameEntity(eGameEntity::TextBox);
+	highscore->setPosY(125);
+	highscore->setPosX(350);
+	this->addEntities(highscore);
 
 	GameEntity *buttonPlayAgain = GameEntityFactory::getInstance().getGameEntity(eGameEntity::ButtonPlayAgain);
 	buttonPlayAgain->setPosX(340);
