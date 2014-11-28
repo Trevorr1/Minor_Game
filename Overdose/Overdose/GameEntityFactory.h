@@ -2,6 +2,7 @@
 #include "stdafx.h"
 #include "Enum.h"
 #include "GameEntity.h"
+#include "Advertisement.h"
 
 namespace overdose {
 	class GameEntityFactory

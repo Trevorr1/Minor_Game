@@ -3,6 +3,8 @@
 #include "Component.h"
 #include "LevelManager.h"
 #include "SoundManager.h"
+#include "ParticleComponent.h"
+#include "KillSwitchComponent.h"
 using std::vector;
 namespace overdose {
 	class HealthComponent : public Component

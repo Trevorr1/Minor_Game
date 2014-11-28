@@ -24,6 +24,7 @@ DrugCollisionReactionComponent::~DrugCollisionReactionComponent()
 
 void DrugCollisionReactionComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
 	if (object != nullptr)
+	{
 	if (object->getEnum() == Player){
 		//printf("Player collided with this drug \n");
 		isCollided = true;
@@ -43,6 +44,7 @@ void DrugCollisionReactionComponent::receive(Component *subject, ComponentMessag
 			object->addComponent(drugComponent);
 		//}
 	}
+}
 }
 
 void DrugCollisionReactionComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages) {

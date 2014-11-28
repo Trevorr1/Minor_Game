@@ -75,14 +75,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Advertisement.h" />
     <ClInclude Include="Animation.h" />
     <ClInclude Include="BspTree.h" />
     <ClInclude Include="ButtonClickableReactionComponent.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="ClickableComponent.h" />
     <ClInclude Include="CollisionComponent.h" />
     <ClInclude Include="CollisionReactionComponent.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="ComponentMessage.h" />
+    <ClInclude Include="DeleteEntityClickComponent.h" />
+    <ClInclude Include="Credits.h" />
     <ClInclude Include="DrawComponent.h" />
     <ClInclude Include="DrawManager.h" />
     <ClInclude Include="DrugCollisionReactionComponent.h" />
@@ -104,23 +108,17 @@
     <ClInclude Include="HealthHearts.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="HUDEntity.h" />
+    <ClInclude Include="HighScore.h" />
     <ClInclude Include="ILevel.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="KillSwitchComponent.h" />
     <ClInclude Include="KnockBackComponent.h" />
     <ClInclude Include="Level1.h" />
-    <ClInclude Include="Level10.h" />
-    <ClInclude Include="Level2.h" />
-    <ClInclude Include="Level3.h" />
-    <ClInclude Include="Level4.h" />
-    <ClInclude Include="Level5.h" />
-    <ClInclude Include="Level6.h" />
-    <ClInclude Include="Level7.h" />
-    <ClInclude Include="Level8.h" />
-    <ClInclude Include="Level9.h" />
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="MarijuanaDrugComponent.h" />
+    <ClInclude Include="MouseBaseComponent.h" />
+    <ClInclude Include="MouseOverEffectComponent.h" />
     <ClInclude Include="MoveComponent.h" />
     <ClInclude Include="NegativeMarijuanaComponent.h" />
     <ClInclude Include="NegativeSpeedDrugComponent.h" />
@@ -139,16 +137,24 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="surface.h" />
     <ClInclude Include="template.h" />
+    <ClInclude Include="TextBoxInputComponent.h" />
+    <ClInclude Include="Tile.h" />
+    <ClInclude Include="Toolbox.h" />
     <ClInclude Include="TreeNode.h" />
+    <ClInclude Include="URLClickComponent.h" />
     <ClInclude Include="XTCDrugComponent.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Advertisement.cpp" />
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="ButtonClickableReactionComponent.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ClickableComponent.cpp" />
     <ClCompile Include="CollisionComponent.cpp" />
     <ClCompile Include="CollisionReactionComponent.cpp" />
     <ClCompile Include="Component.cpp" />
+    <ClCompile Include="DeleteEntityClickComponent.cpp" />
+    <ClCompile Include="Credits.cpp" />
     <ClCompile Include="DrawComponent.cpp" />
     <ClCompile Include="DrawManager.cpp" />
     <ClCompile Include="DrugCollisionReactionComponent.cpp" />
@@ -169,24 +175,18 @@
     <ClCompile Include="HealthHearts.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="HUDEntity.cpp" />
+    <ClCompile Include="HighScore.cpp" />
     <ClCompile Include="Ilevel.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="KillSwitchComponent.cpp" />
     <ClCompile Include="KnockBackComponent.cpp" />
     <ClCompile Include="Level1.cpp" />
-    <ClCompile Include="Level10.cpp" />
-    <ClCompile Include="Level2.cpp" />
-    <ClCompile Include="Level3.cpp" />
-    <ClCompile Include="Level4.cpp" />
-    <ClCompile Include="Level5.cpp" />
-    <ClCompile Include="Level6.cpp" />
-    <ClCompile Include="Level7.cpp" />
-    <ClCompile Include="Level8.cpp" />
-    <ClCompile Include="Level9.cpp" />
     <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="MarijuanaDrugComponent.cpp" />
+    <ClCompile Include="MouseBaseComponent.cpp" />
+    <ClCompile Include="MouseOverEffectComponent.cpp" />
     <ClCompile Include="MoveComponent.cpp" />
     <ClCompile Include="NegativeMarijuanaComponent.cpp" />
     <ClCompile Include="NegativeSpeedDrugComponent.cpp" />
@@ -204,7 +204,10 @@
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="surface.cpp" />
     <ClCompile Include="template.cpp" />
+    <ClCompile Include="TextBoxInputComponent.cpp" />
+    <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TreeNode.cpp" />
+    <ClCompile Include="URLClickComponent.cpp" />
     <ClCompile Include="XTCDrugComponent.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -1,9 +1,9 @@
 #pragma once
-#include "Component.h"
-#include "InputManager.h"
+#include "MouseBaseComponent.h"
+
 
 namespace overdose {
-	class ClickableComponent : public Component
+	class ClickableComponent : public MouseBaseComponent
 	{
 		void receive(Component *subject, ComponentMessage message, GameEntity *object);
 		void receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages);

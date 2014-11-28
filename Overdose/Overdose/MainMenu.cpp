@@ -9,18 +9,16 @@
 
 using namespace overdose;
 
-
-
 MainMenu::MainMenu()
 {
+	m_Camera = new Camera();
 	m_Background = new Surface("assets/backgrounds/mainmenu.jpg");
 }
-
 
 MainMenu::~MainMenu()
 {
 	delete m_Background;
-
+	//delete m_Camera; wordt al gedelete in destructor
 }
 
 void MainMenu::Init()
@@ -41,12 +39,16 @@ void MainMenu::Init()
 	buttonQuitGame->setPosY(200);
 	this->addEntities(buttonQuitGame);
 
+	GameEntity *buttonCredits = GameEntityFactory::getInstance().getGameEntity(eGameEntity::ButtonCredits);
+	buttonCredits->setPosX(50);
+	buttonCredits->setPosY(300);
+	this->addEntities(buttonCredits);
+
 	SoundManager::getInstance().StopMusic();
 	SoundManager::getInstance().PlayMusic(eMusic::MainMenuTheme);
-
-
 }
 
-bool MainMenu::isGameOver() {
+bool MainMenu::isGameOver() 
+{
 	return false;
 }

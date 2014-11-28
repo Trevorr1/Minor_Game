@@ -255,7 +255,7 @@ void SDLTemplate::initTemplate()
 		SDL_Event event;
 		while (SDL_PollEvent(&event))
 		{
-			
+	
 			int size;
 			Uint8 *keyStates = const_cast<Uint8*>(SDL_GetKeyboardState(&size));
 

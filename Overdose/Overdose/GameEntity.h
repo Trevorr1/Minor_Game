@@ -6,6 +6,7 @@
 #include "ScheduleForRemovalFlag.h"
 #include <exception>
 #include <stdarg.h>
+#include "Toolbox.h"
 #define FinalComponent nullptr
 
 
@@ -87,7 +88,7 @@ namespace overdose {
 		void setStartPosX(float x){ startPosX = x; }
 		void setStartPosY(float y){ startPosY = y; }
 
-		void setStartingPosition(float x, float y);
+		virtual void setStartingPosition(float x, float y);
 		void respawn();
 
 		void setFacing(eFacing facing);

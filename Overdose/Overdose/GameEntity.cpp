@@ -13,36 +13,22 @@ GameEntity::GameEntity(eGameEntity entityEnum) {
 GameEntity::GameEntity(eGameEntity entityEnum, Component *component, ...) : m_EntityEnum(entityEnum) {
 	va_list arguments;
 	for (va_start(arguments, component); component != FinalComponent; component = va_arg(arguments, Component *)) {
-			component->init(this);
-			componentList->push_back(component);
-	}
+		component->init(this);
+		componentList->push_back(component);
 
+	}
 	va_end(arguments);
+	delete arguments;
 
 }
 
 GameEntity::~GameEntity() {
-	while (!componentList->empty()) {
-		delete componentList->back();
-		componentList->pop_back();
-	}
-	delete componentList;
-
 	componentListToRemove->clear();
 	delete componentListToRemove; //bevat alleen primitives
 
-	while (!componentListTemporary->empty()) {
-		delete componentListTemporary->back();
-		componentListTemporary->pop_back();
-	}
-	delete componentListTemporary;
-
-	while (!componentListToAdd->empty()) {
-		delete componentListToAdd->back();
-		componentListToAdd->pop_back();
-	}
-	delete componentListToAdd;
-
+	clearList<Component>(componentList);
+	clearList<Component>(componentListTemporary);
+	clearList<Component>(componentListToAdd);
 }
 
 

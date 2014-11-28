@@ -79,9 +79,10 @@ void HealthComponent::tick(float dt, GameEntity *entity) {
 		entity->broadcast(this, HealthComponent_HEALTH_DECREASED, entity);
 	}
 	if (m_health <= 0) {
-		entity->scheduleForRemoval();
+	//	entity->scheduleForRemoval();
 		if (entity->getEnum() != Player) {
-			SoundManager::getInstance().PlaySound(Click);
+			entity->delayedAddComponent(new ParticleComponent(Blood, 0.01, 0.5, 0.5));
+			entity->delayedAddComponent(new KillSwitchComponent(0.3));
 		}
 	}
 
