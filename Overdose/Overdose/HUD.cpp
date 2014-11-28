@@ -23,6 +23,10 @@ HUD::~HUD()
 {
 	std::cout << "Deleted HUD" << std::endl; //TODO NOG TESTEN
 	delete m_DrugGauge;
+
+	for (auto h : *m_Hearts){
+		delete h;
+	}
 	delete m_Hearts;
 }
 

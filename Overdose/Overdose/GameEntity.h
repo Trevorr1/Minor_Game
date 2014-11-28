@@ -98,7 +98,7 @@ namespace overdose {
 		GameEntity(eGameEntity entityEnum);
 		GameEntity(eGameEntity entityEnum, Component *component, ...);
 
-		~GameEntity();
+		virtual ~GameEntity();
 	};
 
 

@@ -6,6 +6,7 @@
 #include "surface.h"
 #include "DrawManager.h"
 #include "ScheduleForRemovalFlag.h"
+#include "HUD.h"
 
 namespace overdose {
 
@@ -38,6 +39,7 @@ namespace overdose {
 		virtual void DrawBackground();
 		Surface* m_Background;
 		GameEntity* m_Player = nullptr;
+		HUD* hud = nullptr;
 
 		bool m_IsGameWon = false;
 		bool m_IsReloadLevel = false;

@@ -18,6 +18,7 @@ HealthHearts::HealthHearts(int x, int y)
 
 HealthHearts::~HealthHearts()
 {
+	std::cout << "Deleted HealthHeart" << std::endl;
 }
 
 void HealthHearts::tick(float dt)

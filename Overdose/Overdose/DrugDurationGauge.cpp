@@ -17,7 +17,7 @@ DrugDurationGauge::DrugDurationGauge(int x, int y)
 
 DrugDurationGauge::~DrugDurationGauge()
 {
-	std::cout << "Deleted DrugDurationGauge";
+	std::cout << "Deleted DrugDurationGauge" << std::endl;
 }
 
 void DrugDurationGauge::tick(float dt)

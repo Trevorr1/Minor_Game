@@ -6,7 +6,6 @@
 #include "EnemyMoveComponent.h"
 #include "GameEntityFactory.h"
 #include "SoundManager.h"
-#include "HUD.h"
 
 using namespace overdose;
 
@@ -35,9 +34,6 @@ void Level1::Init()
 
 	this->addEntities(m_Player);
 	m_Player->setStartingPosition(100, 410 - 53 - 100);
-
-	HUD* hud = new HUD(m_Player);
-	this->addEntities(hud);
 
 	GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
 	entityCop->setStartingPosition(500, 410 - 54);

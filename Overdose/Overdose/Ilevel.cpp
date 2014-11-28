@@ -12,6 +12,12 @@ ILevel::ILevel(){
 void ILevel::addEntities(GameEntity* entities)
 {
 	this->entities->push_back(entities);
+
+	//Create Head-up Display if player exists
+	if (m_Player != nullptr && hud == nullptr){
+		hud = new HUD(m_Player);
+		this->entities->push_back(hud);
+	}
 }
 
 void ILevel::scheduleEntityForInsertion(GameEntity* entity) {
@@ -76,7 +82,7 @@ void ILevel::DrawBackground(){
 }
 
 void ILevel::Tick(float dt){
-	
+
 	DrawBackground();
 
 	// gebufferde entities eerst
