@@ -273,6 +273,12 @@
     <ClInclude Include="Toolbox.h">
       <Filter>Header Files\Util</Filter>
     </ClInclude>
+    <ClInclude Include="MouseBaseComponent.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseOverEffectComponent.h">
+      <Filter>Header Files\Component\button</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -454,6 +460,12 @@
     </ClCompile>
     <ClCompile Include="Credits.cpp">
       <Filter>Source Files\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="MouseBaseComponent.cpp">
+      <Filter>Source Files\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="MouseOverEffectComponent.cpp">
+      <Filter>Source Files\Component\button</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

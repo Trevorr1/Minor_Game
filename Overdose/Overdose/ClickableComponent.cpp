@@ -12,12 +12,9 @@ void ClickableComponent::receiveMessageBatch(Component *subject, std::map<Compon
 void ClickableComponent::tick(float dt, GameEntity *entity) {
 	MouseClick click = InputManager::getInstance().getLastMouseClick();
 
-	if (click.x >= entity->getPosX() && click.x <= entity->getPosX() + entity->getWidth() &&
-		click.y >= entity->getPosY() && click.y <= entity->getPosY() + entity->getHeight()) {
+	if (isMouseHover(entity, click.x, click.y)) {
 
 		entity->broadcast(this, ClickableComponent_CLICK, entity);
-
-		std::cout << "Hit!" << std::endl;
 
 		SoundManager::getInstance().PlaySound(Click);
 	}

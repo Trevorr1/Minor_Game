@@ -21,6 +21,7 @@
 #include "ParticleComponent.h"
 #include "DeleteEntityClickComponent.h"
 #include "URLClickComponent.h";
+#include "MouseOverEffectComponent.h"
 #include <stdexcept>
 using namespace overdose;
 
@@ -172,45 +173,53 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(level1));
 		newObject->addComponent(new DrawComponent("assets/buttons/button_play.jpg"));
+		newObject->addComponent(new MouseOverEffectComponent);
 		break;
 
 	case ButtonPlayAgain:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(level1));
 		newObject->addComponent(new DrawComponent("assets/buttons/button_play_again.png"));
+		newObject->addComponent(new MouseOverEffectComponent);
 		break;
 	case ButtonPlayAgainGreen:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(level1));
 		newObject->addComponent(new DrawComponent("assets/buttons/button_play_again_green.jpg"));
+		newObject->addComponent(new MouseOverEffectComponent);
 		break;
 	case ButtonMainMenu:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(LevelMainMenu));
 		newObject->addComponent(new DrawComponent("assets/buttons/button_main_menu.png"));
+		newObject->addComponent(new MouseOverEffectComponent);
 		
 		break;
 	case ButtonMainMenuGreen:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(LevelMainMenu));
 		newObject->addComponent(new DrawComponent("assets/buttons/button_main_menu_green.jpg"));
+		newObject->addComponent(new MouseOverEffectComponent);
 		
 		break;
 	case ButtonQuitGame:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new QuitOnClickComponent());
 		newObject->addComponent(new DrawComponent("assets/buttons/button_quit_game.png"));
+		newObject->addComponent(new MouseOverEffectComponent);
 
 		break;
 	case ButtonQuitGameGreen:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new QuitOnClickComponent());
 		newObject->addComponent(new DrawComponent("assets/buttons/button_quit_game_green.jpg"));
+		newObject->addComponent(new MouseOverEffectComponent);
 		break;
 	case ButtonCredits:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(LevelCredits));
 		newObject->addComponent(new DrawComponent("assets/buttons/button_credits.jpg"));
+		newObject->addComponent(new MouseOverEffectComponent);
 		break;
 	case Advertisement_GameEntity:
 	{

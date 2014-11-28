@@ -47,8 +47,13 @@ void Game::KeyStates(Uint8 *keyStates, int size) {
 
 void Game::MouseMove(unsigned int x, unsigned int y)
 {
-	m_mouseX = x;
-	m_mouseY = y;
+
+	m_mouseY = y; // legacy
+	m_mouseX = x; // legacy
+	MouseCoordinate coordinate;
+	coordinate.x = x;
+	coordinate.y = y;
+	InputManager::getInstance().setMouseCoordinates(coordinate);
 }
 
 void Game::MouseDown(unsigned int button)

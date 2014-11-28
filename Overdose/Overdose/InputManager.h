@@ -12,11 +12,17 @@ namespace overdose {
 		int x, y, button;
 	};
 
+	struct MouseCoordinate {
+		unsigned int x, y;
+	};
+
 	class InputManager
 	{
 	private:
 		InputManager();
 		virtual ~InputManager();
+
+		MouseCoordinate m_currentCoordinate;
 
 	protected:
 		// https://wiki.libsdl.org/SDL_Keycode
@@ -34,6 +40,12 @@ namespace overdose {
 		void addMouseClick(MouseClick click);
 		MouseClick getLastMouseClick();
 		void clearMouseBuffer();
+
+		void setMouseCoordinates(MouseCoordinate co) {
+			m_currentCoordinate = co;
+		}
+
+		MouseCoordinate getMouseCoordinates() { return m_currentCoordinate;  }
 
 
 		static InputManager &getInstance();
