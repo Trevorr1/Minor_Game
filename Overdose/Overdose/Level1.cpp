@@ -81,10 +81,10 @@ void Level1::Init()
 	//m_Camera->setTileAssets(m_Tiles);
 	//m_Camera->setTileMap(tileMap, 12 * 32);
 
-	//GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
-	//entityCop->setStartingPosition(500, 410 - 54);
-	//entityCop->addComponent(new EnemyMoveComponent(360, 630));
-	//this->addEntities(entityCop);
+	GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
+	entityCop->setStartingPosition(500, 410 - 54);
+	entityCop->addComponent(new EnemyMoveComponent(360, 630));
+	this->addEntities(entityCop);
 
 	//GameEntity *entityDrugSpeed = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Drug_Speed);
 	//entityDrugSpeed->setStartingPosition(200, 410 - 30);

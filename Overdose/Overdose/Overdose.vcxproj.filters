@@ -270,6 +270,9 @@
     <ClInclude Include="Credits.h">
       <Filter>Header Files\Level</Filter>
     </ClInclude>
+    <ClInclude Include="Toolbox.h">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

@@ -23,28 +23,12 @@ GameEntity::GameEntity(eGameEntity entityEnum, Component *component, ...) : m_En
 }
 
 GameEntity::~GameEntity() {
-	while (!componentList->empty()) {
-		delete componentList->back();
-		componentList->pop_back();
-	}
-	delete componentList;
-
-
 	componentListToRemove->clear();
 	delete componentListToRemove; //bevat alleen primitives
 
-	while (!componentListTemporary->empty()) {
-		delete componentListTemporary->back();
-		componentListTemporary->pop_back();
-	}
-	delete componentListTemporary;
-
-	while (!componentListToAdd->empty()) {
-		delete componentListToAdd->back();
-		componentListToAdd->pop_back();
-	}
-	delete componentListToAdd;
-
+	clearList<Component>(componentList);
+	clearList<Component>(componentListTemporary);
+	clearList<Component>(componentListToAdd);
 }
 
 
