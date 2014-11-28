@@ -6,6 +6,7 @@
 #include "ScheduleForRemovalFlag.h"
 #include <exception>
 #include <stdarg.h>
+#include "Toolbox.h"
 #define FinalComponent nullptr
 
 

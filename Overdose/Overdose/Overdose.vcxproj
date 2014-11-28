@@ -132,6 +132,7 @@
     <ClInclude Include="template.h" />
     <ClInclude Include="TextBoxInputComponent.h" />
     <ClInclude Include="Tile.h" />
+    <ClInclude Include="Toolbox.h" />
     <ClInclude Include="TreeNode.h" />
     <ClInclude Include="XTCDrugComponent.h" />
   </ItemGroup>
