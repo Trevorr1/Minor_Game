@@ -125,6 +125,8 @@
     <ClInclude Include="PolicemanCollisionReactionComponent.h" />
     <ClInclude Include="QuitOnClickComponent.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="SaveGame.h" />
+    <ClInclude Include="SaveGameManager.h" />
     <ClInclude Include="ScheduleForRemovalFlag.h" />
     <ClInclude Include="SDLTemplate.h" />
     <ClInclude Include="SoundManager.h" />
@@ -188,6 +190,7 @@
     <ClCompile Include="PlayerInputComponent.cpp" />
     <ClCompile Include="PolicemanCollisionReactionComponent.cpp" />
     <ClCompile Include="QuitOnClickComponent.cpp" />
+    <ClCompile Include="SaveGameManager.cpp" />
     <ClCompile Include="ScheduleForRemovalFlag.cpp" />
     <ClCompile Include="SDLTemplate.cpp" />
     <ClCompile Include="SoundManager.cpp" />

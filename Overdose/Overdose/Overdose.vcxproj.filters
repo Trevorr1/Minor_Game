@@ -279,6 +279,12 @@
     <ClInclude Include="MouseOverEffectComponent.h">
       <Filter>Header Files\Component\button</Filter>
     </ClInclude>
+    <ClInclude Include="SaveGame.h">
+      <Filter>Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveGameManager.h">
+      <Filter>Header Files\Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -466,6 +472,9 @@
     </ClCompile>
     <ClCompile Include="MouseOverEffectComponent.cpp">
       <Filter>Source Files\Component\button</Filter>
+    </ClCompile>
+    <ClCompile Include="SaveGameManager.cpp">
+      <Filter>Source Files\Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
