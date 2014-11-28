@@ -21,6 +21,7 @@ HUD::HUD(GameEntity* entity)
 
 HUD::~HUD()
 {
+	std::cout << "Deleted HUD" << std::endl; //TODO NOG TESTEN
 	delete m_DrugGauge;
 	delete m_Hearts;
 }
@@ -33,45 +34,45 @@ void HUD::tick(float dt)
 	// draw
 	for (std::vector<Component*>::iterator it = m_Entity->getComponentList()->begin(); it != m_Entity->getComponentList()->end(); it++)
 	{
-		//if ((*it)->getComponentID() == "DrugComponent" || "XTCDrugComponent" || "SpeedDrugComponent" || "MarijuanaDrugComponent")
-		//{
-		//	std::clock_t startTime = dynamic_cast<DrugComponent*>(*it)->getStartTime();
+		if ((*it)->getComponentID() == "DrugComponent" || (*it)->getComponentID() == "XTCDrugComponent" || (*it)->getComponentID() == "SpeedDrugComponent" || (*it)->getComponentID() == "MarijuanaDrugComponent")
+		{
+			std::clock_t startTime = dynamic_cast<DrugComponent*>(*it)->getStartTime();
 
-		//	// u need diz trev !!!!!!!!!!!!
-		//	int timer_end = (int)((std::clock() - startTime) / (double)(CLOCKS_PER_SEC / 1000));
-		//	int drug_effect_ms = dynamic_cast<DrugComponent*>(*it)->getDrugEffectMs();
+			// u need diz trev !!!!!!!!!!!!
+			int timer_end = (int)((std::clock() - startTime) / (double)(CLOCKS_PER_SEC / 1000));
+			int drug_effect_ms = dynamic_cast<DrugComponent*>(*it)->getDrugEffectMs();
 
-		//	m_DrugGauge->setState(DrugDurationGauge::Gauge_Empty);
-		//	// drug timer checker
-		//	if (timer_end < drug_effect_ms){
-		//		m_DrugGauge->setGaugeValue(100 - (timer_end / drug_effect_ms) * 100);
-		//		m_DrugGauge->tick(dt);
-		//		// decrease the drug_effect bar here
-		//	}
-		//}
-		//else if ((*it)->getComponentID() == "NegativeXTCComponent" || "SpeedDrugComponent" || "XTCDrugComponent")
-		//{
-		//	std::clock_t startTime = dynamic_cast<DrugComponent*>(*it)->getStartTime();
+			m_DrugGauge->setState(DrugDurationGauge::Gauge_Empty);
+			// drug timer checker
+			if (timer_end < drug_effect_ms){
+				m_DrugGauge->setGaugeValue(100 - ((float)timer_end / (float)drug_effect_ms) * 100);// decrease the drug_effect bar here
+				m_DrugGauge->tick(dt);
+				//std::cout << 100 - ((float)timer_end / (float)drug_effect_ms) * 100 << std::endl;
+			}
+		}
+		else if ((*it)->getComponentID() == "NegativeXTCComponent" || (*it)->getComponentID() == "NegativeSpeedDrugComponent" || (*it)->getComponentID() == "NegativeXTCComponent")
+		{
+			std::clock_t startTime = dynamic_cast<DrugComponent*>(*it)->getStartTime();
 
-		//	// u need diz trev !!!!!!!!!!!!
-		//	int timer_end = (int)((std::clock() - startTime) / (double)(CLOCKS_PER_SEC / 1000));
-		//	int drug_effect_ms = dynamic_cast<DrugComponent*>(*it)->getDrugEffectMs();
+			// u need diz trev !!!!!!!!!!!!
+			int timer_end = (int)((std::clock() - startTime) / (double)(CLOCKS_PER_SEC / 1000));
+			int drug_effect_ms = dynamic_cast<DrugComponent*>(*it)->getDrugEffectMs();
 
-		//	m_DrugGauge->setState(DrugDurationGauge::Gauge_Fill);
-		//	// drug timer checker
-		//	if (timer_end < drug_effect_ms){
-		//		m_DrugGauge->setGaugeValue((timer_end / drug_effect_ms) * 100);
-		//		m_DrugGauge->tick(dt);
-		//		// increase the drug_effect bar here
-		//	}
-		//}
+			m_DrugGauge->setState(DrugDurationGauge::Gauge_Fill);
+			// drug timer checker
+			if (timer_end < drug_effect_ms){
+				m_DrugGauge->setGaugeValue(((float)timer_end / (float)drug_effect_ms) * 100);// increase the drug_effect bar here
+				m_DrugGauge->tick(dt);
+				//std::cout << ((float)timer_end / (float)drug_effect_ms) * 100 << std::endl;
+			}
+		}
 		delayedAddHeart();
 		for (std::vector<HealthHearts*>::iterator it = m_Hearts->begin(); it != m_Hearts->end(); it++)
 		{
 			(*it)->tick(dt);
 		}
 
-		if (m_Entity->getHealth() < 0 && m_Hearts->size() > m_Entity->getHealth()){
+		if (m_Entity->getHealth() >= 0 && m_Hearts->size() > m_Entity->getHealth()){
 			HealthHearts* heartToDelete = nullptr;
 			heartToDelete = m_Hearts->back();
 			heartToDelete->scheduleForRemoval();
@@ -79,11 +80,9 @@ void HUD::tick(float dt)
 			heartToDelete == nullptr;
 		}
 		else if (m_Hearts->size() < m_Entity->getHealth()){
-			//HealthHearts* heartToAdd = nullptr;
-			//heartToAdd = new HealthHearts(posX + m_Entity->getHealth() * 20, posY);
 			isScheduledToAddHeart = true;
 		}
-		std::cout << m_Entity->getHealth() << std::endl;
+		//std::cout << m_Entity->getHealth() << std::endl;
 
 	}
 

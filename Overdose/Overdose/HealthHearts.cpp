@@ -11,7 +11,7 @@ HealthHearts::HealthHearts(int x, int y)
 	m_DrawComponent = new DrawComponent(animations);
 	m_DrawComponent->setAnimation(Default);//set starting animation
 	addComponent(m_DrawComponent);
-	LevelManager::getInstance().getCurrentLevel()->scheduleEntityForInsertion(this);
+	//LevelManager::getInstance().getCurrentLevel()->scheduleEntityForInsertion(this); //werkt blijkbaar zonder dit
 
 }
 
