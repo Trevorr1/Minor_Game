@@ -1,4 +1,5 @@
 #include "SaveGameManager.h"
+#include "directory.h"
 using namespace overdose;
 
 SaveGameManager &SaveGameManager::getInstance()
@@ -7,18 +8,31 @@ SaveGameManager &SaveGameManager::getInstance()
 	return _instance;
 }
 
-void SaveGameManager::save(SaveGame* game) {
-	const string path("assets/savegames/" + getSaveGameName() + ".txt");
+void SaveGameManager::save(SaveGame game) {
+	const string path("assets/savegames/" + getSaveGameName());
 	ofstream output_file(path);
 
-	output_file << game->savedLevelId << std::endl;
-	delete game;
+	output_file << game.savedLevelId << std::endl;
+
+
+}
+
+SaveGame SaveGameManager::load(string name) {
+	const string path("assets/savegames/" + name);
+
+	SaveGame game;
+	ifstream input_file(path);
+
+	int level;
+	input_file >> level;
+
+	game.savedLevelId = levels(level);
+	return game;
 }
 
 bool SaveGameManager::saveGameExists(string name) {
 	string path = "assets/savegames/";
 	path.append(name);
-	path.append(".txt");
     std::ifstream infile(path);
     return infile.good();
 }

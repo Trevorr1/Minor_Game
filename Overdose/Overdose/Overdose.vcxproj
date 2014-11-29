@@ -87,6 +87,8 @@
     <ClInclude Include="ComponentMessage.h" />
     <ClInclude Include="DeleteEntityClickComponent.h" />
     <ClInclude Include="Credits.h" />
+    <ClInclude Include="directory.h" />
+    <ClInclude Include="dirent.h" />
     <ClInclude Include="DrawComponent.h" />
     <ClInclude Include="DrawManager.h" />
     <ClInclude Include="DrugCollisionReactionComponent.h" />

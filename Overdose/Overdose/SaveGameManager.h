@@ -6,6 +6,7 @@
 
 using std::string;
 using std::ofstream;
+using std::ifstream;
 namespace overdose {
 	class SaveGameManager {
 	private:
@@ -14,7 +15,8 @@ namespace overdose {
 	public:
 		static SaveGameManager& getInstance();
 		virtual ~SaveGameManager() {}
-		void save(SaveGame* game);
+		void save(SaveGame game);
+		SaveGame load(string name);
 
 	private:
 		SaveGameManager() {}

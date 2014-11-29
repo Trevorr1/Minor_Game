@@ -88,8 +88,8 @@ void LevelManager::Tick(float dt)
 		m_SpeedModifier = 1;
 	}
 	else if (InputManager::getInstance().isKeyPressedOnce(SDL_SCANCODE_S)) {
-		SaveGame* game = new SaveGame;
-		game->savedLevelId = currentLevelEnum;
+		SaveGame game;
+		game.savedLevelId = currentLevelEnum;
 		SaveGameManager::getInstance().save(game);
 	}
 	currentLevel->Tick(dt * m_SpeedModifier);
