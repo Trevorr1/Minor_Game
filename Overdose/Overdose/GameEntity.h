@@ -37,7 +37,7 @@ namespace overdose {
 	public:
 		virtual void delayedAddComponent(Component *component);
 
-		virtual void addComponent(Component *component);
+		void addComponent(Component *component);
 
 		virtual void tick(float dt);
 

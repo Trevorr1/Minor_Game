@@ -31,18 +31,23 @@ void MainMenu::Init()
 
 	GameEntity *buttonPlay = GameEntityFactory::getInstance().getGameEntity(eGameEntity::ButtonPlay);
 	buttonPlay->setPosX(50);
-	buttonPlay->setPosY(100);
+	buttonPlay->setPosY(75);
 	this->addEntities(buttonPlay);
 
 	GameEntity *buttonQuitGame = GameEntityFactory::getInstance().getGameEntity(eGameEntity::ButtonQuitGameGreen);
 	buttonQuitGame->setPosX(50);
-	buttonQuitGame->setPosY(200);
+	buttonQuitGame->setPosY(175);
 	this->addEntities(buttonQuitGame);
 
 	GameEntity *buttonCredits = GameEntityFactory::getInstance().getGameEntity(eGameEntity::ButtonCredits);
 	buttonCredits->setPosX(50);
-	buttonCredits->setPosY(300);
+	buttonCredits->setPosY(275);
 	this->addEntities(buttonCredits);
+
+	GameEntity *buttonLoadGame = GameEntityFactory::getInstance().getGameEntity(eGameEntity::ButtonLoadGame);
+	buttonLoadGame->setPosX(50);
+	buttonLoadGame->setPosY(375);
+	this->addEntities(buttonLoadGame);
 
 	SoundManager::getInstance().StopMusic();
 	SoundManager::getInstance().PlayMusic(eMusic::MainMenuTheme);

@@ -87,6 +87,8 @@
     <ClInclude Include="ComponentMessage.h" />
     <ClInclude Include="DeleteEntityClickComponent.h" />
     <ClInclude Include="Credits.h" />
+    <ClInclude Include="directory.h" />
+    <ClInclude Include="dirent.h" />
     <ClInclude Include="DrawComponent.h" />
     <ClInclude Include="DrawManager.h" />
     <ClInclude Include="DrugCollisionReactionComponent.h" />
@@ -115,6 +117,7 @@
     <ClInclude Include="KnockBackComponent.h" />
     <ClInclude Include="Level1.h" />
     <ClInclude Include="LevelManager.h" />
+    <ClInclude Include="LoadGame.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="MarijuanaDrugComponent.h" />
     <ClInclude Include="MouseBaseComponent.h" />
@@ -129,6 +132,8 @@
     <ClInclude Include="PolicemanCollisionReactionComponent.h" />
     <ClInclude Include="QuitOnClickComponent.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="SaveGame.h" />
+    <ClInclude Include="SaveGameManager.h" />
     <ClInclude Include="ScheduleForRemovalFlag.h" />
     <ClInclude Include="SDLTemplate.h" />
     <ClInclude Include="SoundManager.h" />
@@ -138,6 +143,7 @@
     <ClInclude Include="surface.h" />
     <ClInclude Include="template.h" />
     <ClInclude Include="TextBoxInputComponent.h" />
+    <ClInclude Include="TextGameEntity.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="Toolbox.h" />
     <ClInclude Include="TreeNode.h" />
@@ -182,6 +188,7 @@
     <ClCompile Include="KnockBackComponent.cpp" />
     <ClCompile Include="Level1.cpp" />
     <ClCompile Include="LevelManager.cpp" />
+    <ClCompile Include="LoadGame.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="MarijuanaDrugComponent.cpp" />
@@ -196,6 +203,7 @@
     <ClCompile Include="PlayerInputComponent.cpp" />
     <ClCompile Include="PolicemanCollisionReactionComponent.cpp" />
     <ClCompile Include="QuitOnClickComponent.cpp" />
+    <ClCompile Include="SaveGameManager.cpp" />
     <ClCompile Include="ScheduleForRemovalFlag.cpp" />
     <ClCompile Include="SDLTemplate.cpp" />
     <ClCompile Include="SoundManager.cpp" />
@@ -205,6 +213,7 @@
     <ClCompile Include="surface.cpp" />
     <ClCompile Include="template.cpp" />
     <ClCompile Include="TextBoxInputComponent.cpp" />
+    <ClCompile Include="TextGameEntity.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TreeNode.cpp" />
     <ClCompile Include="URLClickComponent.cpp" />
