@@ -4,7 +4,7 @@
 
 #include "game.h"
 #include "SDLTemplate.h"
-//#include <vld.h>
+#include <vld.h>
 
 using namespace overdose;
 
