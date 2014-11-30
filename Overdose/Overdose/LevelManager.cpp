@@ -42,6 +42,9 @@ ILevel* LevelManager::createLevel(levels l)
 	case LevelCredits:
 		currentLevel = new Credits();
 		break;
+	case LevelLoadGame:
+		currentLevel = new LoadGame();
+		break;
 	default:
 		throw std::invalid_argument("Invalid level enum");
 		break;

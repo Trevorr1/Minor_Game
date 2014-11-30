@@ -221,6 +221,12 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new DrawComponent("assets/buttons/button_credits.jpg"));
 		newObject->addComponent(new MouseOverEffectComponent);
 		break;
+	case ButtonLoadGame:
+		newObject->addComponent(new ClickableComponent());
+		newObject->addComponent(new ButtonClickableReactionComponent(LevelLoadGame));
+		newObject->addComponent(new DrawComponent("assets/buttons/button_load_game.jpg"));
+		newObject->addComponent(new MouseOverEffectComponent);
+		break;
 	case Advertisement_GameEntity:
 	{
 		GameEntity* closeButton = new GameEntity();

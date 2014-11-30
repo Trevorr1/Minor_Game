@@ -47,3 +47,24 @@ string SaveGameManager::getSaveGameName() {
 
 	return std::to_string(name);
 }
+
+vector<string> SaveGameManager::getGameList() {
+	vector<string> list = read_directory("assets/savegames");
+	vector<string> returnList;
+
+	vector<string>::reverse_iterator it = list.rbegin();
+
+
+	while (it != list.rend()) {
+		
+		if (*it != "." && *it != "..") { // dir up & dir down
+			returnList.push_back(*it);
+		}
+		
+
+		it++;
+
+	}
+	
+	return returnList;
+}

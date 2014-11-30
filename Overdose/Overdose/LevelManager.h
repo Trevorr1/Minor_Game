@@ -7,6 +7,7 @@
 #include "HighScore.h"
 #include "Level1.h"
 #include "Credits.h"
+#include "LoadGame.h"
 
 namespace overdose {
 enum levels{
@@ -24,7 +25,8 @@ enum levels{
 	level10,
 	LevelGameWon,
 	LevelGameOver,
-	SetHighScore
+	SetHighScore,
+	LevelLoadGame
 };
 
 class LevelManager

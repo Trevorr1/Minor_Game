@@ -2,11 +2,13 @@
 #include "SaveGame.h"
 #include "stdafx.h"
 #include <fstream>
-#define MAX_SAVED_GAMES 3
+#define MAX_SAVED_GAMES 5
 
 using std::string;
 using std::ofstream;
 using std::ifstream;
+using std::vector;
+
 namespace overdose {
 	class SaveGameManager {
 	private:
@@ -17,6 +19,7 @@ namespace overdose {
 		virtual ~SaveGameManager() {}
 		void save(SaveGame game);
 		SaveGame load(string name);
+		vector<string> getGameList();
 
 	private:
 		SaveGameManager() {}
