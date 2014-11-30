@@ -130,6 +130,7 @@
     <ClInclude Include="QuitOnClickComponent.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="ScheduleForRemovalFlag.h" />
+    <ClInclude Include="ScoreboardManager.h" />
     <ClInclude Include="SDLTemplate.h" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="SpeedDrugComponent.h" />
@@ -197,6 +198,7 @@
     <ClCompile Include="PolicemanCollisionReactionComponent.cpp" />
     <ClCompile Include="QuitOnClickComponent.cpp" />
     <ClCompile Include="ScheduleForRemovalFlag.cpp" />
+    <ClCompile Include="ScoreboardManager.cpp" />
     <ClCompile Include="SDLTemplate.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="SpeedDrugComponent.cpp" />

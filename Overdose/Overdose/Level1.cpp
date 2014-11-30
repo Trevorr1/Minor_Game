@@ -7,12 +7,14 @@
 #include "GameEntityFactory.h"
 #include "SoundManager.h"
 #include "DrawManager.h"
+#include "ScoreboardManager.h"
 
 using namespace overdose;
 
 Level1::Level1()
 {
 	m_Camera = new Camera();
+	ScoreboardManager::getInstance().startTimer();
 	createLevel(940*2, 480); //create the level here widthx height
 }
 

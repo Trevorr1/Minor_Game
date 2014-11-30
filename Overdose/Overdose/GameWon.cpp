@@ -6,6 +6,7 @@
 #include "MoveComponent.h"
 #include "GameEntityFactory.h"
 #include "SoundManager.h"
+#include "ScoreboardManager.h"
 
 using namespace overdose;
 
@@ -49,8 +50,13 @@ void GameWon::Init(){
 
 	/* MUSIC/SOUND */
 	SoundManager::getInstance().StopMusic();
-	SoundManager::getInstance().PlayMusic(People); 
-	SoundManager::getInstance().PlaySound(PartyHorn);
+	//SoundManager::getInstance().PlayMusic(People); 
+	//SoundManager::getInstance().PlaySound(PartyHorn);
+
+	//Score
+	ScoreboardManager::getInstance().stopTimer();
+	ScoreboardManager::getInstance().persistScore("Antoine", ScoreboardManager::getInstance().getScore());
+	ScoreboardManager::getInstance().resetTimer();
 }
 
 bool GameWon::isGameOver() {
