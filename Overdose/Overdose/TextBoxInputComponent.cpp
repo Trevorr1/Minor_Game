@@ -1,9 +1,11 @@
 #include "TextBoxInputComponent.h"
+#include "ScoreboardManager.h"
 
 using namespace overdose;
 
 TextBoxInputComponent::TextBoxInputComponent()
 {
+	ScoreboardManager::getInstance().stopTimer();
 	Init();
 }
 
@@ -57,6 +59,10 @@ void TextBoxInputComponent::receive(Component *subject, ComponentMessage message
 		else if (message = TextBoxInputComponent_TEXT_TYPED)
 		{
 			text_typed = true;
+
+			//Score
+			ScoreboardManager::getInstance().persistScore(toWrite, ScoreboardManager::getInstance().getScore());
+			ScoreboardManager::getInstance().resetTimer();
 		}
 	}
 }

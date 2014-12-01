@@ -1,7 +1,10 @@
+1.267000;dfertghy
+2.053000;itujhm
+2.253000;Antoine
 2.664000;Antoine
 3.006000;Antoine
 6.119000;Antoine
 7.572000;Antoine
-7.575000;Antoine
-8.043000;Antoine
-16.340000;Antoine
+9.165000;blaat
+9.939000;jemoeder
+28.665001;t

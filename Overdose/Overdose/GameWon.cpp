@@ -53,10 +53,6 @@ void GameWon::Init(){
 	SoundManager::getInstance().PlayMusic(People); 
 	SoundManager::getInstance().PlaySound(PartyHorn);
 
-	//Score
-	ScoreboardManager::getInstance().stopTimer();
-	ScoreboardManager::getInstance().persistScore("Antoine", ScoreboardManager::getInstance().getScore());
-	ScoreboardManager::getInstance().resetTimer();
 }
 
 bool GameWon::isGameOver() {
