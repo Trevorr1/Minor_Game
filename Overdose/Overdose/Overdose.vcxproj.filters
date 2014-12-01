@@ -305,9 +305,27 @@
     </ClInclude>
     <ClInclude Include="DrugDurationGauge.h">
       <Filter>Header Files\HUD</Filter>
-    </ClInclude>
+	</ClInclude>
     <ClInclude Include="MouseOverEffectComponent.h">
       <Filter>Header Files\Component\button</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveGame.h">
+      <Filter>Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveGameManager.h">
+      <Filter>Header Files\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="directory.h">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="dirent.h">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadGame.h">
+      <Filter>Header Files\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="TextGameEntity.h">
+      <Filter>Header Files\Entity</Filter>
     </ClInclude>
     <ClInclude Include="MarijuanaDrugComponent.h">
       <Filter>Header Files\Component</Filter>
@@ -521,6 +539,15 @@
     </ClCompile>
     <ClCompile Include="MouseOverEffectComponent.cpp">
       <Filter>Source Files\Component\button</Filter>
+    </ClCompile>
+    <ClCompile Include="SaveGameManager.cpp">
+      <Filter>Source Files\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadGame.cpp">
+      <Filter>Source Files\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="TextGameEntity.cpp">
+      <Filter>Source Files\Entity</Filter>
     </ClCompile>
     <ClCompile Include="ScoreboardManager.cpp">
       <Filter>Source Files\Manager</Filter>

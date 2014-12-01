@@ -10,10 +10,13 @@ namespace overdose {
 		ButtonPlay, 
 
 		/*Win/GameOver Menu*/
-		TextBox, ButtonPlayAgain, ButtonMainMenu, ButtonQuitGame, ButtonQuitGameGreen, ButtonPlayAgainGreen, ButtonMainMenuGreen,ButtonCredits,
+		TextBox, ButtonPlayAgain, ButtonMainMenu, ButtonQuitGame, ButtonQuitGameGreen, ButtonPlayAgainGreen, ButtonMainMenuGreen,ButtonCredits, ButtonLoadGame,
 
 		/* Particle */
-		Particle
+		Particle,
+
+		/* Text */
+		Text
 	};
 	enum eFacing {
 		Left, FrontView, Right

@@ -2,6 +2,8 @@
 #include "LevelManager.h"
 #include "SoundManager.h"
 #include "InputManager.h"
+
+#include "SaveGameManager.h"
 using namespace overdose;
 
 LevelManager::LevelManager(void)
@@ -39,6 +41,9 @@ ILevel* LevelManager::createLevel(levels l)
 		break;
 	case LevelCredits:
 		currentLevel = new Credits();
+		break;
+	case LevelLoadGame:
+		currentLevel = new LoadGame();
 		break;
 	default:
 		throw std::invalid_argument("Invalid level enum");
@@ -84,6 +89,11 @@ void LevelManager::Tick(float dt)
 	else if (InputManager::getInstance().isKeyPressedOnce(SDL_SCANCODE_HOME)) {
 		SoundManager::getInstance().PlaySound1(Click);
 		m_SpeedModifier = 1;
+	}
+	else if (InputManager::getInstance().isKeyPressedOnce(SDL_SCANCODE_S)) {
+		SaveGame game;
+		game.savedLevelId = currentLevelEnum;
+		SaveGameManager::getInstance().save(game);
 	}
 	currentLevel->Tick(dt * m_SpeedModifier);
 }
