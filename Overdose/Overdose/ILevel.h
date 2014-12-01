@@ -27,6 +27,8 @@ namespace overdose {
 
 		virtual GameEntity* getPlayerEntity();
 		virtual GameEntity* takePlayerEntity();
+		void ILevel::setPlayerEntity(GameEntity* player);
+
 		void removeDrugComponents(GameEntity* player);
 		void removeEntity(GameEntity* entity);
 		virtual std::vector<GameEntity*>* getEntities();

@@ -5,6 +5,7 @@
 #include "GameOver.h"
 #include "GameWon.h"
 #include "Level1.h"
+#include "Level2.h"
 #include "Credits.h"
 #include "LoadGame.h"
 
@@ -33,11 +34,11 @@ class LevelManager
 	public:
 		~LevelManager(void);
 		static LevelManager &getInstance();
-		ILevel* createLevel(levels level);
+		ILevel* createLevel(levels level, GameEntity* player = nullptr);
 		ILevel* getCurrentLevel();
 		void LevelManager::Tick(float dt);
-		void reloadLevel();
-		void nextLevel();
+		void reloadLevel(GameEntity* player = nullptr);
+		void nextLevel(GameEntity* player = nullptr);
 		float getSpeedModifier() { return m_SpeedModifier; }
 	private:
 		ILevel* currentLevel = nullptr;
@@ -46,7 +47,9 @@ class LevelManager
 		LevelManager(void);
 		static LevelManager* _instance;
 		float m_SpeedModifier = 1;
-		
+
+		ILevel* createNewLevel(levels level);
+
 	};
 
 }

@@ -1,4 +1,7 @@
 2.664000;Antoine
 3.006000;Antoine
 6.119000;Antoine
+7.572000;Antoine
 7.575000;Antoine
+8.043000;Antoine
+16.340000;Antoine

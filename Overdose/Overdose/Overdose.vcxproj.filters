@@ -305,7 +305,7 @@
     </ClInclude>
     <ClInclude Include="DrugDurationGauge.h">
       <Filter>Header Files\HUD</Filter>
-	</ClInclude>
+    </ClInclude>
     <ClInclude Include="MouseOverEffectComponent.h">
       <Filter>Header Files\Component\button</Filter>
     </ClInclude>
@@ -335,6 +335,9 @@
     </ClInclude>
     <ClInclude Include="ScoreboardManager.h">
       <Filter>Header Files\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Level2.h">
+      <Filter>Header Files\Level</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -551,6 +554,9 @@
     </ClCompile>
     <ClCompile Include="ScoreboardManager.cpp">
       <Filter>Source Files\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Level2.cpp">
+      <Filter>Source Files\Level</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

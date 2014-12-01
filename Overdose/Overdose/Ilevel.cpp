@@ -65,6 +65,12 @@ GameEntity* ILevel::takePlayerEntity()
 	return player;
 }
 
+void ILevel::setPlayerEntity(GameEntity* player)
+{
+	m_Player = player;
+}
+
+
 std::vector<GameEntity*>* ILevel::getEntities()
 {
 	return entities;
@@ -102,11 +108,9 @@ void ILevel::Tick(float dt)
 	}
 
 	insertEntityBuffer->clear();
-
-
+	
 	auto toRemove = std::remove_if(entities->begin(), entities->end(), [](GameEntity* p) {
 		if (p->isScheduledForRemoval() && p->getEnum() != eGameEntity::Player) {
-		
 			delete p;
 			return true;
 		}
