@@ -4,7 +4,6 @@
 #include "MainMenu.h"
 #include "GameOver.h"
 #include "GameWon.h"
-#include "HighScore.h"
 #include "Level1.h"
 #include "Credits.h"
 #include "LoadGame.h"
@@ -25,7 +24,7 @@ enum levels{
 	level10,
 	LevelGameWon,
 	LevelGameOver,
-	SetHighScore,
+	LevelHighScore,
 	LevelLoadGame
 };
 

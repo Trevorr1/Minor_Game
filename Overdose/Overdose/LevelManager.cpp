@@ -2,7 +2,7 @@
 #include "LevelManager.h"
 #include "SoundManager.h"
 #include "InputManager.h"
-
+#include "HighScore.h"
 #include "SaveGameManager.h"
 using namespace overdose;
 
@@ -44,6 +44,9 @@ ILevel* LevelManager::createLevel(levels l)
 		break;
 	case LevelLoadGame:
 		currentLevel = new LoadGame();
+		break;
+	case LevelHighScore:
+		currentLevel = new HighScore();
 		break;
 	default:
 		throw std::invalid_argument("Invalid level enum");
@@ -143,7 +146,7 @@ void LevelManager::nextLevel()
 	case level10:
 		createLevel(LevelGameWon);
 		break;
-	case SetHighScore:
+	case LevelHighScore:
 		createLevel(LevelMainMenu);
 		break;
 	case LevelGameOver:
