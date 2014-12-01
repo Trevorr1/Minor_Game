@@ -35,10 +35,10 @@ namespace overdose {
 		Surface* getSurface(){ return m_Background; };
 
 		virtual void Tick(float a_DT);
-		virtual bool isGameOver();
 
 		virtual void createLevel(int width, int height);
 
+		virtual bool isGameOver();
 		bool isGameWon();
 		void setGameWon();
 		bool isReloadLevel();

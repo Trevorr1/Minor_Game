@@ -85,6 +85,9 @@ void HealthComponent::tick(float dt, GameEntity *entity) {
 			entity->delayedAddComponent(new ParticleComponent(Blood, 0.01, 0.5, 0.5));
 			entity->delayedAddComponent(new KillSwitchComponent(0.3));
 		}
+		else{
+			entity->scheduleForRemoval();
+		}
 	}
 
 	if (m_invincibleTime > 0) {
