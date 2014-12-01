@@ -23,11 +23,13 @@ HUD::~HUD()
 {
 	std::cout << "Deleted HUD" << std::endl; //TODO NOG TESTEN
 	delete m_DrugGauge;
+	m_DrugGauge = nullptr;
 
 	for (auto h : *m_Hearts){
 		delete h;
 	}
 	delete m_Hearts;
+	m_Hearts = nullptr;
 }
 
 void HUD::tick(float dt)
@@ -83,7 +85,7 @@ void HUD::tick(float dt)
 			m_Hearts->pop_back();
 			heartToDelete == nullptr;
 		}
-		else if (m_Hearts->size() < m_Entity->getHealth()){
+		else if (m_Entity->getHealth() > -1 && m_Hearts->size() < m_Entity->getHealth()){
 			isScheduledToAddHeart = true;
 		}
 		//std::cout << m_Entity->getHealth() << std::endl;
