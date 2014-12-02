@@ -4,11 +4,12 @@
 
 using namespace overdose;
 
-HUD::HUD(GameEntity* entity)
-: m_Entity{ entity }, m_DrugEffect_ms{ INT_MAX }, m_CurrentEffect_ms{ INT_MAX }, m_Hearts{new std::vector<HealthHearts*> }
+HUD::HUD(GameEntity* entity, float posX, float posY)
+: m_Entity{ entity }, m_DrugEffect_ms{ INT_MAX }, m_CurrentEffect_ms{ INT_MAX }, m_Hearts{ new std::vector<HealthHearts*> }
 {
-	posX = 20.0f;
-	posY = 0.0f;// 440.0f
+	setPosX(posX);
+	setPosY(posY);
+
 	// hearts and gauge
 	m_DrugGauge = new DrugDurationGauge(posX, posY + 20);
 	for (int i = 0; i < entity->getHealth(); i++)
@@ -24,13 +25,11 @@ HUD::~HUD()
 {
 	std::cout << "Deleted HUD" << std::endl; //TODO NOG TESTEN
 	delete m_DrugGauge;
-	m_DrugGauge = nullptr;
 
 	for (auto h : *m_Hearts){
 		delete h;
 	}
 	delete m_Hearts;
-	m_Hearts = nullptr;
 }
 
 void HUD::tick(float dt)
@@ -78,22 +77,23 @@ void HUD::tick(float dt)
 		m_DrugGauge->tick(dt); 
 
 		//HealthHearts
-		delayedAddHeart();
+		//delayedAddHeart();
 		for (std::vector<HealthHearts*>::iterator it = m_Hearts->begin(); it != m_Hearts->end(); it++)
 		{
 			(*it)->tick(dt);
 		}
 
-		if (m_Entity->getHealth() >= 0 && m_Hearts->size() > m_Entity->getHealth()){
-			HealthHearts* heartToDelete = nullptr;
-			heartToDelete = m_Hearts->back();
-			heartToDelete->scheduleForRemoval();
-			m_Hearts->pop_back();
-			heartToDelete = nullptr;
-		}
-		else if (m_Entity->getHealth() > -1 && m_Hearts->size() < m_Entity->getHealth()){
-			isScheduledToAddHeart = true;
-		}
+		//When there's 1 HUD entity in the whole game use code below
+		//if (m_Entity->getHealth() >= 0 && m_Hearts->size() > m_Entity->getHealth()){
+		//	HealthHearts* heartToDelete = nullptr;
+		//	heartToDelete = m_Hearts->back();
+		//	heartToDelete->scheduleForRemoval();
+		//	m_Hearts->pop_back();
+		//	heartToDelete = nullptr;
+		//}
+		//else if (m_Entity->getHealth() > -1 && m_Hearts->size() < m_Entity->getHealth()){
+		//	isScheduledToAddHeart = true;
+		//}
 	}
 
 	// do the drawing here
