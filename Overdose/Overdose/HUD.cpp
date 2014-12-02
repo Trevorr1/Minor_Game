@@ -52,7 +52,6 @@ void HUD::tick(float dt)
 			// drug timer checker
 			if (timer_end < drug_effect_ms){
 				m_DrugGauge->setGaugeValue(100 - ((float)timer_end / (float)drug_effect_ms) * 100);// decrease the drug_effect bar here
-				m_DrugGauge->tick(dt);
 				//std::cout << 100 - ((float)timer_end / (float)drug_effect_ms) * 100 << std::endl;
 			}
 		}
@@ -68,10 +67,16 @@ void HUD::tick(float dt)
 			// drug timer checker
 			if (timer_end < drug_effect_ms){
 				m_DrugGauge->setGaugeValue(((float)timer_end / (float)drug_effect_ms) * 100);// increase the drug_effect bar here
-				m_DrugGauge->tick(dt);
 				//std::cout << ((float)timer_end / (float)drug_effect_ms) * 100 << std::endl;
 			}
 		}
+		else{
+			m_DrugGauge->setState(DrugDurationGauge::Gauge_Idle); // Player has no drug
+		}
+
+		m_DrugGauge->tick(dt); 
+
+		//HealthHearts
 		delayedAddHeart();
 		for (std::vector<HealthHearts*>::iterator it = m_Hearts->begin(); it != m_Hearts->end(); it++)
 		{
@@ -88,8 +93,6 @@ void HUD::tick(float dt)
 		else if (m_Entity->getHealth() > -1 && m_Hearts->size() < m_Entity->getHealth()){
 			isScheduledToAddHeart = true;
 		}
-		//std::cout << m_Entity->getHealth() << std::endl;
-
 	}
 
 	// do the drawing here

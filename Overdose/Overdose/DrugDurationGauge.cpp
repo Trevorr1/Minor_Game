@@ -38,8 +38,11 @@ void DrugDurationGauge::tick(float dt)
 	case Gauge_Fill:
 		color = 0xff0000;
 		break;
+	case Gauge_Idle:
+		color = 0x808080;
+		break;
 	}
 
 	//m_Bar->Bar(2+x, y+4 + 64*(m_GaugeValue / FULL), 8+x, 64 + y, color); //Increase the bar height
-	m_Bar->Bar(2 + x, y + 64 + 4 - 64 * (m_GaugeValue / FULL), 8 + x, 64 + y, color); //Decrease the bar height. HUD decides decrease or increase.
+	m_Bar->Bar(1 + x, y-1 + 64 + 4 - 64 * (m_GaugeValue / FULL), 9 + x, 64 + y+1, color); //Decrease the bar height. HUD decides decrease or increase.
 }
