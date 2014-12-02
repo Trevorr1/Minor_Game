@@ -23,5 +23,5 @@ HealthHearts::~HealthHearts()
 
 void HealthHearts::tick(float dt)
 {
-	m_DrawComponent->tick(dt, this);
+	m_DrawComponent->tick(dt, this, DrawManager::getInstance().getCameraSurface());
 }

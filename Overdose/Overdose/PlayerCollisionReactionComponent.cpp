@@ -25,7 +25,78 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 	float speedy = entity->getSpeedY();
 
 	bool clear = false;
-	
+
+	if (collidedBottom)
+	{
+		entity->setJumping(false);
+		entity->setFalling(false);
+		entity->setSpeedY(0);
+
+		colX = (int)m_Bot->getPosX();
+		colY = (int)m_Bot->getPosY();
+		colBoxX = colX + (int)m_Bot->getWidth();
+		colBoxY = colY + (int)m_Bot->getHeight();
+
+		while (!clear)
+		{
+			entity->setPosY(posy - 1);
+
+			posy = entity->getPosY();
+			boxY = (int)posy + (int)entity->getHeight();
+
+			if (!(boxY > colY && boxY < colBoxY))
+				clear = true;
+		}
+		collidedBottom = false;
+	}
+	else
+	{
+		entity->setFalling(true);
+	}
+	if (collidedLeft)
+	{
+		entity->setSpeedX(0);
+
+		colX = (int)m_Left->getPosX();
+		colY = (int)m_Left->getPosY();
+		colBoxX = colX + (int)m_Left->getWidth();
+		colBoxY = colY + (int)m_Left->getHeight();
+
+		while (!clear)
+		{
+			entity->setPosX(posx + 1);
+
+			posx = entity->getPosX();
+			boxX = (int)posx + (int)entity->getWidth();
+
+			if (!(posx > colX && posx < colBoxX))
+				clear = true;
+		}
+		collidedLeft = false;
+		m_Left = nullptr;
+	}
+	if (collidedRight)
+	{
+		entity->setSpeedX(0);
+
+		colX = (int)m_Right->getPosX();
+		colY = (int)m_Right->getPosY();
+		colBoxX = colX + (int)m_Right->getWidth();
+		colBoxY = colY + (int)m_Right->getHeight();
+
+		while (!clear)
+		{
+			entity->setPosX(posx - 1);
+
+			posx = entity->getPosX();
+			boxX = (int)posx + (int)entity->getWidth();
+
+			if (!(boxX > colX && boxX < colBoxX))
+				clear = true;
+		}
+		collidedRight = false;
+		m_Right = nullptr;
+	}
 	if (collidedTop)
 	{
 		entity->setSpeedY(0);
@@ -48,75 +119,6 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 		}
 		collidedTop = false;
 	}
-	if (collidedBottom)
-	{
-		entity->setJumping(false);
-		entity->setFalling(false);
-		entity->setSpeedY(0);
-
-		colX = (int)m_Bot->getPosX();
-		colY = (int)m_Bot->getPosY();
-		colBoxX = colX + (int)m_Bot->getWidth();
-		colBoxY = colY + (int)m_Bot->getHeight();
-
-		while (!clear)
-		{
-			entity->setPosY(posy - 1); 
-			
-			posy = entity->getPosY();
-			boxY = (int)posy + (int)entity->getHeight();
-
-			if (!(boxY > colY && boxY < colBoxY))
-				clear = true;
-		}
-		collidedBottom = false;
-	}
-	else
-	{
-		entity->setFalling(true);
-	}
-	if (collidedLeft)
-	{
-		entity->setSpeedX(0);
-
-        colX = (int)m_Left->getPosX();
-		colY = (int)m_Left->getPosY();
-		colBoxX = colX + (int)m_Left->getWidth();
-		colBoxY = colY + (int)m_Left->getHeight();
-
-		while (!clear)
-		{
-			entity->setPosX(posx + 1);
-
-			posx = entity->getPosX();
-			boxX = (int)posx + (int)entity->getWidth();
-
-			if (!(posx > colX && posx < colBoxX))
-				clear = true;
-		}
-		collidedLeft = false;
-	}
-	if (collidedRight)
-	{
- 		entity->setSpeedX(0);
-
-		colX = (int)m_Right->getPosX();
-		colY = (int)m_Right->getPosY();
-		colBoxX = colX + (int)m_Right->getWidth();
-		colBoxY = colY + (int)m_Right->getHeight();
-
-		while (!clear)
-		{
-			entity->setPosX(posx - 1);
-
-			posx = entity->getPosX();
-			boxX = (int)posx + (int)entity->getWidth();
-
-			if (!(boxX > colX && boxX < colBoxX))
-				clear = true;
-		}
-		collidedRight = false;
-	}
 	if (reactTop)
 	{
 		entity->setSpeedY(0);
@@ -137,7 +139,7 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 		entity->setSpeedY(0);
 		entity->setJumping(false);
 		entity->setFalling(false);
-		/*while (!clear)
+		while (!clear)
 		{
 			entity->setPosY(posy - 1);
 
@@ -148,7 +150,7 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 			{
 				clear = true;
 			}
-		}*/
+		}
 		reactBottom = false;
 	}
 	if (reactLeft)

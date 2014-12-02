@@ -11,13 +11,13 @@ DrugDurationGauge::DrugDurationGauge(int x, int y)
 	//m_DrawComponent = new DrawComponent(animations);
 	//m_DrawComponent->setAnimation(Default);//set starting animation
 	//addComponent(m_DrawComponent);
-	m_Bar = DrawManager::getInstance().getLevelSurface(); //getSurface()
+	m_Bar = DrawManager::getInstance().getCameraSurface(); //getSurface()
 }
 
 
 DrugDurationGauge::~DrugDurationGauge()
 {
-	std::cout << "Deleted DrugDurationGauge" << std::endl;
+	std::cout << "Deleted DrugDurationGauge\n";
 }
 
 void DrugDurationGauge::tick(float dt)
@@ -38,8 +38,11 @@ void DrugDurationGauge::tick(float dt)
 	case Gauge_Fill:
 		color = 0xff0000;
 		break;
+	case Gauge_Idle:
+		color = 0x808080;
+		break;
 	}
 
 	//m_Bar->Bar(2+x, y+4 + 64*(m_GaugeValue / FULL), 8+x, 64 + y, color); //Increase the bar height
-	m_Bar->Bar(2 + x, y + 64 + 4 - 64 * (m_GaugeValue / FULL), 8 + x, 64 + y, color); //Decrease the bar height. HUD decides decrease or increase.
+	m_Bar->Bar(1 + x, y-1 + 64 + 4 - 64 * (m_GaugeValue / FULL), 9 + x, 64 + y+1, color); //Decrease the bar height. HUD decides decrease or increase.
 }

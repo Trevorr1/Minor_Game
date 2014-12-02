@@ -16,6 +16,6 @@ namespace overdose{
 		bool knockBackToLeft = false;
 		bool knockBackToRight = false;
 		bool knockBackToTop = false;
-		const int knockbackValue = 30;
+		const int knockbackValue = 50;
 	};
 }

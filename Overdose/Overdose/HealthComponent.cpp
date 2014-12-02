@@ -32,41 +32,70 @@ void HealthComponent::init(GameEntity* entity) {
 	entity->setHealthPointer(&m_health);
 }
 
-void HealthComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
-
-
-
+void HealthComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) 
+{
 	// environment / drugs shouldn't never hurt the entity
-	if (object->getEnum() == Grass || object->getEnum() == Drug_Speed || object->getEnum() == Flag) {
+	if (object->getEnum() == Grass || object->getEnum() == Drug_Speed || object->getEnum() == Flag) 
+	{
 		return;
 	}
 
 	auto it_hurtable = std::find(m_canHurt->begin(), m_canHurt->end(), object->getEnum());
 
-	if (it_hurtable == m_canHurt->end()) {
+	if (it_hurtable == m_canHurt->end())
+	{
 		// If not in the list, the entity is not hurtable.
 		return;
 	}
 
 
-
-	if (m_invincibleTime > 0) {
-		std::cout << "Entity " << object->getEnum() << " is invincible for now." << std::endl;
+	if (m_invincibleTime > 0)
+	{
+		//std::cout << "Entity " << object->getEnum() << " is invincible for now." << std::endl;
 		return;
 	}
 
 	auto it = std::find(m_healthDecreaseReactionList->begin(), m_healthDecreaseReactionList->end(), message);
 
 	// Vector list contains message?
-	if (it != m_healthDecreaseReactionList->end()) {
+	if (it != m_healthDecreaseReactionList->end())
+	{
 		m_invincibleTime = 1;
 		m_scheduleHealthDecrease = true;
 	}
 }
 
 
-void HealthComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages) {
+void HealthComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages)
+{
+	for (std::map<ComponentMessage, GameEntity*>::iterator it = messages.begin(); it != messages.end(); ++it)
+	{
+		// environment / drugs shouldn't never hurt the entity
+		if (it->second->getEnum() == Grass || it->second->getEnum() == Drug_Speed || it->second->getEnum() == Flag) {
+			return;
+		}
 
+		auto it_hurtable = std::find(m_canHurt->begin(), m_canHurt->end(), it->second->getEnum());
+
+		if (it_hurtable == m_canHurt->end()) {
+			// If not in the list, the entity is not hurtable.
+			return;
+		}
+
+
+		if (m_invincibleTime > 0) {
+			//std::cout << "Entity " << it->second->getEnum() << " is invincible for now." << std::endl;
+			return;
+		}
+
+		auto hit = std::find(m_healthDecreaseReactionList->begin(), m_healthDecreaseReactionList->end(), it->first);
+
+		// Vector list contains message?
+		if (hit != m_healthDecreaseReactionList->end()) {
+			m_invincibleTime = 1;
+			m_scheduleHealthDecrease = true;
+		}
+	}
 }
 
 void HealthComponent::tick(float dt, GameEntity *entity) {
@@ -75,13 +104,14 @@ void HealthComponent::tick(float dt, GameEntity *entity) {
 			SoundManager::getInstance().PlaySound(Ouch);
 		}
 		m_health--;
-		std::cout << "Entity " << entity->getEnum() << " health has been decreased" << std::endl;
+		//std::cout << "Entity " << entity->getEnum() << " health has been decreased" << std::endl;
 		m_scheduleHealthDecrease = false;
 		entity->broadcast(this, HealthComponent_HEALTH_DECREASED, entity);
 	}
 	if (m_health <= 0) {
 	//	entity->scheduleForRemoval();
 		if (entity->getEnum() != Player) {
+			/* TODO: Deze wordt wel 10x aangeroepen per keer dat je een enemy dood.. wtf man... */
 			entity->delayedAddComponent(new ParticleComponent(Blood, 0.01, 0.5, 0.5));
 			entity->delayedAddComponent(new KillSwitchComponent(0.3));
 		}
