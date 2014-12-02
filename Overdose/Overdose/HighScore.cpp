@@ -56,7 +56,7 @@ void HighScore::Init()
 		std::transform(player_name.begin(), player_name.end(), player_name.begin(), ::tolower);
 
 		std::string to_char = std::to_string(i) + " " + player_name + " " + std::to_string(int(score)) + " seconds ";
-		char* highscore = _strdup(to_char.c_str()); //convert to char
+		char* highscore = _strdup(to_char.c_str()); //convert to char //changed strdup to _strdup Ricardo
 
 		TextGameEntity* text = new TextGameEntity(highscore);
 
