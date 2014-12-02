@@ -11,8 +11,8 @@ KnockBackComponent::~KnockBackComponent()
 {
 }
 
-void KnockBackComponent::receive(Component *subject, ComponentMessage message, GameEntity *object){
-	
+void KnockBackComponent::receive(Component *subject, ComponentMessage message, GameEntity *object)
+{
 	switch (object->getEnum()) {
 		// fallthrough
 	case Drug_Marijuana:
@@ -28,22 +28,57 @@ void KnockBackComponent::receive(Component *subject, ComponentMessage message, G
 
 	if (message == CollissionComponent_REACTION_LEFT) {
 		knockBackToRight = true;
-		printf("Knocking Back to the right\n");
+		//printf("Knocking Back to the right\n");
 	}
 
 	if (message == CollissionComponent_REACTION_RIGHT) {
 		knockBackToLeft = true;
-		printf("Knocking back to the left\n");
+		//printf("Knocking back to the left\n");
 	}
 
 	if (message == CollissionComponent_REACTION_BOTTOM) {
 		knockBackToTop = true;
-		printf("Knocking back to top\n");
+		//printf("Knocking back to top\n");
 	}
 }
 
 
-void KnockBackComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages){}
+void KnockBackComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages)
+{
+	for (std::map<ComponentMessage, GameEntity*>::iterator it = messages.begin(); it != messages.end(); ++it)
+	{
+		switch (it->second->getEnum()) {
+			// fallthrough
+		case Drug_Marijuana:
+		case Drug_Speed:
+		case Drug_XTC:
+		case Environment:
+		case Grass:
+		case Flag:
+		case Advertisement_GameEntity:
+		case Particle:
+			return;
+		}
+		switch (it->first)
+		{
+		case CollissionComponent_REACTION_TOP:
+			// nothing yet
+			break;
+		case CollissionComponent_REACTION_BOTTOM:
+			knockBackToTop = true;
+			//printf("Knocking back to top\n");
+			break;
+		case CollissionComponent_REACTION_LEFT:
+			knockBackToRight = true;
+			//printf("Knocking Back to the right\n");
+			break;
+		case CollissionComponent_REACTION_RIGHT:
+			knockBackToLeft = true;
+			//printf("Knocking back to the left\n");
+			break;
+		}
+	}
+}
 
 void KnockBackComponent::tick(float dt, GameEntity *entity)
 {

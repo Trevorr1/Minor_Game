@@ -137,7 +137,7 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 		entity->setSpeedY(0);
 		entity->setJumping(false);
 		entity->setFalling(false);
-		/*while (!clear)
+		while (!clear)
 		{
 			entity->setPosY(posy - 1);
 
@@ -148,7 +148,7 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 			{
 				clear = true;
 			}
-		}*/
+		}
 		reactBottom = false;
 	}
 	if (reactLeft)

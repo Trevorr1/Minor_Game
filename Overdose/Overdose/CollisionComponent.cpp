@@ -12,8 +12,6 @@ CollisionComponent::CollisionComponent()
 	}
 }
 
-
-
 CollisionComponent::~CollisionComponent()
 {
 	for (int dir = 0; dir < 4; dir++)
@@ -22,8 +20,8 @@ CollisionComponent::~CollisionComponent()
 	}
 }
 
-void CollisionComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
-
+void CollisionComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) 
+{
 }
 
 
@@ -38,8 +36,8 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 	int width = (int)entity->getWidth();
 	int height = (int)entity->getHeight();
 
-	int wstep = (int)(width * 1.0 / 4);
-	int hstep = (int)(height * 1.0 / 12);
+	int wstep = (int)(width * 1.0 / 8);
+	int hstep = (int)(height * 1.0 / 3);
 
 	float nextX = entity->getSpeedX();
 	float nextY = entity->getSpeedY();

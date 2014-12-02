@@ -18,8 +18,6 @@ namespace overdose {
 		std::string getComponentID();
 
 	private:
-		//SDL_Rect collisionRect;
-
 		struct Point {
 			int x;
 			int y;
@@ -30,6 +28,4 @@ namespace overdose {
 			Point second;
 		} *cPoints[4];
 	};
-
-
 }
