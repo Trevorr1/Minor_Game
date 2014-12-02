@@ -84,11 +84,13 @@ void Level1::Init()
 	//m_Camera->setTileMap(tileMap, 12 * 32);
 
 
-	//GameEntity *entityDrugSpeed = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Drug_Speed);
-	//entityDrugSpeed->setStartingPosition(200, 410 - 30);
-	//entityDrugSpeed->setSpeedX(0);
-	//entityDrugSpeed->setSpeedY(0);
-	//this->addEntities(entityDrugSpeed);
+	/*
+	GameEntity *entityDrugSpeed = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Drug_Speed);
+	entityDrugSpeed->setStartingPosition(200, 410 - 30);
+	entityDrugSpeed->setSpeedX(0);
+	entityDrugSpeed->setSpeedY(0);
+	this->addEntities(entityDrugSpeed);
+	*/
 
 
 	////GameEntity *entityDrugMarijuana = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Drug_Marijuana);

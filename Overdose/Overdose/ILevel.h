@@ -60,6 +60,8 @@ namespace overdose {
 		bool m_IsGameWon = false;
 		bool m_IsReloadLevel = false;
 
+		void ILevel::addGrassBlock(int xOffset, int yOffset, int width, int height);
+
 	};
 }
 
