@@ -19,7 +19,6 @@ void ILevel::addEntities(GameEntity* entities)
 	//Create Head-up Display if player exists
 	if (m_Player != nullptr && hud == nullptr){
 		hud = new HUD(m_Player);
-		this->entities->push_back(hud);
 	}
 }
 
@@ -125,6 +124,11 @@ void ILevel::Tick(float dt)
 	}
 	if (m_Camera != nullptr)
 		m_Camera->Tick(dt);
+
+	if (hud != nullptr){
+		hud->tick(dt);
+	}
+	
 }
 
 bool ILevel::isGameOver() 
@@ -178,5 +182,5 @@ ILevel::~ILevel()
 
 	delete insertEntityBuffer;
 
-
+	delete hud;
 }

@@ -11,7 +11,7 @@ DrugDurationGauge::DrugDurationGauge(int x, int y)
 	//m_DrawComponent = new DrawComponent(animations);
 	//m_DrawComponent->setAnimation(Default);//set starting animation
 	//addComponent(m_DrawComponent);
-	m_Bar = DrawManager::getInstance().getLevelSurface(); //getSurface()
+	m_Bar = DrawManager::getInstance().getCameraSurface(); //getSurface()
 }
 
 
