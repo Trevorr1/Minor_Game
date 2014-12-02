@@ -51,7 +51,7 @@ void HealthComponent::receive(Component *subject, ComponentMessage message, Game
 
 	if (m_invincibleTime > 0)
 	{
-		std::cout << "Entity " << object->getEnum() << " is invincible for now." << std::endl;
+		//std::cout << "Entity " << object->getEnum() << " is invincible for now." << std::endl;
 		return;
 	}
 
@@ -84,7 +84,7 @@ void HealthComponent::receiveMessageBatch(Component *subject, std::map<Component
 
 
 		if (m_invincibleTime > 0) {
-			std::cout << "Entity " << it->second->getEnum() << " is invincible for now." << std::endl;
+			//std::cout << "Entity " << it->second->getEnum() << " is invincible for now." << std::endl;
 			return;
 		}
 
@@ -111,6 +111,7 @@ void HealthComponent::tick(float dt, GameEntity *entity) {
 	if (m_health <= 0) {
 	//	entity->scheduleForRemoval();
 		if (entity->getEnum() != Player) {
+			/* TODO: Deze wordt wel 10x aangeroepen per keer dat je een enemy dood.. wtf man... */
 			entity->delayedAddComponent(new ParticleComponent(Blood, 0.01, 0.5, 0.5));
 			entity->delayedAddComponent(new KillSwitchComponent(0.3));
 		}

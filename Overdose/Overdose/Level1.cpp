@@ -83,10 +83,6 @@ void Level1::Init()
 	//m_Camera->setTileAssets(m_Tiles);
 	//m_Camera->setTileMap(tileMap, 12 * 32);
 
-	GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
-	entityCop->setStartingPosition(500, 410 - 54);
-	entityCop->addComponent(new EnemyMoveComponent(360, 630));
-	this->addEntities(entityCop);
 
 	//GameEntity *entityDrugSpeed = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Drug_Speed);
 	//entityDrugSpeed->setStartingPosition(200, 410 - 30);
@@ -109,11 +105,11 @@ void Level1::Init()
 	////entityDrugXTC->setSpeedY(0);
 	////this->addEntities(entityDrugXTC);
 
-	GameEntity *entityAdvertisement = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Advertisement_GameEntity);
+	/*GameEntity *entityAdvertisement = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Advertisement_GameEntity);
 	entityAdvertisement->setStartingPosition(50, 50);
 	entityAdvertisement->setSpeedX(0);
 	entityAdvertisement->setSpeedY(0);
-	this->addEntities(entityAdvertisement);
+	this->addEntities(entityAdvertisement);*/
 
 	int	previousGrassWall = 0;
 	int grassWall = 20;
@@ -142,7 +138,7 @@ void Level1::Init()
 		this->addEntities(grass1);
 	}
 
-	previousGrassWall += 2;//Empty space
+	previousGrassWall += 1;//Empty space
 
 	previousGrassWall += grassWall;
 	grassWall = 10;
@@ -151,6 +147,11 @@ void Level1::Init()
 		grass1->setStartingPosition(50 + 32 * (i + previousGrassWall), 410);
 		this->addEntities(grass1);
 	}
+
+	GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
+	entityCop->setStartingPosition(32 + 32 * previousGrassWall, 410 - 54);
+	entityCop->addComponent(new EnemyMoveComponent(32*4 + 32 * previousGrassWall, 32 * (previousGrassWall + grassWall) - 32));
+	this->addEntities(entityCop);
 
 	previousGrassWall += grassWall;
 	grassWall = 10;
