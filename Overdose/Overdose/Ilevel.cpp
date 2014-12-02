@@ -184,3 +184,16 @@ ILevel::~ILevel()
 
 	delete hud;
 }
+
+
+
+void ILevel::addGrassBlock(int xOffset, int yOffset, int width, int height)
+{
+	for (int i = 0; i < width; i++){
+		for (int j = 0; j < height; j++){
+			GameEntity* grass = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
+			grass->setStartingPosition(xOffset + 32 * (i), yOffset - 32 * j);
+			this->addEntities(grass);
+		}
+	}
+}
