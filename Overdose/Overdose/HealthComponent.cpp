@@ -104,7 +104,7 @@ void HealthComponent::tick(float dt, GameEntity *entity) {
 			SoundManager::getInstance().PlaySound(Ouch);
 		}
 		m_health--;
-		std::cout << "Entity " << entity->getEnum() << " health has been decreased" << std::endl;
+		//std::cout << "Entity " << entity->getEnum() << " health has been decreased" << std::endl;
 		m_scheduleHealthDecrease = false;
 		entity->broadcast(this, HealthComponent_HEALTH_DECREASED, entity);
 	}

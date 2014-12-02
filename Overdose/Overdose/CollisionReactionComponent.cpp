@@ -70,8 +70,6 @@ void CollisionReactionComponent::receiveMessageBatch(Component *subject, std::ma
 	{
 		switch (it->first)
 		{
-		case PlayerInputComponent_ATTACK:
-			break;
 		case CollissionComponent_COLLISION_TOP:
 			collidedTop = true;
 			m_Top = it->second;
@@ -99,9 +97,6 @@ void CollisionReactionComponent::receiveMessageBatch(Component *subject, std::ma
 			break;
 		case CollissionComponent_REACTION_RIGHT:
 			reactRight = true;
-			break;
-		case Player_ATTACKING:
-			isAlive = false;
 			break;
 		}
 	}
