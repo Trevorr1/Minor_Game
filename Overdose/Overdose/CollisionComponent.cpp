@@ -27,7 +27,10 @@ void CollisionComponent::receive(Component *subject, ComponentMessage message, G
 
 void CollisionComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages){}
 
-void CollisionComponent::tick(float dt, GameEntity *entity) {
+void CollisionComponent::tick(float dt, GameEntity *entity)
+{
+	// speedmodifier mag geen invloed hebben op springen. Krijg je rare dingen anders
+	dt = (dt / LevelManager::getInstance().getSpeedModifier());
 
 	// setup the collision points
 	int posx = (int)entity->getPosX();
@@ -91,7 +94,7 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 
 		// assuming that only GameEntities that have collisionComponents are relevant
 		// to the collision calculation
-		if (entity == other && other->getEnum() != Advertisement_GameEntity) continue;
+		if (entity == other || other->getEnum() == Advertisement_GameEntity) continue;
 
 		// define the collision box of the "other" GameEntity
 		int oposx = (int)other->getPosX();
@@ -146,10 +149,10 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 		//if there were no collisions
 		for (int dir = 0; dir < 4; dir++)
 		{
-			if (dir == 0 && (int)nextY >= 0) continue;
-			if (dir == 1 && (int)nextY <= 0) continue;
-			if (dir == 2 && (int)nextX >= 0) continue;
-			if (dir == 3 && (int)nextX <= 0) continue;
+			if (dir == 0 && (int)nextY > 0) continue;
+			if (dir == 1 && (int)nextY < 0) continue;
+			if (dir == 2 && (int)nextX > 0) continue;
+			if (dir == 3 && (int)nextX < 0) continue;
 
 
 			// Our current position along the anticipated movement vector of the player this frame
@@ -171,21 +174,25 @@ void CollisionComponent::tick(float dt, GameEntity *entity) {
 			}
 
 			// If an intersection occurred...
-			if (segment < vectorLength && segment > 0)
+			if (segment < vectorLength)
 			{
-				// Apply correction for over-movement
-				projectedMoveX -= (nextX / vectorLength);
-				projectedMoveY -= (nextY / vectorLength);
-
 				// Adjust the X or Y component of the vector depending on
 				// which direction we are currently testing
-				if (dir >= 2 && dir <= 3)
+				if (dir >= 2)
 				{
+					// Apply correction for over-movement
+					if (other->getEnum() == Environment || other->getEnum() == Grass && dir == 3)
+					{
+						int stop = 0;
+					}
+					projectedMoveX -= (nextX / vectorLength);
 					projectedMoveX /= dt;
 					entity->setSpeedX(projectedMoveX);
 				}
-				if (dir >= 0 && dir <= 1)
+				if (dir <= 1)
 				{
+					// Apply correction for over-movement
+					projectedMoveY -= (nextY / vectorLength);
 					projectedMoveY /= dt;
 					entity->setSpeedY(projectedMoveY);
 				}

@@ -22,28 +22,6 @@ void PolicemanCollisionReactionComponent::tick(float dt, GameEntity *entity)
 
 	bool clear = false;
 
-	if (collidedTop)
-	{
-		entity->setSpeedY(0);
-		entity->setJumpingSpeed(0);
-
-		colX = (int)m_Top->getPosX();
-		colY = (int)m_Top->getPosY();
-		colBoxX = colX + (int)m_Top->getWidth();
-		colBoxY = colY + (int)m_Top->getHeight();
-
-		while (!clear)
-		{
-			entity->setPosY(posy + 1);
-
-			posy = entity->getPosY();
-			boxY = (int)posy + (int)entity->getHeight();
-
-			if (!(posy > colY && posy < colBoxY))
-				clear = true;
-		}
-		collidedTop = false;
-	}
 	if (collidedBottom)
 	{
 		entity->setJumping(false);
@@ -112,6 +90,28 @@ void PolicemanCollisionReactionComponent::tick(float dt, GameEntity *entity)
 				clear = true;
 		}
 		collidedRight = false;
+	}
+	if (collidedTop)
+	{
+		entity->setSpeedY(0);
+		entity->setJumpingSpeed(0);
+
+		colX = (int)m_Top->getPosX();
+		colY = (int)m_Top->getPosY();
+		colBoxX = colX + (int)m_Top->getWidth();
+		colBoxY = colY + (int)m_Top->getHeight();
+
+		while (!clear)
+		{
+			entity->setPosY(posy + 1);
+
+			posy = entity->getPosY();
+			boxY = (int)posy + (int)entity->getHeight();
+
+			if (!(posy > colY && posy < colBoxY))
+				clear = true;
+		}
+		collidedTop = false;
 	}
 	if (reactTop)
 	{
