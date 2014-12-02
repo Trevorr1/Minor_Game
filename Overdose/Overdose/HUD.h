@@ -9,7 +9,7 @@ namespace overdose {
 		public GameEntity
 	{
 	public:
-		HUD(GameEntity* entity);
+		HUD(GameEntity* entity, float posX, float posY);
 		virtual ~HUD();
 
 		void tick(float dt);

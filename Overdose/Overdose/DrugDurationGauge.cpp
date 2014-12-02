@@ -17,6 +17,7 @@ DrugDurationGauge::DrugDurationGauge(int x, int y)
 
 DrugDurationGauge::~DrugDurationGauge()
 {
+	m_Bar = nullptr;
 	std::cout << "Deleted DrugDurationGauge\n";
 }
 
@@ -24,8 +25,8 @@ void DrugDurationGauge::tick(float dt)
 {
 	//int elapsed = std::min(std::max(0, m_GaugeValue - FULL), 10);
 
-	int y = 20;
-	int x = 20;
+	int y = posY; //y = 20;
+	int x = posX; //x = 20;
 
 	m_Bar->Box(x, 2+y, 10+x, 66+y, 0xffffff);
 	//m_Timer = timeGetTime();

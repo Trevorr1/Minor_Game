@@ -14,7 +14,6 @@ using namespace overdose;
 Level2::Level2()
 {
 	m_Camera = new Camera();
-	ScoreboardManager::getInstance().startTimer();
 	createLevel(940 * 2, 480); //create the level here widthx height
 }
 
