@@ -9,7 +9,7 @@ HUD::HUD(GameEntity* entity, float posX, float posY)
 {
 	setPosX(posX);
 	setPosY(posY);
-
+	std::cout << getHealth() << std::endl;
 	// hearts and gauge
 	m_DrugGauge = new DrugDurationGauge(posX, posY + 20);
 	for (int i = 0; i < entity->getHealth(); i++)
@@ -84,16 +84,13 @@ void HUD::tick(float dt)
 		}
 
 		//When there's 1 HUD entity in the whole game use code below
-		//if (m_Entity->getHealth() >= 0 && m_Hearts->size() > m_Entity->getHealth()){
-		//	HealthHearts* heartToDelete = nullptr;
-		//	heartToDelete = m_Hearts->back();
-		//	heartToDelete->scheduleForRemoval();
-		//	m_Hearts->pop_back();
-		//	heartToDelete = nullptr;
-		//}
-		//else if (m_Entity->getHealth() > -1 && m_Hearts->size() < m_Entity->getHealth()){
-		//	isScheduledToAddHeart = true;
-		//}
+		if (m_Entity->getHealth() >= 0 && m_Hearts->size() > m_Entity->getHealth()){
+			delete m_Hearts->back();
+			m_Hearts->pop_back();
+		}
+		else if (m_Entity->getHealth() > -1 && m_Hearts->size() < m_Entity->getHealth()){
+			isScheduledToAddHeart = true;
+		}
 	}
 
 	// do the drawing here
@@ -108,3 +105,7 @@ void HUD::delayedAddHeart(){
 		isScheduledToAddHeart = false;
 	}
 }
+
+//void HUD::delayedRemoveHeart(){
+//
+//}
