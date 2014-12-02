@@ -13,11 +13,14 @@ HealthHearts::HealthHearts(int x, int y)
 	addComponent(m_DrawComponent);
 	//LevelManager::getInstance().getCurrentLevel()->scheduleEntityForInsertion(this); //werkt blijkbaar zonder dit
 
+	animations = nullptr;
+
 }
 
 
 HealthHearts::~HealthHearts()
 {
+	m_DrawComponent = nullptr;
 	std::cout << "Deleted HealthHeart" << std::endl;
 }
 

@@ -7,6 +7,8 @@ using namespace overdose;
 HUD::HUD(GameEntity* entity)
 : m_Entity{ entity }, m_DrugEffect_ms{ INT_MAX }, m_CurrentEffect_ms{ INT_MAX }, m_Hearts{new std::vector<HealthHearts*> }
 {
+	posX = 20.0f;
+	posY = 0.0f;// 440.0f
 	// hearts and gauge
 	m_DrugGauge = new DrugDurationGauge(posX, posY + 20);
 	for (int i = 0; i < entity->getHealth(); i++)
@@ -15,8 +17,7 @@ HUD::HUD(GameEntity* entity)
 	}
 	m_MaxHealth = m_Entity->getHealth();
 	m_CurrentHealth = m_MaxHealth;
-	posX = 20.0f;// these values should not be hardcoded :<
-	posY = 440.0f;
+	
 }
 
 HUD::~HUD()
@@ -88,7 +89,7 @@ void HUD::tick(float dt)
 			heartToDelete = m_Hearts->back();
 			heartToDelete->scheduleForRemoval();
 			m_Hearts->pop_back();
-			heartToDelete == nullptr;
+			heartToDelete = nullptr;
 		}
 		else if (m_Entity->getHealth() > -1 && m_Hearts->size() < m_Entity->getHealth()){
 			isScheduledToAddHeart = true;

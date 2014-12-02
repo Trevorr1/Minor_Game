@@ -17,6 +17,7 @@ DrugDurationGauge::DrugDurationGauge(int x, int y)
 
 DrugDurationGauge::~DrugDurationGauge()
 {
+	m_Bar = nullptr;
 	std::cout << "Deleted DrugDurationGauge\n";
 }
 
