@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "Level1.h"
+#include "Level2.h"
 #include "PlayerInputComponent.h"
 #include "DrawComponent.h"
 #include "MoveComponent.h"
@@ -11,24 +11,24 @@
 
 using namespace overdose;
 
-Level1::Level1()
+Level2::Level2()
 {
 	m_Camera = new Camera();
 	ScoreboardManager::getInstance().startTimer();
-	createLevel(940*2, 480); //create the level here widthx height
+	createLevel(940 * 2, 480); //create the level here widthx height
 }
 
-Level1::Level1(GameEntity* player)
+Level2::Level2(GameEntity* player)
 {
 	m_Player = player;
 }
 
-Level1::~Level1()
+Level2::~Level2()
 {
 	delete m_Background;
 }
 
-void Level1::Init()
+void Level2::Init()
 {
 	m_Background = new Surface("assets/backgrounds/background.png");
 
@@ -58,28 +58,26 @@ void Level1::Init()
 		m_Player = player;
 	}
 
-	m_Camera->setEntityFocus(m_Player);
-
-	int tileMap[WORLD_SIZEY*WORLD_SIZEX] = 
+	int tileMap[WORLD_SIZEY*WORLD_SIZEX] =
 	{
-		 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-		 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+		2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
 	};
 
-	this->addEntities(m_Player);
+	this->addEntities(m_Player);//(TODO: check if already is in this list??!)
 	m_Player->setStartingPosition(100, 410 - 53 - 100); //set to world coordinates
-
 	m_Camera->setEntityFocus(m_Player);
+
 	//m_Camera->setTileAssets(m_Tiles);
 	//m_Camera->setTileMap(tileMap, 12 * 32);
 
@@ -132,20 +130,57 @@ void Level1::Init()
 			this->addEntities(grass1);
 		}
 	}
+	previousGrassWall += grassWall;
+	grassWall = 3;
+	for (int i = 0; i < grassWall; i++){
+		for (int j = 0; j < 7; j++){
+			GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
+			grass1->setStartingPosition(50 + 32 * (i + previousGrassWall), 410 - 32 * j);
+			this->addEntities(grass1);
+		}
+	}
+	previousGrassWall += grassWall;
+	grassWall = 3;
+	for (int i = 0; i < grassWall; i++){
+		for (int j = 0; j < 10; j++){
+			GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
+			grass1->setStartingPosition(50 + 32 * (i + previousGrassWall), 410 - 32 * j);
+			this->addEntities(grass1);
+		}
+	}
 
+	previousGrassWall += 1;//Empty space
 
+	previousGrassWall += grassWall;
+	grassWall = 5;
+	for (int i = 0; i < grassWall; i++){
+		GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
+		grass1->setStartingPosition(50 + 32 * (i + previousGrassWall), 410 - 32 * 10);
+		this->addEntities(grass1);
+	}
+
+	previousGrassWall += 1;//Empty space
+
+	previousGrassWall += grassWall;
+	grassWall = 5;
+	for (int i = 0; i < grassWall; i++){
+		GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
+		grass1->setStartingPosition(50 + 32 * (i + previousGrassWall), 410 - 32 * 10);
+		this->addEntities(grass1);
+	}
+	
 	previousGrassWall += grassWall;
 	grassWall = 10;
 	for (int i = 0; i < grassWall; i++){
 		GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
-		grass1->setStartingPosition(50 + 32 * (i + previousGrassWall), 410);
+		grass1->setStartingPosition(50 + 32 * (i + previousGrassWall), 410 - 32 * 10 + 32 * i);
 		this->addEntities(grass1);
 	}
 
 	previousGrassWall += 2;//Empty space
 
 	previousGrassWall += grassWall;
-	grassWall = 10;
+	grassWall = 1;
 	for (int i = 0; i < grassWall; i++){
 		GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
 		grass1->setStartingPosition(50 + 32 * (i + previousGrassWall), 410);
@@ -153,16 +188,8 @@ void Level1::Init()
 	}
 
 	previousGrassWall += grassWall;
-	grassWall = 10;
-	for (int i = 0; i < grassWall; i++){
-		GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
-		grass1->setStartingPosition(50 + 32 * (i + previousGrassWall), 410 - 32 * i);
-		this->addEntities(grass1);
-	}
-
-	previousGrassWall += grassWall;
 	GameEntity *flaggot = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Flag);
-	flaggot->setStartingPosition(50 + 32 * previousGrassWall - 29, 410 - 32*13 + 17);
+	flaggot->setStartingPosition(50 + 32 * previousGrassWall - 29, 410 - 32 * 4 + 17);
 	this->addEntities(flaggot);
 
 

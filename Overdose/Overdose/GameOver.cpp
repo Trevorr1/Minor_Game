@@ -13,6 +13,7 @@ using namespace overdose;
 
 GameOver::GameOver()
 {
+	m_Camera = new Camera();
 	m_Background = new Surface("assets/backgrounds/gameover.jpg");
 }
 

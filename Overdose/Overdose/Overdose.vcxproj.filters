@@ -234,9 +234,6 @@
     <ClInclude Include="ScheduleForRemovalFlag.h">
       <Filter>Header Files\Util</Filter>
     </ClInclude>
-    <ClInclude Include="Level10.h">
-      <Filter>Header Files\Level</Filter>
-	</ClInclude>
     <ClInclude Include="NegativeMarijuanaComponent.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
@@ -308,7 +305,7 @@
     </ClInclude>
     <ClInclude Include="DrugDurationGauge.h">
       <Filter>Header Files\HUD</Filter>
-	</ClInclude>
+    </ClInclude>
     <ClInclude Include="MouseOverEffectComponent.h">
       <Filter>Header Files\Component\button</Filter>
     </ClInclude>
@@ -332,6 +329,15 @@
     </ClInclude>
     <ClInclude Include="MarijuanaDrugComponent.h">
       <Filter>Header Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="HUDEntity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoreboardManager.h">
+      <Filter>Header Files\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Level2.h">
+      <Filter>Header Files\Level</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -473,12 +479,6 @@
     <ClCompile Include="Tile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Level8.cpp">
-      <Filter>Source Files\Level</Filter>
-    </ClCompile>
-    <ClCompile Include="Level9.cpp">
-      <Filter>Source Files\Level</Filter>
-    </ClCompile>
     <ClCompile Include="NegativeMarijuanaComponent.cpp">
       <Filter>Source Files\Component</Filter>
     </ClCompile>
@@ -551,6 +551,12 @@
     </ClCompile>
     <ClCompile Include="TextGameEntity.cpp">
       <Filter>Source Files\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="ScoreboardManager.cpp">
+      <Filter>Source Files\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Level2.cpp">
+      <Filter>Source Files\Level</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

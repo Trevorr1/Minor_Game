@@ -82,7 +82,7 @@
 	 	_aligned_free(m_Buffer);
 		}
 		m_Buffer = nullptr;
-	//	delete m_Font;
+		delete m_Font;
 	}
 
 	void Surface::Clear(Pixel a_Color)
@@ -555,9 +555,10 @@
 
 	Font::~Font()
 	{
-	//	delete m_Trans;
-	//	delete m_Width;
-	//	delete m_Offset;
+		delete m_Trans;
+		delete m_Width;
+		delete m_Offset;
+		delete m_Surface;
 	}
 
 	int Font::Width(char* a_Text)

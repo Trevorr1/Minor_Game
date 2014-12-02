@@ -12,6 +12,7 @@ HealthComponent::HealthComponent(int health) {
 
 	m_canHurt = new vector < eGameEntity >;
 	m_canHurt->push_back(Policeman);
+	m_canHurt->push_back(Player);
 }
 
 
@@ -112,6 +113,9 @@ void HealthComponent::tick(float dt, GameEntity *entity) {
 		if (entity->getEnum() != Player) {
 			entity->delayedAddComponent(new ParticleComponent(Blood, 0.01, 0.5, 0.5));
 			entity->delayedAddComponent(new KillSwitchComponent(0.3));
+		}
+		else{
+			entity->scheduleForRemoval();
 		}
 	}
 

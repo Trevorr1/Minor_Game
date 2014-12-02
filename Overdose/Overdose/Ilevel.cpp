@@ -19,7 +19,6 @@ void ILevel::addEntities(GameEntity* entities)
 	//Create Head-up Display if player exists
 	if (m_Player != nullptr && hud == nullptr){
 		hud = new HUD(m_Player);
-		this->entities->push_back(hud);
 	}
 }
 
@@ -65,6 +64,12 @@ GameEntity* ILevel::takePlayerEntity()
 	return player;
 }
 
+void ILevel::setPlayerEntity(GameEntity* player)
+{
+	m_Player = player;
+}
+
+
 std::vector<GameEntity*>* ILevel::getEntities()
 {
 	return entities;
@@ -102,11 +107,9 @@ void ILevel::Tick(float dt)
 	}
 
 	insertEntityBuffer->clear();
-
-
+	
 	auto toRemove = std::remove_if(entities->begin(), entities->end(), [](GameEntity* p) {
 		if (p->isScheduledForRemoval() && p->getEnum() != eGameEntity::Player) {
-		
 			delete p;
 			return true;
 		}
@@ -121,6 +124,11 @@ void ILevel::Tick(float dt)
 	}
 	if (m_Camera != nullptr)
 		m_Camera->Tick(dt);
+
+	if (hud != nullptr){
+		hud->tick(dt);
+	}
+	
 }
 
 bool ILevel::isGameOver() 
@@ -174,5 +182,5 @@ ILevel::~ILevel()
 
 	delete insertEntityBuffer;
 
-
+	delete hud;
 }

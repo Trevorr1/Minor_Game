@@ -78,6 +78,45 @@ void DrawComponent::tick(float dt, GameEntity *entity)
 
 }
 
+void DrawComponent::tick(float dt, GameEntity *entity, Surface* cameraSurface)
+{
+	m_SpriteSheet->Draw((int)entity->getPosX(), (int)entity->getPosY(), cameraSurface);//DrawManager::getInstance().getCameraSurface()
+
+	if (m_FPS > 0){
+		m_currentDTcount += dt * 1000;
+		while (m_currentDTcount > m_timePerFrame){
+			NextSprite();
+			m_currentDTcount -= m_timePerFrame;
+		}
+	}
+
+	if (entity->isJumping()){
+		if (entity->getFacing() == Left){
+			setAnimation(JumpLeft);
+		}
+		else{
+			setAnimation(JumpRight);
+		}
+	}
+	else if (entity->getSpeedX() == 0){
+		if (entity->getFacing() == Left){
+			setAnimation(IdleLeft);
+		}
+		else{
+			setAnimation(IdleRight);
+		}
+	}
+	else if (entity->getSpeedX() > 0){
+		setAnimation(WalkRight);
+		entity->setFacing(Right);
+	}
+	else{
+		setAnimation(WalkLeft);
+		entity->setFacing(Left);
+	}
+
+}
+
 void DrawComponent::NextSprite()
 {
 	if ((m_SpriteSheet->Frames() - 1) == m_SpriteSheet->GetCurrentFrame())

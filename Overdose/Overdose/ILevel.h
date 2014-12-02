@@ -27,16 +27,18 @@ namespace overdose {
 
 		virtual GameEntity* getPlayerEntity();
 		virtual GameEntity* takePlayerEntity();
+		void ILevel::setPlayerEntity(GameEntity* player);
+
 		void removeDrugComponents(GameEntity* player);
 		void removeEntity(GameEntity* entity);
 		virtual std::vector<GameEntity*>* getEntities();
 		Surface* getSurface(){ return m_Background; };
 
 		virtual void Tick(float a_DT);
-		virtual bool isGameOver();
 
 		virtual void createLevel(int width, int height);
 
+		virtual bool isGameOver();
 		bool isGameWon();
 		void setGameWon();
 		bool isReloadLevel();
