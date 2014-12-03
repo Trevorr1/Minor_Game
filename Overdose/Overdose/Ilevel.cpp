@@ -6,17 +6,15 @@ using namespace overdose;
 
 ILevel::ILevel()
 {
+	createLevel(940, 480); //maybe let this return the created surface?
+
 	GameEntity *fpsCounter = GameEntityFactory::getInstance().getGameEntity(eGameEntity::FPSCounter);
 	this->addEntities(fpsCounter);
-
-	createLevel(940, 480); //maybe let this return the created surface?
 }
 
 void ILevel::addEntities(GameEntity* entities)
 {
 	this->entities->push_back(entities);
-
-
 }
 
 void ILevel::scheduleEntityForInsertion(GameEntity* entity) {
