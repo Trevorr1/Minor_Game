@@ -57,6 +57,7 @@ namespace overdose {
 		HUD* hud = nullptr;
 		Camera* m_Camera;
 
+
 		bool m_IsGameWon = false;
 		bool m_IsReloadLevel = false;
 

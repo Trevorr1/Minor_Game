@@ -13,8 +13,10 @@ using namespace overdose;
 
 Level3::Level3()
 {
-	m_Camera = new Camera();
-	createLevel(940 * 2, 480); //create the level here widthx height
+	m_WorldSizeX = 1880;
+	m_WorldSizeY = 480;
+	m_Camera = new Camera(m_WorldSizeX);
+	createLevel(m_WorldSizeX, m_WorldSizeY); //create the level here widthx height
 }
 
 Level3::Level3(GameEntity* player)
