@@ -30,7 +30,7 @@ void gravityComponent::tick(float dt, GameEntity *entity)
 	if (entity->isJumping() || entity->isFalling())
 	{
 		if (gravity < m_terminalVelocity) // prevents super high gravity
-			gravity += gravity * 0.33f;
+			gravity += gravity * 0.29f;
 		//if (gravity < 600.0f) // prevents jumping when walking off ledge
 			//entity->setJumping(true);
 	}

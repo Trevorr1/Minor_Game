@@ -20,7 +20,7 @@
 #include "KnockBackComponent.h"
 #include "ParticleComponent.h"
 #include "DeleteEntityClickComponent.h"
-#include "URLClickComponent.h";
+#include "URLClickComponent.h"
 #include "MouseOverEffectComponent.h"
 #include "ScoreboardManager.h"
 #include <stdexcept>
@@ -49,10 +49,10 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->setSpeedX(110.0f);
 		//	newObject->addComponent(*new DummyComponent());
 
-					  std::vector<ComponentMessage>* healthDecreaseList = new std::vector < ComponentMessage >; // delete called in HealthComponent
+		std::vector<ComponentMessage>* healthDecreaseList = new std::vector < ComponentMessage > ; // delete called in HealthComponent
 		healthDecreaseList->push_back(ComponentMessage::CollissionComponent_REACTION_TOP);
 
-					  std::vector<eGameEntity>* hurtables = new std::vector < eGameEntity >;
+		std::vector<eGameEntity>* hurtables = new std::vector < eGameEntity > ;
 		hurtables->push_back(Player);
 
 		newObject->addComponent(new HealthComponent(1, healthDecreaseList, hurtables));
@@ -67,7 +67,6 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		animation = new DrawComponent(animations);
 		animation->setAnimation(WalkLeft);//set starting animation
 		newObject->addComponent(animation);
-
 		break;
 	}
 	case Drugdealer:
@@ -260,8 +259,6 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(animation);
 
 		break;
-	}
-
 
 
 	default:

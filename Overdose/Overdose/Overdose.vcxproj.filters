@@ -434,9 +434,6 @@
     <ClCompile Include="DrugCollisionReactionComponent.cpp">
       <Filter>Source Files\Component\Collision</Filter>
     </ClCompile>
-    <ClCompile Include="DrugComponent.cpp">
-      <Filter>Source Files\Component</Filter>
-    </ClCompile>
     <ClCompile Include="SoundManager.cpp">
       <Filter>Source Files\Manager</Filter>
     </ClCompile>
@@ -563,6 +560,9 @@
     </ClCompile>
     <ClCompile Include="Level3.cpp">
       <Filter>Source Files\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="DrugComponent.cpp">
+      <Filter>Source Files\Drugs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
