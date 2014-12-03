@@ -67,7 +67,6 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		animation = new DrawComponent(animations);
 		animation->setAnimation(WalkLeft);//set starting animation
 		newObject->addComponent(animation);
-
 		break;
 	}
 	case Drugdealer:

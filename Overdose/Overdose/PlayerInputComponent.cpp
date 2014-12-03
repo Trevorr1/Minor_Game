@@ -18,7 +18,7 @@ void PlayerInputComponent::receiveMessageBatch(Component *subject, std::map<Comp
 void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 
 	float speedX = entity->getSpeedX();
-
+	// trev do your magic here!!!!!!!!!!!!
 	if (abs(speedX) < entity->getMovementSpeed() && abs(speedX) > 0)
 	{
 		int stop = 0;
@@ -44,21 +44,21 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 		entity->setSpeedX(0);
 	}
 	else if (InputManager::getInstance().isKeyPressed(rightPressed)) {
-		/*if (speedX < 0) 
+		if (speedX < 0) 
 		{
 			entity->setSpeedX((float)speedX);
-		}*/
-		if (speedX <= 0 || speedX < entity->getMovementSpeed()) 
+		}
+		if (speedX == 0 ) 
 		{
 			entity->setSpeedX(entity->getMovementSpeed());
 		}
 	}
 	else if (InputManager::getInstance().isKeyPressed(leftPressed)) {
-		/*if (speedX > 0)
+		if (speedX > 0)
 		{
 			entity->setSpeedX((float)speedX * -1);
-		}*/
-		if (speedX >= 0 || speedX > -entity->getMovementSpeed())
+		}
+		if (speedX == 0 )
 		{
 			entity->setSpeedX(-entity->getMovementSpeed());
 		}
