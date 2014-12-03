@@ -18,11 +18,8 @@ void PlayerInputComponent::receiveMessageBatch(Component *subject, std::map<Comp
 void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 
 	float speedX = entity->getSpeedX();
+	float moveSpeedX = entity->getMovementSpeed();
 	// trev do your magic here!!!!!!!!!!!!
-	if (abs(speedX) < entity->getMovementSpeed() && abs(speedX) > 0)
-	{
-		int stop = 0;
-	}
 
 	int left = SDL_SCANCODE_LEFT;
 	int right = SDL_SCANCODE_RIGHT;
@@ -48,9 +45,9 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 		{
 			entity->setSpeedX((float)speedX);
 		}
-		if (speedX == 0 ) 
+		if (speedX >= 0 && speedX <= moveSpeedX) 
 		{
-			entity->setSpeedX(entity->getMovementSpeed());
+			entity->setSpeedX(moveSpeedX);
 		}
 	}
 	else if (InputManager::getInstance().isKeyPressed(leftPressed)) {
@@ -58,9 +55,9 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 		{
 			entity->setSpeedX((float)speedX * -1);
 		}
-		if (speedX == 0 )
+		if (speedX <= 0 && speedX >= -moveSpeedX)
 		{
-			entity->setSpeedX(-entity->getMovementSpeed());
+			entity->setSpeedX(-moveSpeedX);
 		}
 	}
 	else

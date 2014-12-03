@@ -39,7 +39,7 @@ GameEntityFactory &GameEntityFactory::getInstance(){
 GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 
 	GameEntity* newObject = new GameEntity(entityEnum);
-	
+
 	std::map<eAnimationState, Animation*>* animations;
 	DrawComponent* animation = nullptr;
 
@@ -48,10 +48,10 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->setSpeedX(110.0f);
 		//	newObject->addComponent(*new DummyComponent());
 
-					  std::vector<ComponentMessage>* healthDecreaseList = new std::vector < ComponentMessage >; // delete called in HealthComponent
+		std::vector<ComponentMessage>* healthDecreaseList = new std::vector < ComponentMessage > ; // delete called in HealthComponent
 		healthDecreaseList->push_back(ComponentMessage::CollissionComponent_REACTION_TOP);
 
-					  std::vector<eGameEntity>* hurtables = new std::vector < eGameEntity >;
+		std::vector<eGameEntity>* hurtables = new std::vector < eGameEntity > ;
 		hurtables->push_back(Player);
 
 		newObject->addComponent(new HealthComponent(1, healthDecreaseList, hurtables));
@@ -60,7 +60,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new PolicemanCollisionReactionComponent());//moet nog verandert worden naar PolicemanCollisionReactionComponent
 		newObject->addComponent(new gravityComponent());
-		 animations = new std::map<eAnimationState, Animation*>();
+		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ WalkLeft, new Animation("assets/sprites/Policeman/PolicemanWalkLeft.png", 4, 5) });
 		animations->insert({ WalkRight, new Animation("assets/sprites/Policeman/PolicemanWalkRight.png", 4, 5) });
 		animation = new DrawComponent(animations);
@@ -190,14 +190,14 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new ButtonClickableReactionComponent(LevelMainMenu));
 		newObject->addComponent(new DrawComponent("assets/buttons/button_main_menu.png"));
 		newObject->addComponent(new MouseOverEffectComponent);
-		
+
 		break;
 	case ButtonMainMenuGreen:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(LevelMainMenu));
 		newObject->addComponent(new DrawComponent("assets/buttons/button_main_menu_green.jpg"));
 		newObject->addComponent(new MouseOverEffectComponent);
-		
+
 		break;
 	case ButtonQuitGame:
 		newObject->addComponent(new ClickableComponent());
