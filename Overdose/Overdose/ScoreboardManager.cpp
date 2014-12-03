@@ -22,6 +22,16 @@ float ScoreboardManager::getScore()
 	return m_score;
 }
 
+std::string ScoreboardManager::getName()
+{
+	return m_curname;
+}
+
+void ScoreboardManager::setName(std::string name)
+{
+	m_curname = name;
+}
+
 void ScoreboardManager::startTimer()
 {
 	timer = (m_score * 1000) + std::clock(); //convert seconds to ms, so our clock wont start at zero when loading a new level
