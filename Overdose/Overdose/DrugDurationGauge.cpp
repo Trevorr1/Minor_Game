@@ -53,8 +53,9 @@ void DrugDurationGauge::tick(float dt)
 	m_Bar->Bar(1 + x, y-1 + 64 + 4 - 64 * (m_GaugeValue / FULL), 9 + x, 64 + y+1, color); //Decrease the bar height. HUD decides decrease or increase.
 	
 	if (m_DrawComponent == nullptr && m_filePath.length() != 0){
-		char *y = new char[m_filePath.length() + 1];
-		std::strcpy(y, m_filePath.c_str());
+		int bufferSize = m_filePath.length() + 1;
+		char *y = new char[bufferSize];
+		strcpy_s(y, bufferSize, m_filePath.c_str());
 
 		std::map<eAnimationState, Animation*>* animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ Default, new Animation(y, 2) });
