@@ -236,19 +236,21 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 
 	case Advertisement_GameEntity:
 	{
-		GameEntity* closeButton = new GameEntity();
-		std::map<eAnimationState, Animation*>* animations2;
-		animations2 = new std::map<eAnimationState, Animation*>();
-		animations2->insert({ Default, new Animation("assets/ads/close.png", 1) });
-		//DrawComponent* animation2 = new DrawComponent(animations2, animation);
-		DrawComponent* animation2 = new DrawComponent(animations2);
-		animation2->setAnimation(Default);//set starting animation
-		closeButton->addComponent(animation2);
-		closeButton->addComponent(new ClickableComponent());
-		closeButton->addComponent(new DeleteEntityClickComponent());
+		//Advertisement classe gaat fout, door de inheritance?
+		//GameEntity* closeButton = new GameEntity();
+		//std::map<eAnimationState, Animation*>* animations2;
+		//animations2 = new std::map<eAnimationState, Animation*>();
+		//animations2->insert({ Default, new Animation("assets/ads/close.png", 1) });
+		////DrawComponent* animation2 = new DrawComponent(animations2, animation);
+		//DrawComponent* animation2 = new DrawComponent(animations2);
+		//animation2->setAnimation(Default);//set starting animation
+		//closeButton->addComponent(animation2);
+		//closeButton->addComponent(new ClickableComponent());
+		//closeButton->addComponent(new DeleteEntityClickComponent());
 
-		delete newObject;
-		Advertisement* newObject = new Advertisement(entityEnum, closeButton);
+		//delete newObject;
+		//Advertisement* newObject = new Advertisement(entityEnum, closeButton);
+		newObject->addComponent(new KillSwitchComponent(4));// alternative for Advertisement
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new URLClickComponent("https://www.google.nl/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=klm"));
 		animations = new std::map<eAnimationState, Animation*>();
@@ -256,10 +258,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
 		newObject->addComponent(animation);
-		//newObject = newObject2;
-		//closeButton = nullptr;
-		//animations2 = nullptr;
-		//animation2 = nullptr;
+
 		break;
 	}
 
