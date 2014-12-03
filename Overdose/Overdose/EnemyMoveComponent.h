@@ -9,6 +9,9 @@ namespace overdose{
 	private:
 		int m_minX;
 		int m_maxX;
+		int m_minSpeedX;
+		int m_maxSpeedX;
+		float m_currentSpeedX;
 
 	public:
 		EnemyMoveComponent(int minX, int maxX);

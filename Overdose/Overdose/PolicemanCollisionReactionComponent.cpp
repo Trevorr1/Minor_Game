@@ -51,7 +51,7 @@ void PolicemanCollisionReactionComponent::tick(float dt, GameEntity *entity)
 	}
 	if (collidedLeft)
 	{
-		entity->setSpeedX(0);
+		entity->setSpeedX(-1 * entity->getSpeedX());
 
 		colX = (int)m_Left->getPosX();
 		colY = (int)m_Left->getPosY();
@@ -72,7 +72,7 @@ void PolicemanCollisionReactionComponent::tick(float dt, GameEntity *entity)
 	}
 	if (collidedRight)
 	{
-		entity->setSpeedX(0);
+		entity->setSpeedX(-1 * entity->getSpeedX());
 
 		colX = (int)m_Right->getPosX();
 		colY = (int)m_Right->getPosY();
