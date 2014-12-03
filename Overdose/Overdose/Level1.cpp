@@ -147,7 +147,7 @@ void Level1::Init()
 		this->addEntities(grass1);
 	}
 
-	previousGrassWall += 1;//Empty space
+	previousGrassWall += 2;//Empty space
 
 	previousGrassWall += grassWall;
 	grassWall = 10;
