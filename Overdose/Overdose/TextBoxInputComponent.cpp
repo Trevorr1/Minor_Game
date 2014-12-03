@@ -12,6 +12,7 @@ TextBoxInputComponent::TextBoxInputComponent()
 
 TextBoxInputComponent::~TextBoxInputComponent()
 {
+	delete sdlKeyCodes;
 }
 
 void TextBoxInputComponent::tick(float dt, GameEntity *entity)
