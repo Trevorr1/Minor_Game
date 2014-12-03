@@ -71,7 +71,6 @@ void DrugDurationGauge::tick(float dt)
 		//m_DrawComponent->tick(dt, this, DrawManager::getInstance().getCameraSurface()); //TODO draw drugs
 		
 		if (m_State == Gauge_Idle){
-			std::cout << "delete duh plaatjuh" << std::endl;
 			m_filePath = "";
 			delete m_DrawComponent;
 			m_DrawComponent = nullptr;
