@@ -68,7 +68,7 @@ void TextBoxInputComponent::receive(Component *subject, ComponentMessage message
 			ScoreboardManager::getInstance().persistScore(toWrite, ScoreboardManager::getInstance().getScore());
 			ScoreboardManager::getInstance().setName(toWrite);
 			ScoreboardManager::getInstance().resetTimer();
-			setPos(object->getPosX(), object->getPosY());
+			setPos((int)object->getPosX(), (int)object->getPosY());
 		}
 	}
 }

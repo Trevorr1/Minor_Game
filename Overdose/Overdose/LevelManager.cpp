@@ -96,16 +96,16 @@ void LevelManager::Tick(float dt)
 
 	if (InputManager::getInstance().isKeyPressedOnce(SDL_SCANCODE_PAGEUP) && m_SpeedModifier <= 2.5) {
 		SoundManager::getInstance().PlaySound1(Click);
-		m_SpeedModifier += 0.1;
+		m_SpeedModifier += 0.1f;
 }
 
 	else if (InputManager::getInstance().isKeyPressedOnce(SDL_SCANCODE_PAGEDOWN) && m_SpeedModifier >= 0.5) {
 		SoundManager::getInstance().PlaySound1(Click);
-		m_SpeedModifier -= 0.1;
+		m_SpeedModifier -= 0.1f;
 	}
 	else if (InputManager::getInstance().isKeyPressedOnce(SDL_SCANCODE_HOME)) {
 		SoundManager::getInstance().PlaySound1(Click);
-		m_SpeedModifier = 1;
+		m_SpeedModifier = 1.0f;
 	}
 	else if (InputManager::getInstance().isKeyPressedOnce(SDL_SCANCODE_S)) {
 		SaveGame game;

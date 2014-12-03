@@ -26,8 +26,8 @@ void ParticleComponent::createParticleFor(GameEntity *entity) {
 	particle->setPosY(entity->getPosY() + rand() % 10); // netter als we het niet op de game entity laten spawnen?
 	particle->setPosX(entity->getPosX() + rand() % 10);
 
-	particle->setSpeedX(-250 + rand() % 500); // uiteraard hier iets met angles doen
-	particle->setSpeedY(-250 + rand() % 500);
+	particle->setSpeedX(float(-250 + rand() % 500)); // uiteraard hier iets met angles doen
+	particle->setSpeedY(float(-250 + rand() % 500));
 
 	LevelManager::getInstance().getCurrentLevel()->scheduleEntityForInsertion(particle);
 }

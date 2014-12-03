@@ -10,5 +10,5 @@ TextGameEntity::TextGameEntity(char* contents) {
 void TextGameEntity::tick(float dt) {
 	GameEntity::tick(dt);
 
-	DrawManager::getInstance().getLevelSurface()->WriteText(m_Text, getPosX(), getPosY());
+	DrawManager::getInstance().getLevelSurface()->WriteText(m_Text, (int)getPosX(), (int)getPosY());
 }

@@ -45,8 +45,8 @@ void LoadGame::Init() {
 			text->addComponent(new ButtonClickableReactionComponent(game.savedLevelId));
 
 			text->setPosX(400);
-			text->setPosY(posY);
-			text->setHeight(15);
+			text->setPosY((float)posY);
+			text->setHeight((float)15);
 			text->setWidth(100); // nodig voor MouseOverComponet
 			posY += 40;
 			addEntities(text);

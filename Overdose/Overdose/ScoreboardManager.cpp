@@ -89,7 +89,7 @@ std::multimap<float, std::string > ScoreboardManager::getScoreList()
 	{
 		std::vector<std::string> tmpMap = split(line, ";");
 		std::string playerName = tmpMap.at(1);
-		float score = ::atof(tmpMap.at(0).c_str());
+		float score = (float)::atof(tmpMap.at(0).c_str());
 		scoreList.insert(make_pair(score, playerName));
 	}
 

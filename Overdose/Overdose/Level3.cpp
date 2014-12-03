@@ -103,7 +103,7 @@ void Level3::Init()
 	xOffset += blocksWidth;
 
 	GameEntity *entityDrugSpeed1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Drug_Speed);
-	entityDrugSpeed1->setStartingPosition(32 * (xOffset + 3), 480 - 32 * 8);
+	entityDrugSpeed1->setStartingPosition(32.0f * (xOffset + 3), 480.0f - 32.0f * 8.0f);
 	entityDrugSpeed1->setSpeedX(0);
 	entityDrugSpeed1->setSpeedY(0);
 	this->addEntities(entityDrugSpeed1);
@@ -150,7 +150,7 @@ void Level3::Init()
 	xOffset += blocksWidth;
 
 	GameEntity *entityDrugSpeed = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Drug_Speed);
-	entityDrugSpeed->setStartingPosition(32 * (xOffset + 1), 480 - 32 * 11);
+	entityDrugSpeed->setStartingPosition(float(32 * (xOffset + 1)), float(480 - 32 * 11));
 	entityDrugSpeed->setSpeedX(0);
 	entityDrugSpeed->setSpeedY(0);
 	this->addEntities(entityDrugSpeed);
@@ -174,7 +174,7 @@ void Level3::Init()
 	xOffset += blocksWidth;
 
 	GameEntity *flaggot = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Flag);
-	flaggot->setStartingPosition(32 * (xOffset + 3) - 29, 480 - 32 * 2 - 111);
+	flaggot->setStartingPosition(float(32 * (xOffset + 3) - 29), float(480 - 32 * 2 - 111));
 	this->addEntities(flaggot);
 
 	blocksWidth = 4;
