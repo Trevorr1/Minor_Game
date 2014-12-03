@@ -20,7 +20,7 @@
 #include "KnockBackComponent.h"
 #include "ParticleComponent.h"
 #include "DeleteEntityClickComponent.h"
-#include "URLClickComponent.h";
+#include "URLClickComponent.h"
 #include "MouseOverEffectComponent.h"
 #include "ScoreboardManager.h"
 #include <stdexcept>
@@ -49,10 +49,10 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->setSpeedX(110.0f);
 		//	newObject->addComponent(*new DummyComponent());
 
-					  std::vector<ComponentMessage>* healthDecreaseList = new std::vector < ComponentMessage >; // delete called in HealthComponent
+		std::vector<ComponentMessage>* healthDecreaseList = new std::vector < ComponentMessage > ; // delete called in HealthComponent
 		healthDecreaseList->push_back(ComponentMessage::CollissionComponent_REACTION_TOP);
 
-					  std::vector<eGameEntity>* hurtables = new std::vector < eGameEntity >;
+		std::vector<eGameEntity>* hurtables = new std::vector < eGameEntity > ;
 		hurtables->push_back(Player);
 
 		newObject->addComponent(new HealthComponent(1, healthDecreaseList, hurtables));
@@ -67,7 +67,6 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		animation = new DrawComponent(animations);
 		animation->setAnimation(WalkLeft);//set starting animation
 		newObject->addComponent(animation);
-
 		break;
 	}
 	case Drugdealer:
@@ -236,19 +235,21 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 
 	case Advertisement_GameEntity:
 	{
-		GameEntity* closeButton = new GameEntity();
-		std::map<eAnimationState, Animation*>* animations2;
-		animations2 = new std::map<eAnimationState, Animation*>();
-		animations2->insert({ Default, new Animation("assets/ads/close.png", 1) });
-		//DrawComponent* animation2 = new DrawComponent(animations2, animation);
-		DrawComponent* animation2 = new DrawComponent(animations2);
-		animation2->setAnimation(Default);//set starting animation
-		closeButton->addComponent(animation2);
-		closeButton->addComponent(new ClickableComponent());
-		closeButton->addComponent(new DeleteEntityClickComponent());
+		//Advertisement classe gaat fout, door de inheritance?
+		//GameEntity* closeButton = new GameEntity();
+		//std::map<eAnimationState, Animation*>* animations2;
+		//animations2 = new std::map<eAnimationState, Animation*>();
+		//animations2->insert({ Default, new Animation("assets/ads/close.png", 1) });
+		////DrawComponent* animation2 = new DrawComponent(animations2, animation);
+		//DrawComponent* animation2 = new DrawComponent(animations2);
+		//animation2->setAnimation(Default);//set starting animation
+		//closeButton->addComponent(animation2);
+		//closeButton->addComponent(new ClickableComponent());
+		//closeButton->addComponent(new DeleteEntityClickComponent());
 
-		delete newObject;
-		Advertisement* newObject = new Advertisement(entityEnum, closeButton);
+		//delete newObject;
+		//Advertisement* newObject = new Advertisement(entityEnum, closeButton);
+		newObject->addComponent(new KillSwitchComponent(4));// alternative for Advertisement
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new URLClickComponent("https://www.google.nl/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=klm"));
 		animations = new std::map<eAnimationState, Animation*>();
@@ -256,14 +257,9 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
 		newObject->addComponent(animation);
-		//newObject = newObject2;
-		//closeButton = nullptr;
-		//animations2 = nullptr;
-		//animation2 = nullptr;
+
 		break;
 	}
-
-
 
 	default:
 		throw std::invalid_argument("Invalid game Entity passed to the factory"); // Veel te lang moeten debuggen waarom mijn entities geen components hadden... >.<

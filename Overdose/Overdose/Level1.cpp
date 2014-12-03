@@ -13,14 +13,16 @@ using namespace overdose;
 
 Level1::Level1()
 {
-	m_Camera = new Camera();
+	m_WorldSizeX = 1880;
+	m_WorldSizeY = 480;
+	m_Camera = new Camera(m_WorldSizeX);
 
 	//score
 	ScoreboardManager::getInstance().resetTimer();
 	ScoreboardManager::getInstance().startTimer();
 	ScoreboardManager::getInstance().setName("");
 
-	createLevel(940*2, 480); //create the level here widthx height
+	createLevel(m_WorldSizeX, m_WorldSizeY); //create the level here widthx height
 }
 
 Level1::Level1(GameEntity* player)
@@ -35,7 +37,7 @@ Level1::~Level1()
 
 void Level1::Init()
 {
-	m_Background = new Surface("assets/backgrounds/background.png");
+	m_Background = new Surface("assets/backgrounds/spooky.png");
 
 	//std::map<eAnimationState, Animation*>* animations = new std::map<eAnimationState, Animation*>();
 	//animations->insert({ Default, new Animation("assets/sprites/tiles/level1/tile_air.png", 1) });

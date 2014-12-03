@@ -12,6 +12,7 @@ TextBoxInputComponent::TextBoxInputComponent()
 
 TextBoxInputComponent::~TextBoxInputComponent()
 {
+	delete sdlKeyCodes;
 }
 
 void TextBoxInputComponent::tick(float dt, GameEntity *entity)
@@ -48,7 +49,9 @@ void TextBoxInputComponent::tick(float dt, GameEntity *entity)
 
 	if (ScoreboardManager::getInstance().getName() != "")
 	{
-		DrawManager::getInstance().getLevelSurface()->WriteText(_strdup(toWrite.c_str()), x, y);
+		char* write = _strdup(toWrite.c_str());
+		DrawManager::getInstance().getLevelSurface()->WriteText(write, x, y);
+		free(write);
 	}
 }
 

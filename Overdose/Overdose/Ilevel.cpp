@@ -6,15 +6,20 @@ using namespace overdose;
 
 ILevel::ILevel()
 {
-	createLevel(940, 480); //maybe let this return the created surface?
 
+	m_WorldSizeX = 940;
+	m_WorldSizeY = 480;
 	GameEntity *fpsCounter = GameEntityFactory::getInstance().getGameEntity(eGameEntity::FPSCounter);
 	this->addEntities(fpsCounter);
+
+	createLevel(m_WorldSizeX, m_WorldSizeY); //maybe let this return the created surface?
 }
 
 void ILevel::addEntities(GameEntity* entities)
 {
 	this->entities->push_back(entities);
+
+
 }
 
 void ILevel::scheduleEntityForInsertion(GameEntity* entity) {
@@ -89,8 +94,14 @@ void ILevel::removeDrugComponents(GameEntity* player){
 
 void ILevel::DrawBackground()
 {
-	m_Background->CopyTo(DrawManager::getInstance().getLevelSurface(), 0, 0); //copy to origin
-	m_Background->CopyTo(DrawManager::getInstance().getLevelSurface(), 940, 0); //recopy to extend the level
+	int levelWidth = m_WorldSizeX;
+	int position = 0;
+	int positionSteps = m_Background->GetWidth();
+	while (levelWidth > 0){
+		m_Background->CopyTo(DrawManager::getInstance().getLevelSurface(), position, 0); //copy to origin
+		position += positionSteps;
+		levelWidth -= positionSteps;
+	}
 }
 
 void ILevel::Tick(float dt)
