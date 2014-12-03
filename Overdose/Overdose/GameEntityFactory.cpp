@@ -20,7 +20,7 @@
 #include "KnockBackComponent.h"
 #include "ParticleComponent.h"
 #include "DeleteEntityClickComponent.h"
-#include "URLClickComponent.h";
+#include "URLClickComponent.h"
 #include "MouseOverEffectComponent.h"
 #include "ScoreboardManager.h"
 #include <stdexcept>
@@ -45,13 +45,14 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 
 	switch (entityEnum){
 	case Policeman:
+	{
 		newObject->setSpeedX(110.0f);
 		//	newObject->addComponent(*new DummyComponent());
 
-					  std::vector<ComponentMessage>* healthDecreaseList = new std::vector < ComponentMessage >; // delete called in HealthComponent
+		std::vector<ComponentMessage>* healthDecreaseList = new std::vector < ComponentMessage > ; // delete called in HealthComponent
 		healthDecreaseList->push_back(ComponentMessage::CollissionComponent_REACTION_TOP);
 
-					  std::vector<eGameEntity>* hurtables = new std::vector < eGameEntity >;
+		std::vector<eGameEntity>* hurtables = new std::vector < eGameEntity > ;
 		hurtables->push_back(Player);
 
 		newObject->addComponent(new HealthComponent(1, healthDecreaseList, hurtables));
@@ -60,13 +61,14 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new PolicemanCollisionReactionComponent());//moet nog verandert worden naar PolicemanCollisionReactionComponent
 		newObject->addComponent(new gravityComponent());
-		 animations = new std::map<eAnimationState, Animation*>();
+		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ WalkLeft, new Animation("assets/sprites/Policeman/PolicemanWalkLeft.png", 4, 5) });
 		animations->insert({ WalkRight, new Animation("assets/sprites/Policeman/PolicemanWalkRight.png", 4, 5) });
 		animation = new DrawComponent(animations);
 		animation->setAnimation(WalkLeft);//set starting animation
 		newObject->addComponent(animation);
 		break;
+	}
 	case Drugdealer:
 		//	newObject->addComponent(*new DummyComponent());
 		break;
@@ -232,6 +234,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		break;
 
 	case Advertisement_GameEntity:
+	{
 		GameEntity* closeButton = new GameEntity();
 		std::map<eAnimationState, Animation*>* animations2;
 		animations2 = new std::map<eAnimationState, Animation*>();
@@ -256,6 +259,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		//closeButton = nullptr;
 		//animations2 = nullptr;
 		//animation2 = nullptr;
+	}
 		break;
 
 
