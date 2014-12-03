@@ -31,7 +31,7 @@ Level4::~Level4()
 
 void Level4::Init()
 {
-	m_Background = new Surface("assets/backgrounds/background.png");
+	m_Background = new Surface("assets/backgrounds/background_city2.3.png");
 
 	if (m_Player == nullptr)
 	{
