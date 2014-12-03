@@ -10,5 +10,7 @@ namespace overdose {
 		bool isGameOver();
 	private:
 		void getHighScoreList();
+
+		std::vector<char*> toDelete;
 	};
 }
