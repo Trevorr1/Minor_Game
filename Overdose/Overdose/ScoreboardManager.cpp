@@ -46,7 +46,7 @@ void ScoreboardManager::stopTimer()
 
 void ScoreboardManager::resetTimer()
 {
-	m_score = 0;
+	setScore(0);
 }
 
 void ScoreboardManager::setScore(float score) //score in seconds
