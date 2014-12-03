@@ -61,7 +61,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new PolicemanCollisionReactionComponent());//moet nog verandert worden naar PolicemanCollisionReactionComponent
 		newObject->addComponent(new gravityComponent());
-		animations = new std::map<eAnimationState, Animation*>();
+		 animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ WalkLeft, new Animation("assets/sprites/Policeman/PolicemanWalkLeft.png", 4, 5) });
 		animations->insert({ WalkRight, new Animation("assets/sprites/Policeman/PolicemanWalkRight.png", 4, 5) });
 		animation = new DrawComponent(animations);
@@ -90,7 +90,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new gravityComponent());
 		newObject->addComponent(new KnockBackComponent());
 		newObject->addComponent(new HealthComponent(3));
-		newObject->addComponent(new ParticleComponent(Blood, 0.01, 0.5, 0.5));
+		//newObject->addComponent(new ParticleComponent(Blood, 0.01, 0.5, 0.5));
 		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ IdleLeft, new Animation("assets/sprites/Ross/RossIdleLeft.png", 1) });
 		animations->insert({ IdleRight, new Animation("assets/sprites/Ross/RossIdleRight.png", 1) });
@@ -235,19 +235,21 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 
 	case Advertisement_GameEntity:
 	{
-		GameEntity* closeButton = new GameEntity();
-		std::map<eAnimationState, Animation*>* animations2;
-		animations2 = new std::map<eAnimationState, Animation*>();
-		animations2->insert({ Default, new Animation("assets/ads/close.png", 1) });
-		//DrawComponent* animation2 = new DrawComponent(animations2, animation);
-		DrawComponent* animation2 = new DrawComponent(animations2);
-		animation2->setAnimation(Default);//set starting animation
-		closeButton->addComponent(animation2);
-		closeButton->addComponent(new ClickableComponent());
-		closeButton->addComponent(new DeleteEntityClickComponent());
+		//Advertisement classe gaat fout, door de inheritance?
+		//GameEntity* closeButton = new GameEntity();
+		//std::map<eAnimationState, Animation*>* animations2;
+		//animations2 = new std::map<eAnimationState, Animation*>();
+		//animations2->insert({ Default, new Animation("assets/ads/close.png", 1) });
+		////DrawComponent* animation2 = new DrawComponent(animations2, animation);
+		//DrawComponent* animation2 = new DrawComponent(animations2);
+		//animation2->setAnimation(Default);//set starting animation
+		//closeButton->addComponent(animation2);
+		//closeButton->addComponent(new ClickableComponent());
+		//closeButton->addComponent(new DeleteEntityClickComponent());
 
-		delete newObject;
-		newObject = new Advertisement(entityEnum, closeButton);
+		//delete newObject;
+		//Advertisement* newObject = new Advertisement(entityEnum, closeButton);
+		newObject->addComponent(new KillSwitchComponent(4));// alternative for Advertisement
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new URLClickComponent("https://www.google.nl/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=klm"));
 		animations = new std::map<eAnimationState, Animation*>();
@@ -255,13 +257,9 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
 		newObject->addComponent(animation);
-		//newObject = newObject2;
-		//closeButton = nullptr;
-		//animations2 = nullptr;
-		//animation2 = nullptr;
-	}
-		break;
 
+		break;
+	}
 
 	default:
 		throw std::invalid_argument("Invalid game Entity passed to the factory"); // Veel te lang moeten debuggen waarom mijn entities geen components hadden... >.<

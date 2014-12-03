@@ -4,12 +4,13 @@
 
 using namespace overdose;
 
-Camera::Camera()
+Camera::Camera(int levelWidth)
 {
 	m_WorldCameraPositionX = 0;
 	m_WorldCameraPositionY = 0;
 
 	m_FocusEntity = nullptr;
+	m_LevelWidth = levelWidth;
 }
 
 
@@ -33,7 +34,7 @@ void Camera::Tick(float dt)
 
 		float screenOffset = 400;
 
-		if ((playerCameraX > screenWidth - screenOffset) && (m_WorldCameraPositionX < screenWidth - playerWidth))
+		if ((playerCameraX > screenWidth - screenOffset) && (m_WorldCameraPositionX + screenWidth < m_LevelWidth - playerWidth))
 		{
 			m_WorldCameraPositionX = playerx + screenOffset - screenWidth;
 		}
