@@ -16,8 +16,8 @@ DrugCollisionReactionComponent::DrugCollisionReactionComponent()
 
 DrugCollisionReactionComponent::~DrugCollisionReactionComponent()
 {
-	//fix for memory leak?
-	if (drugComponent == nullptr){
+	//Delete the drug component when Player didn't pick up drug
+	if (drugComponent != nullptr && !isCollided){
 		delete drugComponent;
 	}
 }
