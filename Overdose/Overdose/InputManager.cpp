@@ -36,7 +36,6 @@ void InputManager::setKeyStates(Uint8 *keyStates, int size) {
 		m_keystateBuffer->pop_back();
 	}
 
-
 }
 
 /* Keyboard Input */
@@ -80,7 +79,7 @@ bool InputManager::isKeyPressedOnce(int sdl_code) {
 
 
 	if (isKeyPressed && isKeyReleased) {
-		m_keystateBuffer->clear();
+		clearKeyBuffer();
 	}
 
 	
@@ -88,6 +87,14 @@ bool InputManager::isKeyPressedOnce(int sdl_code) {
 }
 
 void InputManager::clearKeyBuffer() {
+
+	while (!m_keystateBuffer->empty()) {
+		delete m_keystateBuffer->back();
+		m_keystateBuffer->pop_back();
+	}
+	m_keystate = nullptr;
+
+
 //	delete m_keystates;
 }
 

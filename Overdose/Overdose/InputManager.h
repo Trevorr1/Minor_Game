@@ -21,7 +21,7 @@ namespace overdose {
 	private:
 		InputManager();
 		virtual ~InputManager();
-
+		void clearKeyBuffer();
 		MouseCoordinate m_currentCoordinate;
 
 	protected:
@@ -35,7 +35,7 @@ namespace overdose {
 		void addKeyPress(unsigned int keyPressed);
 		bool isKeyPressed(int sdl_code);
 		bool isKeyPressedOnce(int sdl_code);
-		void clearKeyBuffer();
+		
 
 		void addMouseClick(MouseClick click);
 		MouseClick getLastMouseClick();
