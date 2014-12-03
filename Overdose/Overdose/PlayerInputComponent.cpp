@@ -1,4 +1,5 @@
 #include "PlayerInputComponent.h"
+#include <math.h>
 
 
 using namespace overdose;
@@ -8,7 +9,7 @@ void  PlayerInputComponent::receive(Component *subject, ComponentMessage message
 	//If NegativeXTCComponent is initialized and destructed, reverse the keys.
 	if (message == NegativeXTCComponent_REVERSE_KEYS){
 		reverseKeys = !reverseKeys;
-}
+	}
 }
 
 
@@ -17,6 +18,11 @@ void PlayerInputComponent::receiveMessageBatch(Component *subject, std::map<Comp
 void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 
 	float speedX = entity->getSpeedX();
+
+	if (abs(speedX) < entity->getMovementSpeed() && abs(speedX) > 0)
+	{
+		int stop = 0;
+	}
 
 	int left = SDL_SCANCODE_LEFT;
 	int right = SDL_SCANCODE_RIGHT;
@@ -33,26 +39,31 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 	}
 
 
-	if (InputManager::getInstance().isKeyPressed(rightPressed) && InputManager::getInstance().isKeyPressed(leftPressed)) {
+	if (InputManager::getInstance().isKeyPressed(rightPressed) && InputManager::getInstance().isKeyPressed(leftPressed))
+	{
 		entity->setSpeedX(0);
 	}
 	else if (InputManager::getInstance().isKeyPressed(rightPressed)) {
-		if (speedX < 0) {
+		/*if (speedX < 0) 
+		{
 			entity->setSpeedX((float)speedX);
-		}
-		if (speedX == 0) {
+		}*/
+		if (speedX <= 0 || speedX < entity->getMovementSpeed()) 
+		{
 			entity->setSpeedX(entity->getMovementSpeed());
 		}
 	}
 	else if (InputManager::getInstance().isKeyPressed(leftPressed)) {
-		if (speedX > 0){
+		/*if (speedX > 0)
+		{
 			entity->setSpeedX((float)speedX * -1);
-		}
-		if (speedX == 0) {
+		}*/
+		if (speedX >= 0 || speedX > -entity->getMovementSpeed())
+		{
 			entity->setSpeedX(-entity->getMovementSpeed());
 		}
 	}
-	else 
+	else
 	{
 		entity->setSpeedX(0);
 	}
@@ -73,6 +84,6 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 	}
 }
 
-std::string PlayerInputComponent ::getComponentID(){
+std::string PlayerInputComponent::getComponentID(){
 	return "PlayerInputComponent";
 }

@@ -250,7 +250,8 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		closeButton->addComponent(new ClickableComponent());
 		closeButton->addComponent(new DeleteEntityClickComponent());
 
-		newObject = new Advertisement(entityEnum, closeButton);
+		delete newObject;
+		Advertisement* newObject = new Advertisement(entityEnum, closeButton);
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new URLClickComponent("https://www.google.nl/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=klm"));
 		animations = new std::map<eAnimationState, Animation*>();
@@ -258,10 +259,10 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
 		newObject->addComponent(animation);
-
-		closeButton = nullptr;
-		animations2 = nullptr;
-		animation2 = nullptr;
+		//newObject = newObject2;
+		//closeButton = nullptr;
+		//animations2 = nullptr;
+		//animation2 = nullptr;
 		break;
 	}
 

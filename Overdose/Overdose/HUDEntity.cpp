@@ -11,4 +11,5 @@ HUDEntity::HUDEntity(int x, int y)
 
 HUDEntity::~HUDEntity()
 {
+	//m_DrawComponent = nullptr; // in GameEntity
 }
