@@ -60,7 +60,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new PolicemanCollisionReactionComponent());//moet nog verandert worden naar PolicemanCollisionReactionComponent
 		newObject->addComponent(new gravityComponent());
-		 animations = new std::map<eAnimationState, Animation*>();
+		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ WalkLeft, new Animation("assets/sprites/Policeman/PolicemanWalkLeft.png", 4, 5) });
 		animations->insert({ WalkRight, new Animation("assets/sprites/Policeman/PolicemanWalkRight.png", 4, 5) });
 		animation = new DrawComponent(animations);
@@ -90,7 +90,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new gravityComponent());
 		newObject->addComponent(new KnockBackComponent());
 		newObject->addComponent(new HealthComponent(3));
-		newObject->addComponent(new ParticleComponent(Blood, 0.01, 0.5, 0.5));
+		//newObject->addComponent(new ParticleComponent(Blood, 0.01, 0.5, 0.5));
 		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ IdleLeft, new Animation("assets/sprites/Ross/RossIdleLeft.png", 1) });
 		animations->insert({ IdleRight, new Animation("assets/sprites/Ross/RossIdleRight.png", 1) });
