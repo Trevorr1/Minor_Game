@@ -185,6 +185,8 @@ ILevel::~ILevel()
 	delete insertEntityBuffer;
 
 	delete hud;
+
+	Surface::flushImageCache();
 }
 
 

@@ -16,6 +16,9 @@ namespace overdose {
 		void stopTimer();
 		void resetTimer();
 
+		void setName(std::string name);
+		std::string getName();
+
 		float getScore();
 		void setScore(float score);
 
@@ -29,6 +32,7 @@ namespace overdose {
 		bool reset = false;
 		time_t timer = 0;
 		std::string m_url = "score.txt";
+		std::string m_curname = "";
 		std::vector<std::string> split(std::string s, std::string delimiter);
 	};
 }

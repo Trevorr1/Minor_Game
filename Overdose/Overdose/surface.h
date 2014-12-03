@@ -1,7 +1,7 @@
 #pragma once
 
 #include "emmintrin.h"
-
+#include <map>
 #define REDMASK	(0xff0000)
 #define GREENMASK (0x00ff00)
 #define BLUEMASK (0x0000ff)
@@ -62,6 +62,7 @@
 		};
 	};
 	class Font;
+	struct FIBITMAP;
 	class Surface
 	{
 		enum
@@ -103,6 +104,8 @@
 		void WriteText(char* text, int x, int y);
 
 		bool clearBuffer = true;
+
+		static void flushImageCache();
 	private:
 		// Attributes
 		Pixel* m_Buffer = nullptr;
@@ -111,6 +114,12 @@
 		char s_Font[51][5][5];
 		int s_Transl[256];
 		Font* m_Font = nullptr;
+
+		static std::map<std::string, FIBITMAP*> imageCache;
+
+		bool isCacheHit(std::string path);
+		FIBITMAP* loadFromCache(std::string path);
+		void insertIntoCache(std::string path, FIBITMAP* dib);
 	};
 
 	class Sprite

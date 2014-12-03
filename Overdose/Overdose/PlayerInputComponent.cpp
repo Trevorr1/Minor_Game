@@ -73,7 +73,7 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 		{
 			entity->setJumping(true);
 			entity->setFalling(true);
-			entity->setJumpingSpeed(-650.0f);
+			entity->setJumpingSpeed(-550.0f);
 		}
 
 	}

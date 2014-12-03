@@ -49,6 +49,8 @@ void GameWon::Init(){
 	highscore->setPosX(350);
 	this->addEntities(highscore);
 
+
+
 	GameEntity *buttonPlayAgain = GameEntityFactory::getInstance().getGameEntity(eGameEntity::ButtonPlayAgain);
 	buttonPlayAgain->setPosX(340);
 	buttonPlayAgain->setPosY(250);

@@ -24,7 +24,8 @@ namespace overdose{
 		bool clicked = false;
 		bool text_typed = false;
 		std::string toWrite = "";
-
+		void setPos(int x, int y);
+		int x, y;
 		std::map<int, std::string>* sdlKeyCodes = new std::map<int, std::string>();
 	};
 }

@@ -111,9 +111,14 @@ void HealthComponent::tick(float dt, GameEntity *entity) {
 	if (m_health <= 0) {
 	//	entity->scheduleForRemoval();
 		if (entity->getEnum() != Player) {
-			/* TODO: Deze wordt wel 10x aangeroepen per keer dat je een enemy dood.. wtf man... */
-			entity->delayedAddComponent(new ParticleComponent(Blood, 0.01, 0.5, 0.5));
-			entity->delayedAddComponent(new KillSwitchComponent(0.3));
+
+			if (!firstBlood) {
+				/* TODO: Deze wordt wel 10x aangeroepen per keer dat je een enemy dood.. wtf man... */
+				entity->delayedAddComponent(new ParticleComponent(Blood, 0.01, 0.5, 0.5));
+				entity->delayedAddComponent(new KillSwitchComponent(0.3));
+				firstBlood = true; // there you go @ wtf man.
+			}
+
 		}
 		else{
 			entity->scheduleForRemoval();
