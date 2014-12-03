@@ -248,6 +248,8 @@ void GameEntity::setStartingPosition(float x, float y){
 void GameEntity::respawn(){
 	posX = startPosX;
 	posY = startPosY;
+	speedX = 0.0f;
+	speedY = 0.0f;
 }
 
 void GameEntity::setMovementSpeed(float movementspeed){

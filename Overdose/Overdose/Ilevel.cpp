@@ -16,10 +16,7 @@ void ILevel::addEntities(GameEntity* entities)
 {
 	this->entities->push_back(entities);
 
-	//Create Head-up Display if player exists
-	if (m_Player != nullptr && hud == nullptr){
-		hud = new HUD(m_Player);
-	}
+
 }
 
 void ILevel::scheduleEntityForInsertion(GameEntity* entity) {
@@ -57,6 +54,7 @@ GameEntity* ILevel::takePlayerEntity()
 		if (position != entities->end()){
 			entities->erase(position);
 		}
+
 	}
 
 	removeDrugComponents(player);
@@ -128,7 +126,11 @@ void ILevel::Tick(float dt)
 	if (hud != nullptr){
 		hud->tick(dt);
 	}
-	
+
+	//Create Head-up Display if player exists
+	if (m_Player != nullptr && hud == nullptr){
+		hud = new HUD(m_Player, 20.0f, 20.0f);
+	}
 }
 
 bool ILevel::isGameOver() 
@@ -183,4 +185,17 @@ ILevel::~ILevel()
 	delete insertEntityBuffer;
 
 	delete hud;
+}
+
+
+
+void ILevel::addGrassBlock(int xOffset, int yOffset, int width, int height)
+{
+	for (int i = 0; i < width; i++){
+		for (int j = 0; j < height; j++){
+			GameEntity* grass = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
+			grass->setStartingPosition(xOffset + 32 * (i), yOffset - 32 * j);
+			this->addEntities(grass);
+		}
+	}
 }

@@ -14,7 +14,6 @@ using namespace overdose;
 Level2::Level2()
 {
 	m_Camera = new Camera();
-	ScoreboardManager::getInstance().startTimer();
 	createLevel(940 * 2, 480); //create the level here widthx height
 }
 
@@ -86,11 +85,6 @@ void Level2::Init()
 	entityCop->addComponent(new EnemyMoveComponent(360, 630));
 	this->addEntities(entityCop);
 
-	//GameEntity *entityDrugSpeed = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Drug_Speed);
-	//entityDrugSpeed->setStartingPosition(200, 410 - 30);
-	//entityDrugSpeed->setSpeedX(0);
-	//entityDrugSpeed->setSpeedY(0);
-	//this->addEntities(entityDrugSpeed);
 
 
 	////GameEntity *entityDrugMarijuana = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Drug_Marijuana);
@@ -120,6 +114,12 @@ void Level2::Init()
 		grass1->setStartingPosition(50 + 32 * i, 410);
 		this->addEntities(grass1);
 	}
+
+	GameEntity *entityDrugSpeed = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Drug_Speed);
+	entityDrugSpeed->setStartingPosition(50 + 32 * 5, 410 - 30);
+	entityDrugSpeed->setSpeedX(0);
+	entityDrugSpeed->setSpeedY(0);
+	this->addEntities(entityDrugSpeed);
 
 	previousGrassWall += grassWall;
 	grassWall = 3;

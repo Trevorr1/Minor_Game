@@ -1,11 +1,11 @@
 #include "TextBoxInputComponent.h"
 #include "ScoreboardManager.h"
+#include "DrawComponent.h"
 
 using namespace overdose;
 
 TextBoxInputComponent::TextBoxInputComponent()
 {
-	ScoreboardManager::getInstance().stopTimer();
 	Init();
 }
 
@@ -46,6 +46,10 @@ void TextBoxInputComponent::tick(float dt, GameEntity *entity)
 	char *chars = const_cast<char*>(t);
 	surface->WriteText(chars, (int)entity->getPosX(), (int)entity->getPosY());
 
+	if (ScoreboardManager::getInstance().getName() != "")
+	{
+		DrawManager::getInstance().getLevelSurface()->WriteText(_strdup(toWrite.c_str()), x, y);
+	}
 }
 
 void TextBoxInputComponent::receive(Component *subject, ComponentMessage message, GameEntity *object)
@@ -59,12 +63,20 @@ void TextBoxInputComponent::receive(Component *subject, ComponentMessage message
 		else if (message = TextBoxInputComponent_TEXT_TYPED)
 		{
 			text_typed = true;
-
+			object->removeComponent("DrawComponent");
 			//Score
 			ScoreboardManager::getInstance().persistScore(toWrite, ScoreboardManager::getInstance().getScore());
+			ScoreboardManager::getInstance().setName(toWrite);
 			ScoreboardManager::getInstance().resetTimer();
+			setPos(object->getPosX(), object->getPosY());
 		}
 	}
+}
+
+void TextBoxInputComponent::setPos(int x, int y)
+{
+	this->x = x;
+	this->y = y;
 }
 
 

@@ -10,18 +10,20 @@ void  MoveComponent::receive(Component *subject, ComponentMessage message, GameE
 
 void MoveComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages) {}
 
-void  MoveComponent::tick(float dt, GameEntity *entity) {
-
+void  MoveComponent::tick(float dt, GameEntity *entity)
+{
 	float posX = entity->getPosX();
 	float posY = entity->getPosY();
-	float speedX = entity->getSpeedX() * dt;
+	float speedX = entity->getSpeedX();
 	float speedY = entity->getSpeedY();
 	float jspeed = entity->getJumpingSpeed();
 
 	// speedmodifier mag geen invloed hebben op springen. Krijg je rare dingen anders
-	dt = (dt / LevelManager::getInstance().getSpeedModifier()) * 1;
+	dt = (dt / LevelManager::getInstance().getSpeedModifier());
 
 	float addY = (speedY + jspeed) * dt;
+
+	speedX *= dt;
 
 	entity->setPosX(posX + speedX);
 	entity->setPosY(posY + addY);
@@ -39,10 +41,12 @@ void  MoveComponent::tick(float dt, GameEntity *entity) {
 	if (posY > 600) { //screen height is 480 at the moment
 		entity->broadcast(this, MoveComponent_OUTOFAREA, entity);
 		//entity->respawn();
-		if (entity->getEnum() == eGameEntity::Player) {
+		if (entity->getEnum() == eGameEntity::Player) 
+		{
 			LevelManager::getInstance().getCurrentLevel()->setReloadLevel();
 		}
-		else {
+		else 
+		{
 			entity->respawn();
 		}
 	}

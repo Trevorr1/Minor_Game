@@ -4,8 +4,7 @@ using namespace overdose;
 
 Advertisement::Advertisement()
 {
-	timer_start = NULL;
-	timer_ms = 1000 * 5;
+	closeButton = nullptr;
 	init();
 }
 

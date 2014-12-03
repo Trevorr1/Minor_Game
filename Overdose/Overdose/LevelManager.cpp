@@ -44,6 +44,9 @@ ILevel* LevelManager::createNewLevel(levels l)
 	case level2:
 		result = new Level2();
 		break;
+	case level3:
+		result = new Level3();
+		break;
 	case LevelMainMenu:
 		result = new MainMenu();
 		break;
@@ -131,6 +134,9 @@ void LevelManager::nextLevel(GameEntity* player)
 		createLevel(level2);
 		break;
 	case level2:
+		createLevel(level3);
+		break;
+	case level3:
 		createLevel(LevelGameWon);
 		break;
 	case LevelHighScore:
