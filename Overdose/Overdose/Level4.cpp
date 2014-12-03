@@ -109,6 +109,12 @@ void Level4::Init()
 	addGrassBlock(32 * xOffset, 480 - 32 * 8, blocksWidth, 1);
 	xOffset += blocksWidth;
 
+	GameEntity *entityDrugSpeed1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Drug_Marijuana);
+	entityDrugSpeed1->setStartingPosition(32 * (xOffset - 2), 480 - 32 * 8 - 30);
+	entityDrugSpeed1->setSpeedX(0);
+	entityDrugSpeed1->setSpeedY(0);
+	this->addEntities(entityDrugSpeed1);
+
 	blocksWidth = 1;
 	addGrassBlock(32 * xOffset, 480 - 32 * 9, blocksWidth, 1);
 	xOffset += blocksWidth;
@@ -159,7 +165,7 @@ void Level4::Init()
 	addGrassBlock(32 * xOffset, 480 - 32 * 3, blocksWidth, 1); //start run-lane
 	xOffset += blocksWidth;
 
-	GameEntity *entityDrugSpeed = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Drug_Speed);
+	GameEntity *entityDrugSpeed = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Drug_XTC);
 	entityDrugSpeed->setStartingPosition(32 * (xOffset - 12), 480 - 32 * 3  - 30);
 	entityDrugSpeed->setSpeedX(0);
 	entityDrugSpeed->setSpeedY(0);
