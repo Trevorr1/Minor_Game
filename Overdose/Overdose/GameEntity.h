@@ -19,7 +19,9 @@ namespace overdose {
 	protected:
 		float posX = 0.0f, posY = 0.0f, speedX = 0.0f, speedY = 0.0f;
 		float startPosX = 0.0f, startPosY = 0.0f;
+		float m_accelerationX = 0.0f;
 		float m_movementSpeed = 0.0f;
+		float m_maxSpeed = 0.0f;
 		float m_jumpSpeed = 0.0f;
 		float width = 0, height = 0;
 		eFacing m_Facing = FrontView;
@@ -100,6 +102,12 @@ namespace overdose {
 		GameEntity(eGameEntity entityEnum, Component *component, ...);
 
 		virtual ~GameEntity();
+
+		// for acceleration of the sideway movement
+		void resetAcclX(){ m_accelerationX = 0.0f; }
+		void setAcclX(float accl) { m_accelerationX = accl; }
+		float getAcclX() { return m_accelerationX; }
+
 	};
 
 

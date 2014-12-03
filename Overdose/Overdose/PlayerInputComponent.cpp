@@ -19,7 +19,9 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 
 	float speedX = entity->getSpeedX();
 	float moveSpeedX = entity->getMovementSpeed();
-	// trev do your magic here!!!!!!!!!!!!
+
+	float accX = entity->getAcclX(); ////////////////////// new featurs//////////////////////////
+
 
 	int left = SDL_SCANCODE_LEFT;
 	int right = SDL_SCANCODE_RIGHT;
@@ -39,30 +41,72 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 	if (InputManager::getInstance().isKeyPressed(rightPressed) && InputManager::getInstance().isKeyPressed(leftPressed))
 	{
 		entity->setSpeedX(0);
+		entity->resetAcclX();
 	}
-	else if (InputManager::getInstance().isKeyPressed(rightPressed)) {
-		if (speedX < 0) 
+	else if (InputManager::getInstance().isKeyPressed(rightPressed)) 
+	{
+		if (accX < 0)
 		{
-			entity->setSpeedX((float)speedX);
+			entity->resetAcclX();
+			accX = entity->getAcclX();
 		}
-		if (speedX >= 0 && speedX <= moveSpeedX) 
+		if (accX < moveSpeedX)
 		{
-			entity->setSpeedX(moveSpeedX);
+			accX += moveSpeedX * 0.03f;
 		}
+		else
+		{
+			accX = moveSpeedX;
+		}
+
+		entity->setAcclX(accX);
+		entity->setSpeedX(accX);
+
+
+		// old code
+		//if (speedX < 0) 
+		//{
+		//	entity->setSpeedX(-speedX);
+		//}
+		//if (speedX == 0) 
+		//{
+		//	//entity->resetAcclX();
+		//	entity->setSpeedX(moveSpeedX);
+		//}
 	}
-	else if (InputManager::getInstance().isKeyPressed(leftPressed)) {
-		if (speedX > 0)
+	else if (InputManager::getInstance().isKeyPressed(leftPressed))
+	{
+		if (accX > 0)
 		{
-			entity->setSpeedX((float)speedX * -1);
+			entity->resetAcclX();
+			accX = entity->getAcclX();
 		}
-		if (speedX <= 0 && speedX >= -moveSpeedX)
+		if (accX > -moveSpeedX)
+		{
+			accX -= moveSpeedX * 0.03f;
+		}
+		else
+		{
+			accX = -moveSpeedX;
+		}
+		
+		entity->setAcclX(accX);
+		entity->setSpeedX(accX);
+
+		// old code
+		/*if (speedX > 0)
+		{
+			entity->setSpeedX(-speedX);
+		}
+		if (speedX == 0)
 		{
 			entity->setSpeedX(-moveSpeedX);
-		}
+		}*/
 	}
 	else
 	{
 		entity->setSpeedX(0);
+		entity->resetAcclX();
 	}
 
 	if (InputManager::getInstance().isKeyPressed(SDL_SCANCODE_SPACE)) {
