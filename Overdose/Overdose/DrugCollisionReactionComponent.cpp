@@ -35,6 +35,7 @@ void DrugCollisionReactionComponent::receive(Component *subject, ComponentMessag
 			if (dynamic_cast<DrugComponent*>(object->getComponentList()->at(i)) != nullptr)
 			{
 				//inList = true;
+				object->setMovementSpeed(190.0f);///////////////////////this is not pretty but needs to be fixed god hates me!!!!
 				object->removeComponent(object->getComponentList()->at(i)->getComponentID());
 				//delete object->getComponentList()->at(i);
 			}
