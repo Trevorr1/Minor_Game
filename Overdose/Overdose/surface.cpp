@@ -3,7 +3,7 @@
 #include "freeimage.h"
 
 
-
+	std::map<std::string, FIBITMAP*> Surface::imageCache;
 	void NotifyUser(char* s);
 
 	// -----------------------------------------------------------
@@ -30,28 +30,38 @@
 		m_Buffer(NULL),
 		m_Width(0), m_Height(0)
 	{
-		FILE *f;
-		//FILE* f = fopen_s(&fis, a_File, "rb");
-		errno_t errorCode = fopen_s(&f, a_File, "rb");
-		if (!f)
-		{
-			char t[128];
-			sprintf_s(t, "File not found: %s", a_File);
-			NotifyUser(t);
-			return;
+		if (!isCacheHit(a_File)) {
+			FILE *f;
+			//FILE* f = fopen_s(&fis, a_File, "rb");
+			errno_t errorCode = fopen_s(&f, a_File, "rb");
+			if (!f)
+			{
+				char t[128];
+				sprintf_s(t, "File not found: %s", a_File);
+				NotifyUser(t);
+				return;
+			}
+			else fclose(f);
 		}
-		else fclose(f);
 		LoadImage(a_File);
 	}
 
 	void Surface::LoadImage(char* a_File)
 	{
-		FREE_IMAGE_FORMAT fif = FIF_UNKNOWN;
-		fif = FreeImage_GetFileType(a_File, 0);
-		if (fif == FIF_UNKNOWN) fif = FreeImage_GetFIFFromFilename(a_File);
-		FIBITMAP* tmp = FreeImage_Load(fif, a_File);
-		FIBITMAP* dib = FreeImage_ConvertTo32Bits(tmp);
-		FreeImage_Unload(tmp);
+		FIBITMAP* dib;
+		if (!isCacheHit(a_File)) {
+			FREE_IMAGE_FORMAT fif = FIF_UNKNOWN;
+			fif = FreeImage_GetFileType(a_File, 0);
+			if (fif == FIF_UNKNOWN) fif = FreeImage_GetFIFFromFilename(a_File);
+			FIBITMAP* tmp = FreeImage_Load(fif, a_File);
+			dib = FreeImage_ConvertTo32Bits(tmp);
+			FreeImage_Unload(tmp);
+			insertIntoCache(a_File, dib);
+		}
+		else {
+			dib = loadFromCache(a_File);
+		}
+
 		unsigned char* bits = FreeImage_GetBits(dib);
 		m_Width = m_Pitch = FreeImage_GetWidth(dib);
 		m_Height = FreeImage_GetHeight(dib);
@@ -67,12 +77,40 @@
 
 	}
 
+	bool Surface::isCacheHit(std::string path) {
+		return imageCache.count(path) > 0;
+	}
+
+	FIBITMAP* Surface::loadFromCache(std::string path) {
+		FIBITMAP* bitmap = imageCache.at(path);
+
+		return FreeImage_Clone(bitmap);
+	}
+
+	void Surface::insertIntoCache(std::string path, FIBITMAP* dib) {
+
+		FIBITMAP* clone = FreeImage_Clone(dib);
+
+		std::pair<std::string, FIBITMAP*> pair = std::pair<std::string, FIBITMAP*>(path, clone);
+		imageCache.insert(pair);
+	}
+
 	void Surface::WriteText(char* text, int x, int y) {
 	
 		if (!m_Font){
 			m_Font = new Font("assets/fonts/font.tga", "1234567890abcdefghijklmnopqrstuvwxyz");
 		}
 		m_Font->Print(this, text, x, y);
+	}
+
+	void Surface::flushImageCache() {
+		std::map <std::string, FIBITMAP*>::iterator it = imageCache.begin();
+
+		for (; it != imageCache.end(); it++) {
+			FreeImage_Unload(it->second);
+		}
+
+		imageCache.clear();
 	}
 
 	Surface::~Surface()

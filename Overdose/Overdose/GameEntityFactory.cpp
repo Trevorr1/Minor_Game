@@ -82,7 +82,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new FPSDrawComponent());
 		break;
 	case Player:
-		newObject->setMovementSpeed(110.0f);
+		newObject->setMovementSpeed(190.0f);
 		newObject->addComponent(new PlayerInputComponent());
 		newObject->addComponent(new MoveComponent());
 		newObject->addComponent(new CollisionComponent());
@@ -176,21 +176,18 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		break;
 
 	case ButtonPlayAgain:
-		ScoreboardManager::getInstance().resetTimer();
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(level1));
 		newObject->addComponent(new DrawComponent("assets/buttons/button_play_again.png"));
 		newObject->addComponent(new MouseOverEffectComponent);
 		break;
 	case ButtonPlayAgainGreen:
-		ScoreboardManager::getInstance().resetTimer();
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(level1));
 		newObject->addComponent(new DrawComponent("assets/buttons/button_play_again_green.jpg"));
 		newObject->addComponent(new MouseOverEffectComponent);
 		break;
 	case ButtonMainMenu:
-		ScoreboardManager::getInstance().resetTimer();
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(LevelMainMenu));
 		newObject->addComponent(new DrawComponent("assets/buttons/button_main_menu.png"));

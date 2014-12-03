@@ -14,6 +14,10 @@ HighScore::HighScore()
 HighScore::~HighScore()
 {
 	delete m_Background;
+	for (int i = 0; i < toDelete.size(); i++)
+	{
+		free(toDelete.at(i));
+	}
 }
 
 void HighScore::Init()
@@ -56,7 +60,7 @@ void HighScore::Init()
 		std::transform(player_name.begin(), player_name.end(), player_name.begin(), ::tolower);
 
 		std::string to_char = std::to_string(i) + " " + player_name + " " + std::to_string(int(score)) + " seconds ";
-		char* highscore = _strdup(to_char.c_str()); //convert to char //changed strdup to _strdup Ricardo
+		char *highscore = _strdup(to_char.c_str()); //convert to char //changed strdup to _strdup Ricardo
 
 		TextGameEntity* text = new TextGameEntity(highscore);
 
@@ -65,13 +69,15 @@ void HighScore::Init()
 		text->setHeight(15);
 		posY += 40;
 		addEntities(text);
+
+		toDelete.push_back(highscore);
 	}
+
 
 	GameEntity* button = GameEntityFactory::getInstance().getGameEntity(ButtonMainMenuGreen);
 	button->setPosX(320);
 	button->setPosY(380);
 	addEntities(button);
-
 }
 
 bool HighScore::isGameOver() {

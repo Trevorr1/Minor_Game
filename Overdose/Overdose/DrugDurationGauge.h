@@ -18,9 +18,14 @@ namespace overdose {
 
 		void setState(eDrugGaugeState state) { m_State = state; }
 
+		void setFilePath(std::string filePath) { m_filePath = filePath; }
+
 	private:
 		float m_GaugeValue;
 		Surface* m_Bar;
 		eDrugGaugeState m_State;
+		std::string m_filePath;
+
+		HUDEntity* drugEntity;
 	};
 }

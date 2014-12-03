@@ -18,6 +18,8 @@ namespace overdose {
 
 		float m_invincibleTime = 0;
 
+		bool firstBlood = false;
+
 	public:
 		HealthComponent(int health);
 		HealthComponent(int health, vector<ComponentMessage> *healthDecreaseReactionList, vector<eGameEntity>* canHurt);
