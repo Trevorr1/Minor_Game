@@ -50,6 +50,9 @@ GameEntity* ILevel::getPlayerEntity()
 GameEntity* ILevel::takePlayerEntity()
 {
 	GameEntity* player = getPlayerEntity();
+	player->setSpeedX(0.0f);
+	player->setSpeedY(0.0f);
+	player->setMovementSpeed(190.0f); /* HARDCODED: Must fix this */
 
 	if (player != nullptr)
 	{
