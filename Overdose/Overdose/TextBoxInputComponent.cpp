@@ -6,7 +6,6 @@ using namespace overdose;
 
 TextBoxInputComponent::TextBoxInputComponent()
 {
-	ScoreboardManager::getInstance().stopTimer();
 	Init();
 }
 
