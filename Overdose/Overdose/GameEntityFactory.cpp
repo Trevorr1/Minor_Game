@@ -45,7 +45,6 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 
 	switch (entityEnum){
 	case Policeman:
-	{
 		newObject->setSpeedX(110.0f);
 		//	newObject->addComponent(*new DummyComponent());
 
@@ -68,7 +67,6 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		animation->setAnimation(WalkLeft);//set starting animation
 		newObject->addComponent(animation);
 		break;
-	}
 	case Drugdealer:
 		//	newObject->addComponent(*new DummyComponent());
 		break;
@@ -234,7 +232,6 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		break;
 
 	case Advertisement_GameEntity:
-	{
 		GameEntity* closeButton = new GameEntity();
 		std::map<eAnimationState, Animation*>* animations2;
 		animations2 = new std::map<eAnimationState, Animation*>();
@@ -247,7 +244,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		closeButton->addComponent(new DeleteEntityClickComponent());
 
 		delete newObject;
-		Advertisement* newObject = new Advertisement(entityEnum, closeButton);
+		newObject = new Advertisement(entityEnum, closeButton);
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new URLClickComponent("https://www.google.nl/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=klm"));
 		animations = new std::map<eAnimationState, Animation*>();
@@ -260,8 +257,6 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		//animations2 = nullptr;
 		//animation2 = nullptr;
 		break;
-	}
-
 
 
 	default:
