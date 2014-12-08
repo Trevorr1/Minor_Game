@@ -55,6 +55,7 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 	}
 	if (collidedLeft)
 	{
+		entity->resetAcclX();
 		entity->setSpeedX(0);
 
 		colX = (int)m_Left->getPosX();
@@ -77,6 +78,7 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 	}
 	if (collidedRight)
 	{
+		entity->resetAcclX();
 		entity->setSpeedX(0);
 
 		colX = (int)m_Right->getPosX();

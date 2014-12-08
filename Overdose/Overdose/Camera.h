@@ -9,7 +9,7 @@ namespace overdose
 	class Camera
 	{
 	public:
-		Camera();
+		Camera(int levelWidth = 940);
 		virtual ~Camera();
 
 		void Tick(float dt);
@@ -34,6 +34,7 @@ namespace overdose
 
 		unsigned int m_WorldCameraPositionX;
 		unsigned int m_WorldCameraPositionY;
+		unsigned int m_LevelWidth;
 	};
 }
 

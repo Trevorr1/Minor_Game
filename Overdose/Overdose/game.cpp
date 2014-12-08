@@ -30,7 +30,7 @@ void Game::Init()
 void Game::Tick(float a_DT)
 {
 	LevelManager::getInstance().Tick(a_DT);
-	InputManager::getInstance().clearKeyBuffer();
+	//InputManager::getInstance().clearKeyBuffer();
 	InputManager::getInstance().clearMouseBuffer();
 
 	if (InputManager::getInstance().isKeyPressedOnce(SDL_SCANCODE_M)){

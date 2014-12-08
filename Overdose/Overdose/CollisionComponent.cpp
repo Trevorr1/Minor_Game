@@ -39,6 +39,9 @@ void CollisionComponent::tick(float dt, GameEntity *entity)
 	int width = (int)entity->getWidth();
 	int height = (int)entity->getHeight();
 
+	int centerX = (int)(posx + (1.0f * width / 2));
+	int centerY = (int)(posy + (1.0f * height / 2));
+
 	int wstep = (int)(width * 1.0 / 8);
 	int hstep = (int)(height * 1.0 / 3);
 
@@ -49,7 +52,11 @@ void CollisionComponent::tick(float dt, GameEntity *entity)
 	nextY *= dt;
 
 	float vectorLength;
+	float vectorLengthX;
+	float vectorLengthY;
 	int segment;
+	int segmentX;
+	int segmentY;
 	float projectedMoveX, projectedMoveY;
 	std::map<ComponentMessage, GameEntity*> messages;
 
@@ -160,43 +167,84 @@ void CollisionComponent::tick(float dt, GameEntity *entity)
 
 			// Calculate the length of the movement vector using Pythagoras
 			vectorLength = sqrt(nextX * nextX + nextY * nextY);
-			segment = 0;
+			vectorLengthX = abs(nextX);
+			vectorLengthY = abs(nextY);
+			segment = segmentX = segmentY = 0;
 
 			// Advance along the vector until it intersects with some geometry
 			// or we reach the end
-			while (!((cPoints[dir]->first.x + projectedMoveX > oposx && cPoints[dir]->first.x + projectedMoveX < oboxw) && (cPoints[dir]->first.y + projectedMoveY > oposy && cPoints[dir]->first.y + projectedMoveY < oboxh)
-				|| (cPoints[dir]->second.x + projectedMoveX > oposx && cPoints[dir]->second.x + projectedMoveX < oboxw) && (cPoints[dir]->second.y + projectedMoveY > oposy && cPoints[dir]->second.y + projectedMoveY < oboxh))
-				&& segment < vectorLength)
+			while (!((centerX + projectedMoveX > oposx && centerX + projectedMoveX < oboxw)
+				&& (centerY + projectedMoveY > oposy && centerY + projectedMoveY < oboxh))
+				&& (segment < vectorLength))
 			{
-				projectedMoveX += (nextX / vectorLength);
-				projectedMoveY += (nextY / vectorLength);
+				projectedMoveX += (nextX / vectorLengthX);
+				segmentX++;
+				projectedMoveY += (nextY / vectorLengthY);
+				segmentY++;
+
 				segment++;
 			}
-
-			// If an intersection occurred...
+/*
+			while (!((centerY + projectedMoveY > oposy && centerY + projectedMoveY < oboxh))
+				&& (segmentY < vectorLengthY))
+			{
+				projectedMoveY += (nextY / vectorLengthY);
+				segmentY++;
+			}*/
 			if (segment < vectorLength)
 			{
-				// Adjust the X or Y component of the vector depending on
-				// which direction we are currently testing
-				if (dir >= 2)
+				if (segmentX < vectorLengthX)
 				{
-					// Apply correction for over-movement
-					if (other->getEnum() == Environment || other->getEnum() == Grass && dir == 3)
+					if (projectedMoveX != 0.0f)
 					{
-						int stop = 0;
+		 				projectedMoveX -= (nextX / vectorLengthX);
+						projectedMoveX /= dt;
+						entity->setAcclX(projectedMoveX);
 					}
-					projectedMoveX -= (nextX / vectorLength);
-					projectedMoveX /= dt;
-					entity->setSpeedX(projectedMoveX);
 				}
-				if (dir <= 1)
+
+				if (segmentY < vectorLengthY)
 				{
-					// Apply correction for over-movement
-					projectedMoveY -= (nextY / vectorLength);
-					projectedMoveY /= dt;
-					entity->setSpeedY(projectedMoveY);
+					if (projectedMoveY != 0.0f)
+					{
+						projectedMoveY -= (nextY / vectorLengthY);
+						projectedMoveY /= dt;
+						entity->setSpeedY(projectedMoveY);
+					}
 				}
 			}
+
+			/*while (!((cPoints[dir]->first.x + projectedMoveX > oposx && cPoints[dir]->first.x + projectedMoveX < oboxw) && (cPoints[dir]->first.y + projectedMoveY > oposy && cPoints[dir]->first.y + projectedMoveY < oboxh)
+			|| (cPoints[dir]->second.x + projectedMoveX > oposx && cPoints[dir]->second.x + projectedMoveX < oboxw) && (cPoints[dir]->second.y + projectedMoveY > oposy && cPoints[dir]->second.y + projectedMoveY < oboxh))
+			&& segment < vectorLength)
+			{
+			projectedMoveX += (nextX / vectorLength);
+			projectedMoveY += (nextY / vectorLength);
+			segment++;
+			}*/
+
+			// If an intersection occurred...
+
+
+			//if (segment < vectorLength)
+			//{
+			//	// Adjust the X or Y component of the vector depending on
+			//	// which direction we are currently testing
+			//	if (dir >= 2)
+			//	{
+			//		// Apply correction for over-movement
+			//		projectedMoveX -= (nextX / vectorLength);
+			//		projectedMoveX /= dt;
+			//		entity->setSpeedX(projectedMoveX);
+			//	}
+			//	if (dir <= 1)
+			//	{
+			//		// Apply correction for over-movement
+			//		projectedMoveY -= (nextY / vectorLength);
+			//		projectedMoveY /= dt;
+			//		entity->setSpeedY(projectedMoveY);
+			//	}
+			//}
 		}
 	}
 }

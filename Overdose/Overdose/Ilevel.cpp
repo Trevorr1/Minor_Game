@@ -2,21 +2,35 @@
 #include "ILevel.h"
 #include "GameEntityFactory.h"
 
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+
 using namespace overdose;
 
 ILevel::ILevel()
 {
+
+	m_WorldSizeX = 940;
+	m_WorldSizeY = 480;
 	GameEntity *fpsCounter = GameEntityFactory::getInstance().getGameEntity(eGameEntity::FPSCounter);
 	this->addEntities(fpsCounter);
 
-	createLevel(940, 480); //maybe let this return the created surface?
+	createLevel(m_WorldSizeX, m_WorldSizeY); //maybe let this return the created surface?
 }
 
 void ILevel::addEntities(GameEntity* entities)
 {
+	/* //Used this snippet code to get all the objects enum code & position (Bas)
+	printf(std::to_string((int)entities->getEnum()).c_str());
+	printf(" ");
+	printf((std::to_string((int)entities->getPosX())).c_str());
+	printf(" ");
+	printf((std::to_string((int)entities->getPosY())).c_str());
+	printf("\n");
+	*/
 	this->entities->push_back(entities);
-
-
 }
 
 void ILevel::scheduleEntityForInsertion(GameEntity* entity) {
@@ -47,6 +61,9 @@ GameEntity* ILevel::getPlayerEntity()
 GameEntity* ILevel::takePlayerEntity()
 {
 	GameEntity* player = getPlayerEntity();
+	player->setSpeedX(0.0f);
+	player->setSpeedY(0.0f);
+	player->setMovementSpeed(190.0f); /* HARDCODED: Must fix this */
 
 	if (player != nullptr)
 	{
@@ -91,8 +108,14 @@ void ILevel::removeDrugComponents(GameEntity* player){
 
 void ILevel::DrawBackground()
 {
-	m_Background->CopyTo(DrawManager::getInstance().getLevelSurface(), 0, 0); //copy to origin
-	m_Background->CopyTo(DrawManager::getInstance().getLevelSurface(), 940, 0); //recopy to extend the level
+	int levelWidth = m_WorldSizeX;
+	int position = 0;
+	int positionSteps = m_Background->GetWidth();
+	while (levelWidth > 0){
+		m_Background->CopyTo(DrawManager::getInstance().getLevelSurface(), position, 0); //copy to origin
+		position += positionSteps;
+		levelWidth -= positionSteps;
+	}
 }
 
 void ILevel::Tick(float dt)
@@ -191,13 +214,36 @@ ILevel::~ILevel()
 
 
 
-void ILevel::addGrassBlock(int xOffset, int yOffset, int width, int height)
-{
-	for (int i = 0; i < width; i++){
-		for (int j = 0; j < height; j++){
-			GameEntity* grass = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
-			grass->setStartingPosition(xOffset + 32 * (i), yOffset - 32 * j);
-			this->addEntities(grass);
+
+void ILevel::loadXML(int level){
+
+	std::string line;
+	int enemy;
+	int x;
+	int y;
+
+	const std::string textfile("assets/levels/level" + std::to_string(level) + ".txt");
+	// input file stream, opent textfile voor lezen
+	std::ifstream input_file(textfile);
+
+	while (getline(input_file, line)){
+		if ((line[0] == '/') &&
+			(line[1] == '/')){
+			continue;
 		}
+		else if (line == ""){
+			continue;
+		}
+		
+		std::istringstream iss(line);
+		std::vector<std::string> tokens{ std::istream_iterator<std::string>{iss}, std::istream_iterator<std::string>{} };
+		enemy = atoi(tokens.at(0).c_str());
+		x = atoi(tokens.at(1).c_str());
+		y = atoi(tokens.at(2).c_str());
+
+		GameEntity* GameEntity = GameEntityFactory::getInstance().getGameEntity((eGameEntity)enemy);
+		GameEntity->setStartingPosition(x, y);
+		this->addEntities(GameEntity);
+
 	}
 }

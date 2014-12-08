@@ -13,8 +13,10 @@ using namespace overdose;
 
 Level2::Level2()
 {
-	m_Camera = new Camera();
-	createLevel(940 * 2, 480); //create the level here widthx height
+	m_WorldSizeX = 1880;
+	m_WorldSizeY = 480;
+	m_Camera = new Camera(m_WorldSizeX);
+	createLevel(m_WorldSizeX, m_WorldSizeY); //create the level here widthx height
 }
 
 Level2::Level2(GameEntity* player)
@@ -74,124 +76,16 @@ void Level2::Init()
 	};
 
 	this->addEntities(m_Player);//(TODO: check if already is in this list??!)
-	m_Player->setStartingPosition(100, 410 - 53 - 100); //set to world coordinates
+	m_Player->setStartingPosition(100, 257); //set to world coordinates
 	m_Camera->setEntityFocus(m_Player);
 
-	//m_Camera->setTileAssets(m_Tiles);
-	//m_Camera->setTileMap(tileMap, 12 * 32);
+	
+	loadXML(2);
 
 	GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
-	entityCop->setStartingPosition(500, 410 - 54);
+	entityCop->setStartingPosition(500, 356);
 	entityCop->addComponent(new EnemyMoveComponent(360, 630));
 	this->addEntities(entityCop);
-
-
-
-	////GameEntity *entityDrugMarijuana = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Drug_Marijuana);
-	////entityDrugMarijuana->setPosX(450);
-	////entityDrugMarijuana->setPosY(410 - 60);
-	////entityDrugMarijuana->setSpeedX(0);
-	////entityDrugMarijuana->setSpeedY(0);
-	////this->addEntities(entityDrugMarijuana);
-
-	////GameEntity *entityDrugXTC = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Drug_XTC);
-	////entityDrugXTC->setPosX(300);
-	////entityDrugXTC->setPosY(410 - 30);
-	////entityDrugXTC->setSpeedX(0);
-	////entityDrugXTC->setSpeedY(0);
-	////this->addEntities(entityDrugXTC);
-
-	GameEntity *entityAdvertisement = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Advertisement_GameEntity);
-	entityAdvertisement->setStartingPosition(50, 50);
-	entityAdvertisement->setSpeedX(0);
-	entityAdvertisement->setSpeedY(0);
-	this->addEntities(entityAdvertisement);
-
-	int	previousGrassWall = 0;
-	int grassWall = 20;
-	for (int i = 0; i < grassWall; i++){
-		GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
-		grass1->setStartingPosition(50 + 32 * i, 410);
-		this->addEntities(grass1);
-	}
-
-	GameEntity *entityDrugSpeed = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Drug_Speed);
-	entityDrugSpeed->setStartingPosition(50 + 32 * 5, 410 - 30);
-	entityDrugSpeed->setSpeedX(0);
-	entityDrugSpeed->setSpeedY(0);
-	this->addEntities(entityDrugSpeed);
-
-	previousGrassWall += grassWall;
-	grassWall = 3;
-	for (int i = 0; i < grassWall; i++){
-		for (int j = 0; j < 4; j++){
-			GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
-			grass1->setStartingPosition(50 + 32 * (i + previousGrassWall), 410 - 32 * j);
-			this->addEntities(grass1);
-		}
-	}
-	previousGrassWall += grassWall;
-	grassWall = 3;
-	for (int i = 0; i < grassWall; i++){
-		for (int j = 0; j < 7; j++){
-			GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
-			grass1->setStartingPosition(50 + 32 * (i + previousGrassWall), 410 - 32 * j);
-			this->addEntities(grass1);
-		}
-	}
-	previousGrassWall += grassWall;
-	grassWall = 3;
-	for (int i = 0; i < grassWall; i++){
-		for (int j = 0; j < 10; j++){
-			GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
-			grass1->setStartingPosition(50 + 32 * (i + previousGrassWall), 410 - 32 * j);
-			this->addEntities(grass1);
-		}
-	}
-
-	previousGrassWall += 1;//Empty space
-
-	previousGrassWall += grassWall;
-	grassWall = 5;
-	for (int i = 0; i < grassWall; i++){
-		GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
-		grass1->setStartingPosition(50 + 32 * (i + previousGrassWall), 410 - 32 * 10);
-		this->addEntities(grass1);
-	}
-
-	previousGrassWall += 1;//Empty space
-
-	previousGrassWall += grassWall;
-	grassWall = 5;
-	for (int i = 0; i < grassWall; i++){
-		GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
-		grass1->setStartingPosition(50 + 32 * (i + previousGrassWall), 410 - 32 * 10);
-		this->addEntities(grass1);
-	}
-	
-	previousGrassWall += grassWall;
-	grassWall = 10;
-	for (int i = 0; i < grassWall; i++){
-		GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
-		grass1->setStartingPosition(50 + 32 * (i + previousGrassWall), 410 - 32 * 10 + 32 * i);
-		this->addEntities(grass1);
-	}
-
-	previousGrassWall += 2;//Empty space
-
-	previousGrassWall += grassWall;
-	grassWall = 1;
-	for (int i = 0; i < grassWall; i++){
-		GameEntity* grass1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
-		grass1->setStartingPosition(50 + 32 * (i + previousGrassWall), 410);
-		this->addEntities(grass1);
-	}
-
-	previousGrassWall += grassWall;
-	GameEntity *flaggot = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Flag);
-	flaggot->setStartingPosition(50 + 32 * previousGrassWall - 29, 410 - 32 * 4 + 17);
-	this->addEntities(flaggot);
-
 
 	SoundManager::getInstance().StopMusic();
 	SoundManager::getInstance().PlayMusic(eMusic::Street);

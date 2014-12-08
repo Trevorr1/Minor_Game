@@ -39,7 +39,7 @@ GameEntityFactory &GameEntityFactory::getInstance(){
 GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 
 	GameEntity* newObject = new GameEntity(entityEnum);
-	
+
 	std::map<eAnimationState, Animation*>* animations;
 	DrawComponent* animation = nullptr;
 
@@ -89,7 +89,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new gravityComponent());
 		newObject->addComponent(new KnockBackComponent());
 		newObject->addComponent(new HealthComponent(3));
-		newObject->addComponent(new ParticleComponent(Blood, 0.01, 0.5, 0.5));
+		//newObject->addComponent(new ParticleComponent(Blood, 0.01, 0.5, 0.5));
 		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ IdleLeft, new Animation("assets/sprites/Ross/RossIdleLeft.png", 1) });
 		animations->insert({ IdleRight, new Animation("assets/sprites/Ross/RossIdleRight.png", 1) });
@@ -130,7 +130,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new DrugCollisionReactionComponent());
 		animations = new std::map<eAnimationState, Animation*>();
-		animations->insert({ Default, new Animation("assets/sprites/drug_marijuana_30x30.png", 1) });
+		animations->insert({ Default, new Animation("assets/sprites/drug_marijuana_30x30-2.png", 1) });
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
 		newObject->addComponent(animation);
@@ -191,14 +191,14 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new ButtonClickableReactionComponent(LevelMainMenu));
 		newObject->addComponent(new DrawComponent("assets/buttons/button_main_menu.png"));
 		newObject->addComponent(new MouseOverEffectComponent);
-		
+
 		break;
 	case ButtonMainMenuGreen:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(LevelMainMenu));
 		newObject->addComponent(new DrawComponent("assets/buttons/button_main_menu_green.jpg"));
 		newObject->addComponent(new MouseOverEffectComponent);
-		
+
 		break;
 	case ButtonQuitGame:
 		newObject->addComponent(new ClickableComponent());
