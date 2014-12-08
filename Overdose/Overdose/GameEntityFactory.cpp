@@ -74,7 +74,6 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		break;
 	case TextBox:
 		newObject->addComponent(new DrawComponent("assets/sprites/TextBox.png"));
-		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new TextBoxInputComponent());
 
 		break;

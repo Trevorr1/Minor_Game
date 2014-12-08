@@ -19,7 +19,7 @@ void TextBoxInputComponent::tick(float dt, GameEntity *entity)
 	Surface *surface = DrawManager::getInstance().getLevelSurface();
 	/*surface->WriteText("test", (int)entity->getPosX(), (int)entity->getPosY());*/
 
-	if (clicked && !text_typed)
+	if (!text_typed)
 	{
 		typedef std::map<int, std::string>::iterator iterator_type;
 		for (iterator_type iterator = sdlKeyCodes->begin(); iterator != sdlKeyCodes->end(); iterator++)
@@ -58,11 +58,7 @@ void TextBoxInputComponent::receive(Component *subject, ComponentMessage message
 {
 	if (object->getEnum() == eGameEntity::TextBox)
 	{
-		if (message == ClickableComponent_CLICK)
-		{
-			clicked = true;
-		}
-		else if (message = TextBoxInputComponent_TEXT_TYPED)
+		if (message = TextBoxInputComponent_TEXT_TYPED)
 		{
 			text_typed = true;
 			object->removeComponent("DrawComponent");
