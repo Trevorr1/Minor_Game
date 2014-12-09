@@ -2,6 +2,11 @@
 #include "ILevel.h"
 #include "GameEntityFactory.h"
 
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+
 using namespace overdose;
 
 ILevel::ILevel()
@@ -17,9 +22,15 @@ ILevel::ILevel()
 
 void ILevel::addEntities(GameEntity* entities)
 {
+	/* //Used this snippet code to get all the objects enum code & position (Bas)
+	printf(std::to_string((int)entities->getEnum()).c_str());
+	printf(" ");
+	printf((std::to_string((int)entities->getPosX())).c_str());
+	printf(" ");
+	printf((std::to_string((int)entities->getPosY())).c_str());
+	printf("\n");
+	*/
 	this->entities->push_back(entities);
-
-
 }
 
 void ILevel::scheduleEntityForInsertion(GameEntity* entity) {
@@ -203,13 +214,36 @@ ILevel::~ILevel()
 
 
 
-void ILevel::addGrassBlock(int xOffset, int yOffset, int width, int height)
-{
-	for (int i = 0; i < width; i++){
-		for (int j = 0; j < height; j++){
-			GameEntity* grass = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Grass);
-			grass->setStartingPosition(xOffset + 32 * (i), yOffset - 32 * j);
-			this->addEntities(grass);
+
+void ILevel::loadXML(int level){
+
+	std::string line;
+	int enemy;
+	int x;
+	int y;
+
+	const std::string textfile("assets/levels/level" + std::to_string(level) + ".txt");
+	// input file stream, opent textfile voor lezen
+	std::ifstream input_file(textfile);
+
+	while (getline(input_file, line)){
+		if ((line[0] == '/') &&
+			(line[1] == '/')){
+			continue;
 		}
+		else if (line == ""){
+			continue;
+		}
+		
+		std::istringstream iss(line);
+		std::vector<std::string> tokens{ std::istream_iterator<std::string>{iss}, std::istream_iterator<std::string>{} };
+		enemy = atoi(tokens.at(0).c_str());
+		x = atoi(tokens.at(1).c_str());
+		y = atoi(tokens.at(2).c_str());
+
+		GameEntity* GameEntity = GameEntityFactory::getInstance().getGameEntity((eGameEntity)enemy);
+		GameEntity->setStartingPosition(x, y);
+		this->addEntities(GameEntity);
+
 	}
 }

@@ -1,7 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include <vector>
-#include <iostream>
+
 #include "GameEntity.h"
 #include "Camera.h"
 #include "surface.h"
@@ -61,7 +61,7 @@ namespace overdose {
 		bool m_IsGameWon = false;
 		bool m_IsReloadLevel = false;
 
-		void ILevel::addGrassBlock(int xOffset, int yOffset, int width, int height);
+		void loadXML(int level);
 
 	};
 }

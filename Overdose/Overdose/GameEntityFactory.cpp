@@ -74,7 +74,6 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		break;
 	case TextBox:
 		newObject->addComponent(new DrawComponent("assets/sprites/TextBox.png"));
-		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new TextBoxInputComponent());
 
 		break;
@@ -131,7 +130,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new DrugCollisionReactionComponent());
 		animations = new std::map<eAnimationState, Animation*>();
-		animations->insert({ Default, new Animation("assets/sprites/drug_marijuana_30x30.png", 1) });
+		animations->insert({ Default, new Animation("assets/sprites/drug_marijuana_30x30-2.png", 1) });
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
 		newObject->addComponent(animation);
