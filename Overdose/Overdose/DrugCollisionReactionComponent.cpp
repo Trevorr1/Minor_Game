@@ -56,6 +56,7 @@ void DrugCollisionReactionComponent::tick(float dt, GameEntity *entity) {
 	//delete this Drug, when collided
 	if (isCollided){
 		entity->scheduleForRemoval();
+		SoundManager::getInstance().PlaySound(PickUp);
 	}
 
 	if (drugComponent == nullptr){	

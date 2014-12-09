@@ -1,6 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "CollisionReactionComponent.h"
+#include "SoundManager.h"
 #include "DrugComponent.h"
 
 

@@ -91,6 +91,7 @@ void CollisionReactionComponent::receiveMessageBatch(Component *subject, std::ma
 			break;
 		case CollissionComponent_REACTION_BOTTOM:
 			reactBottom = true;
+			m_Bot = it->second;
 			break;
 		case CollissionComponent_REACTION_LEFT:
 			reactLeft = true;
