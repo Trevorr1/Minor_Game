@@ -123,6 +123,9 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 	if (InputManager::getInstance().isKeyPressedOnce(SDL_SCANCODE_F1)) {
 		LevelManager::getInstance().getCurrentLevel()->setGameWon();
 	}
+	if (InputManager::getInstance().isKeyPressedOnce(SDL_SCANCODE_F5)) {
+		LevelManager::getInstance().getCurrentLevel()->setReloadLevel();
+	}
 }
 
 std::string PlayerInputComponent::getComponentID(){

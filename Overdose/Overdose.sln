@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Overdose", "Overdose\Overdose.vcxproj", "{00A7D60C-8F9C-4F88-AD7B-610FA4E26EC1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OverdoseLevelEditor", "OverdoseLevelEditor\OverdoseLevelEditor.vcxproj", "{C753B35B-0BB3-4920-B9BC-40E93093A45A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -15,6 +17,10 @@ Global
 		{00A7D60C-8F9C-4F88-AD7B-610FA4E26EC1}.Debug|Win32.Build.0 = Debug|Win32
 		{00A7D60C-8F9C-4F88-AD7B-610FA4E26EC1}.Release|Win32.ActiveCfg = Release|Win32
 		{00A7D60C-8F9C-4F88-AD7B-610FA4E26EC1}.Release|Win32.Build.0 = Release|Win32
+		{C753B35B-0BB3-4920-B9BC-40E93093A45A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C753B35B-0BB3-4920-B9BC-40E93093A45A}.Debug|Win32.Build.0 = Debug|Win32
+		{C753B35B-0BB3-4920-B9BC-40E93093A45A}.Release|Win32.ActiveCfg = Release|Win32
+		{C753B35B-0BB3-4920-B9BC-40E93093A45A}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
