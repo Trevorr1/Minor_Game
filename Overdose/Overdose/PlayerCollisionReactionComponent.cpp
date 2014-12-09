@@ -138,9 +138,14 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 	}
 	if (reactBottom)
 	{
-		entity->setSpeedY(0);
-		entity->setJumping(false);
-		entity->setFalling(false);
+		//entity->setSpeedY(0);
+		//entity->setJumping(false);
+		//entity->setFalling(false);
+
+		/*colX = (int)m_Bot->getPosX();
+		colY = (int)m_Bot->getPosY();
+		colBoxX = colX + (int)m_Bot->getWidth();
+		colBoxY = colY + (int)m_Bot->getHeight();
 
 		while (!clear)
 		{
@@ -149,11 +154,12 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 			posy = entity->getPosY();
 			boxY = (int)posy + (int)entity->getHeight();
 
+
 			if (!(boxY > colY && boxY < colBoxY))
 			{
 				clear = true;
 			}
-		}
+		}*/
 		reactBottom = false;
 	}
 	if (reactLeft)
