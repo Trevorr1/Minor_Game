@@ -55,6 +55,7 @@ namespace overdose {
 		Surface* m_Background;
 		GameEntity* m_Player = nullptr;
 		HUD* hud = nullptr;
+		GameEntity* m_FpsCounter = nullptr;
 		Camera* m_Camera;
 
 

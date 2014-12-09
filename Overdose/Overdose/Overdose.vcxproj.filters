@@ -476,9 +476,6 @@
     <ClCompile Include="ScheduleForRemovalFlag.cpp">
       <Filter>Source Files\Util</Filter>
     </ClCompile>
-    <ClCompile Include="NegativeMarijuanaComponent.cpp">
-      <Filter>Source Files\Component</Filter>
-    </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>Source Files\Camera</Filter>
     </ClCompile>
@@ -569,6 +566,9 @@
     </ClCompile>
     <ClCompile Include="Level4.cpp">
       <Filter>Source Files\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="NegativeMarijuanaComponent.cpp">
+      <Filter>Source Files\Drugs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
