@@ -39,6 +39,8 @@ namespace overdose {
 
 		ILevel* level;
 		Surface* surface;
+
+		int timer_particle;
 	};
 }
 

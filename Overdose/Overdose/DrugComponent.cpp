@@ -1,5 +1,6 @@
 #include "DrugComponent.h"
 #include "GameEntity.h"
+#include "ParticleComponent.h"
 
 
 
@@ -11,6 +12,8 @@ DrugComponent::DrugComponent()
 	timer_start = NULL;
 	level = LevelManager::getInstance().getCurrentLevel();
 	surface = LevelManager::getInstance().getCurrentLevel()->getSurface();
+
+	timer_particle = 500;
 }
 
 
@@ -43,6 +46,13 @@ void DrugComponent::tick(float dt, GameEntity *entity) {
 
 	int timer_end = (int)((std::clock() - timer_start) / (double)(CLOCKS_PER_SEC / 1000));
 	int drug_effect_ms = getDrugEffectMs();
+
+	//particle checker
+	if (timer_end > timer_particle){
+		double incr_particle_timer = 1000;
+		timer_particle += incr_particle_timer;
+		entity->delayedAddComponent(new ParticleComponent(SmileyFace, 0.1, incr_particle_timer / 1000, 0.1));
+	}
 
 	// drug timer checker
 	if (timer_end < drug_effect_ms)

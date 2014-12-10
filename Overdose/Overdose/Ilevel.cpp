@@ -14,8 +14,8 @@ ILevel::ILevel()
 
 	m_WorldSizeX = 940;
 	m_WorldSizeY = 480;
-	GameEntity *fpsCounter = GameEntityFactory::getInstance().getGameEntity(eGameEntity::FPSCounter);
-	this->addEntities(fpsCounter);
+	//GameEntity *fpsCounter = GameEntityFactory::getInstance().getGameEntity(eGameEntity::FPSCounter);
+	//this->addEntities(fpsCounter);
 
 	createLevel(m_WorldSizeX, m_WorldSizeY); //maybe let this return the created surface?
 }
@@ -146,14 +146,28 @@ void ILevel::Tick(float dt)
 	if (m_Camera != nullptr)
 		m_Camera->Tick(dt);
 
+	
+	//-After camera Surface is set
+	//|***************************************
 	if (hud != nullptr){
 		hud->tick(dt);
 	}
+
+	if (m_FpsCounter != nullptr){
+		m_FpsCounter->tick(dt);
+	}
+	//***************************************|
 
 	//Create Head-up Display if player exists
 	if (m_Player != nullptr && hud == nullptr){
 		hud = new HUD(m_Player, 20.0f, 20.0f);
 	}
+
+	//Create FPS Counter
+	if (m_FpsCounter == nullptr){
+		m_FpsCounter = GameEntityFactory::getInstance().getGameEntity(eGameEntity::FPSCounter);
+	}
+	
 }
 
 bool ILevel::isGameOver() 
@@ -208,6 +222,7 @@ ILevel::~ILevel()
 	delete insertEntityBuffer;
 
 	delete hud;
+	delete m_FpsCounter;
 
 	Surface::flushImageCache();
 }
