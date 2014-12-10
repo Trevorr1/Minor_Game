@@ -113,9 +113,10 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity)
 	if (InputManager::getInstance().isKeyPressed(SDL_SCANCODE_SPACE)) {
 		if (!entity->isJumping())
 		{
+ 			entity->resetGravity();
 			entity->setJumping(true);
 			entity->setFalling(true);
-			entity->setJumpingSpeed(-550.0f);
+			entity->setJumpingSpeed(-700.0f);
 		}
 
 	}

@@ -30,7 +30,7 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 	{
 		entity->setJumping(false);
 		entity->setFalling(false);
-		entity->resetGravity();
+		entity->setSpeedY(0);
 
 		colX = (int)m_Bot->getPosX();
 		colY = (int)m_Bot->getPosY();
@@ -102,7 +102,7 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 	if (collidedTop)
 	{
 		entity->resetGravity();
-		entity->setJumpingSpeed(0);
+		entity->setSpeedY(0);
 
 		colX = (int)m_Top->getPosX();
 		colY = (int)m_Top->getPosY();
