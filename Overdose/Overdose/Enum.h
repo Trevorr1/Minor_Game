@@ -1,7 +1,7 @@
 #pragma once
 namespace overdose {
 	enum eGameEntity {
-		Player, Policeman, DrugAddict, Junky, Drugdealer, FPSCounter, Environment, Drug_Speed, Drug_Marijuana, Drug_XTC, Grass, Flag,
+		Player, Policeman, DrugAddict, Junky, Drugdealer, FPSCounter, Environment, Drug_Speed, Drug_Marijuana, Drug_XTC, Grass, Flag, Urquhart,
 
 		/*Advertisement */
 		Advertisement_GameEntity,
@@ -16,7 +16,10 @@ namespace overdose {
 		Particle,
 
 		/* Text */
-		Text
+		Text,
+
+		/* bullet*/
+		Bullet
 	};
 	enum eFacing {
 		Left, FrontView, Right

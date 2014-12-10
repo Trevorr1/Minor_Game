@@ -97,6 +97,18 @@
     <Filter Include="Source Files\Tiles">
       <UniqueIdentifier>{7684f3d9-882a-42d8-a9cb-1368990c4dca}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Component\AI">
+      <UniqueIdentifier>{ca023f85-fcc6-46f0-b75c-b2b4ca1fdf1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Component\AI\FSM">
+      <UniqueIdentifier>{68da7957-6a52-4e84-a8af-2c4a8c6491cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Component\AI">
+      <UniqueIdentifier>{de7a0411-6ca0-4478-9e33-b0c93c86e409}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Component\AI\FSM">
+      <UniqueIdentifier>{e82d3a3a-a6cc-4b1c-8c50-9a0a8332508a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -345,6 +357,24 @@
     <ClInclude Include="Level4.h">
       <Filter>Header Files\Level</Filter>
     </ClInclude>
+    <ClInclude Include="BossFight.h">
+      <Filter>Header Files\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="AIComponent.h">
+      <Filter>Header Files\Component\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="IFSMBoss.h">
+      <Filter>Header Files\Component\AI\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="FollowState.h">
+      <Filter>Header Files\Component\AI\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="FlyAttackState.h">
+      <Filter>Header Files\Component\AI\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="RangedAttackState.h">
+      <Filter>Header Files\Component\AI\FSM</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -569,6 +599,18 @@
     </ClCompile>
     <ClCompile Include="NegativeMarijuanaComponent.cpp">
       <Filter>Source Files\Drugs</Filter>
+    </ClCompile>
+    <ClCompile Include="AIComponent.cpp">
+      <Filter>Source Files\Component\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="FollowState.cpp">
+      <Filter>Source Files\Component\AI\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="FlyAttackState.cpp">
+      <Filter>Source Files\Component\AI\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="RangedAttackState.cpp">
+      <Filter>Source Files\Component\AI\FSM</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
