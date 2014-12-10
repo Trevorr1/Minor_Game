@@ -15,15 +15,16 @@ void  PlayerInputComponent::receive(Component *subject, ComponentMessage message
 
 void PlayerInputComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages) {}
 
-void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
-
+void  PlayerInputComponent::tick(float dt, GameEntity *entity)
+{
+	float accGrowth = 0.09f;
 	float speedX = entity->getSpeedX();
 	float moveSpeedX = entity->getMovementSpeed();
 
-	float accX = entity->getAcclX(); ////////////////////// new featurs//////////////////////////
+	float accX = entity->getAcclX();
 
 
-	int left = SDL_SCANCODE_LEFT;
+	int left = SDL_SCANCODE_LEFT;// dit mag ook in de init denk ik
 	int right = SDL_SCANCODE_RIGHT;
 
 	int leftPressed = 0, rightPressed = 0;
@@ -52,7 +53,7 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 		}
 		if (accX < moveSpeedX)
 		{
-			accX += moveSpeedX * 0.03f;
+			accX += moveSpeedX * accGrowth;
 		}
 		else
 		{
@@ -83,7 +84,7 @@ void  PlayerInputComponent::tick(float dt, GameEntity *entity) {
 		}
 		if (accX > -moveSpeedX)
 		{
-			accX -= moveSpeedX * 0.03f;
+			accX -= moveSpeedX * accGrowth;
 		}
 		else
 		{

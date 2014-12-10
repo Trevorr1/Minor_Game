@@ -27,14 +27,18 @@ void gravityComponent::receiveMessageBatch(Component *subject, std::map<Componen
 
 void gravityComponent::tick(float dt, GameEntity *entity)
 {
+	float gravityGrowth = 0.25f;
 	if (entity->isJumping() || entity->isFalling())
 	{
 		if (gravity < m_terminalVelocity) // prevents super high gravity
-			gravity += gravity * 0.29f;
+			gravity += gravity * gravityGrowth;
 		//if (gravity < 600.0f) // prevents jumping when walking off ledge
 			//entity->setJumping(true);
 	}
-	else gravity = 1.0f;
+	else
+	{
+		gravity = 1.0f;
+	}
 	entity->setSpeedY(gravity);
 
 }

@@ -28,7 +28,7 @@ namespace overdose {
 		eGameEntity m_EntityEnum;
 		
 		bool m_scheduledForRemoval = false;
-		bool m_jumping = false, m_falling = false;
+		bool m_jumping = false, m_falling = true;
 
 
 		std::vector <int> *componentListToRemove = new std::vector < int >;
@@ -107,6 +107,7 @@ namespace overdose {
 		void resetAcclX(){ m_accelerationX = 0.0f; }
 		void setAcclX(float accl) { m_accelerationX = accl; }
 		float getAcclX() { return m_accelerationX; }
+		void resetGravity() { speedY = 1.0f; }
 
 	};
 

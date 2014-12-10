@@ -30,7 +30,7 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 	{
 		entity->setJumping(false);
 		entity->setFalling(false);
-		entity->setSpeedY(0);
+		entity->resetGravity();
 
 		colX = (int)m_Bot->getPosX();
 		colY = (int)m_Bot->getPosY();
@@ -101,7 +101,7 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 	}
 	if (collidedTop)
 	{
-		entity->setSpeedY(0);
+		entity->resetGravity();
 		entity->setJumpingSpeed(0);
 
 		colX = (int)m_Top->getPosX();
@@ -126,13 +126,13 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 		entity->setSpeedY(0);
 		/*while (!clear)
 		{
-			entity->setPosY(posy + 1);
+		entity->setPosY(posy + 1);
 
-			posy = entity->getPosY();
-			boxY = (int)posy + (int)entity->getHeight();
+		posy = entity->getPosY();
+		boxY = (int)posy + (int)entity->getHeight();
 
-			if (!(posy > colY && posy < colBoxY))
-				clear = true;
+		if (!(posy > colY && posy < colBoxY))
+		clear = true;
 		}*/
 		reactTop = false;
 	}
@@ -149,16 +149,16 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 
 		while (!clear)
 		{
-			entity->setPosY(posy - 1);
+		entity->setPosY(posy - 1);
 
-			posy = entity->getPosY();
-			boxY = (int)posy + (int)entity->getHeight();
+		posy = entity->getPosY();
+		boxY = (int)posy + (int)entity->getHeight();
 
 
-			if (!(boxY > colY && boxY < colBoxY))
-			{
-				clear = true;
-			}
+		if (!(boxY > colY && boxY < colBoxY))
+		{
+		clear = true;
+		}
 		}*/
 		reactBottom = false;
 	}
@@ -167,13 +167,13 @@ void PlayerCollisionReactionComponent::tick(float dt, GameEntity *entity)
 		entity->setSpeedX(0);
 		/*while (!clear)
 		{
-			entity->setPosX(posx + 2);
+		entity->setPosX(posx + 2);
 
-			posx = entity->getPosX();
-			boxX = (int)posx + (int)entity->getWidth();
+		posx = entity->getPosX();
+		boxX = (int)posx + (int)entity->getWidth();
 
-			if (!(posx > colX && posx < colBoxX))
-				clear = true;
+		if (!(posx > colX && posx < colBoxX))
+		clear = true;
 		}*/
 		reactLeft = false;
 	}

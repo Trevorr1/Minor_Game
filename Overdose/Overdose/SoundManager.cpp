@@ -139,7 +139,7 @@ bool SoundManager::loadMedia()
 	gPickUp = Mix_LoadWAV("assets/sfx/coin.wav");
 	if (gOuch == NULL)
 	{
-		printf("Failed to load ouch sound effect! SDL_mixer Error: %s\n", Mix_GetError());
+		printf("Failed to load pick - up sound effect! SDL_mixer Error: %s\n", Mix_GetError());
 		success = false;
 	}
 
