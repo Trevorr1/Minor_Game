@@ -95,6 +95,6 @@ void Level1::Init()
 	this->addEntities(entityCop);
 	
 	SoundManager::getInstance().StopMusic();
-	SoundManager::getInstance().PlayMusic(eMusic::Street);
+	SoundManager::getInstance().PlayMusic(eMusic::BossFight);
 	//SoundManager::getInstance()->PlaySound(eSound::Death);
 }

@@ -38,6 +38,7 @@ SoundManager::~SoundManager()
 	Mix_FreeChunk(gPartyHorn);
 	Mix_FreeChunk(gOuch);
 	Mix_FreeChunk(gPickUp);
+
 	gClick = NULL;
 	gDeath = NULL;
 	gGameOver = NULL;
@@ -49,10 +50,11 @@ SoundManager::~SoundManager()
 	Mix_FreeMusic(gMusicMainMenu);
 	Mix_FreeMusic(gMusicStreet);
 	Mix_FreeMusic(gPeople);
-
+	Mix_FreeMusic(gBossFight);
 	gMusicMainMenu = NULL;
 	gMusicStreet = NULL;
 	gPeople = NULL;
+	gBossFight = NULL;
 
 
 	//Quit SDL subsystems
@@ -97,6 +99,13 @@ bool SoundManager::loadMedia()
 	if (gPeople == NULL)
 	{
 		printf("Failed to load people sound effect! SDL_mixer Error: %s\n", Mix_GetError());
+		success = false;
+	}
+
+	gBossFight = Mix_LoadMUS("assets/music/abyss.mp3");
+	if (gBossFight == NULL)
+	{
+		printf("Failed to load bossfight sound effect! SDL_mixer Error: %s\n", Mix_GetError());
 		success = false;
 	}
 
@@ -156,13 +165,14 @@ void SoundManager::PlayMusic(eMusic music){
 	case MainMenuTheme:
 		sound = gMusicMainMenu;
 		break;
-
 	case Street:
 		sound = gMusicStreet;
 		break;
-
 	case People:
 		sound = gPeople;
+		break;
+	case BossFight:
+		sound = gBossFight;
 		break;
 	}
 

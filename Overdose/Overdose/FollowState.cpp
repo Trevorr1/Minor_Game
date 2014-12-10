@@ -1,6 +1,6 @@
 #include "FollowState.h"
 #include "AIComponent.h"
-#include "FlyAttackState.h"
+#include "CloseCombatState.h"
 #include "RangedAttackState.h"
 using namespace overdose;
 
@@ -14,8 +14,16 @@ void FollowState::handle(AIComponent *context, GameEntity *entity) {
 		entity->setSpeedX(entity->getSpeedX() * -1);
 	}
 
-	if (abs(player->getPosX() - entity->getPosX()) < RANGED_MAX_DISTANCE) {
+	int distance = abs(player->getPosX() - entity->getPosX());
+
+	if (distance < RANGED_MAX_DISTANCE && distance > RANGED_MIN_DISTANCE) {
 		context->setState(std::unique_ptr < IFSMBoss > {new RangedAttackState });
 	}
+	else if (distance < CLOSECOMBAT_RAM_DISTANCE &&
+		!(player->getPosY() + player->getHeight() + 10 < entity->getPosY())) {
+		context->setState(std::unique_ptr < IFSMBoss > {new CloseCombatState(entity) });
+	}
+
+
 
 }

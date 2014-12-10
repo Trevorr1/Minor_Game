@@ -9,7 +9,8 @@ namespace overdose {
 		Stop,
 		MainMenuTheme,
 		Street,
-		People
+		People,
+		BossFight
 
 	};
 
@@ -50,6 +51,7 @@ namespace overdose {
 		Mix_Music *gMusicMainMenu = NULL;
 		Mix_Music *gMusicStreet = NULL;
 		Mix_Music *gPeople = NULL;
+		Mix_Music *gBossFight = NULL;
 
 
 		//The sound effects that will be used

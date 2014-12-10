@@ -369,10 +369,10 @@
     <ClInclude Include="FollowState.h">
       <Filter>Header Files\Component\AI\FSM</Filter>
     </ClInclude>
-    <ClInclude Include="FlyAttackState.h">
+    <ClInclude Include="RangedAttackState.h">
       <Filter>Header Files\Component\AI\FSM</Filter>
     </ClInclude>
-    <ClInclude Include="RangedAttackState.h">
+    <ClInclude Include="CloseCombatState.h">
       <Filter>Header Files\Component\AI\FSM</Filter>
     </ClInclude>
   </ItemGroup>
@@ -606,10 +606,10 @@
     <ClCompile Include="FollowState.cpp">
       <Filter>Source Files\Component\AI\FSM</Filter>
     </ClCompile>
-    <ClCompile Include="FlyAttackState.cpp">
+    <ClCompile Include="RangedAttackState.cpp">
       <Filter>Source Files\Component\AI\FSM</Filter>
     </ClCompile>
-    <ClCompile Include="RangedAttackState.cpp">
+    <ClCompile Include="CloseCombatState.cpp">
       <Filter>Source Files\Component\AI\FSM</Filter>
     </ClCompile>
   </ItemGroup>
