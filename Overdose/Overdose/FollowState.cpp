@@ -15,15 +15,16 @@ void FollowState::handle(AIComponent *context, GameEntity *entity) {
 	}
 
 	int distance = abs(player->getPosX() - entity->getPosX());
+	
+
 
 	if (distance < RANGED_MAX_DISTANCE && distance > RANGED_MIN_DISTANCE) {
 		context->setState(std::unique_ptr < IFSMBoss > {new RangedAttackState });
 	}
 	else if (distance < CLOSECOMBAT_RAM_DISTANCE &&
-		!(player->getPosY() + player->getHeight() + 10 < entity->getPosY())) {
+		!(player->getPosY() + player->getHeight() + 10 < entity->getPosY())) { // idk maar werkt niet met uitroepteken ervoor.
 		context->setState(std::unique_ptr < IFSMBoss > {new CloseCombatState(entity) });
 	}
-
 
 
 }
