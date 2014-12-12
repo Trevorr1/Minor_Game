@@ -70,6 +70,16 @@ void DrugCollisionReactionComponent::tick(float dt, GameEntity *entity) {
 			case Drug_XTC:
 				drugComponent = new XTCDrugComponent();
 			break;
+
+			case Tutorial_Drug_Speed:
+				drugComponent = new SpeedDrugComponent();
+				break;
+			case Tutorial_Drug_Marijuana:
+				drugComponent = new MarijuanaDrugComponent();
+				break;
+			case Tutorial_Drug_XTC:
+				drugComponent = new XTCDrugComponent();
+				break;
 		}
 	}
 

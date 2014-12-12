@@ -96,6 +96,7 @@
     <ClInclude Include="DrugDurationGauge.h" />
     <ClInclude Include="EnemyMoveComponent.h" />
     <ClInclude Include="FlagCollisionReactionComponent.h" />
+    <ClInclude Include="FocusPointerComponent.h" />
     <ClInclude Include="FPSDrawComponent.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="EndNode.h" />
@@ -172,6 +173,7 @@
     <ClCompile Include="DrugDurationGauge.cpp" />
     <ClCompile Include="EnemyMoveComponent.cpp" />
     <ClCompile Include="FlagCollisionReactionComponent.cpp" />
+    <ClCompile Include="FocusPointerComponent.cpp" />
     <ClCompile Include="FPSDrawComponent.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="BspTree.cpp" />

@@ -22,6 +22,7 @@
 #include "DeleteEntityClickComponent.h"
 #include "URLClickComponent.h"
 #include "MouseOverEffectComponent.h"
+#include "FocusPointerComponent.h"
 #include "ScoreboardManager.h"
 #include <stdexcept>
 using namespace overdose;
@@ -259,6 +260,70 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 
 		break;
 	}
+
+	/* Tutorial entities */
+	case Tutorial_Policeman:
+	{
+		newObject->setSpeedX(110.0f);
+		//	newObject->addComponent(*new DummyComponent());
+
+		std::vector<ComponentMessage>* healthDecreaseList = new std::vector < ComponentMessage >; // delete called in HealthComponent
+		healthDecreaseList->push_back(ComponentMessage::CollissionComponent_REACTION_TOP);
+
+		std::vector<eGameEntity>* hurtables = new std::vector < eGameEntity >;
+		hurtables->push_back(Player);
+
+		newObject->addComponent(new HealthComponent(1, healthDecreaseList, hurtables));
+
+		newObject->addComponent(new MoveComponent());
+		newObject->addComponent(new CollisionComponent());
+		newObject->addComponent(new PolicemanCollisionReactionComponent());//moet nog verandert worden naar PolicemanCollisionReactionComponent
+		newObject->addComponent(new gravityComponent());
+		newObject->addComponent(new FocusPointerComponent(newObject)); //only way to add this component
+		animations = new std::map<eAnimationState, Animation*>();
+		animations->insert({ WalkLeft, new Animation("assets/sprites/Policeman/PolicemanWalkLeft.png", 4, 5) });
+		animations->insert({ WalkRight, new Animation("assets/sprites/Policeman/PolicemanWalkRight.png", 4, 5) });
+		animation = new DrawComponent(animations);
+		animation->setAnimation(WalkLeft);//set starting animation
+		newObject->addComponent(animation);
+		break;
+	}
+	case Tutorial_Drug_Speed:
+		newObject->addComponent(new ClickableComponent());
+		//newObject->addComponent(new MoveComponent());
+		newObject->addComponent(new CollisionComponent());
+		newObject->addComponent(new DrugCollisionReactionComponent());
+		newObject->addComponent(new FocusPointerComponent(newObject)); //only way to add this component
+		animations = new std::map<eAnimationState, Animation*>();
+		animations->insert({ Default, new Animation("assets/sprites/drug_speed_30x30.png", 1) });
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Default);//set starting animation
+		newObject->addComponent(animation);
+		break;
+	case Tutorial_Drug_Marijuana:
+		newObject->addComponent(new ClickableComponent());
+		//newObject->addComponent(new MoveComponent());
+		newObject->addComponent(new CollisionComponent());
+		newObject->addComponent(new DrugCollisionReactionComponent());
+		newObject->addComponent(new FocusPointerComponent(newObject)); //only way to add this component
+		animations = new std::map<eAnimationState, Animation*>();
+		animations->insert({ Default, new Animation("assets/sprites/drug_marijuana_30x30-2.png", 1) });
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Default);//set starting animation
+		newObject->addComponent(animation);
+		break;
+	case Tutorial_Drug_XTC:
+		newObject->addComponent(new ClickableComponent());
+		//newObject->addComponent(new MoveComponent());
+		newObject->addComponent(new CollisionComponent());
+		newObject->addComponent(new DrugCollisionReactionComponent());
+		newObject->addComponent(new FocusPointerComponent(newObject)); //only way to add this component
+		animations = new std::map<eAnimationState, Animation*>();
+		animations->insert({ Default, new Animation("assets/sprites/drug_xtc_30x30.png", 1) });
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Default);//set starting animation
+		newObject->addComponent(animation);
+		break;
 
 	default:
 		throw std::invalid_argument("Invalid game Entity passed to the factory"); // Veel te lang moeten debuggen waarom mijn entities geen components hadden... >.<

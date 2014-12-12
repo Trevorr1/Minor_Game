@@ -345,6 +345,9 @@
     <ClInclude Include="Level4.h">
       <Filter>Header Files\Level</Filter>
     </ClInclude>
+    <ClInclude Include="FocusPointerComponent.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -569,6 +572,9 @@
     </ClCompile>
     <ClCompile Include="NegativeMarijuanaComponent.cpp">
       <Filter>Source Files\Drugs</Filter>
+    </ClCompile>
+    <ClCompile Include="FocusPointerComponent.cpp">
+      <Filter>Source Files\Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

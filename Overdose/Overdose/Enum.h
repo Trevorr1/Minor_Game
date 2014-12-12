@@ -16,7 +16,10 @@ namespace overdose {
 		Particle,
 
 		/* Text */
-		Text
+		Text,
+
+		/* Tutorial */
+		FocusPointer, Tutorial_Policeman, Tutorial_Drug_Speed, Tutorial_Drug_Marijuana, Tutorial_Drug_XTC
 	};
 	enum eFacing {
 		Left, FrontView, Right

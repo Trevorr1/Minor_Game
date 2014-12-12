@@ -101,7 +101,7 @@ void CollisionComponent::tick(float dt, GameEntity *entity)
 
 		// assuming that only GameEntities that have collisionComponents are relevant
 		// to the collision calculation
-		if (entity == other || other->getEnum() == Advertisement_GameEntity) continue;
+		if (entity == other || other->getEnum() == Advertisement_GameEntity || other->getEnum() == FocusPointer) continue;
 
 		// define the collision box of the "other" GameEntity
 		int oposx = (int)other->getPosX();
@@ -136,7 +136,7 @@ void CollisionComponent::tick(float dt, GameEntity *entity)
 					break;
 				}
 
-				if (entity->getEnum() == Player || entity->getEnum() == Policeman)
+				if (entity->getEnum() == Player || entity->getEnum() == Policeman || entity->getEnum() == Tutorial_Policeman)
 				{
 					messages.insert(std::make_pair(message, other));
 				}
