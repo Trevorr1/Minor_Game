@@ -4,6 +4,10 @@
 #include "GameEntityFactory.h"
 using namespace overdose;
 
+RangedAttackState::RangedAttackState() {
+	printf("Boss - RangedAttackState\n");
+}
+
 void RangedAttackState::handle(AIComponent *context, GameEntity *entity) {
 	GameEntity *player = LevelManager::getInstance().getCurrentLevel()->getPlayerEntity();
 	int distance = abs(player->getPosX() - entity->getPosX());

@@ -99,6 +99,7 @@
     <ClInclude Include="EnemyMoveComponent.h" />
     <ClInclude Include="FlagCollisionReactionComponent.h" />
     <ClInclude Include="CloseCombatState.h" />
+    <ClInclude Include="FleeState.h" />
     <ClInclude Include="FollowState.h" />
     <ClInclude Include="FPSDrawComponent.h" />
     <ClInclude Include="game.h" />
@@ -180,6 +181,7 @@
     <ClCompile Include="EnemyMoveComponent.cpp" />
     <ClCompile Include="FlagCollisionReactionComponent.cpp" />
     <ClCompile Include="CloseCombatState.cpp" />
+    <ClCompile Include="FleeState.cpp" />
     <ClCompile Include="FollowState.cpp" />
     <ClCompile Include="FPSDrawComponent.cpp" />
     <ClCompile Include="game.cpp" />
@@ -195,6 +197,7 @@
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="HUDEntity.cpp" />
     <ClCompile Include="HighScore.cpp" />
+    <ClCompile Include="IFSMBoss.cpp" />
     <ClCompile Include="Ilevel.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="KillSwitchComponent.cpp" />

@@ -375,6 +375,9 @@
     <ClInclude Include="CloseCombatState.h">
       <Filter>Header Files\Component\AI\FSM</Filter>
     </ClInclude>
+    <ClInclude Include="FleeState.h">
+      <Filter>Header Files\Component\AI\FSM</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -610,6 +613,12 @@
       <Filter>Source Files\Component\AI\FSM</Filter>
     </ClCompile>
     <ClCompile Include="CloseCombatState.cpp">
+      <Filter>Source Files\Component\AI\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="FleeState.cpp">
+      <Filter>Source Files\Component\AI\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="IFSMBoss.cpp">
       <Filter>Source Files\Component\AI\FSM</Filter>
     </ClCompile>
   </ItemGroup>

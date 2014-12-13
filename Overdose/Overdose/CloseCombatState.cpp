@@ -3,7 +3,9 @@
 #include "FollowState.h"
 using namespace overdose;
 
+
 CloseCombatState::CloseCombatState(GameEntity *entity) {
+	printf("Boss - CloseCombatState\n");
 	GameEntity *player = LevelManager::getInstance().getCurrentLevel()->getPlayerEntity();
 
 	if (player->getPosX() < entity->getPosX()) {
@@ -20,9 +22,9 @@ void CloseCombatState::handle(AIComponent *context, GameEntity *entity) {
 	GameEntity *player = LevelManager::getInstance().getCurrentLevel()->getPlayerEntity();
 
 
-	
+	int distance = abs(player->getPosX() - entity->getPosX());
 	if ((player->getPosX() > entity->getPosX() + CLOSECOMBAT_RAM_DISTANCE && m_direction == CloseCombatStateDirection::Left) ||
-		(player->getPosX() < entity->getPosX() - CLOSECOMBAT_RAM_DISTANCE && m_direction == CloseCombatStateDirection::Right))
+		(player->getPosX() < entity->getPosX() - CLOSECOMBAT_RAM_DISTANCE && m_direction == CloseCombatStateDirection::Right) || distance > 500)
 	{
 		entity->setSpeedX(entity->getSpeedX() / 10);
 		context->setState(std::unique_ptr < IFSMBoss > {new FollowState});

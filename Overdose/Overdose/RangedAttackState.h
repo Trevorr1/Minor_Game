@@ -12,6 +12,7 @@ namespace overdose{
 	private:
 		time_t m_lastFired = 0;
 	public:
+		RangedAttackState::RangedAttackState();
 		void handle(AIComponent *context, GameEntity *entity);
 
 	};

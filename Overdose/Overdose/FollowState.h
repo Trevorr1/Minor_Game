@@ -4,6 +4,7 @@
 namespace overdose{
 	class FollowState : public IFSMBoss {
 	public:
+		FollowState::FollowState();
 		void handle(AIComponent *context, GameEntity *entity);
 
 	};
