@@ -75,8 +75,8 @@ void HighScore::Init()
 
 
 	GameEntity* button = GameEntityFactory::getInstance().getGameEntity(ButtonMainMenuGreen);
-	button->setPosX(320);
-	button->setPosY(380);
+	button->setPosX(350);
+	button->setPosY(400);
 	addEntities(button);
 }
 

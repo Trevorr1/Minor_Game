@@ -219,7 +219,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	case ButtonPlayAgainGreen:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(level1));
-		newObject->addComponent(new DrawComponent("assets/buttons/button_play_again_green.jpg"));
+		newObject->addComponent(new DrawComponent("assets/buttons/button_play_again_green1.jpg"));
 		newObject->addComponent(new MouseOverEffectComponent);
 		break;
 	case ButtonMainMenu:
@@ -232,7 +232,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	case ButtonMainMenuGreen:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(LevelMainMenu));
-		newObject->addComponent(new DrawComponent("assets/buttons/button_main_menu_green.jpg"));
+		newObject->addComponent(new DrawComponent("assets/buttons/button_main_menu_green1.jpg"));
 		newObject->addComponent(new MouseOverEffectComponent);
 
 		break;
