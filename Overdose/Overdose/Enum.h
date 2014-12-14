@@ -1,7 +1,9 @@
 #pragma once
 namespace overdose {
 	enum eGameEntity {
-		Player, Policeman, DrugAddict, Junky, Drugdealer, FPSCounter, Environment, Drug_Speed, Drug_Marijuana, Drug_XTC, Grass, Flag, Urquhart,
+		// @#@#$@#$#@$ PUBLIC SERVICE ANNOUNCEMENT!!!@@#@#@##@
+		// Je sloopt de bestaande levels als je de volgorde van nieuwe enums aanpast. Nieuwe entities? VOEG DEZE ACHTER AAN DE LIJST TOE!!!!!!
+		Player, Policeman, DrugAddict, Junky, Drugdealer, FPSCounter, Environment, Drug_Speed, Drug_Marijuana, Drug_XTC, Grass, Flag,
 
 		/*Advertisement */
 		Advertisement_GameEntity,
@@ -18,8 +20,8 @@ namespace overdose {
 		/* Text */
 		Text,
 
-		/* bullet*/
-		Bullet
+		/* boss */
+		Bullet, Urquhart
 	};
 	enum eFacing {
 		Left, FrontView, Right

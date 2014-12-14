@@ -83,13 +83,13 @@ bool SoundManager::loadMedia()
 	bool success = true;
 
 	//Load music
-	gMusicMainMenu = Mix_LoadMUS("assets/music/MainMenu.wav");
+	gMusicMainMenu = Mix_LoadMUS("assets/music/MainMenu2.mp3");
 	if (gMusicMainMenu == NULL)
 	{
 		printf("Failed to load beat music! SDL_mixer Error: %s\n", Mix_GetError());
 		success = false;
 	}
-	gMusicStreet = Mix_LoadMUS("assets/music/Street.wav");
+	gMusicStreet = Mix_LoadMUS("assets/music/Street.mp3");
 	if (gMusicStreet == NULL)
 	{
 		printf("Failed to load beat music! SDL_mixer Error: %s\n", Mix_GetError());

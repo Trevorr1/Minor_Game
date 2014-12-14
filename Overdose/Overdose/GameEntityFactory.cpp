@@ -45,7 +45,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	DrawComponent* animation = nullptr;
 
 	switch (entityEnum){
-	case Urquhart: // geswitch met police men
+	case Policeman: // geswitch met police men
 	{
 		newObject->setSpeedX(110.0f);
 		//	newObject->addComponent(*new DummyComponent());
@@ -70,7 +70,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(animation);
 		break;
 	}
-	case Policeman: // eigenlijk urquhart
+	case Urquhart: // eigenlijk urquhart
 	{
 		newObject->setSpeedX(110.0f);
 		std::vector<ComponentMessage>* healthDecreaseList = new std::vector < ComponentMessage >; // delete called in HealthComponent
