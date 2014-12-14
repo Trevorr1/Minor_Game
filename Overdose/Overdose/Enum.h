@@ -9,7 +9,7 @@ namespace overdose {
 		Advertisement_GameEntity,
 
 		/*Main Menu*/
-		ButtonPlay, ButtonHighScore,
+		ButtonPlay, ButtonHighScore, ButtonOptions,
 
 		/*Win/GameOver Menu*/
 		TextBox, ButtonPlayAgain, ButtonMainMenu, ButtonQuitGame, ButtonQuitGameGreen, ButtonPlayAgainGreen, ButtonMainMenuGreen,ButtonCredits, ButtonLoadGame,

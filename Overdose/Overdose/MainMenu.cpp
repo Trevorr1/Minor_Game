@@ -34,25 +34,30 @@ void MainMenu::Init()
 	buttonPlay->setPosY(10);
 	this->addEntities(buttonPlay);
 
-	GameEntity *buttonQuitGame = GameEntityFactory::getInstance().getGameEntity(eGameEntity::ButtonQuitGameGreen);
-	buttonQuitGame->setPosX(50);
-	buttonQuitGame->setPosY(110);
-	this->addEntities(buttonQuitGame);
-
-	GameEntity *buttonCredits = GameEntityFactory::getInstance().getGameEntity(eGameEntity::ButtonCredits);
-	buttonCredits->setPosX(50);
-	buttonCredits->setPosY(210);
-	this->addEntities(buttonCredits);
-
 	GameEntity *buttonLoadGame = GameEntityFactory::getInstance().getGameEntity(eGameEntity::ButtonLoadGame);
 	buttonLoadGame->setPosX(50);
-	buttonLoadGame->setPosY(310);
+	buttonLoadGame->setPosY(85);
 	this->addEntities(buttonLoadGame);
 
 	GameEntity *buttonHighscore = GameEntityFactory::getInstance().getGameEntity(eGameEntity::ButtonHighScore);
 	buttonHighscore->setPosX(50);
-	buttonHighscore->setPosY(410);
+	buttonHighscore->setPosY(160);
 	this->addEntities(buttonHighscore);
+
+	GameEntity *buttonOptions = GameEntityFactory::getInstance().getGameEntity(eGameEntity::ButtonOptions);
+	buttonOptions->setPosX(50);
+	buttonOptions->setPosY(235);
+	this->addEntities(buttonOptions);
+
+	GameEntity *buttonCredits = GameEntityFactory::getInstance().getGameEntity(eGameEntity::ButtonCredits);
+	buttonCredits->setPosX(50);
+	buttonCredits->setPosY(310);
+	this->addEntities(buttonCredits);
+
+	GameEntity *buttonQuitGame = GameEntityFactory::getInstance().getGameEntity(eGameEntity::ButtonQuitGameGreen);
+	buttonQuitGame->setPosX(50);
+	buttonQuitGame->setPosY(385);
+	this->addEntities(buttonQuitGame);
 
 	SoundManager::getInstance().StopMusic();
 	SoundManager::getInstance().PlayMusic(eMusic::MainMenuTheme);

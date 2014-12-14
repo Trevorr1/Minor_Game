@@ -6,6 +6,7 @@
 #include "MoveComponent.h"
 #include "GameEntityFactory.h"
 #include "SoundManager.h"
+#include "ScoreboardManager.h"
 
 using namespace overdose;
 
@@ -15,6 +16,7 @@ GameOver::GameOver()
 {
 	m_Camera = new Camera();
 	m_Background = new Surface("assets/backgrounds/gameover.jpg");
+	ScoreboardManager::getInstance().stopTimer();
 }
 
 

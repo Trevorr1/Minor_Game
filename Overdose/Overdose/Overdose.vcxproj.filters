@@ -40,9 +40,6 @@
     <Filter Include="Header Files\Manager">
       <UniqueIdentifier>{87176384-f7a8-4e96-b1be-d94a62739fa0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Manager">
-      <UniqueIdentifier>{b5ecfa83-4c05-4a1a-b8d5-4aa5d3b3ccc6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Level">
       <UniqueIdentifier>{787627f3-877b-4c55-a973-45e0c3dfc4a6}</UniqueIdentifier>
     </Filter>
@@ -108,6 +105,9 @@
     </Filter>
     <Filter Include="Source Files\Component\AI\FSM">
       <UniqueIdentifier>{e82d3a3a-a6cc-4b1c-8c50-9a0a8332508a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Level\Manager">
+      <UniqueIdentifier>{b5ecfa83-4c05-4a1a-b8d5-4aa5d3b3ccc6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -420,10 +420,10 @@
       <Filter>Source Files\BSP tree</Filter>
     </ClCompile>
     <ClCompile Include="LevelManager.cpp">
-      <Filter>Source Files\Manager</Filter>
+      <Filter>Source Files\Level\Manager</Filter>
     </ClCompile>
     <ClCompile Include="InputManager.cpp">
-      <Filter>Source Files\Manager</Filter>
+      <Filter>Source Files\Level\Manager</Filter>
     </ClCompile>
     <ClCompile Include="PlayerInputComponent.cpp">
       <Filter>Source Files\Component</Filter>
@@ -432,7 +432,7 @@
       <Filter>Source Files\Level</Filter>
     </ClCompile>
     <ClCompile Include="DrawManager.cpp">
-      <Filter>Source Files\Manager</Filter>
+      <Filter>Source Files\Level\Manager</Filter>
     </ClCompile>
     <ClCompile Include="EnemyMoveComponent.cpp">
       <Filter>Source Files\Component</Filter>
@@ -477,7 +477,7 @@
       <Filter>Source Files\Component</Filter>
     </ClCompile>
     <ClCompile Include="SoundManager.cpp">
-      <Filter>Source Files\Manager</Filter>
+      <Filter>Source Files\Level\Manager</Filter>
     </ClCompile>
     <ClCompile Include="gravityComponent.cpp">
       <Filter>Source Files\Component</Filter>
@@ -583,7 +583,7 @@
       <Filter>Source Files\Component\button</Filter>
     </ClCompile>
     <ClCompile Include="SaveGameManager.cpp">
-      <Filter>Source Files\Manager</Filter>
+      <Filter>Source Files\Level\Manager</Filter>
     </ClCompile>
     <ClCompile Include="LoadGame.cpp">
       <Filter>Source Files\Level</Filter>
@@ -592,7 +592,7 @@
       <Filter>Source Files\Entity</Filter>
     </ClCompile>
     <ClCompile Include="ScoreboardManager.cpp">
-      <Filter>Source Files\Manager</Filter>
+      <Filter>Source Files\Level\Manager</Filter>
     </ClCompile>
     <ClCompile Include="Level2.cpp">
       <Filter>Source Files\Level</Filter>

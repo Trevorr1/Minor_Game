@@ -206,7 +206,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	case ButtonPlay:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(level1));
-		newObject->addComponent(new DrawComponent("assets/buttons/button_play.jpg"));
+		newObject->addComponent(new DrawComponent("assets/buttons/button_play1.jpg"));
 		newObject->addComponent(new MouseOverEffectComponent);
 		break;
 
@@ -246,28 +246,33 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	case ButtonQuitGameGreen:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new QuitOnClickComponent());
-		newObject->addComponent(new DrawComponent("assets/buttons/button_quit_game_green.jpg"));
+		newObject->addComponent(new DrawComponent("assets/buttons/button_quit_game_green1.jpg"));
 		newObject->addComponent(new MouseOverEffectComponent);
 		break;
 	case ButtonCredits:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(LevelCredits));
-		newObject->addComponent(new DrawComponent("assets/buttons/button_credits.jpg"));
+		newObject->addComponent(new DrawComponent("assets/buttons/button_credits1.jpg"));
 		newObject->addComponent(new MouseOverEffectComponent);
 		break;
 	case ButtonLoadGame:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(LevelLoadGame));
-		newObject->addComponent(new DrawComponent("assets/buttons/button_load_game.jpg"));
+		newObject->addComponent(new DrawComponent("assets/buttons/button_load_game1.jpg"));
 		newObject->addComponent(new MouseOverEffectComponent);
 		break;
 	case ButtonHighScore:
 		newObject->addComponent(new ClickableComponent());
 		newObject->addComponent(new ButtonClickableReactionComponent(LevelHighScore));
-		newObject->addComponent(new DrawComponent("assets/buttons/button_highscore.jpg"));
+		newObject->addComponent(new DrawComponent("assets/buttons/button_highscore1.jpg"));
 		newObject->addComponent(new MouseOverEffectComponent);
 		break;
-
+	case ButtonOptions:
+		newObject->addComponent(new ClickableComponent());
+		newObject->addComponent(new ButtonClickableReactionComponent(LevelHighScore));
+		newObject->addComponent(new DrawComponent("assets/buttons/button_options.jpg"));
+		newObject->addComponent(new MouseOverEffectComponent);
+		break;
 	case Advertisement_GameEntity:
 	{
 		//Advertisement classe gaat fout, door de inheritance?
