@@ -24,6 +24,7 @@
 #include "MouseOverEffectComponent.h"
 #include "FocusPointerComponent.h"
 #include "ScoreboardManager.h"
+#include "AIComponent.h"
 #include <stdexcept>
 using namespace overdose;
 
@@ -45,7 +46,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	DrawComponent* animation = nullptr;
 
 	switch (entityEnum){
-	case Policeman:
+	case Policeman: // geswitch met police men
 	{
 		newObject->setSpeedX(110.0f);
 		//	newObject->addComponent(*new DummyComponent());
@@ -69,6 +70,29 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		animation->setAnimation(WalkLeft);//set starting animation
 		newObject->addComponent(animation);
 		break;
+	}
+	case Urquhart: // eigenlijk urquhart
+	{
+		newObject->setSpeedX(110.0f);
+		std::vector<ComponentMessage>* healthDecreaseList = new std::vector < ComponentMessage >; // delete called in HealthComponent
+		healthDecreaseList->push_back(ComponentMessage::CollissionComponent_REACTION_TOP);
+		std::vector<eGameEntity>* hurtables = new std::vector < eGameEntity >;
+		hurtables->push_back(Player);
+
+		newObject->addComponent(new HealthComponent(5, healthDecreaseList, hurtables));
+		newObject->addComponent(new MoveComponent());
+		newObject->addComponent(new CollisionComponent());
+		newObject->addComponent(new AIComponent());
+
+		animations = new std::map<eAnimationState, Animation*>();
+		animations->insert({ WalkLeft, new Animation("assets/sprites/Urquhart/UrquhartWalkLeft.png", 4, 5) });
+		animations->insert({ WalkRight, new Animation("assets/sprites/Urquhart/UrquhartWalkRight.png", 4, 5) });
+		animations->insert({ Default, new Animation("assets/sprites/Urquhart/UrquhartFlyAttack.png", 1, 1) });
+		animation = new DrawComponent(animations);
+		animation->setAnimation(WalkLeft);//set starting animation
+		newObject->addComponent(animation);
+
+
 	}
 	case Drugdealer:
 		//	newObject->addComponent(*new DummyComponent());
@@ -166,6 +190,17 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new ParticleComponent(RedLum, 0.1, 0.5, 0.1));
 		break;
 
+	case Bullet:
+	{
+		animations = new std::map<eAnimationState, Animation*>();
+		animations->insert({ Default, new Animation("assets/sprites/bullet.png", 1) });
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Default);//set starting animation
+		newObject->addComponent(animation);
+		newObject->addComponent(new MoveComponent);
+		newObject->addComponent(new KillSwitchComponent(3));
+		break;
+	}
 
 		/* BUTTONS: */
 	case ButtonPlay:

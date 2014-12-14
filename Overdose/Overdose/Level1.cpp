@@ -89,12 +89,12 @@ void Level1::Init()
 	
 	loadXML(1);
 
-	GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
-	entityCop->setStartingPosition(1184, 356);
-	entityCop->addComponent(new EnemyMoveComponent(1184, 1472));
+	GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Urquhart);
+	entityCop->setStartingPosition(500, 340);
+	//entityCop->addComponent(new EnemyMoveComponent(1184, 1472));
 	this->addEntities(entityCop);
 	
 	SoundManager::getInstance().StopMusic();
-	SoundManager::getInstance().PlayMusic(eMusic::Street);
+	SoundManager::getInstance().PlayMusic(eMusic::BossFight);
 	//SoundManager::getInstance()->PlaySound(eSound::Death);
 }

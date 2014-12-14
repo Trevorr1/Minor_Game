@@ -107,6 +107,16 @@ void HealthComponent::tick(float dt, GameEntity *entity) {
 		//std::cout << "Entity " << entity->getEnum() << " health has been decreased" << std::endl;
 		m_scheduleHealthDecrease = false;
 		entity->broadcast(this, HealthComponent_HEALTH_DECREASED, entity);
+		if (entity->getEnum() != Player) {
+
+			//if (!firstBlood) {
+				/* TODO: Deze wordt wel 10x aangeroepen per keer dat je een enemy dood.. wtf man... */
+				entity->delayedAddComponent(new ParticleComponent(Blood, 0.01, 0.5, 0.5));
+				//entity->delayedAddComponent(new KillSwitchComponent(0.3));
+			//	firstBlood = true; // there you go @ wtf man.
+		//	}
+
+		}
 	}
 	if (m_health <= 0) {
 	//	entity->scheduleForRemoval();
