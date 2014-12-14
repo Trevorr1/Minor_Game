@@ -17,6 +17,9 @@ namespace overdose {
 		/* Particle */
 		Particle,
 
+		/* Options */
+		ButtonGeneral, ButtonDrugs, ButtonControls, ButtonOptionsBack, OptionsMarijuana, OptionsSpeed, OptionsXTC, OptionsArrowRight, OptionsArrowLeft, OptionsSpacebar,
+
 		/* Text */
 		Text,
 

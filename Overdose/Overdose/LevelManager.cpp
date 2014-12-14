@@ -68,6 +68,18 @@ ILevel* LevelManager::createNewLevel(levels l)
 	case LevelHighScore:
 		result = new HighScore();
 		break;
+	case LevelOptions:
+		result = new Options();
+		break;
+	case LevelOptionsControls:
+		result = new OptionsControls();
+		break;
+	case LevelOptionsDrugs:
+		result = new OptionsDrugs();
+		break;
+	case LevelOptionsGeneral:
+		result = new OptionsGeneral();
+		break;
 	default:
 		throw std::invalid_argument("Invalid level enum");
 		break;

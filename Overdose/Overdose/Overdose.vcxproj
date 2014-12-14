@@ -136,6 +136,10 @@
     <ClInclude Include="NegativeMarijuanaComponent.h" />
     <ClInclude Include="NegativeSpeedDrugComponent.h" />
     <ClInclude Include="NegativeXTCComponent.h" />
+    <ClInclude Include="Options.h" />
+    <ClInclude Include="OptionsControls.h" />
+    <ClInclude Include="OptionsDrugs.h" />
+    <ClInclude Include="OptionsGeneral.h" />
     <ClInclude Include="ParticleComponent.h" />
     <ClInclude Include="PlayerCollisionReactionComponent.h" />
     <ClInclude Include="PlayerInputComponent.h" />
@@ -219,6 +223,10 @@
     <ClCompile Include="NegativeMarijuanaComponent.cpp" />
     <ClCompile Include="NegativeSpeedDrugComponent.cpp" />
     <ClCompile Include="NegativeXTCComponent.cpp" />
+    <ClCompile Include="Options.cpp" />
+    <ClCompile Include="OptionsControls.cpp" />
+    <ClCompile Include="OptionsDrugs.cpp" />
+    <ClCompile Include="OptionsGeneral.cpp" />
     <ClCompile Include="ParticleComponent.cpp" />
     <ClCompile Include="PlayerCollisionReactionComponent.cpp" />
     <ClCompile Include="PlayerInputComponent.cpp" />

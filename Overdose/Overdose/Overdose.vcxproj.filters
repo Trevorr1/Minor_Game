@@ -106,8 +106,14 @@
     <Filter Include="Source Files\Component\AI\FSM">
       <UniqueIdentifier>{e82d3a3a-a6cc-4b1c-8c50-9a0a8332508a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Level\Manager">
+    <Filter Include="Header Files\Level\Options">
+      <UniqueIdentifier>{76b4d748-8afe-4713-b940-0dae99928074}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Manager">
       <UniqueIdentifier>{b5ecfa83-4c05-4a1a-b8d5-4aa5d3b3ccc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Level\Options">
+      <UniqueIdentifier>{9e5e8d73-30d7-41d4-bc9f-f1f1275f4dc5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -381,6 +387,18 @@
     <ClInclude Include="FocusPointerComponent.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
+    <ClInclude Include="Options.h">
+      <Filter>Header Files\Level\Options</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsControls.h">
+      <Filter>Header Files\Level\Options</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsGeneral.h">
+      <Filter>Header Files\Level\Options</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsDrugs.h">
+      <Filter>Header Files\Level\Options</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -420,10 +438,10 @@
       <Filter>Source Files\BSP tree</Filter>
     </ClCompile>
     <ClCompile Include="LevelManager.cpp">
-      <Filter>Source Files\Level\Manager</Filter>
+      <Filter>Source Files\Manager</Filter>
     </ClCompile>
     <ClCompile Include="InputManager.cpp">
-      <Filter>Source Files\Level\Manager</Filter>
+      <Filter>Source Files\Manager</Filter>
     </ClCompile>
     <ClCompile Include="PlayerInputComponent.cpp">
       <Filter>Source Files\Component</Filter>
@@ -432,7 +450,7 @@
       <Filter>Source Files\Level</Filter>
     </ClCompile>
     <ClCompile Include="DrawManager.cpp">
-      <Filter>Source Files\Level\Manager</Filter>
+      <Filter>Source Files\Manager</Filter>
     </ClCompile>
     <ClCompile Include="EnemyMoveComponent.cpp">
       <Filter>Source Files\Component</Filter>
@@ -477,7 +495,7 @@
       <Filter>Source Files\Component</Filter>
     </ClCompile>
     <ClCompile Include="SoundManager.cpp">
-      <Filter>Source Files\Level\Manager</Filter>
+      <Filter>Source Files\Manager</Filter>
     </ClCompile>
     <ClCompile Include="gravityComponent.cpp">
       <Filter>Source Files\Component</Filter>
@@ -583,7 +601,7 @@
       <Filter>Source Files\Component\button</Filter>
     </ClCompile>
     <ClCompile Include="SaveGameManager.cpp">
-      <Filter>Source Files\Level\Manager</Filter>
+      <Filter>Source Files\Manager</Filter>
     </ClCompile>
     <ClCompile Include="LoadGame.cpp">
       <Filter>Source Files\Level</Filter>
@@ -592,7 +610,7 @@
       <Filter>Source Files\Entity</Filter>
     </ClCompile>
     <ClCompile Include="ScoreboardManager.cpp">
-      <Filter>Source Files\Level\Manager</Filter>
+      <Filter>Source Files\Manager</Filter>
     </ClCompile>
     <ClCompile Include="Level2.cpp">
       <Filter>Source Files\Level</Filter>
@@ -626,6 +644,18 @@
     </ClCompile>
     <ClCompile Include="IFSMBoss.cpp">
       <Filter>Source Files\Component\AI\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="Options.cpp">
+      <Filter>Source Files\Level\Options</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionsControls.cpp">
+      <Filter>Source Files\Level\Options</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionsDrugs.cpp">
+      <Filter>Source Files\Level\Options</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionsGeneral.cpp">
+      <Filter>Source Files\Level\Options</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

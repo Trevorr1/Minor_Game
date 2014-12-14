@@ -10,6 +10,10 @@
 #include "Level4.h"
 #include "Credits.h"
 #include "LoadGame.h"
+#include "Options.h"
+#include "OptionsDrugs.h"
+#include "OptionsGeneral.h"
+#include "OptionsControls.h"
 
 namespace overdose {
 enum levels{
@@ -28,6 +32,10 @@ enum levels{
 	LevelGameWon,
 	LevelGameOver,
 	LevelHighScore,
+	LevelOptions,
+	LevelOptionsGeneral,
+	LevelOptionsDrugs,
+	LevelOptionsControls,
 	LevelLoadGame
 };
 

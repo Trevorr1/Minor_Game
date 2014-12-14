@@ -269,10 +269,54 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		break;
 	case ButtonOptions:
 		newObject->addComponent(new ClickableComponent());
-		newObject->addComponent(new ButtonClickableReactionComponent(LevelHighScore));
+		newObject->addComponent(new ButtonClickableReactionComponent(LevelOptions));
 		newObject->addComponent(new DrawComponent("assets/buttons/button_options.jpg"));
 		newObject->addComponent(new MouseOverEffectComponent);
 		break;
+	case ButtonGeneral:
+		newObject->addComponent(new ClickableComponent());
+		newObject->addComponent(new ButtonClickableReactionComponent(LevelOptionsGeneral));
+		newObject->addComponent(new DrawComponent("assets/buttons/button_options_general.jpg"));
+		newObject->addComponent(new MouseOverEffectComponent);
+		break;
+	case ButtonControls:
+		newObject->addComponent(new ClickableComponent());
+		newObject->addComponent(new ButtonClickableReactionComponent(LevelOptionsControls));
+		newObject->addComponent(new DrawComponent("assets/buttons/button_options_controls.jpg"));
+		newObject->addComponent(new MouseOverEffectComponent);
+		break;
+	case ButtonDrugs:
+		newObject->addComponent(new ClickableComponent());
+		newObject->addComponent(new ButtonClickableReactionComponent(LevelOptionsDrugs));
+		newObject->addComponent(new DrawComponent("assets/buttons/button_options_drugs.jpg"));
+		newObject->addComponent(new MouseOverEffectComponent);
+		break;
+	case ButtonOptionsBack:
+		newObject->addComponent(new ClickableComponent());
+		newObject->addComponent(new ButtonClickableReactionComponent(LevelOptions));
+		newObject->addComponent(new DrawComponent("assets/buttons/button_options_back.jpg"));
+		newObject->addComponent(new MouseOverEffectComponent);
+		break;
+	//Drugs for options menu
+	case OptionsMarijuana:
+		newObject->addComponent(new DrawComponent("assets/sprites/drug_marijuana_30x30-2.png"));
+		break;
+	case OptionsSpeed:
+		newObject->addComponent(new DrawComponent("assets/sprites/drug_speed_30x30.png"));
+		break;
+	case OptionsXTC:
+		newObject->addComponent(new DrawComponent("assets/sprites/drug_xtc_30x30.png"));
+		break;
+	case OptionsArrowRight:
+		newObject->addComponent(new DrawComponent("assets/misc/arrow_right.jpg"));
+		break;
+	case OptionsArrowLeft:
+		newObject->addComponent(new DrawComponent("assets/misc/arrow_left.jpg"));
+		break;
+	case OptionsSpacebar:
+		newObject->addComponent(new DrawComponent("assets/misc/spacebar.jpg"));
+		break;
+
 	case Advertisement_GameEntity:
 	{
 		//Advertisement classe gaat fout, door de inheritance?
