@@ -12,8 +12,7 @@
 #include <vector>
 #include <sstream>
 #include <iostream>
-#define _CRTDBG_MAP_ALLOC
-#include <crtdbg.h>
+//#include <crtdbg.h>
 
 using namespace Tmpl8;
 
