@@ -8,7 +8,9 @@ namespace overdose{
 		public Component
 	{
 	public:
-		FocusPointerComponent(GameEntity* entity);
+		enum CursorColor{ YELLOW, RED };
+
+		FocusPointerComponent(GameEntity* entity, CursorColor color);
 		~FocusPointerComponent();
 		void receive(Component *subject, ComponentMessage message, GameEntity *object);
 		void receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages);
