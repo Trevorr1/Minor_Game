@@ -3,19 +3,43 @@
 using namespace overdose;
 
 
-FocusPointerComponent::FocusPointerComponent(GameEntity* entity)
+FocusPointerComponent::FocusPointerComponent(GameEntity* entity, CursorColor color)
 {
+	string str = "";
+
+	switch (color){
+	case YELLOW:
+		str = "assets/sprites/Tutorial/cursor_down_yellow.png";
+		break;
+	case RED:
+		str = "assets/sprites/Tutorial/cursor_down_red.png";
+		break;
+	default:
+		str = "assets/sprites/Tutorial/cursor_down_yellow.png";
+		break;
+	}
+	
+
+	char * writable = new char[str.size() + 1];
+	std::copy(str.begin(), str.end(), writable);
+	writable[str.size()] = '\0'; // don't forget the terminating 0
+
+	// don't forget to free the string after finished using it
+
 	tutorial = new GameEntity(FocusPointer);
 
 	std::map<eAnimationState, Animation*>* animations;
 	DrawComponent* animation = nullptr;
 	animations = new std::map<eAnimationState, Animation*>();
-	animations->insert({ Default, new Animation("assets/sprites/Tutorial/cursor_down_2.png", 3, 3) });
+	animations->insert({ Default, new Animation(writable, 3, 3) });
 	animation = new DrawComponent(animations);
 	animation->setAnimation(Default);//set starting animation
 	tutorial->addComponent(animation);
 
 	LevelManager::getInstance().getCurrentLevel()->scheduleEntityForInsertion(tutorial);
+
+	delete[] writable;
+
 }
 
 

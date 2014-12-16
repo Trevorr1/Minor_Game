@@ -363,7 +363,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new PolicemanCollisionReactionComponent());//moet nog verandert worden naar PolicemanCollisionReactionComponent
 		newObject->addComponent(new gravityComponent());
-		newObject->addComponent(new FocusPointerComponent(newObject)); //only way to add this component
+		newObject->addComponent(new FocusPointerComponent(newObject, FocusPointerComponent::RED)); //only way to add this component
 		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ WalkLeft, new Animation("assets/sprites/Policeman/PolicemanWalkLeft.png", 4, 5) });
 		animations->insert({ WalkRight, new Animation("assets/sprites/Policeman/PolicemanWalkRight.png", 4, 5) });
@@ -377,7 +377,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		//newObject->addComponent(new MoveComponent());
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new DrugCollisionReactionComponent());
-		newObject->addComponent(new FocusPointerComponent(newObject)); //only way to add this component
+		newObject->addComponent(new FocusPointerComponent(newObject, FocusPointerComponent::YELLOW)); //only way to add this component
 		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ Default, new Animation("assets/sprites/drug_speed_30x30.png", 1) });
 		animation = new DrawComponent(animations);
@@ -389,7 +389,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		//newObject->addComponent(new MoveComponent());
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new DrugCollisionReactionComponent());
-		newObject->addComponent(new FocusPointerComponent(newObject)); //only way to add this component
+		newObject->addComponent(new FocusPointerComponent(newObject, FocusPointerComponent::YELLOW)); //only way to add this component
 		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ Default, new Animation("assets/sprites/drug_marijuana_30x30-2.png", 1) });
 		animation = new DrawComponent(animations);
@@ -401,7 +401,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		//newObject->addComponent(new MoveComponent());
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new DrugCollisionReactionComponent());
-		newObject->addComponent(new FocusPointerComponent(newObject)); //only way to add this component
+		newObject->addComponent(new FocusPointerComponent(newObject, FocusPointerComponent::YELLOW)); //only way to add this component
 		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ Default, new Animation("assets/sprites/drug_xtc_30x30.png", 1) });
 		animation = new DrawComponent(animations);
