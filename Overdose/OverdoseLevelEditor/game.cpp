@@ -210,7 +210,7 @@ Game::~Game()
 		delete tiles[t];
 	}
 
-	_CrtDumpMemoryLeaks();
+	//_CrtDumpMemoryLeaks();
 }
 
 void Game::Init()
