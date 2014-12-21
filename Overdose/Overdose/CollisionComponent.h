@@ -27,5 +27,12 @@ namespace overdose {
 			Point first;
 			Point second;
 		} *cPoints[4];
+
+		void resolveTopCollision(GameEntity *entity, GameEntity *other);
+		void resolveBotCollision(GameEntity *entity, GameEntity *other);
+		void resolveLeftCollision(GameEntity *entity, GameEntity *other);
+		void resolveRightCollision(GameEntity *entity, GameEntity *other);
+
+		void updateCPoints(GameEntity *entity);
 	};
 }
