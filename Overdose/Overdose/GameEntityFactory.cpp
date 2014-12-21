@@ -23,6 +23,7 @@
 #include "URLClickComponent.h"
 #include "MouseOverEffectComponent.h"
 #include "FocusPointerComponent.h"
+#include "TutorialClickableComponent.h"
 #include "ScoreboardManager.h"
 #include "AIComponent.h"
 #include <stdexcept>
@@ -346,6 +347,20 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	}
 
 	/* Tutorial entities */
+	case Tutorial_Explanation:
+		newObject->addComponent(new TutorialClickableComponent());
+		//newObject->addComponent(new MoveComponent());
+		//newObject->addComponent(new CollisionComponent());
+		//newObject->addComponent(new DrugCollisionReactionComponent());
+		//newObject->addComponent(new FocusPointerComponent(newObject, FocusPointerComponent::YELLOW)); //only way to add this component
+		animations = new std::map<eAnimationState, Animation*>();
+		//animations->insert({ Default, new Animation("assets/sprites/drug_speed_30x30.png", 1) });
+		animations->insert({ Default, new Animation("assets/tutorial/tutorial_sprite.png", 3, 0) });
+		//animation = new TutorialDrawComponent(animations);
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Default);//set starting animation
+		newObject->addComponent(animation);
+		break;
 	case Tutorial_Policeman:
 	{
 		newObject->setSpeedX(110.0f);

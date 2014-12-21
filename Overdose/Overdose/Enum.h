@@ -24,7 +24,7 @@ namespace overdose {
 		Text,
 
 		/* Tutorial */
-		FocusPointer, Tutorial_Policeman, Tutorial_Drug_Speed, Tutorial_Drug_Marijuana, Tutorial_Drug_XTC,
+		Tutorial_Explanation, FocusPointer, Tutorial_Policeman, Tutorial_Drug_Speed, Tutorial_Drug_Marijuana, Tutorial_Drug_XTC,
 
 		/* boss */
 		Bullet, Urquhart
