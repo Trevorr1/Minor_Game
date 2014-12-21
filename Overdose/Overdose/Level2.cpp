@@ -87,6 +87,7 @@ void Level2::Init()
 	entityCop->addComponent(new EnemyMoveComponent(360, 630));
 	this->addEntities(entityCop);
 
+	//TODO moet op de surface komen
 	GameEntity* entityTutorial = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Tutorial_Explanation);
 	entityTutorial->setStartingPosition(210, 100);
 	this->addEntities(entityTutorial);
