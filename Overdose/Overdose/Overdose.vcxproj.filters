@@ -400,7 +400,7 @@
       <Filter>Header Files\Level\Options</Filter>
     </ClInclude>
     <ClInclude Include="TutorialClickableComponent.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -661,7 +661,7 @@
       <Filter>Source Files\Level\Options</Filter>
     </ClCompile>
     <ClCompile Include="TutorialClickableComponent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
