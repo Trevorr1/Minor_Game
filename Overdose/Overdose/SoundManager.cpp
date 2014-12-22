@@ -210,6 +210,10 @@ void SoundManager::StopMusic(){
 	Mix_HaltMusic();
 }
 
+bool SoundManager::isPlaying() {
+	return Mix_PlayingMusic() != 0;
+}
+
 void SoundManager::PlaySound(eSound sound){
 
 	switch (sound)

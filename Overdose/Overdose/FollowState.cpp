@@ -5,9 +5,14 @@
 #include "FleeState.h"
 using namespace overdose;
 FollowState::FollowState() {
-	printf("Boss - RangedAttackState\n");
+	printf("Boss - FollowState\n");
+
 }
 void FollowState::handle(AIComponent *context, GameEntity *entity) {
+	if (entity->getSpeedX() == 0) {
+		entity->setSpeedX(110.0f);
+	}
+
 	GameEntity *player = LevelManager::getInstance().getCurrentLevel()->getPlayerEntity();
 
 	if (player->getPosX() > entity->getPosX() && entity->getSpeedX() < 0) {

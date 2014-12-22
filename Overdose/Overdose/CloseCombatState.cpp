@@ -31,4 +31,8 @@ void CloseCombatState::handle(AIComponent *context, GameEntity *entity) {
 		
 	}
 
+	if (entity->getSpeedX() == 0) {
+		context->setState(std::unique_ptr < IFSMBoss > {new FollowState});
+	}
+
 }

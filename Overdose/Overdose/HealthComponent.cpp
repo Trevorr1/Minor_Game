@@ -13,6 +13,7 @@ HealthComponent::HealthComponent(int health) {
 	m_canHurt = new vector < eGameEntity >;
 	m_canHurt->push_back(Policeman);
 	m_canHurt->push_back(Player);
+	m_canHurt->push_back(Urquhart);
 }
 
 

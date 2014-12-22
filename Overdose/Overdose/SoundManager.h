@@ -35,6 +35,7 @@ namespace overdose {
 		void PlaySound1(eSound sound); // fallback in case PlaySound is overwritten by a define.
 		void ToggleMute();
 		void ToggleMute(bool mute);
+		bool isPlaying();
 		
 	private:
 		SoundManager();
