@@ -14,6 +14,7 @@ HealthComponent::HealthComponent(int health) {
 	m_canHurt->push_back(Policeman);
 	m_canHurt->push_back(Player);
 	m_canHurt->push_back(Urquhart);
+	m_canHurt->push_back(Bullet);
 }
 
 

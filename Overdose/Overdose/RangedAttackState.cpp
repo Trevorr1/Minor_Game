@@ -18,7 +18,7 @@ void RangedAttackState::handle(AIComponent *context, GameEntity *entity) {
 		m_lastFired = currentTime;
 
 		GameEntity *bullet = GameEntityFactory::getInstance().getGameEntity(Bullet);
-		bullet->setSpeedX(750);
+		bullet->setSpeedX(500);
 		bullet->setPosX(entity->getPosX() -10);
 		bullet->setPosY(entity->getPosY());
 
