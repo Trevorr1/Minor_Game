@@ -81,7 +81,7 @@ void Level3::Init()
 
 	loadXML(3);
 
-	SoundManager::getInstance().StopMusic();
-	SoundManager::getInstance().PlayMusic(eMusic::Street);
+//	SoundManager::getInstance().StopMusic();
+	//SoundManager::getInstance().PlayMusic(eMusic::Street);
 	//SoundManager::getInstance()->PlaySound(eSound::Death);
 }

@@ -51,7 +51,7 @@ void Level4::Init()
 
 	loadXML(4);
 
-	SoundManager::getInstance().StopMusic();
-	SoundManager::getInstance().PlayMusic(eMusic::Street);
+//	SoundManager::getInstance().StopMusic();
+//	SoundManager::getInstance().PlayMusic(eMusic::Street);
 	//SoundManager::getInstance()->PlaySound(eSound::Death);
 }
