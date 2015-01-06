@@ -25,6 +25,7 @@
 #include "FocusPointerComponent.h"
 #include "ScoreboardManager.h"
 #include "AIComponent.h"
+#include "DisplayHealthComponent.h"
 #include <stdexcept>
 using namespace overdose;
 
@@ -46,7 +47,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	DrawComponent* animation = nullptr;
 
 	switch (entityEnum){
-	case Policeman: // geswitch met police men
+	case Policeman:
 	{
 		newObject->setSpeedX(110.0f);
 		//	newObject->addComponent(*new DummyComponent());
@@ -71,7 +72,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(animation);
 		break;
 	}
-	case Urquhart: // eigenlijk urquhart
+	case Urquhart: 
 	{
 		newObject->setSpeedX(110.0f);
 		std::vector<ComponentMessage>* healthDecreaseList = new std::vector < ComponentMessage >; // delete called in HealthComponent
@@ -83,7 +84,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new MoveComponent());
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new AIComponent());
-
+		newObject->addComponent(new DisplayHealthComponent());
 		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ WalkLeft, new Animation("assets/sprites/Urquhart/UrquhartWalkLeft.png", 4, 5) });
 		animations->insert({ WalkRight, new Animation("assets/sprites/Urquhart/UrquhartWalkRight.png", 4, 5) });

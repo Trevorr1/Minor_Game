@@ -39,25 +39,6 @@ void Level1::Init()
 {
 	m_Background = new Surface("assets/backgrounds/spooky.png");
 
-	//std::map<eAnimationState, Animation*>* animations = new std::map<eAnimationState, Animation*>();
-	//animations->insert({ Default, new Animation("assets/sprites/tiles/level1/tile_air.png", 1) });
-	//DrawComponent* animation = new DrawComponent(animations);
-	//animation->setAnimation(Default);//set starting animation
-	//m_Tiles[0].addComponent(animation);
-	//
-	//animations->clear();
-
-	//animations->insert({ Default, new Animation("assets/sprites/tiles/level1/tile_grass.png", 1) });
-	//animation = new DrawComponent(animations);
-	//animation->setAnimation(Default);//set starting animation
-	//m_Tiles[1].addComponent(animation);
-
-	//animations->clear();
-
-	//animations->insert({ Default, new Animation("assets/sprites/tiles/level1/tile_ground.png", 1) });
-	//animation = new DrawComponent(animations);
-	//animation->setAnimation(Default);//set starting animation
-	//m_Tiles[2].addComponent(animation);
 
 	if (m_Player == nullptr)
 	{

@@ -399,6 +399,9 @@
     <ClInclude Include="OptionsDrugs.h">
       <Filter>Header Files\Level\Options</Filter>
     </ClInclude>
+    <ClInclude Include="DisplayHealthComponent.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -656,6 +659,9 @@
     </ClCompile>
     <ClCompile Include="OptionsGeneral.cpp">
       <Filter>Source Files\Level\Options</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayHealthComponent.cpp">
+      <Filter>Source Files\Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

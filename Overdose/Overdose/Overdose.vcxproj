@@ -91,6 +91,7 @@
     <ClInclude Include="Credits.h" />
     <ClInclude Include="directory.h" />
     <ClInclude Include="dirent.h" />
+    <ClInclude Include="DisplayHealthComponent.h" />
     <ClInclude Include="DrawComponent.h" />
     <ClInclude Include="DrawManager.h" />
     <ClInclude Include="DrugCollisionReactionComponent.h" />
@@ -178,6 +179,7 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="DeleteEntityClickComponent.cpp" />
     <ClCompile Include="Credits.cpp" />
+    <ClCompile Include="DisplayHealthComponent.cpp" />
     <ClCompile Include="DrawComponent.cpp" />
     <ClCompile Include="DrawManager.cpp" />
     <ClCompile Include="DrugCollisionReactionComponent.cpp" />
