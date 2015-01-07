@@ -46,7 +46,7 @@ void Level4::Init()
 	/*cop*/
 	GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
 	entityCop->setStartingPosition(6208, 106);
-	entityCop->addComponent(new EnemyMoveComponent(6218, 6390));
+	entityCop->addComponent(new EnemyMoveComponent());
 	this->addEntities(entityCop);
 
 	loadXML(4);

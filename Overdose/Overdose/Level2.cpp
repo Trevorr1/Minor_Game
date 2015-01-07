@@ -84,7 +84,7 @@ void Level2::Init()
 
 	GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
 	entityCop->setStartingPosition(500, 356);
-	entityCop->addComponent(new EnemyMoveComponent(360, 630));
+	entityCop->addComponent(new EnemyMoveComponent());
 	this->addEntities(entityCop);
 
 	SoundManager::getInstance().StopMusic();

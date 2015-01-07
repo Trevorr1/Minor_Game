@@ -12,9 +12,9 @@ namespace overdose{
 		int m_minSpeedX;
 		int m_maxSpeedX;
 		float m_currentSpeedX;
-
+		void calculateMinMax(GameEntity *entity);
 	public:
-		EnemyMoveComponent(int minX, int maxX);
+		EnemyMoveComponent();
 		~EnemyMoveComponent();
 		void receive(Component *subject, ComponentMessage message, GameEntity *object);
 		void receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages);
