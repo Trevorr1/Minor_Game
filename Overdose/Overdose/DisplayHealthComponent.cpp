@@ -8,6 +8,11 @@ DisplayHealthComponent::DisplayHealthComponent() {
 
 void DisplayHealthComponent::tick(float dt, GameEntity *entity) {
 
+	if (entity->getHealth() <= 0) {
+		return;
+	}
+
+
 	char health[4];
 
 	strcpy_s(health, sizeof(health), std::to_string(entity->getHealth()).c_str());
