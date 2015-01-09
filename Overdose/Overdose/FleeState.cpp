@@ -5,8 +5,8 @@
 using namespace overdose;
 
 FleeState::FleeState(GameEntity *entity) {
-	m_desiredPlayerLeftDistance = entity->getPosX() - RANGED_MIN_DISTANCE; // entity = player
-	m_desiredPlayerRightDistance = entity->getPosX() + RANGED_MIN_DISTANCE;
+	m_desiredPlayerLeftDistance = entity->getPosX() - (RANGED_MIN_DISTANCE / 2); // entity = player
+	m_desiredPlayerRightDistance = entity->getPosX() + (RANGED_MIN_DISTANCE / 2);
 	printf("Boss - FleeState\n");
 }
 
@@ -22,8 +22,16 @@ void FleeState::handle(AIComponent *context, GameEntity *entity) {
 	else if (playerFeets > entity->getPosY() && distance < CLOSECOMBAT_RAM_DISTANCE) {
 		context->setState(unique_ptr < IFSMBoss > { new CloseCombatState(entity) });
 	}
-	else {
-		entity->setSpeedX(200);
+	else if (!m_isActuallyFleeing) {
+		int dice = rand() % 6;
+		if (dice < 3) {
+			entity->setSpeedX(150);
+		}
+		else {
+			entity->setSpeedX(-150);
+		}
+		m_isActuallyFleeing = true;
+		
 	}
 
 

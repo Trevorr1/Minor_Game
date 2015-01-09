@@ -200,6 +200,9 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(animation);
 		newObject->addComponent(new MoveComponent);
 		newObject->addComponent(new KillSwitchComponent(3));
+
+
+
 		break;
 	}
 

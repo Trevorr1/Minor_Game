@@ -13,8 +13,10 @@ void teardown() {
 
 int main(int argc, const char* argv[])
 {
-	
+
 	atexit(teardown);
+
+	srand(time(0));
 	//	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF );
 	/******************
 	 Ricardo's template

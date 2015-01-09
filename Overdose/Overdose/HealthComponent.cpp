@@ -36,11 +36,13 @@ void HealthComponent::init(GameEntity* entity) {
 
 void HealthComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) 
 {
+
 	// environment / drugs shouldn't never hurt the entity
 	if (object->getEnum() == Grass || object->getEnum() == Drug_Speed || object->getEnum() == Flag) 
 	{
 		return;
 	}
+
 
 	auto it_hurtable = std::find(m_canHurt->begin(), m_canHurt->end(), object->getEnum());
 
@@ -50,6 +52,11 @@ void HealthComponent::receive(Component *subject, ComponentMessage message, Game
 		return;
 	}
 
+
+	// HACK!
+	if (object->getEnum() == Bullet) {
+		object->scheduleForRemoval();
+	}
 
 	if (m_invincibleTime > 0)
 	{
@@ -83,7 +90,10 @@ void HealthComponent::receiveMessageBatch(Component *subject, std::map<Component
 			// If not in the list, the entity is not hurtable.
 			return;
 		}
-
+		// HACK!
+		if (it->second->getEnum() == Bullet) {
+			it->second->scheduleForRemoval();
+		}
 
 		if (m_invincibleTime > 0) {
 			//std::cout << "Entity " << it->second->getEnum() << " is invincible for now." << std::endl;
