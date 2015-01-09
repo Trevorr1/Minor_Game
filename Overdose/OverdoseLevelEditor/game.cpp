@@ -41,6 +41,9 @@ Surface* tilesAsset[TILE_SPRITES];
 
 int currentTileType = TILE_GRASS;
 
+//scrolling bars
+bool leftBounding = false, rightBounding = false;
+
 //the camera
 SDL_Rect camera = { 0, 0, SCRWIDTH, SCRHEIGHT };
 
@@ -125,7 +128,11 @@ void set_camera()
 	if (camera.x < 0)
 	{
 		camera.x = 0;
+		leftBounding = true;
 	}
+	else
+		leftBounding = false;
+
 	if (camera.y < 0)
 	{
 		camera.y = 0;
@@ -133,7 +140,11 @@ void set_camera()
 	if (camera.x > LEVEL_WIDTH - camera.w)
 	{
 		camera.x = LEVEL_WIDTH - camera.w;
+		rightBounding = true;
 	}
+	else
+		rightBounding = false;
+
 	if (camera.y > LEVEL_HEIGHT - camera.h)
 	{
 		camera.y = LEVEL_HEIGHT - camera.h;
@@ -308,8 +319,11 @@ void Game::showScrollingBorders()
 
 	SDL_GetMouseState(&x, &y);
 
-	m_Screen->Line(TILE_WIDTH, 1, TILE_WIDTH, SCRHEIGHT - 1, 0xC0C0C0);
-	m_Screen->Line(SCRWIDTH - TILE_WIDTH, 1, SCRWIDTH - TILE_WIDTH, SCRHEIGHT - 1, 0xC0C0C0);
+	if (!leftBounding)
+		m_Screen->Line(TILE_WIDTH, 1, TILE_WIDTH, SCRHEIGHT - 1, 0xC0C0C0);
+
+	if (!rightBounding)
+		m_Screen->Line(SCRWIDTH - TILE_WIDTH, 1, SCRWIDTH - TILE_WIDTH, SCRHEIGHT - 1, 0xC0C0C0);
 }
 
 void Game::save()
