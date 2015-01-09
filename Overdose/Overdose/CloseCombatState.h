@@ -2,7 +2,7 @@
 #include "IFSMBoss.h"
 #include "LevelManager.h"
 
-#define CLOSECOMBAT_RAM_DISTANCE 150
+#define CLOSECOMBAT_RAM_DISTANCE 200
 
 namespace overdose{
 	enum class CloseCombatStateDirection { Left, Right };

@@ -3,7 +3,7 @@
 #include "LevelManager.h"
 #include <ctime>
 
-#define BOSS_SLEEPTIME_SECS 0.5
+#define BOSS_SLEEPTIME_SECS 0.2
 
 
 namespace overdose{

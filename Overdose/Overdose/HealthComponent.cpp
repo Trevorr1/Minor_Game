@@ -32,6 +32,7 @@ HealthComponent::~HealthComponent() {
 
 void HealthComponent::init(GameEntity* entity) {
 	entity->setHealthPointer(&m_health);
+	m_Subject = entity;
 }
 
 void HealthComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) 
@@ -56,6 +57,14 @@ void HealthComponent::receive(Component *subject, ComponentMessage message, Game
 	// HACK!
 	if (object->getEnum() == Bullet) {
 		object->scheduleForRemoval();
+	}
+	else if (message != MoveComponent_OUTOFAREA && m_Subject->isFalling()) {
+		return;
+	}
+
+	// Hacky as well :D
+	if (object->getEnum() == Player && !object->isFalling()) {
+		return;
 	}
 
 	if (m_invincibleTime > 0)
@@ -94,6 +103,16 @@ void HealthComponent::receiveMessageBatch(Component *subject, std::map<Component
 		if (it->second->getEnum() == Bullet) {
 			it->second->scheduleForRemoval();
 		}
+		else if (it->first != MoveComponent_OUTOFAREA && m_Subject->isFalling()) {
+			return;
+		}
+
+		// Hacky as well :D
+		if (it->second->getEnum() == Player && !it->second->isFalling()) {
+			return;
+		}
+
+
 
 		if (m_invincibleTime > 0) {
 			//std::cout << "Entity " << it->second->getEnum() << " is invincible for now." << std::endl;
@@ -104,7 +123,7 @@ void HealthComponent::receiveMessageBatch(Component *subject, std::map<Component
 
 		// Vector list contains message?
 		if (hit != m_healthDecreaseReactionList->end()) {
-			m_invincibleTime = 1;
+			m_invincibleTime = 0.5;
 			m_scheduleHealthDecrease = true;
 		}
 	}
