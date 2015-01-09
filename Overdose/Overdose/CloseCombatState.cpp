@@ -1,6 +1,6 @@
 #include "CloseCombatState.h"
 #include "AIComponent.h"
-#include "FollowState.h"
+#include "SleepState.h"
 using namespace overdose;
 
 
@@ -27,12 +27,12 @@ void CloseCombatState::handle(AIComponent *context, GameEntity *entity) {
 		(player->getPosX() < entity->getPosX() - CLOSECOMBAT_RAM_DISTANCE && m_direction == CloseCombatStateDirection::Right) || distance > 500)
 	{
 		entity->setSpeedX(entity->getSpeedX() / 10);
-		context->setState(std::unique_ptr < IFSMBoss > {new FollowState});
+		context->setState(std::unique_ptr < IFSMBoss > {new SleepState(entity)});
 		
 	}
 
 	if (entity->getSpeedX() == 0) {
-		context->setState(std::unique_ptr < IFSMBoss > {new FollowState});
+		context->setState(std::unique_ptr < IFSMBoss > {new SleepState(entity)});
 	}
 
 }
