@@ -33,9 +33,17 @@ void DrawComponent::init(GameEntity *entity) {
 
 void DrawComponent::receive(Component *subject, ComponentMessage message, GameEntity *objects)
 {
+	//Tutorial_explanation
+	if (message == TutorialClickableComponent_CLICK){
+		if (m_SpriteSheet->Frames() - 1 != m_SpriteSheet->GetCurrentFrame()){
+			NextSprite();
+		}
+		else{
+			objects->scheduleForRemoval();
+		}
 
+	}
 }
-
 
 void DrawComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages){}
 

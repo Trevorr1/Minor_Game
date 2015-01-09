@@ -14,6 +14,7 @@ namespace overdose {
 		CollissionComponent_COLLISION_DEFAULT,
 		TextBoxInputComponent_TEXT_TYPED,
 		ClickableComponent_CLICK,
+		TutorialClickableComponent_CLICK,
 		HealthComponent_HEALTH_DECREASED,
 		MoveComponent_OUTOFAREA,
 		Player_ATTACKING,

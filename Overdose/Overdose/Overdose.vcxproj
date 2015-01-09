@@ -165,6 +165,7 @@
     <ClInclude Include="Tile.h" />
     <ClInclude Include="Toolbox.h" />
     <ClInclude Include="TreeNode.h" />
+    <ClInclude Include="TutorialClickableComponent.h" />
     <ClInclude Include="URLClickComponent.h" />
     <ClInclude Include="XTCDrugComponent.h" />
   </ItemGroup>
@@ -251,6 +252,7 @@
     <ClCompile Include="TextGameEntity.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TreeNode.cpp" />
+    <ClCompile Include="TutorialClickableComponent.cpp" />
     <ClCompile Include="URLClickComponent.cpp" />
     <ClCompile Include="XTCDrugComponent.cpp" />
   </ItemGroup>

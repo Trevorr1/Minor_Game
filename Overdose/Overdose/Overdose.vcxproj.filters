@@ -405,6 +405,9 @@
     <ClInclude Include="SleepState.h">
       <Filter>Header Files\Component\AI\FSM</Filter>
     </ClInclude>
+    <ClInclude Include="TutorialClickableComponent.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -668,6 +671,9 @@
     </ClCompile>
     <ClCompile Include="SleepState.cpp">
       <Filter>Source Files\Component\AI\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialClickableComponent.cpp">
+      <Filter>Source Files\Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
