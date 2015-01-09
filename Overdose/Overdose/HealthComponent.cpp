@@ -58,14 +58,14 @@ void HealthComponent::receive(Component *subject, ComponentMessage message, Game
 	if (object->getEnum() == Bullet) {
 		object->scheduleForRemoval();
 	}
-	else if (message != MoveComponent_OUTOFAREA && m_Subject->isFalling()) {
+	else if (message != MoveComponent_OUTOFAREA && m_Subject->isJumping()) {
 		return;
 	}
 
 	// Hacky as well :D
-	if (object->getEnum() == Player && !object->isFalling()) {
-		return;
-	}
+	//if (object->getEnum() == Player && m_Subject->isJumping()) {
+	//	return;
+	//}
 
 	if (m_invincibleTime > 0)
 	{
@@ -103,14 +103,14 @@ void HealthComponent::receiveMessageBatch(Component *subject, std::map<Component
 		if (it->second->getEnum() == Bullet) {
 			it->second->scheduleForRemoval();
 		}
-		else if (it->first != MoveComponent_OUTOFAREA && m_Subject->isFalling()) {
+		else if (it->first != MoveComponent_OUTOFAREA && m_Subject->isJumping()) {
 			return;
 		}
 
 		// Hacky as well :D
-		if (it->second->getEnum() == Player && !it->second->isFalling()) {
+	/*	if (it->second->getEnum() == Player && it->second->isJumping()) {
 			return;
-		}
+		}*/
 
 
 
