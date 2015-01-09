@@ -256,17 +256,60 @@ void Game::Tick( float a_DT )
 			tiles[i]->show(m_Screen);
 		}	
 	}
+
+	showArtHud();
+	showScrollingBorders();
+	showCurrentSelectedArtAsset();
 }
 
 void Game::KeyDown(unsigned int code)
 {
+	int x = 0, y = 0;
+
+	SDL_GetMouseState(&x, &y);
+
 	//printf("Code %d\n", code);
 	if (code == 22)
 	{
 		//save here pls
 		//maybe sound feedback?
 		save();
+		printf("\nYou have succesfully saved!\n");
 	}
+}
+
+void Game::showArtHud()
+{
+	//magical numbers 320 (SCRW/2), 64 (even distrubuted images width)
+	int hudx = 320-64, hudy = 3;
+	int offsetx = 32;
+
+	//bounding box hud
+	m_Screen->Box(320 - 66, 1, 320 + 64, 36, 0x000000);
+
+	for (int i = 0; i < TILE_SPRITES-1; i++)
+	{
+		tilesAsset[i]->CopyTo(m_Screen, hudx + (offsetx * i), hudy);
+	}
+}
+
+void Game::showCurrentSelectedArtAsset()
+{
+	int x = 0, y = 0;
+
+	SDL_GetMouseState(&x, &y);
+
+	tilesAsset[currentTileType]->CopyTo(m_Screen, x - 4, y - 4);
+}
+
+void Game::showScrollingBorders()
+{
+	int x = 0, y = 0;
+
+	SDL_GetMouseState(&x, &y);
+
+	m_Screen->Line(TILE_WIDTH, 1, TILE_WIDTH, SCRHEIGHT - 1, 0xC0C0C0);
+	m_Screen->Line(SCRWIDTH - TILE_WIDTH, 1, SCRWIDTH - TILE_WIDTH, SCRHEIGHT - 1, 0xC0C0C0);
 }
 
 void Game::save()
@@ -431,6 +474,10 @@ int convertFromGameEnum(int e)
 
 	return retval;
 }
+
+/********************************
+Class Tile
+*********************************/
 
 
 Tile::Tile(int x, int y, int tileType, Surface* s)

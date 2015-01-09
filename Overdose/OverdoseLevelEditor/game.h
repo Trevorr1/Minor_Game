@@ -52,6 +52,10 @@ public:
 	void SetTarget( Surface* a_Surface ) { m_Screen = a_Surface; }
 	void Init();
 	void Tick( float a_DT );
+	//ui stuff
+	void showArtHud();
+	void showCurrentSelectedArtAsset();
+	void showScrollingBorders();
 	//fileio stuff
 	void save();
 	void load();
