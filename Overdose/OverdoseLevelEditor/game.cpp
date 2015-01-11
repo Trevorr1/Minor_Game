@@ -28,7 +28,7 @@ void put_tile(Tile *tiles[], int tileType);
 ********THESE ENMUS ARE UNFRIENDLY WITH OUR GAME ENUMS**********
 ********************************/
 //The different tile sprites
-int count = 0;
+//int count = 0;
 const int TILE_GRASS = 0;
 const int TILE_MARIHUANA = 1;
 const int TILE_SPEED = 2;
@@ -235,7 +235,7 @@ void Game::Init()
 	}
 	const int TOTAL_TILES = (LEVEL_WIDTH / TILE_WIDTH) * (LEVEL_HEIGHT / TILE_HEIGHT);
 
-	tilesAsset[TILE_GRASS] = new Surface("assets/tiles/grass.png");
+	tilesAsset[TILE_GRASS] = new Surface("assets/tiles/grass_2.png");
 	tilesAsset[TILE_MARIHUANA] = new Surface("assets/tiles/marihuana32x32.png");
 	tilesAsset[TILE_SPEED] = new Surface("assets/tiles/speed32x32.png");
 	tilesAsset[TILE_FLAG] = new Surface("assets/tiles/flag.png");
