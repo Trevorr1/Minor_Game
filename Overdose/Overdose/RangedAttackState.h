@@ -5,7 +5,7 @@
 
 #define SECONDS_BETWEEN_SHOTS 1
 #define RANGED_MAX_DISTANCE 500
-#define RANGED_MIN_DISTANCE 350
+#define RANGED_MIN_DISTANCE 300
 
 namespace overdose{
 	class RangedAttackState : public IFSMBoss {

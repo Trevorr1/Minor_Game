@@ -6,6 +6,7 @@ namespace overdose{
 	private:
 		int m_desiredPlayerLeftDistance;
 		int m_desiredPlayerRightDistance;
+		bool m_isActuallyFleeing = false;
 	public:
 		FleeState::FleeState(GameEntity *entity);
 		void handle(AIComponent *context, GameEntity *entity);

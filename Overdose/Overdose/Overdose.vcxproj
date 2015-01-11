@@ -153,6 +153,7 @@
     <ClInclude Include="ScheduleForRemovalFlag.h" />
     <ClInclude Include="ScoreboardManager.h" />
     <ClInclude Include="SDLTemplate.h" />
+    <ClInclude Include="SleepState.h" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="SpeedDrugComponent.h" />
     <ClInclude Include="SplitNode.h" />
@@ -240,6 +241,7 @@
     <ClCompile Include="ScheduleForRemovalFlag.cpp" />
     <ClCompile Include="ScoreboardManager.cpp" />
     <ClCompile Include="SDLTemplate.cpp" />
+    <ClCompile Include="SleepState.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="SpeedDrugComponent.cpp" />
     <ClCompile Include="SplitNode.cpp" />

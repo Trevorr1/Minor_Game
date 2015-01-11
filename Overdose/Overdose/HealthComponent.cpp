@@ -32,15 +32,18 @@ HealthComponent::~HealthComponent() {
 
 void HealthComponent::init(GameEntity* entity) {
 	entity->setHealthPointer(&m_health);
+	m_Subject = entity;
 }
 
 void HealthComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) 
 {
+
 	// environment / drugs shouldn't never hurt the entity
 	if (object->getEnum() == Grass || object->getEnum() == Drug_Speed || object->getEnum() == Flag) 
 	{
 		return;
 	}
+
 
 	auto it_hurtable = std::find(m_canHurt->begin(), m_canHurt->end(), object->getEnum());
 
@@ -50,6 +53,19 @@ void HealthComponent::receive(Component *subject, ComponentMessage message, Game
 		return;
 	}
 
+
+	// HACK!
+	if (object->getEnum() == Bullet) {
+		object->scheduleForRemoval();
+	}
+	else if (message != MoveComponent_OUTOFAREA && m_Subject->isJumping()) {
+		return;
+	}
+
+	// Hacky as well :D
+	//if (object->getEnum() == Player && m_Subject->isJumping()) {
+	//	return;
+	//}
 
 	if (m_invincibleTime > 0)
 	{
@@ -83,6 +99,19 @@ void HealthComponent::receiveMessageBatch(Component *subject, std::map<Component
 			// If not in the list, the entity is not hurtable.
 			return;
 		}
+		// HACK!
+		if (it->second->getEnum() == Bullet) {
+			it->second->scheduleForRemoval();
+		}
+		else if (it->first != MoveComponent_OUTOFAREA && m_Subject->isJumping()) {
+			return;
+		}
+
+		// Hacky as well :D
+	/*	if (it->second->getEnum() == Player && it->second->isJumping()) {
+			return;
+		}*/
+
 
 
 		if (m_invincibleTime > 0) {
@@ -94,7 +123,7 @@ void HealthComponent::receiveMessageBatch(Component *subject, std::map<Component
 
 		// Vector list contains message?
 		if (hit != m_healthDecreaseReactionList->end()) {
-			m_invincibleTime = 1;
+			m_invincibleTime = 0.5;
 			m_scheduleHealthDecrease = true;
 		}
 	}

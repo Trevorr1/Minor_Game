@@ -20,6 +20,8 @@ namespace overdose {
 
 		bool firstBlood = false;
 
+		GameEntity *m_Subject;
+
 	public:
 		HealthComponent(int health);
 		HealthComponent(int health, vector<ComponentMessage> *healthDecreaseReactionList, vector<eGameEntity>* canHurt);

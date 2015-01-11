@@ -28,7 +28,7 @@ void put_tile(Tile *tiles[], int tileType);
 ********THESE ENMUS ARE UNFRIENDLY WITH OUR GAME ENUMS**********
 ********************************/
 //The different tile sprites
-int count = 0;
+//int count = 0;
 const int TILE_GRASS = 0;
 const int TILE_MARIHUANA = 1;
 const int TILE_SPEED = 2;
@@ -40,6 +40,9 @@ const int TILE_SPRITES = 5;
 Surface* tilesAsset[TILE_SPRITES];
 
 int currentTileType = TILE_GRASS;
+
+//scrolling bars
+bool leftBounding = false, rightBounding = false;
 
 //the camera
 SDL_Rect camera = { 0, 0, SCRWIDTH, SCRHEIGHT };
@@ -125,7 +128,11 @@ void set_camera()
 	if (camera.x < 0)
 	{
 		camera.x = 0;
+		leftBounding = true;
 	}
+	else
+		leftBounding = false;
+
 	if (camera.y < 0)
 	{
 		camera.y = 0;
@@ -133,7 +140,11 @@ void set_camera()
 	if (camera.x > LEVEL_WIDTH - camera.w)
 	{
 		camera.x = LEVEL_WIDTH - camera.w;
+		rightBounding = true;
 	}
+	else
+		rightBounding = false;
+
 	if (camera.y > LEVEL_HEIGHT - camera.h)
 	{
 		camera.y = LEVEL_HEIGHT - camera.h;
@@ -224,7 +235,7 @@ void Game::Init()
 	}
 	const int TOTAL_TILES = (LEVEL_WIDTH / TILE_WIDTH) * (LEVEL_HEIGHT / TILE_HEIGHT);
 
-	tilesAsset[TILE_GRASS] = new Surface("assets/tiles/grass.png");
+	tilesAsset[TILE_GRASS] = new Surface("assets/tiles/grass_2.png");
 	tilesAsset[TILE_MARIHUANA] = new Surface("assets/tiles/marihuana32x32.png");
 	tilesAsset[TILE_SPEED] = new Surface("assets/tiles/speed32x32.png");
 	tilesAsset[TILE_FLAG] = new Surface("assets/tiles/flag.png");
@@ -256,17 +267,63 @@ void Game::Tick( float a_DT )
 			tiles[i]->show(m_Screen);
 		}	
 	}
+
+	showArtHud();
+	showScrollingBorders();
+	showCurrentSelectedArtAsset();
 }
 
 void Game::KeyDown(unsigned int code)
 {
+	int x = 0, y = 0;
+
+	SDL_GetMouseState(&x, &y);
+
 	//printf("Code %d\n", code);
 	if (code == 22)
 	{
 		//save here pls
 		//maybe sound feedback?
 		save();
+		printf("\nYou have succesfully saved!\n");
 	}
+}
+
+void Game::showArtHud()
+{
+	//magical numbers 320 (SCRW/2), 64 (even distrubuted images width)
+	int hudx = 320-64, hudy = 3;
+	int offsetx = 32;
+
+	//bounding box hud
+	m_Screen->Box(320 - 66, 1, 320 + 64, 36, 0x000000);
+
+	for (int i = 0; i < TILE_SPRITES-1; i++)
+	{
+		tilesAsset[i]->CopyTo(m_Screen, hudx + (offsetx * i), hudy);
+	}
+}
+
+void Game::showCurrentSelectedArtAsset()
+{
+	int x = 0, y = 0;
+
+	SDL_GetMouseState(&x, &y);
+
+	tilesAsset[currentTileType]->CopyTo(m_Screen, x - 4, y - 4);
+}
+
+void Game::showScrollingBorders()
+{
+	int x = 0, y = 0;
+
+	SDL_GetMouseState(&x, &y);
+
+	if (!leftBounding)
+		m_Screen->Line(TILE_WIDTH, 1, TILE_WIDTH, SCRHEIGHT - 1, 0xC0C0C0);
+
+	if (!rightBounding)
+		m_Screen->Line(SCRWIDTH - TILE_WIDTH, 1, SCRWIDTH - TILE_WIDTH, SCRHEIGHT - 1, 0xC0C0C0);
 }
 
 void Game::save()
@@ -431,6 +488,10 @@ int convertFromGameEnum(int e)
 
 	return retval;
 }
+
+/********************************
+Class Tile
+*********************************/
 
 
 Tile::Tile(int x, int y, int tileType, Surface* s)

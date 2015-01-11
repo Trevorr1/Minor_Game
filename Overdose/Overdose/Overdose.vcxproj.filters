@@ -402,6 +402,9 @@
     <ClInclude Include="DisplayHealthComponent.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
+    <ClInclude Include="SleepState.h">
+      <Filter>Header Files\Component\AI\FSM</Filter>
+    </ClInclude>
     <ClInclude Include="TutorialClickableComponent.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
@@ -665,6 +668,9 @@
     </ClCompile>
     <ClCompile Include="DisplayHealthComponent.cpp">
       <Filter>Source Files\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="SleepState.cpp">
+      <Filter>Source Files\Component\AI\FSM</Filter>
     </ClCompile>
     <ClCompile Include="TutorialClickableComponent.cpp">
       <Filter>Source Files\Component</Filter>
