@@ -152,6 +152,21 @@ bool SoundManager::loadMedia()
 		success = false;
 	}
 
+	gGunshot = Mix_LoadWAV("assets/sfx/gunshot.wav");
+	if (gGunshot == NULL)
+	{
+		printf("Failed to load pick - up sound effect! SDL_mixer Error: %s\n", Mix_GetError());
+		success = false;
+	}
+
+	gCloseCombat = Mix_LoadWAV("assets/sfx/closecombat.wav");
+	if (gCloseCombat == NULL)
+	{
+		printf("Failed to load pick - up sound effect! SDL_mixer Error: %s\n", Mix_GetError());
+		success = false;
+	}
+
+
 
 	return success;
 }
@@ -235,6 +250,12 @@ void SoundManager::PlaySound(eSound sound){
 		break;
 	case PickUp:
 		Mix_PlayChannel(-1, gPickUp, 0);
+		break;
+	case CloseCombat:
+		Mix_PlayChannel(-1, gCloseCombat, 0);
+		break;
+	case Gunshot:
+		Mix_PlayChannel(-1, gGunshot, 0);
 		break;
 
 	}
