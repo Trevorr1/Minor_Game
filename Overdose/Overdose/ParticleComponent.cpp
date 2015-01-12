@@ -13,7 +13,8 @@ void ParticleComponent::createParticleFor(GameEntity *entity) {
 	/* misschien in factory stoppen? Idk D:*/
 	std::map<eAnimationState, Animation*>* animations = new std::map<eAnimationState, Animation*>();
 
-	if (m_type == SmileyFace || m_type == Blood) {
+
+	if (m_type == SmileyFace || m_type == Blood || m_type == SadFace) {
 		animations->insert({ Default, new Animation(getSpritePath(), 1) });
 	}
 	else {
@@ -38,6 +39,8 @@ char* ParticleComponent::getSpritePath() {
 		return "assets/sprites/lum.png";
 	case Blood:
 		return "assets/sprites/blood.png";
+	case SadFace:
+		return "assets/sprites/sadface.png";
 	case SmileyFace:
 	default:
 		return "assets/sprites/smileyface.png";

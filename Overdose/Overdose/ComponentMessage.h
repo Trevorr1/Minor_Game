@@ -24,6 +24,7 @@ namespace overdose {
 		AnimationLeft,
 		AnimationIdle,
 
+		HealthComponent_INVINCIBLE,
 		NegativeXTCComponent_REVERSE_KEYS
 	};
 }

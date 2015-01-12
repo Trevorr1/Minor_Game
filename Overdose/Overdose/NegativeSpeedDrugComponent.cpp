@@ -14,10 +14,6 @@ NegativeSpeedDrugComponent::~NegativeSpeedDrugComponent()
 	printf("deleted NegativeSpeedDrugComponent \n");
 }
 
-void NegativeSpeedDrugComponent::tick(float dt, GameEntity *entity) {
-	DrugComponent::tick(dt, entity);
-}
-
 void NegativeSpeedDrugComponent::receive(Component *subject, ComponentMessage message, GameEntity *object) {
 }
 
@@ -33,4 +29,8 @@ int NegativeSpeedDrugComponent::getDrugEffectMs(){
 
 std::string NegativeSpeedDrugComponent::getComponentID(){
 	return "NegativeSpeedDrugComponent";
+}
+
+void NegativeSpeedDrugComponent::insertParticleEffect(GameEntity* entity, double incr_particle_timer){
+	entity->delayedAddComponent(new ParticleComponent(SadFace, 0.1, incr_particle_timer / 1000, 0.1));
 }

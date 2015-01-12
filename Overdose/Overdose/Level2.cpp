@@ -75,6 +75,10 @@ void Level2::Init()
 	//entityTutorial->setStartingPosition(210, 100);
 	//this->addEntities(entityTutorial);
 
+	GameEntity* entityXTC = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Drug_XTC);
+	entityXTC->setStartingPosition(600, 200);
+	this->addEntities(entityXTC);
+
 	SoundManager::getInstance().StopMusic();
 	SoundManager::getInstance().PlayMusic(eMusic::Street);
 	//SoundManager::getInstance()->PlaySound(eSound::Death);

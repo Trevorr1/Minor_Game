@@ -26,42 +26,6 @@ void SpeedDrugComponent::receive(Component *subject, ComponentMessage message, G
 void SpeedDrugComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages) {
 }
 
-void SpeedDrugComponent::tick(float dt, GameEntity *entity) {
-	//for (int i = 0; i < entityForNegativeEffect->size(); i++)
-	//{
-	//	GameEntity* e = entityForNegativeEffect->at(i);
-	//	e->addComponent(new NegativeSpeedDrugComponent());
-	//	//entityForNegativeEffect->erase(entityForNegativeEffect->begin()+i);
-	//}
-
-	DrugComponent::tick(dt, entity);
-	//if (timer_start == NULL){
-	//	timer_start = getTimer_Start();
-	//}
-
-	//if (previous_speedX == getPrevious_SpeedX()){
-	//	previous_speedX = entity->getSpeedX();
-	//}
-
-	//float drugSpeed = 2.0f;
-	//entity->setSpeedX(drugSpeed);
-
-	//int timer_end = (std::clock() - timer_start) / (double)(CLOCKS_PER_SEC / 1000);
-	//int drug_effect_ms = 1000 * 5;
-
-	//// drug timer checker
-	//if (timer_end < drug_effect_ms){
-	//	std::cout << "Time: " << timer_end << " ms" << std::endl;
-	//}
-	//else{
-	//	entity->setSpeedX(previous_speedX);
-	//	// Delete this drug component of gameEntity
-	//	entity->removeComponent(getComponentID());
-
-	//	//Delete this SpeedDrugComponent
-	//	delete this;
-	//}
-}
 
 void SpeedDrugComponent::insertNegativeEffect(GameEntity* entity)
 {
@@ -79,4 +43,7 @@ int SpeedDrugComponent::getDrugEffectMs(){
 
 std::string SpeedDrugComponent::getComponentID(){
 	return "SpeedDrugComponent";
+}
+void SpeedDrugComponent::insertParticleEffect(GameEntity* entity, double incr_particle_timer){
+	entity->delayedAddComponent(new ParticleComponent(SmileyFace, 0.1, incr_particle_timer / 1000, 0.1));
 }

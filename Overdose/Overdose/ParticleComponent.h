@@ -12,7 +12,8 @@ namespace overdose{
 	enum ParticleType {
 		SmileyFace,
 		Blood,
-		RedLum
+		RedLum,
+		SadFace
 	};
 
 	class ParticleComponent :

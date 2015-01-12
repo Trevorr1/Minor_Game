@@ -47,6 +47,7 @@ void ILevel::removeEntity(GameEntity* entity)
 		{
 			it = nullptr;
 			delete entity;
+			entity == nullptr;
 		}
 	}
 }

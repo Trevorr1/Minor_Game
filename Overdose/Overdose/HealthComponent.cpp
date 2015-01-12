@@ -53,6 +53,10 @@ void HealthComponent::receive(Component *subject, ComponentMessage message, Game
 		return;
 	}
 
+	//XTCDrugComponent gives entity invincibility
+	if (message == HealthComponent_INVINCIBLE){
+		m_invincibleTime = 1;
+	}
 
 	// HACK!
 	if (object->getEnum() == Bullet) {

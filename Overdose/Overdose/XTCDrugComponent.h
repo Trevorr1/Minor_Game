@@ -28,9 +28,13 @@ namespace overdose{
 
 		GameEntity* XTC_gameEntity;
 
+		int getStartTime() { return timer_start; }
 	private:
 		float previous_speedX;
 		float drug_speedX;
 		int drug_effect_ms;
+		int timer_particle;
+
+		void insertParticleEffect(GameEntity* entity, double incr_particle_timer);
 	};
 }

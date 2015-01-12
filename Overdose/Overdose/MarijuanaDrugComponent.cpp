@@ -21,10 +21,6 @@ void MarijuanaDrugComponent::receive(Component *subject, ComponentMessage messag
 void MarijuanaDrugComponent::receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages) {
 }
 
-void MarijuanaDrugComponent::tick(float dt, GameEntity *entity) {
-	DrugComponent::tick(dt, entity);
-}
-
 void MarijuanaDrugComponent::insertNegativeEffect(GameEntity* entity)
 {
 	//entityForNegativeEffect->push_back(entity);
@@ -41,4 +37,8 @@ int MarijuanaDrugComponent::getDrugEffectMs(){
 
 std::string MarijuanaDrugComponent::getComponentID(){
 	return "MarijuanaDrugComponent";
+}
+
+void MarijuanaDrugComponent::insertParticleEffect(GameEntity* entity, double incr_particle_timer){
+	entity->delayedAddComponent(new ParticleComponent(SmileyFace, 0.1, incr_particle_timer / 1000, 0.1));
 }

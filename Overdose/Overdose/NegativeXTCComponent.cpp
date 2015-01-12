@@ -4,7 +4,7 @@ using namespace overdose;
 
 NegativeXTCComponent::NegativeXTCComponent()
 {
-	drug_speedX = 0.2f;
+	drug_speedX = 1.00f;//0.2f;
 	drug_effect_ms = 1000 * 3;
 }
 
@@ -43,4 +43,8 @@ int NegativeXTCComponent::getDrugEffectMs(){
 
 std::string NegativeXTCComponent::getComponentID(){
 	return "NegativeXTCComponent";
+}
+
+void NegativeXTCComponent::insertParticleEffect(GameEntity* entity, double incr_particle_timer){
+	entity->delayedAddComponent(new ParticleComponent(SadFace, 0.1, incr_particle_timer / 1000, 0.1));
 }
