@@ -1,7 +1,7 @@
 #pragma once
 #include "Ilevel.h"
 #include "Tile.h"
-
+#include <time.h>
 #define WORLD_SIZEX 32
 #define WORLD_SIZEY 12
 
@@ -12,11 +12,14 @@ namespace overdose {
 		Level4();
 		Level4(GameEntity* player);
 		virtual ~Level4();
+		bool isGameWon();
 
 		void Init();
 
 	private:
+		GameEntity* m_Urquhart = nullptr;
 		Tile m_Tiles[3];
+		time_t m_UrquhartTimeOfDeath = -1;
 	};
 
 }

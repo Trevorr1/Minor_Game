@@ -133,6 +133,7 @@ void ILevel::Tick(float dt)
 	auto toRemove = std::remove_if(entities->begin(), entities->end(), [](GameEntity* p) {
 		if (p->isScheduledForRemoval() && p->getEnum() != eGameEntity::Player) {
 			delete p;
+			p = nullptr;
 			return true;
 		}
 		return false;
