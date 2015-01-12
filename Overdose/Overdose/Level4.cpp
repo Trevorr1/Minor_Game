@@ -70,7 +70,7 @@ void Level4::Init()
 	m_Player->setStartingPosition(100, 257); //set to world coordinates
 	m_Camera->setEntityFocus(m_Player);
 
-	loadXML(1); //change this to new level
+	loadXML(4); //change this to new level
 
 	GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Urquhart);
 	entityCop->setStartingPosition(500, 340);

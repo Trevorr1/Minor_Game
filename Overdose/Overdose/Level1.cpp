@@ -75,7 +75,7 @@ void Level1::Init()
 	m_Camera->setEntityFocus(m_Player);
 
 	//load xml
-	loadXML(4); //change this to new level
+	loadXML(1); //change this to new level
 
 	/*cop*/
 	GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
