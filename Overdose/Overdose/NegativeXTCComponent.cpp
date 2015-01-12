@@ -4,7 +4,7 @@ using namespace overdose;
 
 NegativeXTCComponent::NegativeXTCComponent()
 {
-	drug_speedX = 0.2f;
+	drug_speedX = 1.00f;//0.2f;
 	drug_effect_ms = 1000 * 3;
 }
 
