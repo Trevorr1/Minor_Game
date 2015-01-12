@@ -176,7 +176,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 	case Grass:
 		//newObject->addComponent(new CollisionComponent());
 		animations = new std::map<eAnimationState, Animation*>();
-		animations->insert({ Default, new Animation("assets/sprites/grass.png", 1) });
+		animations->insert({ Default, new Animation("assets/sprites/grass_2.png", 1) });
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
 		newObject->addComponent(animation);
@@ -190,6 +190,13 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		animation->setAnimation(Default);//set starting animation
 		newObject->addComponent(animation);
 		newObject->addComponent(new ParticleComponent(RedLum, 0.1, 0.5, 0.1));
+		break;
+	case Ground:
+		animations = new std::map<eAnimationState, Animation*>();
+		animations->insert({ Default, new Animation("assets/sprites/ground.png", 1) });
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Default);//set starting animation
+		newObject->addComponent(animation);
 		break;
 
 	case Bullet:

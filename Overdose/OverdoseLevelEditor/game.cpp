@@ -33,9 +33,10 @@ const int TILE_GRASS = 0;
 const int TILE_MARIHUANA = 1;
 const int TILE_SPEED = 2;
 const int TILE_FLAG = 3;
-const int TILE_WHITE = 4;
+const int TILE_GROUND = 4;
+const int TILE_WHITE = 5;
 
-const int TILE_SPRITES = 5;
+const int TILE_SPRITES = 6;
 
 Surface* tilesAsset[TILE_SPRITES];
 
@@ -239,6 +240,7 @@ void Game::Init()
 	tilesAsset[TILE_MARIHUANA] = new Surface("assets/tiles/marihuana32x32.png");
 	tilesAsset[TILE_SPEED] = new Surface("assets/tiles/speed32x32.png");
 	tilesAsset[TILE_FLAG] = new Surface("assets/tiles/flag.png");
+	tilesAsset[TILE_GROUND] = new Surface("assets/tiles/ground.png");
 	tilesAsset[TILE_WHITE] = new Surface("assets/tiles/white.png");
 
 	for (int i = 0; i < TOTAL_TILES; i++)
@@ -419,7 +421,7 @@ void Game::MouseWheel(unsigned int button)
 	{
 		currentTileType++;
 
-		if (currentTileType > TILE_FLAG) //was tile_ice
+		if (currentTileType > TILE_GROUND) //was tile_ice, TILE_GROUND
 		{
 			currentTileType = TILE_GRASS;
 		}
@@ -430,7 +432,7 @@ void Game::MouseWheel(unsigned int button)
 
 		if (currentTileType < TILE_GRASS)
 		{
-			currentTileType = TILE_FLAG;
+			currentTileType = TILE_GROUND; //TILE_GROUND
 		}
 	}
 
@@ -454,6 +456,9 @@ int convertToGameEnum(int e)
 		break;
 	case TILE_FLAG:
 		retval = 11;
+		break;
+	case TILE_GROUND:
+		retval = 12;
 		break;
 	default:
 		retval = e;
@@ -480,6 +485,9 @@ int convertFromGameEnum(int e)
 		break;
 	case 11:
 		retval = TILE_FLAG;
+		break;
+	case 12:
+		retval = TILE_GROUND;
 		break;
 	default:
 		retval = e;
