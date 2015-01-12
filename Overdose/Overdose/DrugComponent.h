@@ -25,7 +25,7 @@ namespace overdose {
 		float getPrevious_SpeedX();
 		int getTimer_Start();
 
-		int getStartTime() { return timer_start; }
+		virtual int getStartTime() { return timer_start; };
 
 		virtual float getDrugSpeed_X();
 		virtual int getDrugEffectMs();

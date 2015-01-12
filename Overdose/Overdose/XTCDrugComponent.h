@@ -28,6 +28,7 @@ namespace overdose{
 
 		GameEntity* XTC_gameEntity;
 
+		int getStartTime() { return timer_start; }
 	private:
 		float previous_speedX;
 		float drug_speedX;

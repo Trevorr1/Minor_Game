@@ -1,4 +1,5 @@
 #include "XTCDrugComponent.h"
+#include "HealthComponent.h"
 
 using namespace overdose;
 
@@ -6,7 +7,7 @@ XTCDrugComponent::XTCDrugComponent()
 {
 	previous_speedX = -999;
 	drug_speedX = 2.5f;
-	drug_effect_ms = 1000 * 10;
+	drug_effect_ms = 1000 * 5;
 	timer_start = NULL;
 
 	timer_particle = 500;
@@ -16,7 +17,6 @@ XTCDrugComponent::XTCDrugComponent()
 XTCDrugComponent::~XTCDrugComponent()
 {
 	printf("Deleted XTCDrugComponent \n");
-	setUnvulnerability();
 	//Interface DrugComponent set the speed back.
 }
 
@@ -34,17 +34,16 @@ void XTCDrugComponent::receiveMessageBatch(Component *subject, std::map<Componen
 void XTCDrugComponent::tick(float dt, GameEntity *entity) {
 	//DrugComponent::tick(dt, entity);
 	if (timer_start == NULL){
-		timer_start = getTimer_Start();
-
-		setVulnerability();
+		timer_start = getTimer_Start();		
 	}
 
 	if (previous_speedX == -999){
 		//previous_speedX = entity->getSpeedX();
 		previous_speedX = entity->getMovementSpeed();
 	}
+	entity->broadcast(this, HealthComponent_INVINCIBLE, entity);
 
-	entity->setSpeedX(getDrugSpeed_X());
+	//entity->setSpeedX(getDrugSpeed_X());
 
 	int timer_end = (int)(((std::clock() - timer_start) / (double)(CLOCKS_PER_SEC / 1000)));
 	int drug_effect_ms = getDrugEffectMs();
@@ -66,7 +65,6 @@ void XTCDrugComponent::tick(float dt, GameEntity *entity) {
 		entity->setSpeedX(previous_speedX);
 		// Delete this drug component of gameEntity
 		entity->removeComponent(getComponentID());
-		setUnvulnerability();
 
 		insertNegativeEffect(entity);
 	}
