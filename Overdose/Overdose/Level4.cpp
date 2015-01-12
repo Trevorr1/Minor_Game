@@ -14,7 +14,7 @@ using namespace overdose;
 Level4::Level4()
 {	
 	//boss fight
-	m_WorldSizeX = 1880;
+	m_WorldSizeX = 1920;
 	m_WorldSizeY = 480;
 	m_Camera = new Camera(m_WorldSizeX);
 

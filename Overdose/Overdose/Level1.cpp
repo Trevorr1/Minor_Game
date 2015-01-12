@@ -14,7 +14,7 @@ using namespace overdose;
 Level1::Level1()
 {
 	//new level
-	m_WorldSizeX = 1888;
+	m_WorldSizeX = 1920;
 	m_WorldSizeY = 480;
 	m_Camera = new Camera(m_WorldSizeX);
 	createLevel(m_WorldSizeX, m_WorldSizeY); //create the level here widthx height

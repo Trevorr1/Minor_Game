@@ -45,6 +45,11 @@ void Level3::Init()
 
 	loadXML(3);
 
+	GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
+	entityCop->setStartingPosition(400, 300);
+	entityCop->addComponent(new EnemyMoveComponent(300, 600));
+	this->addEntities(entityCop);
+
 	//SoundManager::getInstance().StopMusic();
 	//SoundManager::getInstance().PlayMusic(eMusic::Street);
 	//SoundManager::getInstance()->PlaySound(eSound::Death);
