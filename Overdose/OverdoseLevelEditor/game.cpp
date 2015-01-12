@@ -277,22 +277,6 @@ void Game::Tick( float a_DT )
 	showCurrentSelectedArtAsset();
 }
 
-void Game::KeyDown(unsigned int code)
-{
-	int x = 0, y = 0;
-
-	SDL_GetMouseState(&x, &y);
-
-	//printf("Code %d\n", code);
-	if (code == 22)
-	{
-		//save here pls
-		//maybe sound feedback?
-		save();
-		printf("\nYou have succesfully saved!\n");
-	}
-}
-
 void Game::showArtHud()
 {
 	//magical numbers 320 (SCRW/2), 64 (even distrubuted images width)
@@ -398,6 +382,22 @@ void Game::load()
 
 		delete tiles[t];
 		tiles[t] = new Tile(x, y, eGameEntity, tilesAsset[eGameEntity]);
+	}
+}
+
+void Game::KeyDown(unsigned int code)
+{
+	int x = 0, y = 0;
+
+	SDL_GetMouseState(&x, &y);
+
+	//printf("Code %d\n", code);
+	if (code == 22)
+	{
+		//save here pls
+		//maybe sound feedback?
+		save();
+		printf("\nYou have succesfully saved!\n");
 	}
 }
 

@@ -44,18 +44,4 @@ void Level2::Init()
 	m_Camera->setEntityFocus(m_Player);
 
 	loadXML(2);
-
-	/*GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
-	entityCop->setStartingPosition(500, 356);
-	entityCop->addComponent(new EnemyMoveComponent(360, 630));
-	this->addEntities(entityCop);*/
-
-	////TODO moet op de surface komen
-	//GameEntity* entityTutorial = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Tutorial_Explanation);
-	//entityTutorial->setStartingPosition(210, 100);
-	//this->addEntities(entityTutorial);
-
-	/*GameEntity* entityXTC = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Drug_XTC);
-	entityXTC->setStartingPosition(600, 200);
-	this->addEntities(entityXTC);*/
 }
