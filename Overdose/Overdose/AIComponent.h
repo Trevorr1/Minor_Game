@@ -3,6 +3,7 @@
 #include <memory>
 #include "IFSMBoss.h"
 #include "FollowState.h"
+#include "SoundManager.h"
 using std::string;
 using std::unique_ptr;
 namespace overdose{

@@ -30,6 +30,8 @@ namespace overdose {
 		Pixel* bufferNew;
 
 		GameEntity* entity;
+
+		void insertParticleEffect(GameEntity* entity, double incr_particle_timer);
 	};
 }
 

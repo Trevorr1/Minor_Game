@@ -1,6 +1,5 @@
 #include "DrugComponent.h"
 #include "GameEntity.h"
-#include "ParticleComponent.h"
 
 
 
@@ -51,7 +50,8 @@ void DrugComponent::tick(float dt, GameEntity *entity) {
 	if (timer_end > timer_particle){
 		double incr_particle_timer = 1000;
 		timer_particle += incr_particle_timer;
-		entity->delayedAddComponent(new ParticleComponent(SmileyFace, 0.1, incr_particle_timer / 1000, 0.1));
+		//entity->delayedAddComponent(new ParticleComponent(SmileyFace, 0.1, incr_particle_timer / 1000, 0.1));
+		insertParticleEffect(entity, incr_particle_timer);
 	}
 
 	// drug timer checker
@@ -97,5 +97,9 @@ std::string DrugComponent::getComponentID(){
 }
 
 void DrugComponent::insertNegativeEffect(GameEntity* entity){
+	//empty method
+}
+
+void DrugComponent::insertParticleEffect(GameEntity* entity, double incr_particle_timer){
 	//empty method
 }

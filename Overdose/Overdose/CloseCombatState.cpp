@@ -16,6 +16,8 @@ CloseCombatState::CloseCombatState(GameEntity *entity) {
 	}
 
 	entity->setSpeedX(entity->getSpeedX() * 10);
+
+	SoundManager::getInstance().PlaySound(CloseCombat);
 }
 
 void CloseCombatState::handle(AIComponent *context, GameEntity *entity) {

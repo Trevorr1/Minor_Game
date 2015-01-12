@@ -252,9 +252,6 @@
     <ClInclude Include="ScheduleForRemovalFlag.h">
       <Filter>Header Files\Util</Filter>
     </ClInclude>
-    <ClInclude Include="NegativeMarijuanaComponent.h">
-      <Filter>Header Files\Component</Filter>
-    </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Header Files\Camera</Filter>
     </ClInclude>
@@ -265,9 +262,6 @@
       <Filter>Header Files\Component</Filter>
     </ClInclude>
     <ClInclude Include="KillSwitchComponent.h">
-      <Filter>Header Files\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="NegativeXTCComponent.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
     <ClInclude Include="MarijuanaDrugComponent.h">

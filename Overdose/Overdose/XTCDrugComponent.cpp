@@ -1,4 +1,5 @@
 #include "XTCDrugComponent.h"
+#include "HealthComponent.h"
 
 using namespace overdose;
 
@@ -6,15 +7,16 @@ XTCDrugComponent::XTCDrugComponent()
 {
 	previous_speedX = -999;
 	drug_speedX = 2.5f;
-	drug_effect_ms = 1000 * 10;
+	drug_effect_ms = 1000 * 5;
 	timer_start = NULL;
+
+	timer_particle = 500;
 }
 
 
 XTCDrugComponent::~XTCDrugComponent()
 {
 	printf("Deleted XTCDrugComponent \n");
-	setUnvulnerability();
 	//Interface DrugComponent set the speed back.
 }
 
@@ -32,20 +34,26 @@ void XTCDrugComponent::receiveMessageBatch(Component *subject, std::map<Componen
 void XTCDrugComponent::tick(float dt, GameEntity *entity) {
 	//DrugComponent::tick(dt, entity);
 	if (timer_start == NULL){
-		timer_start = getTimer_Start();
-
-		setVulnerability();
+		timer_start = getTimer_Start();		
 	}
 
 	if (previous_speedX == -999){
 		//previous_speedX = entity->getSpeedX();
 		previous_speedX = entity->getMovementSpeed();
 	}
+	entity->broadcast(this, HealthComponent_INVINCIBLE, entity);
 
-	entity->setSpeedX(getDrugSpeed_X());
+	//entity->setSpeedX(getDrugSpeed_X());
 
 	int timer_end = (int)(((std::clock() - timer_start) / (double)(CLOCKS_PER_SEC / 1000)));
 	int drug_effect_ms = getDrugEffectMs();
+
+	//particle checker
+	if (timer_end > timer_particle){
+		double incr_particle_timer = 1000;
+		timer_particle += incr_particle_timer;
+		insertParticleEffect(entity, incr_particle_timer);
+	}
 
 	// drug timer checker
 	if (timer_end < drug_effect_ms){
@@ -57,7 +65,6 @@ void XTCDrugComponent::tick(float dt, GameEntity *entity) {
 		entity->setSpeedX(previous_speedX);
 		// Delete this drug component of gameEntity
 		entity->removeComponent(getComponentID());
-		setUnvulnerability();
 
 		insertNegativeEffect(entity);
 	}
@@ -90,4 +97,8 @@ int XTCDrugComponent::getDrugEffectMs(){
 
 std::string XTCDrugComponent::getComponentID(){
 	return "XTCDrugComponent";
+}
+
+void XTCDrugComponent::insertParticleEffect(GameEntity* entity, double incr_particle_timer){
+	entity->delayedAddComponent(new ParticleComponent(SmileyFace, 0.1, incr_particle_timer / 1000, 0.1));
 }

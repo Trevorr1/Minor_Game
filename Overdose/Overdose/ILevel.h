@@ -33,6 +33,7 @@ namespace overdose {
 		void removeEntity(GameEntity* entity);
 		virtual std::vector<GameEntity*>* getEntities();
 		Surface* getSurface(){ return m_Background; };
+		Camera* getCamera(){ return m_Camera; };
 
 		virtual void Tick(float a_DT);
 
