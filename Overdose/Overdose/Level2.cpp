@@ -13,7 +13,7 @@ using namespace overdose;
 
 Level2::Level2()
 {
-	m_WorldSizeX = 1880;
+	m_WorldSizeX = 2560;
 	m_WorldSizeY = 480;
 	m_Camera = new Camera(m_WorldSizeX);
 	createLevel(m_WorldSizeX, m_WorldSizeY); //create the level here widthx height
@@ -59,41 +59,25 @@ void Level2::Init()
 		m_Player = player;
 	}
 
-	int tileMap[WORLD_SIZEY*WORLD_SIZEX] =
-	{
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-		2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
-	};
-
 	this->addEntities(m_Player);//(TODO: check if already is in this list??!)
 	m_Player->setStartingPosition(100, 257); //set to world coordinates
 	m_Camera->setEntityFocus(m_Player);
 
-	
 	loadXML(2);
 
-	GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
+	/*GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
 	entityCop->setStartingPosition(500, 356);
 	entityCop->addComponent(new EnemyMoveComponent(360, 630));
-	this->addEntities(entityCop);
+	this->addEntities(entityCop);*/
 
-	GameEntity* entityTutorial = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Tutorial_Explanation);
-	entityTutorial->setStartingPosition(210, 100);
-	this->addEntities(entityTutorial);
+	////TODO moet op de surface komen
+	//GameEntity* entityTutorial = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Tutorial_Explanation);
+	//entityTutorial->setStartingPosition(210, 100);
+	//this->addEntities(entityTutorial);
 
-	GameEntity* entityXTC = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Drug_XTC);
+	/*GameEntity* entityXTC = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Drug_XTC);
 	entityXTC->setStartingPosition(600, 200);
-	this->addEntities(entityXTC);
+	this->addEntities(entityXTC);*/
 
 	SoundManager::getInstance().StopMusic();
 	SoundManager::getInstance().PlayMusic(eMusic::Street);

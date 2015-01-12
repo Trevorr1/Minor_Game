@@ -160,6 +160,7 @@ void ILevel::Tick(float dt)
 		{
 			
 			delete p;
+			p = nullptr;
 			return true;
 		}
 		return false;

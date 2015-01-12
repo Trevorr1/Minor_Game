@@ -3,11 +3,11 @@
 #include "SDL.h"
 
 //level name stuff
-const int LEVEL_NAME = 1;
+const int LEVEL_NAME = 2;
 const std::string LEVEL_FILE_PATH = "../Overdose/assets/levels/level";
 
 //The dimensions of the level
-const int LEVEL_WIDTH = 1888;
+const int LEVEL_WIDTH = 2560;
 const int LEVEL_HEIGHT = 480;
 
 //tile constants

@@ -42,7 +42,7 @@ namespace overdose {
 		virtual void createLevel(int width, int height);
 
 		virtual bool isGameOver();
-		bool isGameWon();
+		virtual bool isGameWon();
 		void setGameWon();
 		bool isReloadLevel();
 		void setReloadLevel();

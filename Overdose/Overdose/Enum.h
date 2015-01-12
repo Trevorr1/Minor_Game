@@ -3,7 +3,7 @@ namespace overdose {
 	enum eGameEntity {
 		// @#@#$@#$#@$ PUBLIC SERVICE ANNOUNCEMENT!!!@@#@#@##@
 		// Je sloopt de bestaande levels als je de volgorde van nieuwe enums aanpast. Nieuwe entities? VOEG DEZE ACHTER AAN DE LIJST TOE!!!!!!
-		Player, Policeman, DrugAddict, Junky, Drugdealer, FPSCounter, Environment, Drug_Speed, Drug_Marijuana, Drug_XTC, Grass, Flag,
+		Player, Policeman, DrugAddict, Junky, Drugdealer, FPSCounter, Environment, Drug_Speed, Drug_Marijuana, Drug_XTC, Grass, Flag, Ground,
 
 		/*Advertisement */
 		Advertisement_GameEntity,

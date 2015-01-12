@@ -13,9 +13,16 @@ using namespace overdose;
 
 Level4::Level4()
 {
-	m_WorldSizeX = 8312;
+	//m_WorldSizeX = 8312;
+	//m_WorldSizeY = 480;
+	//m_Camera = new Camera(m_WorldSizeX);
+	//createLevel(m_WorldSizeX, m_WorldSizeY); //create the level here widthx height
+	
+	//boss fight
+	m_WorldSizeX = 1880;
 	m_WorldSizeY = 480;
 	m_Camera = new Camera(m_WorldSizeX);
+
 	createLevel(m_WorldSizeX, m_WorldSizeY); //create the level here widthx height
 }
 
@@ -31,7 +38,8 @@ Level4::~Level4()
 
 void Level4::Init()
 {
-	m_Background = new Surface("assets/backgrounds/background_city2.3.png");
+	//m_Background = new Surface("assets/backgrounds/background_city2.3.png");
+	m_Background = new Surface("assets/backgrounds/spooky.png");
 
 	if (m_Player == nullptr)
 	{
@@ -39,19 +47,32 @@ void Level4::Init()
 		m_Player = player;
 	}
 
-	this->addEntities(m_Player);//(TODO: check if already is in this list??!)
-	m_Player->setStartingPosition(100, 410 - 53 - 150); //set to world coordinates
+
+	//boss fight
 	m_Camera->setEntityFocus(m_Player);
 
-	/*cop*/
-	GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
-	entityCop->setStartingPosition(6208, 106);
-	entityCop->addComponent(new EnemyMoveComponent(6218, 6390));
-	this->addEntities(entityCop);
+	this->addEntities(m_Player);
+	m_Player->setStartingPosition(100, 257); //set to world coordinates
+	m_Camera->setEntityFocus(m_Player);
 
-	loadXML(4);
+	loadXML(4); //change this to new level
 
-//	SoundManager::getInstance().StopMusic();
-//	SoundManager::getInstance().PlayMusic(eMusic::Street);
-	//SoundManager::getInstance()->PlaySound(eSound::Death);
+	m_Urquhart = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Urquhart);
+	m_Urquhart->setStartingPosition(500, 340);
+
+	this->addEntities(m_Urquhart);
+
+	SoundManager::getInstance().StopMusic();
+	SoundManager::getInstance().PlayMusic(eMusic::BossFight);
+
+}
+
+bool Level4::isGameWon() {
+	// Let the player enjoy FU's blood for a second before marking the boss as defeated.
+	if (m_UrquhartTimeOfDeath == -1 && m_Urquhart->isScheduledForRemoval()) {
+		m_UrquhartTimeOfDeath = time(0);
+	}
+	
+
+	return m_UrquhartTimeOfDeath != -1 && std::difftime(time(0), m_UrquhartTimeOfDeath) >= 1;
 }
