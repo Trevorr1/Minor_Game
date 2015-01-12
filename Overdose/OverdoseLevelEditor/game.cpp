@@ -298,7 +298,7 @@ void Game::showArtHud()
 	int offsetx = 32;
 
 	//bounding box hud
-	m_Screen->Box(320 - 66, 1, 320 + 64, 36, 0x000000);
+	m_Screen->Box(320 - 66, 1, 320 + 98, 36, 0x000000);
 
 	for (int i = 0; i < TILE_SPRITES-1; i++)
 	{
