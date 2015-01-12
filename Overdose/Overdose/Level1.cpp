@@ -18,7 +18,7 @@ Level1::Level1()
 	m_Camera = new Camera(m_WorldSizeX);*/
 
 	//new level
-	m_WorldSizeX = 8312;
+	m_WorldSizeX = 1888;
 	m_WorldSizeY = 480;
 	m_Camera = new Camera(m_WorldSizeX);
 	createLevel(m_WorldSizeX, m_WorldSizeY); //create the level here widthx height
@@ -77,9 +77,14 @@ void Level1::Init()
 	//load xml
 	loadXML(1); //change this to new level
 
+	//TODO moet op de surface komen
+	GameEntity* entityTutorial = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Tutorial_Explanation);
+	entityTutorial->setStartingPosition(210, 100);
+	this->addEntities(entityTutorial);
+
 	/*cop*/
-	GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
+	/*GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
 	entityCop->setStartingPosition(6208, 106);
 	entityCop->addComponent(new EnemyMoveComponent(6218, 6390));
-	this->addEntities(entityCop);
+	this->addEntities(entityCop);*/
 }

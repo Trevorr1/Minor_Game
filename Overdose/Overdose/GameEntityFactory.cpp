@@ -197,6 +197,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
 		newObject->addComponent(animation);
+		newObject->setEnum(eGameEntity::Grass); //ricardo hack
 		break;
 
 	case Bullet:

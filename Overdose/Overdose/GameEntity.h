@@ -80,6 +80,7 @@ namespace overdose {
 
 		
 		void setHealthPointer(int* health);
+		void setEnum(eGameEntity e) { m_EntityEnum = e; }
 		eGameEntity getEnum();
 		void setWidth(float width);
 		void setHeight(float heigt);
