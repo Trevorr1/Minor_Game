@@ -44,3 +44,7 @@ int NegativeXTCComponent::getDrugEffectMs(){
 std::string NegativeXTCComponent::getComponentID(){
 	return "NegativeXTCComponent";
 }
+
+void NegativeXTCComponent::insertParticleEffect(GameEntity* entity, double incr_particle_timer){
+	entity->delayedAddComponent(new ParticleComponent(SadFace, 0.1, incr_particle_timer / 1000, 0.1));
+}

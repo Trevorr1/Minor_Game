@@ -15,7 +15,7 @@ namespace overdose {
 
 		void receive(Component *subject, ComponentMessage message, GameEntity *object);
 		void receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages);
-		void tick(float dt, GameEntity *entity);
+		//void tick(float dt, GameEntity *entity);
 		void setDrugEffects();
 		float getDrugSpeed_X();
 		int getDrugEffectMs();
@@ -33,6 +33,7 @@ namespace overdose {
 		std::vector<GameEntity*>* entityForNegativeEffect;
 
 		void insertNegativeEffect(GameEntity* entity);
+		void insertParticleEffect(GameEntity* entity, double incr_particle_timer);
 	};
 }
 

@@ -8,6 +8,8 @@ XTCDrugComponent::XTCDrugComponent()
 	drug_speedX = 2.5f;
 	drug_effect_ms = 1000 * 10;
 	timer_start = NULL;
+
+	timer_particle = 500;
 }
 
 
@@ -46,6 +48,13 @@ void XTCDrugComponent::tick(float dt, GameEntity *entity) {
 
 	int timer_end = (int)(((std::clock() - timer_start) / (double)(CLOCKS_PER_SEC / 1000)));
 	int drug_effect_ms = getDrugEffectMs();
+
+	//particle checker
+	if (timer_end > timer_particle){
+		double incr_particle_timer = 1000;
+		timer_particle += incr_particle_timer;
+		insertParticleEffect(entity, incr_particle_timer);
+	}
 
 	// drug timer checker
 	if (timer_end < drug_effect_ms){
@@ -90,4 +99,8 @@ int XTCDrugComponent::getDrugEffectMs(){
 
 std::string XTCDrugComponent::getComponentID(){
 	return "XTCDrugComponent";
+}
+
+void XTCDrugComponent::insertParticleEffect(GameEntity* entity, double incr_particle_timer){
+	entity->delayedAddComponent(new ParticleComponent(SmileyFace, 0.1, incr_particle_timer / 1000, 0.1));
 }

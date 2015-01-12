@@ -252,9 +252,6 @@
     <ClInclude Include="ScheduleForRemovalFlag.h">
       <Filter>Header Files\Util</Filter>
     </ClInclude>
-    <ClInclude Include="NegativeMarijuanaComponent.h">
-      <Filter>Header Files\Component</Filter>
-    </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Header Files\Camera</Filter>
     </ClInclude>
@@ -265,9 +262,6 @@
       <Filter>Header Files\Component</Filter>
     </ClInclude>
     <ClInclude Include="KillSwitchComponent.h">
-      <Filter>Header Files\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="NegativeXTCComponent.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
     <ClInclude Include="MarijuanaDrugComponent.h">
@@ -408,6 +402,12 @@
     <ClInclude Include="TutorialClickableComponent.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
+    <ClInclude Include="NegativeXTCComponent.h">
+      <Filter>Header Files\Component\Drugs</Filter>
+    </ClInclude>
+    <ClInclude Include="NegativeMarijuanaComponent.h">
+      <Filter>Header Files\Component\Drugs</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -545,9 +545,6 @@
     <ClCompile Include="Tile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="NegativeMarijuanaComponent.cpp">
-      <Filter>Source Files\Component</Filter>
-    </ClCompile>
     <ClCompile Include="ParticleComponent.cpp">
       <Filter>Source Files\Component</Filter>
     </ClCompile>
@@ -674,6 +671,9 @@
     </ClCompile>
     <ClCompile Include="TutorialClickableComponent.cpp">
       <Filter>Source Files\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="NegativeMarijuanaComponent.cpp">
+      <Filter>Source Files\Drugs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
