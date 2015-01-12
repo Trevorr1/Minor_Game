@@ -30,6 +30,7 @@ void RangedAttackState::handle(AIComponent *context, GameEntity *entity) {
 			bullet->setSpeedY(-1* rc * 750);
 		}
 		LevelManager::getInstance().getCurrentLevel()->scheduleEntityForInsertion(bullet);
+		SoundManager::getInstance().PlaySound(Gunshot);
 
 	}
 

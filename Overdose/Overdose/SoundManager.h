@@ -20,7 +20,9 @@ namespace overdose {
 		GameOverSound,
 		PartyHorn,
 		Ouch,
-		PickUp
+		PickUp,
+		Gunshot,
+		CloseCombat
 	};
 
 	class SoundManager
@@ -62,7 +64,8 @@ namespace overdose {
 		Mix_Chunk *gPartyHorn = NULL;
 		Mix_Chunk *gOuch = NULL;
 		Mix_Chunk *gPickUp = NULL;
-
+		Mix_Chunk *gGunshot = NULL;
+		Mix_Chunk *gCloseCombat = NULL;
 		void SetVolume();
 
 	};
