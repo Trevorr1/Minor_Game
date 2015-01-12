@@ -97,6 +97,7 @@
     <ClInclude Include="DrugCollisionReactionComponent.h" />
     <ClInclude Include="DrugComponent.h" />
     <ClInclude Include="DrugDurationGauge.h" />
+    <ClInclude Include="DrugOscillationComponent.h" />
     <ClInclude Include="EnemyMoveComponent.h" />
     <ClInclude Include="FlagCollisionReactionComponent.h" />
     <ClInclude Include="FocusPointerComponent.h" />
@@ -187,6 +188,7 @@
     <ClCompile Include="DrugCollisionReactionComponent.cpp" />
     <ClCompile Include="DrugComponent.cpp" />
     <ClCompile Include="DrugDurationGauge.cpp" />
+    <ClCompile Include="DrugOscillationComponent.cpp" />
     <ClCompile Include="EnemyMoveComponent.cpp" />
     <ClCompile Include="FlagCollisionReactionComponent.cpp" />
     <ClCompile Include="FocusPointerComponent.cpp" />

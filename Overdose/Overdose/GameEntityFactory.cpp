@@ -27,6 +27,7 @@
 #include "ScoreboardManager.h"
 #include "AIComponent.h"
 #include "DisplayHealthComponent.h"
+#include "DrugOscillationComponent.h"
 #include <stdexcept>
 using namespace overdose;
 
@@ -150,6 +151,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
 		newObject->addComponent(animation);
+		newObject->addComponent(new DrugOscillationComponent());
 		break;
 	case Drug_Marijuana:
 		newObject->addComponent(new ClickableComponent());
@@ -161,6 +163,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
 		newObject->addComponent(animation);
+		newObject->addComponent(new DrugOscillationComponent());
 		break;
 	case Drug_XTC:
 		newObject->addComponent(new ClickableComponent());
@@ -172,6 +175,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
 		newObject->addComponent(animation);
+		newObject->addComponent(new DrugOscillationComponent());
 		break;
 	case Grass:
 		//newObject->addComponent(new CollisionComponent());

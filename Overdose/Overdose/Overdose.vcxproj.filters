@@ -408,6 +408,9 @@
     <ClInclude Include="TutorialClickableComponent.h">
       <Filter>Header Files\Component</Filter>
     </ClInclude>
+    <ClInclude Include="DrugOscillationComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -545,9 +548,6 @@
     <ClCompile Include="Tile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="NegativeMarijuanaComponent.cpp">
-      <Filter>Source Files\Component</Filter>
-    </ClCompile>
     <ClCompile Include="ParticleComponent.cpp">
       <Filter>Source Files\Component</Filter>
     </ClCompile>
@@ -674,6 +674,12 @@
     </ClCompile>
     <ClCompile Include="TutorialClickableComponent.cpp">
       <Filter>Source Files\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="NegativeMarijuanaComponent.cpp">
+      <Filter>Source Files\Drugs</Filter>
+    </ClCompile>
+    <ClCompile Include="DrugOscillationComponent.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
