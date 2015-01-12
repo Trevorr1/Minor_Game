@@ -82,6 +82,9 @@ void Level1::Init()
 	entityTutorial->setStartingPosition(210, 100);
 	this->addEntities(entityTutorial);
 
+	SoundManager::getInstance().StopMusic();
+	SoundManager::getInstance().PlayMusic(eMusic::Street);
+
 	/*cop*/
 	/*GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
 	entityCop->setStartingPosition(6208, 106);
