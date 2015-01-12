@@ -18,7 +18,6 @@ namespace overdose {
 
 	private:
 		GameEntity* m_Urquhart = nullptr;
-		Tile m_Tiles[3];
 		time_t m_UrquhartTimeOfDeath = -1;
 	};
 
