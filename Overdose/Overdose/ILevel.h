@@ -1,6 +1,8 @@
 #pragma once
 #include "stdafx.h"
 #include <vector>
+#include <map>
+#include <ctime>
 
 #include "GameEntity.h"
 #include "Camera.h"
@@ -65,6 +67,19 @@ namespace overdose {
 
 		void loadXML(int level);
 
+		// respawning of drugs///
+		struct drugSpawn {
+			eGameEntity type;
+			int x;
+			int y;
+		};
+
+		std::map<drugSpawn*, std::clock_t> m_Respawnables;
+		void addRespawnable(eGameEntity type, int x, int y);
+		void startRespawnable(eGameEntity type);
+		void doRespawnables();
+		std::clock_t m_StartTime = clock();
+		// respawning of drugs///
 	};
 }
 
