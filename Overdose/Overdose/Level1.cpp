@@ -78,7 +78,7 @@ void Level1::Init()
 	loadXML(1); //change this to new level
 
 	//TODO moet op de surface komen
-	GameEntity* entityTutorial = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Tutorial_Explanation);
+	GameEntity* entityTutorial = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Tutorial_Level3);
 	entityTutorial->setStartingPosition(210, 100);
 	this->addEntities(entityTutorial);
 

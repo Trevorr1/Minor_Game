@@ -9,5 +9,11 @@ namespace overdose {
 		void receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages);
 		void tick(float dt, GameEntity *entity);
 		std::string getComponentID();
+
+		GameEntity* nextEntity = nullptr;
+	public:
+		TutorialClickableComponent();
+		TutorialClickableComponent(GameEntity* entity);
+		~TutorialClickableComponent();
 	};
 }

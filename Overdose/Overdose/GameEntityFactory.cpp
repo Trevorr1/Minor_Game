@@ -377,6 +377,118 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		animation->setAnimation(Default);//set starting animation
 		newObject->addComponent(animation);
 		break;
+	case Tutorial_Level1:
+	{
+		GameEntity* tut_Goal = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Tutorial_Goal);
+		tut_Goal->addComponent(new TutorialClickableComponent());
+		GameEntity* tut_HUD = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Tutorial_HUD);
+		tut_HUD->addComponent(new TutorialClickableComponent(tut_Goal));
+		GameEntity* tut_Spacebar = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Tutorial_Spacebar);
+		tut_Spacebar->addComponent(new TutorialClickableComponent(tut_HUD));
+		newObject->addComponent(new TutorialClickableComponent(tut_Spacebar));
+		//newObject->addComponent(new MoveComponent());
+		//newObject->addComponent(new CollisionComponent());
+		//newObject->addComponent(new DrugCollisionReactionComponent());
+		//newObject->addComponent(new FocusPointerComponent(newObject, FocusPointerComponent::YELLOW)); //only way to add this component
+		animations = new std::map<eAnimationState, Animation*>();
+		//animations->insert({ Default, new Animation("assets/sprites/drug_speed_30x30.png", 1) });
+		animations->insert({ Default, new Animation("assets/tutorial/tutorial_arrow_keys.png", 1, 0) }); //first tut image
+		//animation = new TutorialDrawComponent(animations);
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Default);//set starting animation
+		newObject->addComponent(animation);
+		break;
+	}
+	case Tutorial_Arrow_Keys:
+		animations = new std::map<eAnimationState, Animation*>();
+		//animations->insert({ Default, new Animation("assets/sprites/drug_speed_30x30.png", 1) });
+		animations->insert({ Default, new Animation("assets/tutorial/tutorial_arrow_keys.png", 1, 0) });
+		//animation = new TutorialDrawComponent(animations);
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Default);//set starting animation
+		newObject->addComponent(animation);
+		break;
+	case Tutorial_Spacebar:
+		animations = new std::map<eAnimationState, Animation*>();
+		//animations->insert({ Default, new Animation("assets/sprites/drug_speed_30x30.png", 1) });
+		animations->insert({ Default, new Animation("assets/tutorial/tutorial_spacebar.png", 1, 0) });
+		//animation = new TutorialDrawComponent(animations);
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Default);//set starting animation
+		newObject->addComponent(animation);
+		break;
+	case Tutorial_Goal:
+		animations = new std::map<eAnimationState, Animation*>();
+		//animations->insert({ Default, new Animation("assets/sprites/drug_speed_30x30.png", 1) });
+		animations->insert({ Default, new Animation("assets/tutorial/tutorial_goal.png", 1, 0) });
+		//animation = new TutorialDrawComponent(animations);
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Default);//set starting animation
+		newObject->addComponent(animation);
+		break;
+	case Tutorial_HUD:
+		animations = new std::map<eAnimationState, Animation*>();
+		//animations->insert({ Default, new Animation("assets/sprites/drug_speed_30x30.png", 1) });
+		animations->insert({ Default, new Animation("assets/tutorial/tutorial_hud.png", 1, 0) });
+		//animation = new TutorialDrawComponent(animations);
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Default);//set starting animation
+		newObject->addComponent(animation);
+		break;
+	case Tutorial_Level2:
+	{
+		newObject->addComponent(new TutorialClickableComponent());
+		//newObject->addComponent(new MoveComponent());
+		//newObject->addComponent(new CollisionComponent());
+		//newObject->addComponent(new DrugCollisionReactionComponent());
+		//newObject->addComponent(new FocusPointerComponent(newObject, FocusPointerComponent::YELLOW)); //only way to add this component
+		animations = new std::map<eAnimationState, Animation*>();
+		//animations->insert({ Default, new Animation("assets/sprites/drug_speed_30x30.png", 1) });
+		animations->insert({ Default, new Animation("assets/tutorial/tutorial_respawn.png", 1, 0) }); // first tut image
+		//animation = new TutorialDrawComponent(animations);
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Default);//set starting animation
+		newObject->addComponent(animation);
+		break;
+	}
+	case Tutorial_Level3:
+	{
+		GameEntity* tut_Cop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Tutorial_Cop);
+		tut_Cop->addComponent(new TutorialClickableComponent());
+		newObject->addComponent(new TutorialClickableComponent(tut_Cop));
+		//newObject->addComponent(new MoveComponent());
+		//newObject->addComponent(new CollisionComponent());
+		//newObject->addComponent(new DrugCollisionReactionComponent());
+		//newObject->addComponent(new FocusPointerComponent(newObject, FocusPointerComponent::YELLOW)); //only way to add this component
+		animations = new std::map<eAnimationState, Animation*>();
+		//animations->insert({ Default, new Animation("assets/sprites/drug_speed_30x30.png", 1) });
+		animations->insert({ Default, new Animation("assets/tutorial/tutorial_drug_speed.png", 1, 0) }); //first tut image
+		//animation = new TutorialDrawComponent(animations);
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Default);//set starting animation
+		newObject->addComponent(animation);
+		break;
+	}
+	case Tutorial_SpeedDrug:
+		newObject->addComponent(new TutorialClickableComponent());
+		animations = new std::map<eAnimationState, Animation*>();
+		//animations->insert({ Default, new Animation("assets/sprites/drug_speed_30x30.png", 1) });
+		animations->insert({ Default, new Animation("assets/tutorial/tutorial_drug_speed.png", 1, 0) });
+		//animation = new TutorialDrawComponent(animations);
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Default);//set starting animation
+		newObject->addComponent(animation);
+		break;
+	case Tutorial_Cop:
+		newObject->addComponent(new TutorialClickableComponent());
+		animations = new std::map<eAnimationState, Animation*>();
+		//animations->insert({ Default, new Animation("assets/sprites/drug_speed_30x30.png", 1) });
+		animations->insert({ Default, new Animation("assets/tutorial/tutorial_cop.png", 1, 0) });
+		//animation = new TutorialDrawComponent(animations);
+		animation = new DrawComponent(animations);
+		animation->setAnimation(Default);//set starting animation
+		newObject->addComponent(animation);
+		break;
 	case Tutorial_Policeman:
 	{
 		newObject->setSpeedX(110.0f);

@@ -27,7 +27,13 @@ namespace overdose {
 		Tutorial_Explanation, FocusPointer, Tutorial_Policeman, Tutorial_Drug_Speed, Tutorial_Drug_Marijuana, Tutorial_Drug_XTC,
 
 		/* boss */
-		Bullet, Urquhart
+		Bullet, Urquhart,
+
+		//TODO 
+		/* Tutorial #2*/
+		Tutorial_Level1, Tutorial_Level2, Tutorial_Level3, Tutorial_Arrow_Keys, Tutorial_Spacebar, Tutorial_Goal, Tutorial_HUD, Tutorial_Respawn, Tutorial_SpeedDrug, Tutorial_Cop
+
+
 	};
 	enum eFacing {
 		Left, FrontView, Right
