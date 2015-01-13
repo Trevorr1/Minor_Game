@@ -53,7 +53,7 @@ void Level4::Init()
 	loadXML(4); //change this to new level
 
 	m_Urquhart = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Urquhart);
-	m_Urquhart->setStartingPosition(1024, 340);
+	m_Urquhart->setStartingPosition(1280, 340);
 
 	this->addEntities(m_Urquhart);
 
