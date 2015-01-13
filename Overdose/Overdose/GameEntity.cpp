@@ -35,8 +35,10 @@ GameEntity::~GameEntity() {
 
 /* Add component to the list */
 void GameEntity::addComponent(Component *component) {
-	component->init(this);
-	componentList->push_back(component);
+	if (component != nullptr) {
+		component->init(this);
+		componentList->push_back(component);
+	}
 }
 
 void GameEntity::delayedAddComponent(Component *component) {
@@ -134,7 +136,11 @@ void GameEntity::setHealthPointer(int* health) {
 	m_health = health;
 }
 
-
+void GameEntity::setHealth(int health) {
+	if (m_health != nullptr && getHealth() <= 6) {
+		*m_health = health;
+	}
+}
 
 void GameEntity::broadcast(Component *subject, ComponentMessage message, GameEntity *object)
 {

@@ -8,6 +8,12 @@ MarijuanaDrugComponent::MarijuanaDrugComponent()
 	drug_effect_ms = 1000 * 5;
 }
 
+void MarijuanaDrugComponent::init(GameEntity *entity) {
+	DrugComponent::init(entity);
+
+	entity->setHealth(entity->getHealth() + 1);
+	
+}
 
 MarijuanaDrugComponent::~MarijuanaDrugComponent()
 {

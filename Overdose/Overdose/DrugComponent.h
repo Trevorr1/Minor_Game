@@ -15,7 +15,7 @@ namespace overdose {
 		DrugComponent();
 		virtual ~DrugComponent();
 
-		void init(GameEntity *entity);
+		virtual void init(GameEntity *entity);
 		virtual void receive(Component *subject, ComponentMessage message, GameEntity *object);
 		virtual void receiveMessageBatch(Component *subject, std::map<ComponentMessage, GameEntity*> messages);
 		void tick(float dt, GameEntity *entity);

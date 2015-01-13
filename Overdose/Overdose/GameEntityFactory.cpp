@@ -28,6 +28,7 @@
 #include "AIComponent.h"
 #include "DisplayHealthComponent.h"
 #include "DrugOscillationComponent.h"
+#include "DrugDropComponent.h"
 #include <stdexcept>
 using namespace overdose;
 
@@ -87,6 +88,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new CollisionComponent());
 		newObject->addComponent(new AIComponent());
 		newObject->addComponent(new DisplayHealthComponent());
+		newObject->addComponent(new DrugDropComponent);
 		animations = new std::map<eAnimationState, Animation*>();
 		animations->insert({ WalkLeft, new Animation("assets/sprites/Urquhart/UrquhartWalkLeft.png", 4, 5) });
 		animations->insert({ WalkRight, new Animation("assets/sprites/Urquhart/UrquhartWalkRight.png", 4, 5) });
@@ -94,6 +96,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		animation = new DrawComponent(animations);
 		animation->setAnimation(WalkLeft);//set starting animation
 		newObject->addComponent(animation);
+
 
 
 	}

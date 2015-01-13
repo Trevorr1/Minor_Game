@@ -405,6 +405,9 @@
     <ClInclude Include="DrugOscillationComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DrugDropComponent.h">
+      <Filter>Header Files\Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -672,8 +675,11 @@
     <ClCompile Include="NegativeMarijuanaComponent.cpp">
       <Filter>Source Files\Drugs</Filter>
     </ClCompile>
+    <ClCompile Include="DrugDropComponent.cpp">
+      <Filter>Source Files\Component</Filter>
+    </ClCompile>
     <ClCompile Include="DrugOscillationComponent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

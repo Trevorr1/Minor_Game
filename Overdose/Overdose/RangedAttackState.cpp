@@ -11,11 +11,19 @@ RangedAttackState::RangedAttackState() {
 void RangedAttackState::handle(AIComponent *context, GameEntity *entity) {
 	GameEntity *player = LevelManager::getInstance().getCurrentLevel()->getPlayerEntity();
 	int distance = abs(player->getPosX() - entity->getPosX());
+
 	float rc = (entity->getPosY() - player->getPosY()) / (entity->getPosX() - player->getPosX());
+
 	time_t currentTime = std::time(nullptr);
 
-	if (std::difftime(currentTime, m_lastFired) > SECONDS_BETWEEN_SHOTS) {
+	if (distance < RANGED_MIN_DISTANCE) {
+		printf("Boss - FU tried to shoot but changed his mind after seeing your butt.\n");
+	}
+	else if (std::difftime(currentTime, m_lastFired) > SECONDS_BETWEEN_SHOTS) {
 		m_lastFired = currentTime;
+
+		
+
 
 		GameEntity *bullet = GameEntityFactory::getInstance().getGameEntity(Bullet);
 		bullet->setSpeedX(500);
@@ -27,7 +35,10 @@ void RangedAttackState::handle(AIComponent *context, GameEntity *entity) {
 
 		if (player->getPosX() < entity->getPosX()) {
 			bullet->setSpeedX(bullet->getSpeedX() * -1);
-			bullet->setSpeedY(-1* rc * 750);
+			bullet->setSpeedY(-1* rc * 500);
+		}
+		else {
+			bullet->setSpeedY(rc * 500);
 		}
 		LevelManager::getInstance().getCurrentLevel()->scheduleEntityForInsertion(bullet);
 		SoundManager::getInstance().PlaySound(Gunshot);
