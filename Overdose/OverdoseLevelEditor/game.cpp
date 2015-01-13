@@ -403,7 +403,7 @@ void Game::KeyDown(unsigned int code)
 
 void Game::MouseDown(unsigned int button)
 {
-	printf("code: %d\n", button);
+	//printf("code: %d\n", button);
 
 	if (button == 1)
 	{
@@ -419,7 +419,8 @@ void Game::MouseDown(unsigned int button)
 
 void Game::MouseWheel(unsigned int button)
 {
-	if (button < 0)
+	printf("%d\n", button);
+	if (button == 1) //positive
 	{
 		currentTileType++;
 
@@ -428,8 +429,8 @@ void Game::MouseWheel(unsigned int button)
 			currentTileType = TILE_GRASS;
 		}
 	}
-	else
-	{
+	else if (button == -1)
+	{	//negative
 		currentTileType--;
 
 		if (currentTileType < TILE_GRASS)
