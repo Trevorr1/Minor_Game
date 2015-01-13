@@ -121,7 +121,7 @@ void LevelManager::Tick(float dt)
 		SoundManager::getInstance().PlaySound1(Click);
 		m_SpeedModifier = 1;
 	}
-	else if (InputManager::getInstance().isKeyPressedOnce(SDL_SCANCODE_S)) {
+	else if (InputManager::getInstance().isKeyPressedOnce(SDL_SCANCODE_F2)) {
 		SaveGame game;
 		game.savedLevelId = currentLevelEnum;
 		SaveGameManager::getInstance().save(game);

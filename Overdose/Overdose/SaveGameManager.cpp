@@ -14,6 +14,7 @@ void SaveGameManager::save(SaveGame game) {
 
 	output_file << game.savedLevelId << std::endl;
 
+	printf("Game Saved\n");
 
 }
 
@@ -27,6 +28,7 @@ SaveGame SaveGameManager::load(string name) {
 	input_file >> level;
 
 	game.savedLevelId = levels(level);
+
 	return game;
 }
 
