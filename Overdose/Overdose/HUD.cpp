@@ -7,8 +7,8 @@ using namespace overdose;
 HUD::HUD(GameEntity* entity, float posX, float posY)
 : m_Entity{ entity }, m_DrugEffect_ms{ INT_MAX }, m_CurrentEffect_ms{ INT_MAX }, m_Hearts{ new std::vector<HealthHearts*> }
 {
-	setPosX(200);
-	setPosY(200);
+	setPosX(posX);
+	setPosY(posY);
 
 	// hearts and gauge
 	m_DrugGauge = new DrugDurationGauge(posX, posY + 20);
@@ -93,7 +93,6 @@ void HUD::tick(float dt)
 	m_DrugGauge->tick(dt);
 
 	//HealthHearts
-	//delayedAddHeart();
 	for (std::vector<HealthHearts*>::iterator it = m_Hearts->begin(); it != m_Hearts->end(); it++)
 	{
 		(*it)->tick(dt);
@@ -112,11 +111,12 @@ void HUD::tick(float dt)
 	// it'll have a list of other gameObjects that need to run their tick
 	// that then will run their draws
 
+	delayedAddHeart();
 }
 
 void HUD::delayedAddHeart(){
 	if (isScheduledToAddHeart){
-		m_Hearts->push_back(new HealthHearts(m_Hearts->size() * 20, 0)); //new HealthHearts(posX + m_Entity->getHealth() * 20, posY)
+		m_Hearts->push_back(new HealthHearts(m_Entity->getHealth() * this->getPosX(), this->getPosY()));
 		isScheduledToAddHeart = false;
 	}
 }
