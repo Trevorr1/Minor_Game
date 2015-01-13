@@ -23,6 +23,7 @@ bool check_collision(SDL_Rect &A, SDL_Rect &B);
 void set_camera();
 void set_tiles(Tile* tiles[]);
 void put_tile(Tile *tiles[], int tileType);
+void printMouseCoordinates();
 
 /*******************************
 ********THESE ENMUS ARE UNFRIENDLY WITH OUR GAME ENUMS**********
@@ -210,6 +211,11 @@ void put_tile(Tile *tiles[], int tileType)
 	}
 }
 
+void printMouseCoordinates()
+{
+	printf("x: %d, y: %y\n", camera.x, camera.y);
+}
+
 Game::~Game()
 {
 	for (int i = 0; i < TILE_SPRITES; i++)
@@ -394,10 +400,13 @@ void Game::KeyDown(unsigned int code)
 	//printf("Code %d\n", code);
 	if (code == 22)
 	{
-		//save here pls
-		//maybe sound feedback?
 		save();
 		printf("\nYou have succesfully saved!\n");
+	}
+
+	if (code == 6)
+	{
+		printMouseCoordinates();
 	}
 }
 

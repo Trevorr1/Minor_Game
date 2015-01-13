@@ -50,6 +50,14 @@ void Level3::Init()
 	entityCop->addComponent(new EnemyMoveComponent(300, 600));
 	this->addEntities(entityCop);
 
+	GameEntity* entityTutorial = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Tutorial_Cop);
+	entityTutorial->setStartingPosition(210, 10);
+	this->addEntities(entityTutorial);
+
+	GameEntity* entityTutorial1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Tutorial_SpeedDrug);
+	entityTutorial1->setStartingPosition(2800, 250);
+	this->addEntities(entityTutorial1);
+
 	//SoundManager::getInstance().StopMusic();
 	//SoundManager::getInstance().PlayMusic(eMusic::Street);
 	//SoundManager::getInstance()->PlaySound(eSound::Death);

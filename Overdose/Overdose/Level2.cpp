@@ -44,4 +44,8 @@ void Level2::Init()
 	m_Camera->setEntityFocus(m_Player);
 
 	loadXML(2);
+
+	GameEntity* entityTutorial = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Tutorial_Level2);
+	entityTutorial->setStartingPosition(210, 20);
+	this->addEntities(entityTutorial);
 }
