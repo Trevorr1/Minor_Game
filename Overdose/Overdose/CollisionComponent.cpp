@@ -175,7 +175,7 @@ void CollisionComponent::tick(float dt, GameEntity *entity)
 				{
 					if (projectedMoveX != 0.0f)
 					{
-						
+
 						projectedMoveX -= (nextX / vectorLengthX);
 						projectedMoveX /= dt;
 						entity->setAcclX(projectedMoveX);

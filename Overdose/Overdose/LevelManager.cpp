@@ -27,6 +27,7 @@ ILevel* LevelManager::createLevel(levels l, GameEntity* player)
 	currentLevelEnum = l;
 	currentLevel = createNewLevel(l);
 	if (player != nullptr){
+		player->resetGravity();
 		currentLevel->setPlayerEntity(player);
 	}
 	currentLevel->Init();

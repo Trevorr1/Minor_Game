@@ -22,6 +22,16 @@ void KnockBackComponent::receive(Component *subject, ComponentMessage message, G
 	case Grass:
 	case Flag:
 	case Particle:
+	case Tutorial_Level1:
+	case Tutorial_Level2:
+	case Tutorial_Level3:
+		/*case Tutorial_Arrow_Keys:
+		case Tutorial_Spacebar:
+		case Tutorial_Goal:
+		case Tutorial_HUD:
+		case Tutorial_Respawn:
+		case Tutorial_SpeedDrug:
+		case Tutorial_Cop:*/
 		return;
 	}
 
@@ -57,6 +67,16 @@ void KnockBackComponent::receiveMessageBatch(Component *subject, std::map<Compon
 		case Flag:
 		case Advertisement_GameEntity:
 		case Particle:
+		case Tutorial_Level1:
+		case Tutorial_Level2:
+		case Tutorial_Level3:
+		case Tutorial_Arrow_Keys:
+		case Tutorial_Spacebar:
+		case Tutorial_Goal:
+		case Tutorial_HUD:
+		case Tutorial_Respawn:
+		case Tutorial_SpeedDrug:
+		case Tutorial_Cop:
 			return;
 		}
 		switch (it->first)
