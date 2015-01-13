@@ -15,7 +15,7 @@ CloseCombatState::CloseCombatState(GameEntity *entity) {
 		m_direction = CloseCombatStateDirection::Right;
 	}
 
-	entity->setSpeedX(entity->getSpeedX() * 10);
+	entity->setSpeedX(entity->getSpeedX() * CLOSECOMBAT_SPEED_MODIFIER);
 
 	SoundManager::getInstance().PlaySound(CloseCombat);
 }
@@ -28,7 +28,7 @@ void CloseCombatState::handle(AIComponent *context, GameEntity *entity) {
 	if ((player->getPosX() > entity->getPosX() + CLOSECOMBAT_RAM_DISTANCE && m_direction == CloseCombatStateDirection::Left) ||
 		(player->getPosX() < entity->getPosX() - CLOSECOMBAT_RAM_DISTANCE && m_direction == CloseCombatStateDirection::Right) || distance > 500)
 	{
-		entity->setSpeedX(entity->getSpeedX() / 10);
+		entity->setSpeedX(entity->getSpeedX() / CLOSECOMBAT_SPEED_MODIFIER);
 		context->setState(std::unique_ptr < IFSMBoss > {new SleepState(entity)});
 		
 	}
