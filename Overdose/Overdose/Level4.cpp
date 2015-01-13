@@ -12,14 +12,9 @@
 using namespace overdose;
 
 Level4::Level4()
-{
-	//m_WorldSizeX = 8312;
-	//m_WorldSizeY = 480;
-	//m_Camera = new Camera(m_WorldSizeX);
-	//createLevel(m_WorldSizeX, m_WorldSizeY); //create the level here widthx height
-	
+{	
 	//boss fight
-	m_WorldSizeX = 1880;
+	m_WorldSizeX = 1920;
 	m_WorldSizeY = 480;
 	m_Camera = new Camera(m_WorldSizeX);
 
@@ -58,7 +53,7 @@ void Level4::Init()
 	loadXML(4); //change this to new level
 
 	m_Urquhart = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Urquhart);
-	m_Urquhart->setStartingPosition(500, 340);
+	m_Urquhart->setStartingPosition(1280, 340);
 
 	this->addEntities(m_Urquhart);
 

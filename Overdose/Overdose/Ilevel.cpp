@@ -18,6 +18,7 @@ ILevel::ILevel()
 	//this->addEntities(fpsCounter);
 
 	createLevel(m_WorldSizeX, m_WorldSizeY); //maybe let this return the created surface?
+
 }
 
 void ILevel::addEntities(GameEntity* entities)
@@ -119,6 +120,21 @@ void ILevel::DrawBackground()
 	}
 }
 
+void ILevel::startRespawnable(eGameEntity type)
+{
+	typedef std::map<drugSpawn*, std::clock_t>::iterator it_type;
+	for (it_type iterator = m_Respawnables.begin(); iterator != m_Respawnables.end(); iterator++)
+	{
+		// iterator->first = key
+		// iterator->second = value
+		// Repeat if you also want to iterate through the second map.
+		if (iterator->first->type == type && iterator->second == NULL)
+		{
+			iterator->second = clock();
+		}
+	}
+}
+
 void ILevel::Tick(float dt)
 {
 	DrawBackground();
@@ -129,9 +145,20 @@ void ILevel::Tick(float dt)
 	}
 
 	insertEntityBuffer->clear();
+
+	// respawn drugs code :<
+	for (auto ent : *entities)
+	{
+		if (ent->isScheduledForRemoval() && ent->getEnum() != eGameEntity::Player)
+		{
+			startRespawnable(ent->getEnum());
+		}
+	}
 	
 	auto toRemove = std::remove_if(entities->begin(), entities->end(), [](GameEntity* p) {
-		if (p->isScheduledForRemoval() && p->getEnum() != eGameEntity::Player) {
+		if (p->isScheduledForRemoval() && p->getEnum() != eGameEntity::Player) 
+		{
+			
 			delete p;
 			p = nullptr;
 			return true;
@@ -148,7 +175,9 @@ void ILevel::Tick(float dt)
 	if (m_Camera != nullptr)
 		m_Camera->Tick(dt);
 
-	
+	//respawn drug code
+	doRespawnables();
+
 	//-After camera Surface is set
 	//|***************************************
 	if (hud != nullptr){
@@ -227,6 +256,8 @@ ILevel::~ILevel()
 	delete m_FpsCounter;
 
 	Surface::flushImageCache();
+
+	m_Respawnables.clear();
 }
 
 
@@ -262,5 +293,41 @@ void ILevel::loadXML(int level){
 		GameEntity->setStartingPosition(x, y);
 		this->addEntities(GameEntity);
 
+		if ((eGameEntity)enemy == Drug_Speed || (eGameEntity)enemy == Drug_Marijuana || (eGameEntity)enemy == Drug_XTC)//if entity is a drug add them to respawnables
+		{
+			addRespawnable((eGameEntity)enemy, x, y);
+		}
+	}
+}
+
+void ILevel::addRespawnable(eGameEntity type, int x, int y)
+{
+	drugSpawn* temp = new drugSpawn{ type, x, y };
+	m_Respawnables.insert(std::make_pair(temp, NULL));
+}
+
+void ILevel::doRespawnables()
+{
+	typedef std::map<drugSpawn*, std::clock_t>::iterator it_type;
+	for (it_type iterator = m_Respawnables.begin(); iterator != m_Respawnables.end(); iterator++) 
+	{
+		// iterator->first = key
+		// iterator->second = value
+		// Repeat if you also want to iterate through the second map.
+
+		if (iterator->second != NULL)
+		{
+
+			clock_t end = clock();
+			double elapsed_secs = double(end - iterator->second) /*/ CLOCKS_PER_SEC*/;
+
+			if (elapsed_secs > 10000)
+			{
+				GameEntity* GameEntity = GameEntityFactory::getInstance().getGameEntity(iterator->first->type);
+				GameEntity->setStartingPosition(iterator->first->x, iterator->first->y);
+				this->addEntities(GameEntity);
+				iterator->second = NULL;
+			}
+		}
 	}
 }

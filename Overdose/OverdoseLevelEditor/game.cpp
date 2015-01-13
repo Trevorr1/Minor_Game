@@ -30,13 +30,14 @@ void put_tile(Tile *tiles[], int tileType);
 //The different tile sprites
 //int count = 0;
 const int TILE_GRASS = 0;
-const int TILE_MARIHUANA = 1;
+const int TILE_GROUND = 1;
 const int TILE_SPEED = 2;
-const int TILE_FLAG = 3;
-const int TILE_GROUND = 4;
-const int TILE_WHITE = 5;
+const int TILE_MARIHUANA = 3;
+const int TILE_XTC = 4;
+const int TILE_FLAG = 5;
+const int TILE_WHITE = 6;
 
-const int TILE_SPRITES = 6;
+const int TILE_SPRITES = 7;
 
 Surface* tilesAsset[TILE_SPRITES];
 
@@ -237,10 +238,11 @@ void Game::Init()
 	const int TOTAL_TILES = (LEVEL_WIDTH / TILE_WIDTH) * (LEVEL_HEIGHT / TILE_HEIGHT);
 
 	tilesAsset[TILE_GRASS] = new Surface("assets/tiles/grass_2.png");
-	tilesAsset[TILE_MARIHUANA] = new Surface("assets/tiles/marihuana32x32.png");
-	tilesAsset[TILE_SPEED] = new Surface("assets/tiles/speed32x32.png");
-	tilesAsset[TILE_FLAG] = new Surface("assets/tiles/flag.png");
 	tilesAsset[TILE_GROUND] = new Surface("assets/tiles/ground.png");
+	tilesAsset[TILE_SPEED] = new Surface("assets/tiles/speed32x32.png");
+	tilesAsset[TILE_MARIHUANA] = new Surface("assets/tiles/marihuana32x32.png");
+	tilesAsset[TILE_XTC] = new Surface("assets/tiles/drug_xtc_32x32.png");
+	tilesAsset[TILE_FLAG] = new Surface("assets/tiles/flag.png");
 	tilesAsset[TILE_WHITE] = new Surface("assets/tiles/white.png");
 
 	for (int i = 0; i < TOTAL_TILES; i++)
@@ -275,22 +277,6 @@ void Game::Tick( float a_DT )
 	showCurrentSelectedArtAsset();
 }
 
-void Game::KeyDown(unsigned int code)
-{
-	int x = 0, y = 0;
-
-	SDL_GetMouseState(&x, &y);
-
-	//printf("Code %d\n", code);
-	if (code == 22)
-	{
-		//save here pls
-		//maybe sound feedback?
-		save();
-		printf("\nYou have succesfully saved!\n");
-	}
-}
-
 void Game::showArtHud()
 {
 	//magical numbers 320 (SCRW/2), 64 (even distrubuted images width)
@@ -298,7 +284,7 @@ void Game::showArtHud()
 	int offsetx = 32;
 
 	//bounding box hud
-	m_Screen->Box(320 - 66, 1, 320 + 98, 36, 0x000000);
+	m_Screen->Box(320 - 66, 1, 320 + 130, 36, 0x000000);
 
 	for (int i = 0; i < TILE_SPRITES-1; i++)
 	{
@@ -399,10 +385,24 @@ void Game::load()
 	}
 }
 
+void Game::KeyDown(unsigned int code)
+{
+	int x = 0, y = 0;
+
+	SDL_GetMouseState(&x, &y);
+
+	//printf("Code %d\n", code);
+	if (code == 22)
+	{
+		//save here pls
+		//maybe sound feedback?
+		save();
+		printf("\nYou have succesfully saved!\n");
+	}
+}
+
 void Game::MouseDown(unsigned int button)
 {
-	printf("code: %d\n", button);
-
 	if (button == 1)
 	{
 		//Put the tile
@@ -417,26 +417,24 @@ void Game::MouseDown(unsigned int button)
 
 void Game::MouseWheel(unsigned int button)
 {
-	if (button < 0)
+	if (button == 1)
 	{
 		currentTileType++;
 
-		if (currentTileType > TILE_GROUND) //was tile_ice, TILE_GROUND
+		if (currentTileType > TILE_FLAG)
 		{
 			currentTileType = TILE_GRASS;
 		}
 	}
-	else
+	else if (button == -1)
 	{
 		currentTileType--;
 
 		if (currentTileType < TILE_GRASS)
 		{
-			currentTileType = TILE_GROUND; //TILE_GROUND
+			currentTileType = TILE_FLAG;
 		}
 	}
-
-	//printf("code: %d\n", button);
 }
 
 int convertToGameEnum(int e)
@@ -459,6 +457,9 @@ int convertToGameEnum(int e)
 		break;
 	case TILE_GROUND:
 		retval = 12;
+		break;
+	case TILE_XTC:
+		retval = 9;
 		break;
 	default:
 		retval = e;
@@ -488,6 +489,9 @@ int convertFromGameEnum(int e)
 		break;
 	case 12:
 		retval = TILE_GROUND;
+		break;
+	case 9:
+		retval = TILE_XTC;
 		break;
 	default:
 		retval = e;

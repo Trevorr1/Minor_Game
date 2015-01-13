@@ -33,26 +33,6 @@ void Level2::Init()
 {
 	m_Background = new Surface("assets/backgrounds/background.png");
 
-	//std::map<eAnimationState, Animation*>* animations = new std::map<eAnimationState, Animation*>();
-	//animations->insert({ Default, new Animation("assets/sprites/tiles/level1/tile_air.png", 1) });
-	//DrawComponent* animation = new DrawComponent(animations);
-	//animation->setAnimation(Default);//set starting animation
-	//m_Tiles[0].addComponent(animation);
-	//
-	//animations->clear();
-
-	//animations->insert({ Default, new Animation("assets/sprites/tiles/level1/tile_grass.png", 1) });
-	//animation = new DrawComponent(animations);
-	//animation->setAnimation(Default);//set starting animation
-	//m_Tiles[1].addComponent(animation);
-
-	//animations->clear();
-
-	//animations->insert({ Default, new Animation("assets/sprites/tiles/level1/tile_ground.png", 1) });
-	//animation = new DrawComponent(animations);
-	//animation->setAnimation(Default);//set starting animation
-	//m_Tiles[2].addComponent(animation);
-
 	if (m_Player == nullptr)
 	{
 		GameEntity *player = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Player);
@@ -64,22 +44,4 @@ void Level2::Init()
 	m_Camera->setEntityFocus(m_Player);
 
 	loadXML(2);
-
-	/*GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
-	entityCop->setStartingPosition(500, 356);
-	entityCop->addComponent(new EnemyMoveComponent(360, 630));
-	this->addEntities(entityCop);*/
-
-	////TODO moet op de surface komen
-	//GameEntity* entityTutorial = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Tutorial_Explanation);
-	//entityTutorial->setStartingPosition(210, 100);
-	//this->addEntities(entityTutorial);
-
-	/*GameEntity* entityXTC = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Drug_XTC);
-	entityXTC->setStartingPosition(600, 200);
-	this->addEntities(entityXTC);*/
-
-	SoundManager::getInstance().StopMusic();
-	SoundManager::getInstance().PlayMusic(eMusic::Street);
-	//SoundManager::getInstance()->PlaySound(eSound::Death);
 }
