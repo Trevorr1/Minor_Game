@@ -10,6 +10,7 @@ namespace overdose{
 	private:
 		GameEntity* m_Entity = nullptr;
 		GameEntity* getRandomDrug();
+		bool m_DropToggle = false;
 	public:
 		void init(GameEntity *entity);
 		void receive(Component *subject, ComponentMessage message, GameEntity *object);

@@ -3,7 +3,6 @@
 #include "LevelManager.h"
 #include <ctime>
 
-#define SECONDS_BETWEEN_SHOTS 1
 #define RANGED_MAX_DISTANCE 500
 #define RANGED_MIN_DISTANCE 300
 

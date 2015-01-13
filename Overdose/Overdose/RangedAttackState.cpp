@@ -16,6 +16,16 @@ void RangedAttackState::handle(AIComponent *context, GameEntity *entity) {
 
 	time_t currentTime = std::time(nullptr);
 
+	float SECONDS_BETWEEN_SHOTS = 1;
+
+	if (entity->getHealth() == 2) {
+		SECONDS_BETWEEN_SHOTS = SECONDS_BETWEEN_SHOTS / 2;
+	}
+	else if (entity->getHealth() == 1) {	
+		SECONDS_BETWEEN_SHOTS = SECONDS_BETWEEN_SHOTS / 4;
+	}
+		
+
 	if (distance < RANGED_MIN_DISTANCE) {
 		printf("Boss - FU tried to shoot but changed his mind after seeing your butt.\n");
 	}
