@@ -96,7 +96,12 @@ void KnockBackComponent::tick(float dt, GameEntity *entity)
 
 	if (knockBackToTop)
 	{
-		entity->setSpeedY(entity->getSpeedY() - 400); // changed this so it would work, hate me later. - Trev
+		entity->resetGravity();
+		entity->setSpeedY(0);
+		//entity->setSpeedY(800.0f); // changed this so it would work, hate me later. - Trev
+		entity->setJumpingSpeed(-700.0f);
+		entity->setJumping(true);
+		entity->setFalling(true);
 		knockBackToTop = false;
 	}
 
