@@ -30,11 +30,11 @@ void put_tile(Tile *tiles[], int tileType);
 //The different tile sprites
 //int count = 0;
 const int TILE_GRASS = 0;
-const int TILE_MARIHUANA = 1;
+const int TILE_GROUND = 1;
 const int TILE_SPEED = 2;
-const int TILE_FLAG = 3;
-const int TILE_GROUND = 4;
-const int TILE_XTC = 5;
+const int TILE_MARIHUANA = 3;
+const int TILE_XTC = 4;
+const int TILE_FLAG = 5;
 const int TILE_WHITE = 6;
 
 const int TILE_SPRITES = 7;
@@ -238,11 +238,11 @@ void Game::Init()
 	const int TOTAL_TILES = (LEVEL_WIDTH / TILE_WIDTH) * (LEVEL_HEIGHT / TILE_HEIGHT);
 
 	tilesAsset[TILE_GRASS] = new Surface("assets/tiles/grass_2.png");
-	tilesAsset[TILE_MARIHUANA] = new Surface("assets/tiles/marihuana32x32.png");
-	tilesAsset[TILE_SPEED] = new Surface("assets/tiles/speed32x32.png");
-	tilesAsset[TILE_FLAG] = new Surface("assets/tiles/flag.png");
 	tilesAsset[TILE_GROUND] = new Surface("assets/tiles/ground.png");
+	tilesAsset[TILE_SPEED] = new Surface("assets/tiles/speed32x32.png");
+	tilesAsset[TILE_MARIHUANA] = new Surface("assets/tiles/marihuana32x32.png");
 	tilesAsset[TILE_XTC] = new Surface("assets/tiles/drug_xtc_32x32.png");
+	tilesAsset[TILE_FLAG] = new Surface("assets/tiles/flag.png");
 	tilesAsset[TILE_WHITE] = new Surface("assets/tiles/white.png");
 
 	for (int i = 0; i < TOTAL_TILES; i++)
@@ -403,8 +403,6 @@ void Game::KeyDown(unsigned int code)
 
 void Game::MouseDown(unsigned int button)
 {
-	//printf("code: %d\n", button);
-
 	if (button == 1)
 	{
 		//Put the tile
@@ -419,27 +417,24 @@ void Game::MouseDown(unsigned int button)
 
 void Game::MouseWheel(unsigned int button)
 {
-	printf("%d\n", button);
-	if (button == 1) //positive
+	if (button == 1)
 	{
 		currentTileType++;
 
-		if (currentTileType > TILE_XTC) //was tile_ice, TILE_XTC
+		if (currentTileType > TILE_FLAG)
 		{
 			currentTileType = TILE_GRASS;
 		}
 	}
 	else if (button == -1)
-	{	//negative
+	{
 		currentTileType--;
 
 		if (currentTileType < TILE_GRASS)
 		{
-			currentTileType = TILE_XTC; //TILE_XTC
+			currentTileType = TILE_FLAG;
 		}
 	}
-
-	//printf("code: %d\n", button);
 }
 
 int convertToGameEnum(int e)
