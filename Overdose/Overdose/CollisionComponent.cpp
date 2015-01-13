@@ -68,7 +68,10 @@ void CollisionComponent::tick(float dt, GameEntity *entity)
 
 		// assuming that only GameEntities that have collisionComponents are relevant
 		// to the collision calculation
-		if (entity == other || other->getEnum() == Advertisement_GameEntity || other->getEnum() == FocusPointer || other->getEnum() == Tutorial_Explanation) continue;
+		if (entity == other || other->getEnum() == Advertisement_GameEntity || other->getEnum() == FocusPointer
+			|| other->getEnum() == Tutorial_Explanation || other->getEnum() == Tutorial_Level1 || other->getEnum() == Tutorial_Level2 || other->getEnum() == Tutorial_Level3 
+			|| other->getEnum() == Tutorial_Arrow_Keys || other->getEnum() == Tutorial_Spacebar || other->getEnum() == Tutorial_Goal
+			|| other->getEnum() == Tutorial_HUD || other->getEnum() == Tutorial_Respawn || other->getEnum() == Tutorial_SpeedDrug || other->getEnum() == Tutorial_Cop) continue;
 
 		// define the collision box of the "other" GameEntity
 		int oposx = (int)other->getPosX();

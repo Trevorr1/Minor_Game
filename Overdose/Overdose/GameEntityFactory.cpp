@@ -473,7 +473,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new TutorialClickableComponent());
 		animations = new std::map<eAnimationState, Animation*>();
 		//animations->insert({ Default, new Animation("assets/sprites/drug_speed_30x30.png", 1) });
-		animations->insert({ Default, new Animation("assets/tutorial/tutorial_drug_speed.png", 1, 0) });
+		animations->insert({ Default, new Animation("assets/tutorial/tutorial_drug_speed196x196.png", 1, 0) });
 		//animation = new TutorialDrawComponent(animations);
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation
@@ -483,7 +483,7 @@ GameEntity* GameEntityFactory::getGameEntity(eGameEntity entityEnum){
 		newObject->addComponent(new TutorialClickableComponent());
 		animations = new std::map<eAnimationState, Animation*>();
 		//animations->insert({ Default, new Animation("assets/sprites/drug_speed_30x30.png", 1) });
-		animations->insert({ Default, new Animation("assets/tutorial/tutorial_cop.png", 1, 0) });
+		animations->insert({ Default, new Animation("assets/tutorial/tutorial_cop196x196.png", 1, 0) });
 		//animation = new TutorialDrawComponent(animations);
 		animation = new DrawComponent(animations);
 		animation->setAnimation(Default);//set starting animation

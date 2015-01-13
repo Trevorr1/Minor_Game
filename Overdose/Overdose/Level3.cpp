@@ -45,17 +45,17 @@ void Level3::Init()
 
 	loadXML(3);
 
-	GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
+	GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Tutorial_Policeman);
 	entityCop->setStartingPosition(400, 300);
 	entityCop->addComponent(new EnemyMoveComponent(300, 600));
 	this->addEntities(entityCop);
 
 	GameEntity* entityTutorial = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Tutorial_Cop);
-	entityTutorial->setStartingPosition(210, 10);
+	entityTutorial->setStartingPosition(600, 10);
 	this->addEntities(entityTutorial);
 
 	GameEntity* entityTutorial1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Tutorial_SpeedDrug);
-	entityTutorial1->setStartingPosition(2800, 250);
+	entityTutorial1->setStartingPosition(2770, 280);
 	this->addEntities(entityTutorial1);
 
 	//SoundManager::getInstance().StopMusic();
