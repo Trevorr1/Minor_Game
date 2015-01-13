@@ -66,8 +66,12 @@ bool Level4::isGameWon() {
 	// Let the player enjoy FU's blood for a second before marking the boss as defeated.
 	if (m_UrquhartTimeOfDeath == -1 && m_Urquhart->isScheduledForRemoval()) {
 		m_UrquhartTimeOfDeath = time(0);
+		/* SOUND/MUSIC */
+		SoundManager::getInstance().StopMusic();
+		SoundManager::getInstance().PlaySound(eSound::GameOverSound);
 	}
 	
 
-	return m_UrquhartTimeOfDeath != -1 && std::difftime(time(0), m_UrquhartTimeOfDeath) >= 1;
+
+	return m_UrquhartTimeOfDeath != -1 && std::difftime(time(0), m_UrquhartTimeOfDeath) >= 4.5;
 }
