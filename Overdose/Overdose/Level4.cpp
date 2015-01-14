@@ -66,3 +66,15 @@ void Level4::Init()
 	loadXML(4);
 
 }
+
+bool Level4::isGameWon() {
+	if (ILevel::isGameWon() && m_sirenStart == -1) {
+
+		m_sirenStart = time(0);
+		SoundManager::getInstance().StopMusic();
+		SoundManager::getInstance().PlaySound(Siren);
+	}
+
+	return m_sirenStart != -1 && std::difftime(time(0), m_sirenStart) >= 3;
+
+}
