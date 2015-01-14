@@ -54,7 +54,7 @@ void Level4::Init()
 	GameEntity *cop3 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
 	cop3->setStartingPosition(2500, 203);
 	cop3->addComponent(new EnemyMoveComponent(2400, 2543));
-
+	 
 	GameEntity *cop4 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
 	cop4->setStartingPosition(1300, 139);
 	cop4->addComponent(new EnemyMoveComponent(1255, 1341));
