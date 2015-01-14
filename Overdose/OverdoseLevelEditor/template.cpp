@@ -193,7 +193,7 @@ int main( int argc, char **argv )
 	if (!init()) 
 	{
 		//SDL_SetVideoMode( SCRWIDTH, SCRHEIGHT, 32, SDL_HWSURFACE|SDL_DOUBLEBUF );
-		screen = SDL_CreateWindow("Template",
+		screen = SDL_CreateWindow("Overdose Level Editor",
                           SDL_WINDOWPOS_UNDEFINED,
                           SDL_WINDOWPOS_UNDEFINED,
                           SCRWIDTH, 
@@ -206,7 +206,7 @@ int main( int argc, char **argv )
 		//SDL_WM_SetCaption( "Template - FALLBACK", NULL );
 	}
 	//else SDL_WM_SetCaption( "Template", NULL );
-	else screen = SDL_CreateWindow("Template",
+	else screen = SDL_CreateWindow("Overdose Level Editor",
                           SDL_WINDOWPOS_UNDEFINED,
                           SDL_WINDOWPOS_UNDEFINED,
                           SCRWIDTH, 
