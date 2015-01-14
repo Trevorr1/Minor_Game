@@ -6,12 +6,12 @@
 #define WORLD_SIZEY 12
 
 namespace overdose {
-	class Level4 : public ILevel
+	class LevelBoss : public ILevel
 	{
 	public:
-		Level4();
-		Level4(GameEntity* player);
-		virtual ~Level4();
+		LevelBoss();
+		LevelBoss(GameEntity* player);
+		virtual ~LevelBoss();
 		bool isGameWon();
 
 		void Init();

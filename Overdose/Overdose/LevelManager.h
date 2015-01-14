@@ -7,7 +7,7 @@
 #include "Level1.h"
 #include "Level2.h"
 #include "Level3.h"
-#include "Level4.h"
+#include "LevelBoss.h"
 #include "Credits.h"
 #include "LoadGame.h"
 #include "Options.h"
@@ -17,18 +17,19 @@
 
 namespace overdose {
 enum levels{
+	/* DE VOLGORDE VAN DEZE ENUMS NIET AANPASSEN! */
 	LevelMainMenu,
 	LevelCredits,
 	level1,
 	level2,
 	level3,
+	LevelBossFight,
 	level4,
 	level5,
 	level6,
 	level7,
 	level8,
 	level9,
-	level10,
 	LevelGameWon,
 	LevelGameOver,
 	LevelHighScore,

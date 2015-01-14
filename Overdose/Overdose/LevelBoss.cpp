@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "Level4.h"
+#include "LevelBoss.h"
 #include "PlayerInputComponent.h"
 #include "DrawComponent.h"
 #include "MoveComponent.h"
@@ -11,7 +11,7 @@
 
 using namespace overdose;
 
-Level4::Level4()
+LevelBoss::LevelBoss()
 {	
 	//boss fight
 	m_WorldSizeX = 1920;
@@ -21,17 +21,17 @@ Level4::Level4()
 	createLevel(m_WorldSizeX, m_WorldSizeY); //create the level here widthx height
 }
 
-Level4::Level4(GameEntity* player)
+LevelBoss::LevelBoss(GameEntity* player)
 {
 	m_Player = player;
 }
 
-Level4::~Level4()
+LevelBoss::~LevelBoss()
 {
 	delete m_Background;
 }
 
-void Level4::Init()
+void LevelBoss::Init()
 {
 	//m_Background = new Surface("assets/backgrounds/background_city2.3.png");
 	m_Background = new Surface("assets/backgrounds/spooky.png");
@@ -62,7 +62,7 @@ void Level4::Init()
 
 }
 
-bool Level4::isGameWon() {
+bool LevelBoss::isGameWon() {
 	// Let the player enjoy FU's blood for a second before marking the boss as defeated.
 	if (m_UrquhartTimeOfDeath == -1 && m_Urquhart->isScheduledForRemoval()) {
 		m_UrquhartTimeOfDeath = time(0);

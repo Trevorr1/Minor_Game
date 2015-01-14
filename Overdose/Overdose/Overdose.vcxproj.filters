@@ -354,9 +354,6 @@
     <ClInclude Include="Level3.h">
       <Filter>Header Files\Level</Filter>
     </ClInclude>
-    <ClInclude Include="Level4.h">
-      <Filter>Header Files\Level</Filter>
-    </ClInclude>
     <ClInclude Include="BossFight.h">
       <Filter>Header Files\Level</Filter>
     </ClInclude>
@@ -407,6 +404,9 @@
     </ClInclude>
     <ClInclude Include="DrugDropComponent.h">
       <Filter>Header Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelBoss.h">
+      <Filter>Header Files\Level</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -624,9 +624,6 @@
     <ClCompile Include="Level3.cpp">
       <Filter>Source Files\Level</Filter>
     </ClCompile>
-    <ClCompile Include="Level4.cpp">
-      <Filter>Source Files\Level</Filter>
-    </ClCompile>
     <ClCompile Include="NegativeMarijuanaComponent.cpp">
       <Filter>Source Files\Drugs</Filter>
     </ClCompile>
@@ -680,6 +677,9 @@
     </ClCompile>
     <ClCompile Include="DrugOscillationComponent.cpp">
       <Filter>Source Files\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelBoss.cpp">
+      <Filter>Source Files\Level</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
