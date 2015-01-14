@@ -48,6 +48,9 @@ ILevel* LevelManager::createNewLevel(levels l)
 	case level3:
 		result = new Level3();
 		break;
+	case level4:
+		result = new Level4();
+		break;
 	case LevelBossFight:
 		result = new LevelBoss();
 		break;
@@ -127,6 +130,14 @@ void LevelManager::Tick(float dt)
 		game.savedLevelId = currentLevelEnum;
 		SaveGameManager::getInstance().save(game);
 	}
+	else if (InputManager::getInstance().isKeyPressedOnce(SDL_SCANCODE_F3) && currentLevel != nullptr) {
+		
+		if (currentLevel->getPlayerEntity() != nullptr) {
+			printf("Player position:\n");
+			std::cout << "X-Pos: " << currentLevel->getPlayerEntity()->getPosX() << '\n';
+			std::cout << "Y-Pos: " << currentLevel->getPlayerEntity()->getPosY() << '\n';
+		}
+	}
 	currentLevel->Tick(dt * m_SpeedModifier);
 }
 
@@ -152,6 +163,9 @@ void LevelManager::nextLevel(GameEntity* player)
 		createLevel(level3);
 		break;
 	case level3:
+		createLevel(level4);
+		break;
+	case level4:
 		createLevel(LevelBossFight);
 		break;
 	case LevelBossFight:

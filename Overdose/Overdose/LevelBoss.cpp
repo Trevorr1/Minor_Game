@@ -50,7 +50,8 @@ void LevelBoss::Init()
 	m_Player->setStartingPosition(100, 257); //set to world coordinates
 	m_Camera->setEntityFocus(m_Player);
 
-	loadXML(4); //change this to new level
+	// lets make sure it does not conflict BossFight is the last level :3
+	loadXML(100); //change this to new level
 
 	m_Urquhart = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Urquhart);
 	m_Urquhart->setStartingPosition(1280, 340);
