@@ -110,7 +110,7 @@ void LevelManager::Tick(float dt)
 		previousLevel = nullptr;
 	}
 
-	if (InputManager::getInstance().isKeyPressedOnce(SDL_SCANCODE_PAGEUP) && m_SpeedModifier <= 2.5) {
+	if (InputManager::getInstance().isKeyPressedOnce(SDL_SCANCODE_PAGEUP) && m_SpeedModifier <= 1.5) {
 		SoundManager::getInstance().PlaySound1(Click);
 		m_SpeedModifier += 0.1;
 	}

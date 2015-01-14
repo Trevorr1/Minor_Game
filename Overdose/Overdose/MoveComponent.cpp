@@ -19,11 +19,12 @@ void  MoveComponent::tick(float dt, GameEntity *entity)
 	float jspeed = entity->getJumpingSpeed();
 
 	// speedmodifier mag geen invloed hebben op springen. Krijg je rare dingen anders
+	float fakeDt = dt;
 	dt = (dt / LevelManager::getInstance().getSpeedModifier());
 
 	float addY = (speedY + jspeed) * dt;
 
-	speedX *= dt;
+	speedX *= fakeDt;
 
 	entity->setPosX(posX + speedX);
 	entity->setPosY(posY + addY);
