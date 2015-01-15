@@ -104,7 +104,7 @@ void KnockBackComponent::tick(float dt, GameEntity *entity)
 {
 	if (knockBackToLeft)
 	{
-		entity->setPosX(entity->getPosX() - knockbackValue);
+ 		entity->setPosX(entity->getPosX() - knockbackValue);
 		knockBackToLeft = false;
 	}
 

@@ -13,7 +13,7 @@ namespace overdose {
 		virtual ~Level4();
 
 		void Init();
-		bool isGameWon();
+		//bool isGameWon();
 	};
 
 }

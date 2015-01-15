@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "Level4.h"
+#include "Level8.h"
 #include "PlayerInputComponent.h"
 #include "DrawComponent.h"
 #include "MoveComponent.h"
@@ -11,25 +11,25 @@
 
 using namespace overdose;
 
-Level4::Level4()
+Level8::Level8()
 {
-	m_WorldSizeX = 3840;
+	m_WorldSizeX = 2560;
 	m_WorldSizeY = 480;
 	m_Camera = new Camera(m_WorldSizeX);
 	createLevel(m_WorldSizeX, m_WorldSizeY); //create the level here widthx height
 }
 
-Level4::Level4(GameEntity* player)
+Level8::Level8(GameEntity* player)
 {
 	m_Player = player;
 }
 
-Level4::~Level4()
+Level8::~Level8()
 {
 	delete m_Background;
 }
 
-void Level4::Init()
+void Level8::Init()
 {
 	m_Background = new Surface("assets/backgrounds/background.png");
 
@@ -44,37 +44,42 @@ void Level4::Init()
 	m_Camera->setEntityFocus(m_Player);
 
 	GameEntity *cop1 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
-	cop1->setStartingPosition(100, 350);
-	cop1->addComponent(new EnemyMoveComponent(75, 220));
+	cop1->setStartingPosition(760, 363);
+	cop1->addComponent(new EnemyMoveComponent(754, 968));
 
 	GameEntity *cop2 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
-	cop2->setStartingPosition(1100, 299);
-	cop2->addComponent(new EnemyMoveComponent(1033, 1343));
+	cop2->setStartingPosition(1150, 363);
+	cop2->addComponent(new EnemyMoveComponent(1144, 1327));
 
 	GameEntity *cop3 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
-	cop3->setStartingPosition(2500, 203);
-	cop3->addComponent(new EnemyMoveComponent(2400, 2543));
-	 
+	cop3->setStartingPosition(1400, 363);
+	cop3->addComponent(new EnemyMoveComponent(1395, 1580));
+
 	GameEntity *cop4 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
-	cop4->setStartingPosition(1300, 139);
-	cop4->addComponent(new EnemyMoveComponent(1255, 1341));
+	cop4->setStartingPosition(1565, 75);
+	cop4->addComponent(new EnemyMoveComponent(1510, 1620));
+
+	GameEntity *cop5 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
+	cop5->setStartingPosition(460, 75);
+	cop5->addComponent(new EnemyMoveComponent(300, 620));
 
 	addEntities(cop1);
 	addEntities(cop2);
 	addEntities(cop3);
 	addEntities(cop4);
-	loadXML(4);
+	addEntities(cop5);
+	loadXML(8);
 
 }
 
-//bool Level4::isGameWon() {
-//	if (ILevel::isGameWon() && m_sirenStart == -1) {
-//
-//		m_sirenStart = time(0);
-//		SoundManager::getInstance().StopMusic();
-//		SoundManager::getInstance().PlaySound(Siren);
-//	}
-//
-//	return m_sirenStart != -1 && std::difftime(time(0), m_sirenStart) >= 3;
-//
-//}
+bool Level8::isGameWon() {
+	if (ILevel::isGameWon() && m_sirenStart == -1) {
+
+		m_sirenStart = time(0);
+		SoundManager::getInstance().StopMusic();
+		SoundManager::getInstance().PlaySound(Siren);
+	}
+
+	return m_sirenStart != -1 && std::difftime(time(0), m_sirenStart) >= 3;
+
+}

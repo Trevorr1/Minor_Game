@@ -411,6 +411,9 @@
     <ClInclude Include="Level4.h">
       <Filter>Header Files\Level</Filter>
     </ClInclude>
+    <ClInclude Include="Level8.h">
+      <Filter>Header Files\Level</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -685,6 +688,9 @@
       <Filter>Source Files\Level</Filter>
     </ClCompile>
     <ClCompile Include="Level4.cpp">
+      <Filter>Source Files\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="Level8.cpp">
       <Filter>Source Files\Level</Filter>
     </ClCompile>
   </ItemGroup>
