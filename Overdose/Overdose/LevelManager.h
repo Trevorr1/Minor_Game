@@ -8,6 +8,7 @@
 #include "Level2.h"
 #include "Level3.h"
 #include "Level4.h"
+#include "Level7.h"
 #include "Level8.h"
 #include "LevelBoss.h"
 #include "Credits.h"
