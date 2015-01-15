@@ -121,8 +121,8 @@ void EnemyMoveComponent::calculateMinMax(GameEntity *entity)
 
 		}
 	}
-	//m_minX = 300;
+	m_minX = m_minX;
 	int x = 0;
-	//m_maxX = 600;
+	m_maxX = m_maxX-50;
 
 }
