@@ -6,7 +6,7 @@
 //const int LEVEL_NAME = 3;
 //const std::string LEVEL_FILE_PATH = "../Overdose/assets/levels/level";
 
-const int LEVEL_NAME = 100;
+const int LEVEL_NAME = 7;
 const std::string LEVEL_FILE_PATH = "../Overdose/assets/levels/level";
 
 //The dimensions of the level
