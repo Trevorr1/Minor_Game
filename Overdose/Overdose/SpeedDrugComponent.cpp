@@ -8,7 +8,7 @@ using namespace overdose;
 SpeedDrugComponent::SpeedDrugComponent()
 {
 	//previous_speedX = getPrevious_SpeedX();
-	drug_speedX = 4.0f;
+	drug_speedX = 2.5f;
 	drug_effect_ms = 1000 * 3;
 	//timer_start = NULL;
 }
