@@ -11,6 +11,7 @@
 #include "Level6.h"
 #include "Level7.h"
 #include "Level8.h"
+#include "Level9.h"
 #include "LevelBoss.h"
 #include "Credits.h"
 #include "LoadGame.h"
