@@ -6,12 +6,14 @@
 //const int LEVEL_NAME = 3;
 //const std::string LEVEL_FILE_PATH = "../Overdose/assets/levels/level";
 
-const int LEVEL_NAME = 9;
+const int LEVEL_NAME = 1;
 const std::string LEVEL_FILE_PATH = "../Overdose/assets/levels/level";
 
 //The dimensions of the level
 //const int LEVEL_WIDTH = 1880;
-const int LEVEL_WIDTH = 2560;
+
+const int LEVEL_WIDTH = 2560;// <-- normale level
+//const int LEVEL_WIDTH = 3840; // level 6
 const int LEVEL_HEIGHT = 480;
 
 //tile constants
