@@ -47,7 +47,7 @@ void Level7::Init()
 
 	GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
 	entityCop->setStartingPosition(450, 363);
-	entityCop->addComponent(new EnemyMoveComponent(408, 710));
+	entityCop->addComponent(new EnemyMoveComponent(450, 710));
 	this->addEntities(entityCop);
 
 	GameEntity* entityCop2 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
@@ -56,8 +56,8 @@ void Level7::Init()
 	this->addEntities(entityCop2);
 
 	GameEntity* entityCop3 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
-	entityCop3->setStartingPosition(2950, 395);
-	entityCop3->addComponent(new EnemyMoveComponent(2860, 3000));
+	entityCop3->setStartingPosition(3000, 395);
+	entityCop3->addComponent(new EnemyMoveComponent(2960, 3000));
 	this->addEntities(entityCop3);
 
 
