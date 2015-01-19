@@ -175,6 +175,9 @@ void LevelManager::nextLevel(GameEntity* player)
 		createLevel(level7);
 		break;
 	case level7:
+		createLevel(level8);
+		break;
+	case level8:
 		createLevel(LevelBossFight);
 		break;
 	case LevelBossFight:
