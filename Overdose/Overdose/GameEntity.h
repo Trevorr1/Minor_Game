@@ -16,6 +16,8 @@ namespace overdose {
 	{
 	private:
 		std::vector<Component*> *componentListToAdd = new std::vector<Component*>;
+
+		bool IsComponentScheduledForRemoval(int id);
 	protected:
 		float posX = 0.0f, posY = 0.0f, speedX = 0.0f, speedY = 0.0f;
 		float startPosX = 0.0f, startPosY = 0.0f;

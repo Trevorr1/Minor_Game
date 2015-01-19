@@ -111,9 +111,9 @@ bool SoundManager::loadMedia()
 
 	//Load sound effects
 	gClick = Mix_LoadWAV("assets/sfx/click.wav");
-	if (gDeath == NULL)
+	if (gClick == NULL)
 	{
-		printf("Failed to load death sound effect! SDL_mixer Error: %s\n", Mix_GetError());
+		printf("Failed to load click sound effect! SDL_mixer Error: %s\n", Mix_GetError());
 		success = false;
 	}
 

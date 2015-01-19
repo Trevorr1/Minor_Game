@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "Level7.h"
+#include "Level6.h"
 #include "PlayerInputComponent.h"
 #include "DrawComponent.h"
 #include "MoveComponent.h"
@@ -11,7 +11,7 @@
 
 using namespace overdose;
 
-Level7::Level7()
+Level6::Level6()
 {
 	m_WorldSizeX = 3840;
 	m_WorldSizeY = 480;
@@ -19,17 +19,17 @@ Level7::Level7()
 	createLevel(m_WorldSizeX, m_WorldSizeY); //create the level here widthx height
 }
 
-Level7::Level7(GameEntity* player)
+Level6::Level6(GameEntity* player)
 {
 	m_Player = player;
 }
 
-Level7::~Level7()
+Level6::~Level6()
 {
 	delete m_Background;
 }
 
-void Level7::Init()
+void Level6::Init()
 {
 	m_Background = new Surface("assets/backgrounds/background.png");
 
@@ -43,21 +43,21 @@ void Level7::Init()
 	m_Player->setStartingPosition(100, 207); //set to world coordinates
 	m_Camera->setEntityFocus(m_Player);
 
-	loadXML(7);
+	loadXML(6);
 
 	GameEntity* entityCop = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
-	entityCop->setStartingPosition(450, 363);
-	entityCop->addComponent(new EnemyMoveComponent(450, 710));
+	entityCop->setStartingPosition(270, 365);
+	entityCop->addComponent(new EnemyMoveComponent(258, 350));
 	this->addEntities(entityCop);
 
 	GameEntity* entityCop2 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
-	entityCop2->setStartingPosition(2450, 139);
-	entityCop2->addComponent(new EnemyMoveComponent(2400, 2500));
+	entityCop2->setStartingPosition(2420, 107);
+	entityCop2->addComponent(new EnemyMoveComponent(2402, 2510));
 	this->addEntities(entityCop2);
 
 	GameEntity* entityCop3 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
-	entityCop3->setStartingPosition(3000, 395);
-	entityCop3->addComponent(new EnemyMoveComponent(2960, 3000));
+	entityCop3->setStartingPosition(1085, 365);
+	entityCop3->addComponent(new EnemyMoveComponent(995, 1140));
 	this->addEntities(entityCop3);
 
 

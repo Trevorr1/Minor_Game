@@ -5,6 +5,7 @@
 #include "game.h"
 #include "SDLTemplate.h"
 //#include <vld.h>
+#include <Windows.h>
 using namespace overdose;
 
 void teardown() {
@@ -13,6 +14,9 @@ void teardown() {
 
 int main(int argc, const char* argv[])
 {
+	#ifndef _DEBUG 
+	ShowWindow(GetConsoleWindow(), SW_HIDE);
+	#endif
 
 	atexit(teardown);
 

@@ -49,12 +49,16 @@ void GameEntity::removeComponent(std::string componentID)
 {
 	for (unsigned int i = 0; i < componentList->size(); i++)
 	{
-		if (componentList->at(i)->getComponentID() == componentID)
+		if (componentList->at(i)->getComponentID() == componentID && !IsComponentScheduledForRemoval(i))
 		{
 			componentListToRemove->push_back(i);
 		}
 		
 	}
+}
+
+bool GameEntity::IsComponentScheduledForRemoval(int id) {
+	return std::find(componentListToRemove->begin(), componentListToRemove->end(), id) != componentListToRemove->end();
 }
 
 void GameEntity::addComponentTemporary(Component* component){
@@ -139,6 +143,12 @@ void GameEntity::setHealthPointer(int* health) {
 void GameEntity::setHealth(int health) {
 	if (m_health != nullptr && getHealth() <= 6) {
 		*m_health = health;
+	}
+
+	
+	// Hacky fix for bug - make sure your health never exceeds 6
+	if (getHealth() >= 6) {
+		*m_health = 6;
 	}
 }
 
