@@ -48,8 +48,8 @@ void Level8::Init()
 	cop1->addComponent(new EnemyMoveComponent(754, 968));
 
 	GameEntity *cop2 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
-	cop2->setStartingPosition(1150, 363);
-	cop2->addComponent(new EnemyMoveComponent(1144, 1327));
+	cop2->setStartingPosition(1250, 363);
+	cop2->addComponent(new EnemyMoveComponent(1200, 1327));
 
 	GameEntity *cop3 = GameEntityFactory::getInstance().getGameEntity(eGameEntity::Policeman);
 	cop3->setStartingPosition(1400, 363);
