@@ -56,8 +56,9 @@ vector<string> SaveGameManager::getGameList() {
 
 	vector<string>::reverse_iterator it = list.rbegin();
 
+	
 
-	while (it != list.rend()) {
+	while (it != list.rend() && returnList.size() < 6) {
 		
 		if (*it != "." && *it != "..") { // dir up & dir down
 			returnList.push_back(*it);
@@ -65,7 +66,6 @@ vector<string> SaveGameManager::getGameList() {
 		
 
 		it++;
-
 	}
 	
 	return returnList;
