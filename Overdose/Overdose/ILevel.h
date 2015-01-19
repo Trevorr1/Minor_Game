@@ -76,7 +76,7 @@ namespace overdose {
 
 		std::map<drugSpawn*, std::clock_t> m_Respawnables;
 		void addRespawnable(eGameEntity type, int x, int y);
-		void startRespawnable(eGameEntity type);
+		void startRespawnable(eGameEntity type, int x, int y);
 		void doRespawnables();
 		std::clock_t m_StartTime = clock();
 		// respawning of drugs///

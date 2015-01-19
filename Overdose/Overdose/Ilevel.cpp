@@ -120,7 +120,7 @@ void ILevel::DrawBackground()
 	}
 }
 
-void ILevel::startRespawnable(eGameEntity type)
+void ILevel::startRespawnable(eGameEntity type, int x, int y)
 {
 	typedef std::map<drugSpawn*, std::clock_t>::iterator it_type;
 	for (it_type iterator = m_Respawnables.begin(); iterator != m_Respawnables.end(); iterator++)
@@ -128,7 +128,7 @@ void ILevel::startRespawnable(eGameEntity type)
 		// iterator->first = key
 		// iterator->second = value
 		// Repeat if you also want to iterate through the second map.
-		if (iterator->first->type == type && iterator->second == NULL)
+		if (iterator->first->type == type && iterator->first->x == x && iterator->second == NULL)
 		{
 			iterator->second = clock();
 		}
@@ -151,7 +151,7 @@ void ILevel::Tick(float dt)
 	{
 		if (ent->isScheduledForRemoval() && ent->getEnum() != eGameEntity::Player)
 		{
-			startRespawnable(ent->getEnum());
+			startRespawnable(ent->getEnum(), ent->getPosX(), ent->getPosY());
 		}
 	}
 	
